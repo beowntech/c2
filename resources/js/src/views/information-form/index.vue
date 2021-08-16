@@ -45,8 +45,8 @@
                             {{ tr.program_type }}
                         </vs-td>
 
-                        <vs-td :data="tr.url">
-                            <a :href="''+tr.url+''" target="_blank">{{tr.url}}</a>
+                        <vs-td :data="tr.from_page">
+                            <a :href="''+tr.from_page+''" target="_blank">{{tr.from_page}}</a>
                         </vs-td>
                     </vs-tr>
                 </template>
