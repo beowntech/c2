@@ -54,6 +54,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('catf',$stream);
         });
 
+        view()->composer('front.modal.index', function($view) {
+            $courses = FrontCategories::where('parent_id',0)->with('children')->get();
+            $view->with('courses',$courses);
+        });
+
         view()->composer('front.layout.footer', function($view) {
             $prp = Properties::all();
             $bank = Banks::all();
