@@ -389,6 +389,7 @@
                                         }
                                     })
                                     .catch((err) => {
+                                        reject("correct all values");
                                         this.$vs.loading.close()
                                         console.log(err)
                                     })

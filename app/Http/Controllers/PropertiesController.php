@@ -40,6 +40,7 @@ class PropertiesController extends Controller
 {
     public function step1(Request $request)
     {
+//        return $request->all();
         $check = Properties::where('name', $request->input('name'))->where('deleted_at', null)->count();
         if ($check == 0) {
             $prop = new Properties();
@@ -73,7 +74,10 @@ class PropertiesController extends Controller
                 $seo->save();
                 $prop->seo()->attach($seo->id);
                 $featuredname = 'logo_' . time() . '.' . $request->logo->getClientOriginalExtension();
-                $request->logo->move(public_path('property/' . $prop->id . '/logo'), $featuredname);
+                if (!file_exists(env('MEDIA_URL').'property/' . $prop->id . '/logo')) {
+                    mkdir(env('MEDIA_URL').'property/' . $prop->id . '/logo', 666, true);
+                }
+                $request->logo->move(env('MEDIA_URL').'property/' . $prop->id . '/logo', $featuredname);
                 Properties::where('id', $prop->id)->update(array('logo' => $featuredname));
                 return response()->json(['success' => 1, 'prop' => $prop->id]);
             }
@@ -87,7 +91,7 @@ class PropertiesController extends Controller
             ->update(array('description' => $request->description));
         if ($prop) {
             $featuredname = 'featured_' . time() . '.' . $request->featured->getClientOriginalExtension();
-            $request->featured->move(public_path('property/' . $request->prop_id . '/gallery/featured'), $featuredname);
+            $request->featured->move(env('MEDIA_URL').'property/' . $request->prop_id . '/gallery/featured', $featuredname);
 
             $img = ImagesModel::updateOrCreate(
                 ['property_id' => $request->prop_id],
@@ -132,7 +136,7 @@ class PropertiesController extends Controller
     {
         $image = [];
         $featuredname = 'featured_' . time() . '.' . $request->featured->getClientOriginalExtension();
-        $request->featured->move(public_path('property/images'), $featuredname);
+        $request->featured->move(env('MEDIA_URL').'property/images', $featuredname);
 
         $img = ImagesModel::updateOrCreate(
             ['property_id' => $request->prop_id],
@@ -147,7 +151,7 @@ class PropertiesController extends Controller
         $file = $request->file('files');
         foreach ($file as $k) {
             $filen = time() . '.' . $k->getClientOriginalExtension();
-            $k->move(public_path('property/images'), $filen);
+            $k->move(env('MEDIA_URL').'property/images', $filen);
             $image[] = $filen;
         }
         $img = ImagesModel::updateOrCreate(
@@ -204,7 +208,7 @@ class PropertiesController extends Controller
 
         if ($request->hasFile('logo')) {
             $featuredname = 'logo_' . time() . '.' . $request->logo->getClientOriginalExtension();
-            $request->logo->move(public_path('property/' . $request->prop_id . '/logo'), $featuredname);
+            $request->logo->move(env('MEDIA_URL').'property/' . $request->prop_id . '/logo', $featuredname);
             $prop = Properties::where('id', $request->prop_id)
                 ->update(array('name' => $request->name,
                     'hotel_contact' => $request->hotel,
@@ -220,7 +224,7 @@ class PropertiesController extends Controller
             if ($prop) {
                 if ($request->hasFile('featured')) {
                     $featuredname = 'featured_' . time() . '.' . $request->featured->getClientOriginalExtension();
-                    $request->featured->move(public_path('property/' . $request->prop_id . '/gallery/featured'), $featuredname);
+                    $request->featured->move(env('MEDIA_URL').'property/' . $request->prop_id . '/gallery/featured', $featuredname);
                     ImagesModel::where('property_id', $request->prop_id)->update(array('featured' => $featuredname));
                     return response()->json(['status' => 1]);
                 }
@@ -242,7 +246,7 @@ class PropertiesController extends Controller
         if ($prop) {
             if ($request->hasFile('featured')) {
                 $featuredname = 'featured_' . time() . '.' . $request->featured->getClientOriginalExtension();
-                $request->featured->move(public_path('property/' . $request->prop_id . '/gallery/featured'), $featuredname);
+                $request->featured->move(env('MEDIA_URL').'property/' . $request->prop_id . '/gallery/featured', $featuredname);
                 $image = ImagesModel::where('property_id', $request->prop_id)->update(array('featured' => $featuredname));
                 return response()->json(['status' => 1]);
             }
@@ -445,7 +449,7 @@ class PropertiesController extends Controller
         foreach ($file as $g => $k) {
             $filen = 'image_' . $g . "_" . time() . '.' . $k->getClientOriginalExtension();
             $image[] = $filen;
-            $k->move(public_path('property/' . $request->id . '/gallery/images'), $filen);
+            $k->move(env('MEDIA_URL').'property/' . $request->id . '/gallery/images', $filen);
         }
         $data = ImagesModel::where('property_id', $request->id)->get();
 
@@ -466,8 +470,8 @@ class PropertiesController extends Controller
             //check the property of every element
             if ($request->image == $element) {
                 $image_path = "/property/" . $data[0]->property_id . "/gallery/images/" . $element;  // Value is not URL but directory file path
-                if (File::exists(public_path($image_path))) {
-                    File::delete(public_path($image_path));
+                if (File::exists(env('MEDIA_URL').$image_path)) {
+                    File::delete(env('MEDIA_URL').$image_path);
                     unset($dat[$i]);
                 }
             }
@@ -497,8 +501,8 @@ class PropertiesController extends Controller
             //check the property of every element
             if ($request->image == $element) {
                 $image_path = "/property/" . $data[0]->property_id . "/placement/images/" . $element;  // Value is not URL but directory file path
-                if (File::exists(public_path($image_path))) {
-                    File::delete(public_path($image_path));
+                if (File::exists(env('MEDIA_URL').$image_path)) {
+                    File::delete(env('MEDIA_URL').$image_path);
                     unset($dat[$i]);
                 }
             }
@@ -526,7 +530,7 @@ class PropertiesController extends Controller
         foreach ($file as $g => $k) {
             $filen = 'placement_' . $g . "_" . time() . '.' . $k->getClientOriginalExtension();
             $image[] = $filen;
-            $k->move(public_path('property/' . $request->id . '/placement/images'), $filen);
+            $k->move(env('MEDIA_URL').'property/' . $request->id . '/placement/images', $filen);
         }
         $data = ImagesModel::where('property_id', $request->id)->get();
         if ($data[0]->placements == null) {
@@ -612,7 +616,7 @@ class PropertiesController extends Controller
         $data->eligibility = $request->eligibility;
         if ($request->hasFile('file')) {
             $fileName = "brochure_" . time() . $request->prop_id . '.' . $request->file->getClientOriginalExtension();
-            $request->file->move(public_path('property/' . $request->prop_id . '/brochure'), $fileName);
+            $request->file->move(env('MEDIA_URL').'property/' . $request->prop_id . '/brochure', $fileName);
             $data->brochure = $fileName;
         }
         $data->brochure = null;
