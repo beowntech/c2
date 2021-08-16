@@ -35,6 +35,7 @@ use Illuminate\Support\Str;
 use App\Enquiries;
 use App\Exam;
 use App\Cyber;
+use Intervention\Image\Facades\Image;
 
 class PropertiesController extends Controller
 {
@@ -73,12 +74,18 @@ class PropertiesController extends Controller
                 $seo->estimated_reading_time_minutes = Str::readDuration($request->input('sdescription'));
                 $seo->save();
                 $prop->seo()->attach($seo->id);
-                $featuredname = 'logo_' . time() . '.' . $request->logo->getClientOriginalExtension();
+//                $featuredname = 'logo_' . time() . '.' . $request->logo->getClientOriginalExtension();
 //                if (!file_exists(env('UPLOAD_PATH').'property/' . $prop->id . '/logo')) {
 //                    mkdir(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', 666, true);
 //                }
-                $request->logo->move(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', $featuredname);
-                Properties::where('id', $prop->id)->update(array('logo' => $featuredname));
+                $requestUpload = new Request([
+                    'logo'=> $request->logo,
+                    'id'=> $prop->id,
+                    'savePath'=>env('UPLOAD_PATH').'property/' . $prop->id . '/logo'
+                ]);
+                $this->uploadLogo($requestUpload);
+//                $request->logo->move(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', $featuredname);
+//                Properties::where('id', $prop->id)->update(array('logo' => $featuredname));
                 return response()->json(['success' => 1, 'prop' => $prop->id]);
             }
             return response()->json(['success'=>'Error']);
@@ -798,5 +805,46 @@ class PropertiesController extends Controller
     {
         $data = Course::where('id', $request->id)->with('streams')->with('catg')->get();
         return $data;
+    }
+
+    public function uploadLogo(Request $request){
+        $sizeArray = [0.2, 0.5, 0.7, 1];
+        $i = [];
+        $time = time();
+            $fileMain = 'logo-' . $request->id . '-' .$time;
+            foreach ($sizeArray as $val) {
+                $i[] = $val;
+                $valName = "";
+                if($val == 0.2){
+                    $valName = "sm";
+                }elseif($val == 0.5){
+                    $valName = "md";
+                }elseif($val == 0.7){
+                    $valName = "lg";
+                }elseif($val == 1){
+                    $valName = "xl";
+                }
+                $filename = 'logo-' . $request->id . '-' . $time . '-' . $valName;
+                $extension = 'png';
+                $size = getimagesize($request->logo);
+                $newWidth = $val * $size[0];
+                $newHeight = $val * $size[1];
+                $savePath = $request->savePath;
+                if (!file_exists($savePath)) {
+                    mkdir($savePath, 666, true);
+                }
+                if ($val == 1) {
+                    Image::make(file_get_contents($request->logo))->save($savePath . '/' . $filename . '.' . $extension);
+                    Image::make(file_get_contents($request->logo))->encode('webp', 100)->save($savePath . '/' . $filename . '.webp');
+                } else {
+                    Image::make(file_get_contents($request->logo))
+                        ->encode('webp', 20)
+                        ->resize($newWidth, $newHeight)
+                        ->save($savePath . '/' . $filename . '.webp');
+                }
+            }
+                Properties::where('id', $request->id)
+                    ->update(array('logo' => $fileMain));
+//            return response()->json(['status' => 1,'image'=>$fileMain]);
     }
 }
