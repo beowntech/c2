@@ -64,6 +64,13 @@ export default [
                 i18n: "Cyber Leads",
             },
             {
+                url: "/information/all",
+                name: "Information Form",
+                icon: "FileTextIcon",
+                slug: "info-form",
+                i18n: "Cyber Leads",
+            },
+            {
                 url: "/import-excel",
                 name: "Excel",
                 icon: "FileTextIcon",

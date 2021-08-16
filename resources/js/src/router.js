@@ -298,6 +298,15 @@ const router = new Router({
                     component: () => import('./views/caller-enquiry/index.vue')
                 },
                 {
+                    path: '/information/all',
+                    name: 'Information Enquiry',
+                    meta: {
+                        rule: 'caller',
+                        requiresAuth: true
+                    },
+                    component: () => import('./views/information-form/index.vue')
+                },
+                {
                     path: '/dynamic-enquiry',
                     name: 'Dynamic Enquiry',
                     meta: {
