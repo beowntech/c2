@@ -273,4 +273,23 @@ class EnquiryController extends Controller
         return $arr;
     }
 
+    public function informationForm(Request $request){
+        if($request->name != null) {
+            $data = new InfomartionForm();
+            $data->name = $request->name;
+            $data->email = $request->email;
+            $data->location = $request->location;
+            $data->contact = $request->contact;
+            $data->course = $request->course;
+            $data->program_type = $request->program;
+            $data->from_page = str_replace(env('APP_URL'),'',url()->previous());
+            $data->save();
+            if ($data) {
+                return back()->with('success', 'Form Submitted');
+            }
+            return back()->with('error', 'Problem While Submitting');
+        }
+        return response()->json(['status'=>'No Details Provided']);
+    }
+
 }
