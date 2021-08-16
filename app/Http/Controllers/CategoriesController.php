@@ -227,12 +227,15 @@ class CategoriesController extends Controller
                 if($s->tales->isEmpty()) {
                 return abort(404);
                 }
+                $colleges = [];
                 $data = Tales::where('id', $s->tales[0]->id)->get();
                 foreach ($data as $d => $val) {
                     $data[$d]['catg'] = FrontCategories::whereIn('id', json_decode($val->type))->get();
-                    $related = Tales::where('type', $val->type)->with('seo')->limit(4)->get();
-                    $colleges = Properties::where('property_type', $val->type)->where('status', 1)->with('seo')->with('images')->with('location')->with('category')->limit(8)->get();
+                    $ptype = explode(',',str_replace('[','',str_replace(']','',$val->type)))[0];
+                    $related = Tales::where('type','LIKE','%'.$ptype.'%')->with('seo')->limit(4)->get();
+                    $colleges = Properties::where('property_type','LIKE','%'.$ptype.'%')->where('status', 1)->with('seo')->with('images')->with('location')->with('category')->limit(8)->get();
                 }
+//                return $colleges;
                 Tales::where('id', $s->tales[0]->id)->increment('views');
                 $courses = FrontCategories::where('parent_id',0)->with('children')->get();
 
