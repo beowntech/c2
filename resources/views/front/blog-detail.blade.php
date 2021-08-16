@@ -105,7 +105,10 @@
                                 {!! \Session::get('error') !!}
                             </div>
                         @endif
+                        @if (\Session::has('success') || \Session::has('error'))
+                        @else
                         <button type="submit" class="btn site-btn-1 float-right">Save My Seat</button>
+                        @endif
                     </form>
                 </div>
                 <div class="mb-3 bg-white text-center py-3">
