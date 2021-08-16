@@ -472,7 +472,7 @@
                            placeholder="Enter Email" required>
                 </div>
                 <div class="form-group">
-                    <input type="number" class="form-control" name="contact" id="exampleInputPassword1"
+                    <input type="text" class="form-control" name="contact" id="exampleInputPassword1"
                            placeholder="Enter Contact No." required>
                 </div>
                 @if (\Session::has('success'))
@@ -484,7 +484,10 @@
                         {!! \Session::get('error') !!}
                     </div>
                 @endif
+                @if (\Session::has('success') || \Session::has('error'))
+                @else
                 <button type="submit" class="btn site-btn-1 float-right">Save My Seat</button>
+                @endif
             </form>
         </div>
     </div>
@@ -495,4 +498,25 @@
         margin-bottom: 20px;
     }
 </style>
+@section('script')
+@if (\Session::has('success'))
+   <script type="text/javascript">
+       $(document).ready(function() {
+           var myModal = new bootstrap.Modal(document.getElementById('informationModel'), {
+               keyboard: false
+           });
+           myModal.show();
+       });
+    </script>
+@elseif(\Session::has('error'))
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var myModal = new bootstrap.Modal(document.getElementById('informationModel'), {
+                keyboard: false
+            });
+            myModal.show();
+        });
+</script>
+@endif
+@endsection
 <!-- End Information Form Modal -->

@@ -17,6 +17,7 @@ use App\Excel;
 use App\DynamicEnquiry;
 use App\DynamicPage;
 use Illuminate\Support\Facades\DB;
+use App\InformationForm;
 
 class EnquiryController extends Controller
 {
@@ -275,7 +276,7 @@ class EnquiryController extends Controller
 
     public function informationForm(Request $request){
         if($request->name != null) {
-            $data = new InfomartionForm();
+            $data = new InformationForm();
             $data->name = $request->name;
             $data->email = $request->email;
             $data->location = $request->location;
@@ -285,7 +286,7 @@ class EnquiryController extends Controller
             $data->from_page = str_replace(env('APP_URL'),'',url()->previous());
             $data->save();
             if ($data) {
-                return back()->with('success', 'Form Submitted');
+                return back()->with('success', 'Form has been Submitted. Thank you for your Enquiry!');
             }
             return back()->with('error', 'Problem While Submitting');
         }
