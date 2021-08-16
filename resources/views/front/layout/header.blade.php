@@ -3755,6 +3755,9 @@ src="https://www.facebook.com/tr?id=538838667302077&ev=PageView&noscript=1"
                         <a href="/logout" class="scolor"> <i class="fas fa-user" aria-hidden="true"></i> Logout </a>
                     </li>
                 @endif
+                <li>
+                    <button type="button" class="btn site-btn-1 ml-2" data-bs-toggle="modal" data-bs-target="#informationModel"> Request Free Info </button>
+                </li>
             </ul>
         </nav>
 

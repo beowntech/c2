@@ -428,3 +428,62 @@
     </div>
 </div>
 <!-- Login Modal END -->
+
+<!--- Information Form Modal --->
+<div class="modal fade custom-modal" id="informationModel" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="padding: 30px">
+            <form action="/information-submit" class="needs-validation" novalidate method="POST">
+                @csrf
+                <div class="form-group">
+                    <input type="text" class="form-control" name="name" id="exampleInputEmail1"
+                           aria-describedby="emailHelp" placeholder="Enter Name" required>
+                </div>
+                <div class="form-group">
+                    <select class="form-select" name="course" id="exampleFormControlSelect1" required>
+                        <option disabled selected>Select Prefered Course</option>
+                        @foreach($courses as $c => $val)
+                            @foreach($val->children as $s => $vals)
+                                <option value="{{$vals->id}}">{{$vals->name}}</option>
+                            @endforeach
+                        @endforeach
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-select" name="program" id="exampleFormControlSelect1" required>
+                        <option disabled selected>Select Program Type</option>
+                        <option value="ug">UG</option>
+                        <option value="pg">PG</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="phd">PHD</option>
+                        <option value="certificate">Certificate</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="location" id="exampleInputPassword1"
+                           placeholder="Enter Location" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" id="exampleInputPassword1"
+                           placeholder="Enter Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control" name="contact" id="exampleInputPassword1"
+                           placeholder="Enter Contact No." required>
+                </div>
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        {!! \Session::get('success') !!}
+                    </div>
+                @elseif(\Session::has('error'))
+                    <div class="alert alert-danger">
+                        {!! \Session::get('error') !!}
+                    </div>
+                @endif
+                <button type="submit" class="btn site-btn-1 float-right">Save My Seat</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Information Form Modal -->

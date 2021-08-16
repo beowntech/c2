@@ -65,7 +65,59 @@
                         <li class="list-inline-item"><a href="#"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
-
+                <div class="mb-3 bg-white py-3 px-3">
+                    <h2 class="site-title-sm mb-2">Fill Your<span
+                            class="clr-second"> Information</span></h2>
+                    <form action="/information-submit" class="needs-validation" novalidate method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" id="exampleInputEmail1"
+                                   aria-describedby="emailHelp" placeholder="Enter Name" required>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="course" id="exampleFormControlSelect1" required>
+                                <option disabled selected>Select Prefered Course</option>
+                                @foreach($courses as $c => $val)
+                                    @foreach($val->children as $s => $vals)
+                                        <option value="{{$vals->id}}">{{$vals->name}}</option>
+                                    @endforeach
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-select" name="program" id="exampleFormControlSelect1" required>
+                                <option disabled selected>Select Program Type</option>
+                                <option value="ug">UG</option>
+                                <option value="pg">PG</option>
+                                <option value="diploma">Diploma</option>
+                                <option value="phd">PHD</option>
+                                <option value="certificate">Certificate</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="location" id="exampleInputPassword1"
+                                   placeholder="Enter Location" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" id="exampleInputPassword1"
+                                   placeholder="Enter Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" name="contact" id="exampleInputPassword1"
+                                   placeholder="Enter Contact No." required>
+                        </div>
+                        @if (\Session::has('success'))
+                            <div class="alert alert-success">
+                                {!! \Session::get('success') !!}
+                            </div>
+                        @elseif(\Session::has('error'))
+                            <div class="alert alert-danger">
+                                {!! \Session::get('error') !!}
+                            </div>
+                        @endif
+                        <button type="submit" class="btn site-btn-1 float-right">Save My Seat</button>
+                    </form>
+                </div>
                 <div class="mb-3 bg-white text-center py-3">
                     <h2 class="site-title-sm mb-2">Interested in  <span class="clr-second"> {{$val->catg[0]->name}}</span> </h2>
 
@@ -150,4 +202,28 @@
             </div>
     </div>
 </section>
+@endsection
+@section('script')
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 @endsection
