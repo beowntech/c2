@@ -81,7 +81,7 @@ class PropertiesController extends Controller
                 $requestUpload = new Request([
                     'logo'=> $request->logo,
                     'id'=> $prop->id,
-                    'savePath'=>env('UPLOAD_PATH').'property/' . $prop->id . '/logo'
+                    'savePath'=>public_path('media/property/' . $prop->id . '/logo')
                 ]);
                 $this->uploadLogo($requestUpload);
 //                $request->logo->move(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', $featuredname);
@@ -831,7 +831,7 @@ class PropertiesController extends Controller
                 $newHeight = $val * $size[1];
                 $savePath = $request->savePath;
                 if (!file_exists($savePath)) {
-                    mkdir($savePath, 666, true);
+                    mkdir($savePath, 0755, true);
                 }
                 if ($val == 1) {
                     Image::make(file_get_contents($request->logo))->save($savePath . '/' . $filename . '.' . $extension);
