@@ -93,7 +93,7 @@
                                    placeholder="Enter Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" name="contact" id="exampleInputPassword1"
+                            <input type="text" class="form-control" name="contact" id="exampleInputPassword1"
                                    placeholder="Enter Contact No." required>
                         </div>
                         @if (\Session::has('success'))
