@@ -74,14 +74,16 @@ class PropertiesController extends Controller
                 $seo->save();
                 $prop->seo()->attach($seo->id);
                 $featuredname = 'logo_' . time() . '.' . $request->logo->getClientOriginalExtension();
-                if (!file_exists(env('UPLOAD_PATH').'property/' . $prop->id . '/logo')) {
-                    mkdir(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', 666, true);
-                }
+//                if (!file_exists(env('UPLOAD_PATH').'property/' . $prop->id . '/logo')) {
+//                    mkdir(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', 666, true);
+//                }
                 $request->logo->move(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', $featuredname);
                 Properties::where('id', $prop->id)->update(array('logo' => $featuredname));
                 return response()->json(['success' => 1, 'prop' => $prop->id]);
             }
+            return response()->json(['success'=>'Error']);
         }
+        return response()->json(['success'=>'Already Exist']);
     }
 
     public function step2(Request $request)
