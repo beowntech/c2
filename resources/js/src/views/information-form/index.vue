@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vx-card title="Click Enquiries Data">
+        <vx-card title="Information Form Data">
             <vs-table pagination max-items="10" search :data="enquiries">
 
                 <template slot="thead">

@@ -68,7 +68,7 @@ export default [
                 name: "Information Form",
                 icon: "FileTextIcon",
                 slug: "info-form",
-                i18n: "Cyber Leads",
+                i18n: "Information Form",
             },
             {
                 url: "/import-excel",
