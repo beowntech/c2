@@ -46,7 +46,7 @@
                         </vs-td>
 
                         <vs-td :data="tr.url">
-                            <a :href="''+tr.url.split('https://admissionjockey.com').join('/')" target="_blank">{{tr.url.split('https://admissionjockey.com').join('/')}}</a>
+                            <a :href="''+tr.url+''" target="_blank">{{tr.url}}</a>
                         </vs-td>
                     </vs-tr>
                 </template>
