@@ -81,7 +81,7 @@ class PropertiesController extends Controller
                 $requestUpload = new Request([
                     'logo'=> $request->logo,
                     'id'=> $prop->id,
-                    'savePath'=>public_path('media/property/' . $prop->id . '/logo')
+                    'savePath'=>public_path(env('UPLOAD_PATH').'/property/' . $prop->id . '/logo')
                 ]);
                 $this->uploadLogo($requestUpload);
 //                $request->logo->move(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', $featuredname);
