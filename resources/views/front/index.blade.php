@@ -38,7 +38,7 @@
 {{--                    </p>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-           <div class="carousel-item active" style="min-height:100%;  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0), rgba(255, 255, 255, 0.9)), url('/property/15/gallery/featured/featured_1626329156.JPG');  background-size:cover;background-position: top">
+           <div class="carousel-item active" style="min-height:100%;  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0), rgba(255, 255, 255, 0.9)), url('{{env('MEDIA_URL')}}property/15/gallery/featured/featured_1626329156.JPG');  background-size:cover;background-position: top">
                <div class="carousel-caption">
                    <p class="float-end"><a href="http://okadmission.com/college-in-bhopal/uttaranchal-university"> UTTARANCHAL P.G COLLEGE OF BIOMEDICAL SCIENCES AND HOSPITAL, Rajpur </a>
                    </p>
@@ -64,14 +64,14 @@
            </div>
 {{--            @foreach($prop as $p => $val)--}}
 {{--                @if($p == 0)--}}
-{{--            <div class="carousel-item active" style="min-height:100%;  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0), rgba(255, 255, 255, 0.9)), url('/property/images/{{json_decode($val->images[0]->images)[0]}}');  background-size:cover;">--}}
+{{--            <div class="carousel-item active" style="min-height:100%;  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0), rgba(255, 255, 255, 0.9)), url('{{env('MEDIA_URL')}}property/images/{{json_decode($val->images[0]->images)[0]}}');  background-size:cover;">--}}
 {{--                <div class="carousel-caption">--}}
 {{--                    <p class="float-end"><a href="#"> {{$val->name}}, {{$val->cities[0]->name}} </a>--}}
 {{--                    </p>--}}
 {{--                </div>--}}
 {{--            </div>--}}
 {{--                @else--}}
-{{--                    <div class="carousel-item" style="min-height:100%;  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0)), url('/property/images/{{json_decode($val->images[0]->images)[0]}}');  background-size:cover;">--}}
+{{--                    <div class="carousel-item" style="min-height:100%;  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0)), url('{{env('MEDIA_URL')}}property/images/{{json_decode($val->images[0]->images)[0]}}');  background-size:cover;">--}}
 {{--                        <div class="carousel-caption">--}}
 {{--                            <p class="float-end"><a href="#">  {{$val->name}}, {{$val->cities[0]->name}} </a>--}}
 {{--                            </p>--}}
@@ -414,13 +414,13 @@
             @foreach($prop as $k => $val)
             <div class="col-md-3 p-3">
                 <div class="college-info-1">
-                    <div class="cover-img position-relative lazy" style="background:url(/property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}});
+                    <div class="cover-img position-relative lazy" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}});
                              background-size:cover;">
                         @if($val->featured == 1)
                             <div class="ribbon"><span>featured</span></div>
                             @endif
                         <div class="college-info-logo"><a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities->isEmpty() ? "" : $val->cities[0]->name)))}}/{{$val->seo->isEmpty() ? "" : $val->seo[0]->permalink}}">
-                                <img data-original="/property/{{$val->id}}/logo/{{$val->logo}}" alt="{{$val->name}}"></a></div>
+                                <img data-original="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}" alt="{{$val->name}}"></a></div>
                         <div class="college-info-name position-absolute bottom-0 start-0 px-2 pb-1">
                             <p><a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities->isEmpty() ? "" : $val->cities[0]->name)))}}/{{$val->seo->isEmpty() ? "": $val->seo[0]->permalink}}">{{$val->name}}</a></p>
                             <span><i class="fas fa-map-marker-alt"></i> {{$val->cities->isEmpty() ? "" : $val->cities[0]->name}}</span>
