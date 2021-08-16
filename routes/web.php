@@ -70,9 +70,14 @@ Route::post('add_booking','AppController@addBooking');
 Route::get('un_book_room','AppController@unbookRoom');
 Route::get('get_college_details','PropertiesController@details');
 Route::get('get_bank_details','AlotFronController@getBank');
+
+Route::post('information-submit','EnquiryController@informationForm');
+
 Route::get('checkG',function (){
     return getcwd();
 });
+
+
 Route::get('checkN',function (){
     $booking = Booking::all();
     foreach ($booking as $book){

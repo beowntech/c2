@@ -434,6 +434,9 @@
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="padding: 30px">
+            <div class="informationHeading">
+                <h3>Fill the Information</h3>
+            </div>
             <form action="/information-submit" class="needs-validation" novalidate method="POST">
                 @csrf
                 <div class="form-group">
@@ -486,4 +489,10 @@
         </div>
     </div>
 </div>
+<style>
+    .informationHeading h3{
+        text-align-last: center;
+        margin-bottom: 20px;
+    }
+</style>
 <!-- End Information Form Modal -->
