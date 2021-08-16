@@ -220,7 +220,7 @@ Route::post('excel_upload','EnquiryController@importExcel');
 Route::post('excel/data','EnquiryController@getExcel');
 
 
-Route::post('information-form/all','EnquiryController@informationFormEnquiries');
+Route::get('information-form/all','EnquiryController@informationFormEnquiries');
 
 Route::get('/test',function (){
     $callers = User::whereHas('roles', function ($query) {
