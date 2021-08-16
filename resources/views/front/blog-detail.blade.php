@@ -77,8 +77,8 @@
                         <div class="form-group">
                             <select class="form-select" name="course" id="exampleFormControlSelect1" required>
                                 <option disabled selected>Select Prefered Course</option>
-                                @foreach($courses as $c => $val)
-                                    @foreach($val->children as $s => $vals)
+                                @foreach($courses as $c => $vsl)
+                                    @foreach($vsl->children as $s => $vals)
                                         <option value="{{$vals->id}}">{{$vals->name}}</option>
                                     @endforeach
                                 @endforeach
