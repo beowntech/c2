@@ -234,8 +234,10 @@ class CategoriesController extends Controller
                     $colleges = Properties::where('property_type', $val->type)->where('status', 1)->with('seo')->with('images')->with('location')->with('category')->limit(8)->get();
                 }
                 Tales::where('id', $s->tales[0]->id)->increment('views');
+                $courses = FrontCategories::where('parent_id',0)->with('children')->get();
+
                 event(new BlogViews());
-                return view('front.blog-detail', compact('data', 'related', 'colleges'));
+                return view('front.blog-detail', compact('data', 'related', 'colleges','courses'));
             }
             return abort(404);
         }
