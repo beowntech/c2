@@ -293,4 +293,9 @@ class EnquiryController extends Controller
         return response()->json(['status'=>'No Details Provided']);
     }
 
+    public function informationFormEnquiries(){
+        $data = InformationForm::all();
+        return $data;
+    }
+
 }
