@@ -141,6 +141,7 @@
     import {FormWizard, TabContent} from "vue-form-wizard";
     import vSelect from "vue-select";
 
+    import apiurl from '../apiUrls/index'
     export default {
         data: function () {
             return {
@@ -298,8 +299,8 @@
                         this.EmailEnter = res.data[0].email;
                         this.college_type = res.data[0].college_type;
                         this.Hotel = res.data[0].hotel_contact;
-                        this.featuredImage = "/property/" + res.data[0].id + '/gallery/featured/' + res.data[0].images[0].featured;
-                        this.image = "/property/" + res.data[0].id + '/logo/' + res.data[0].logo;
+                        this.featuredImage = apiurl.mediaUrl+"property/" + res.data[0].id + '/gallery/featured/' + res.data[0].images[0].featured;
+                        this.image = apiurl.mediaUrl+"property/" + res.data[0].id + '/logo/' + res.data[0].logo;
                         this.$vs.loading.close();
 
                     })
