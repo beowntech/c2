@@ -66,7 +66,7 @@
             <div class="col-md-4 data-type-3 mb-2">
                 <a href="#">
                     <div class="p-3 icon-bx bg-white">
-                        <img src="/banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
+                        <img src="{{env('MEDIA_URL')}}banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
     height: 86px !important;">
                         <p><strong>Percent:</strong> 10%</p>
                         <p><strong>Max Time:</strong> {{$val->repayment_period}}</p>
@@ -87,7 +87,7 @@
                 <div class="col-md-4 data-type-3 mb-2">
                     <a href="#">
                         <div class="p-3 icon-bx bg-white">
-                            <img src="/banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
+                            <img src="{{env('MEDIA_URL')}}banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
     height: 86px !important;">
                             <p><strong>Percent:</strong> 10%</p>
                             <p><strong>Max Time:</strong> {{$val->repayment_period}}</p>
@@ -109,7 +109,7 @@
                 <div class="col-md-4 data-type-3 mb-2">
                     <a href="#">
                         <div class="p-3 icon-bx bg-white">
-                            <img src="/banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
+                            <img src="{{env('MEDIA_URL')}}banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
     height: 86px !important;">
                             <p><strong>Percent:</strong> 10%</p>
                             <p><strong>Max Time:</strong> {{$val->repayment_period}}</p>
@@ -131,7 +131,7 @@
                 <div class="col-md-4 data-type-3 mb-2">
                     <a href="#">
                         <div class="p-3 icon-bx bg-white">
-                            <img src="/banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
+                            <img src="{{env('MEDIA_URL')}}banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
     height: 86px !important;">
                             <p><strong>Percent:</strong> 10%</p>
                             <p><strong>Max Time:</strong> {{$val->repayment_period}}</p>
@@ -153,7 +153,7 @@
                 <div class="col-md-4 data-type-3 mb-2">
                     <a href="#">
                         <div class="p-3 icon-bx bg-white">
-                            <img src="/banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
+                            <img src="{{env('MEDIA_URL')}}banks/{{$val->image}}" width="100%" alt="" style="width: 92%;
     height: 86px !important;">
                             <p><strong>Percent:</strong> 10%</p>
                             <p><strong>Max Time:</strong> {{$val->repayment_period}}</p>

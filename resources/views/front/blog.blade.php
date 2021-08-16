@@ -19,7 +19,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-4">
                         <div class="mb-lg-0 mb-4" style="{{$val->image == null ? "text-align-last: center;" :""}}">
-                            <img src="{{$val->image != null ? "/blog/$val->id/image/$val->image" : "/assets/images/admission-jockey-logo.png"}}" style="{{$val->image == null ? "width:70% !important" :""}}" class="w-100 mb-3" alt="" srcset="">
+                            <img src="{{$val->image != null ? env('MEDIA_URL')."/blog/$val->id/image/$val->image" : "/assets/images/admission-jockey-logo.png"}}" style="{{$val->image == null ? "width:70% !important" :""}}" class="w-100 mb-3" alt="" srcset="">
                         </div>
                     </div>
                     <div class="col-md-8">

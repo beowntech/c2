@@ -73,10 +73,10 @@
                                 <div class="row college-info-2">
                     <div class="col-md-4">
                         <div class="position-relative">
-                            <div class="cover-img box" style="background:url(/property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}});background-size:cover;">
+                            <div class="cover-img box" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}});background-size:cover;">
                                 <div class="ribbon"><span>featured</span></div>
                                 <div class="college-info-logo position-absolute bottom-0 start-5 p-2 ">
-                                    <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities[0]->name)))}}/{{$val->seo->permalink}}"> <img src="/property/{{$val->id}}/logo/{{$val->logo}}" alt=""></a>
+                                    <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities[0]->name)))}}/{{$val->seo->permalink}}"> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -112,9 +112,9 @@
                         <div class="row college-info-2">
                             <div class="col-md-4">
                                 <div class="position-relative">
-                                    <div class="cover-img box" style="background:url(/property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}});background-size:cover;">
+                                    <div class="cover-img box" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}});background-size:cover;">
                                         <div class="college-info-logo position-absolute bottom-0 start-5 p-2 ">
-                                            <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities[0]->name)))}}/{{$val->seo->permalink}}"> <img src="/property/{{$val->id}}/logo/{{$val->logo}}" alt=""></a>
+                                            <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities[0]->name)))}}/{{$val->seo->permalink}}"> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
@@ -237,9 +237,9 @@
                                 $("#searchData").append("<div class=\"row college-info-2\">\n" +
                                     "    <div class=\"col-md-4\">\n" +
                                     "        <div class=\"position-relative\">\n" +
-                                    "            <div class=\"cover-img box\" style=\"background:url(/property/" + response[i].id + "/gallery/images/" + JSON.parse(response[i].images[0].images)[0] + ");background-size:cover;\">\n" + featured +
+                                    "            <div class=\"cover-img box\" style=\"background:url({{env('MEDIA_URL')}}property/" + response[i].id + "/gallery/images/" + JSON.parse(response[i].images[0].images)[0] + ");background-size:cover;\">\n" + featured +
                                     "                <div class=\"college-info-logo position-absolute bottom-0 start-5 p-2 \">\n" +
-                                    "                    <a href=\"/college-in-" + response[i].location[0].cities[0].name.replace(' ', '_').toLowerCase() + "/" + response[i].seo[0].permalink + "\"> <img src=\"/property/" + response[i].id + "/logo/" + response[i].logo + "\" alt=\"\"></a>\n" +
+                                    "                    <a href=\"/college-in-" + response[i].location[0].cities[0].name.replace(' ', '_').toLowerCase() + "/" + response[i].seo[0].permalink + "\"> <img src=\"{{env('MEDIA_URL')}}property/" + response[i].id + "/logo/" + response[i].logo + "\" alt=\"\"></a>\n" +
                                     "                </div>\n" +
                                     "            </div>\n" +
                                     "        </div>\n" +

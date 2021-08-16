@@ -240,7 +240,7 @@
                 <div class="col-md-25 col-4 data-type-2 text-center">
                     <a href="/search?catg={{$cac->name}}">
                         <div class="p-1 icon-bx">
-                            <img data-original="/front/images/future/{{$cac->image}}" class="site-icon p-2" alt="{{$cac->name}} Colleges">
+                            <img data-original="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" class="site-icon p-2" alt="{{$cac->name}} Colleges">
                             <p> {{$cac->name}} </p>
                             <span class="small">{{$cac->property}} Colleges</span>
                         </div>
@@ -255,7 +255,7 @@
             <div class="col-md-25 col-6 data-type-2 text-center ">
                 <a href="/exam/{{$cac->name}}">
                     <div class="p-1 icon-bx">
-                        <img data-original="/front/images/future/{{$cac->image}}" class="site-icon p-2" alt="{{$cac->name}} Exams">
+                        <img data-original="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" class="site-icon p-2" alt="{{$cac->name}} Exams">
                         <p> {{$cac->name}} </p>
                         <span class="small">{{$cac->exams}} Exam</span>
                     </div>

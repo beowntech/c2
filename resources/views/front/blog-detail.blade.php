@@ -66,7 +66,7 @@
                         </div>
                         <div class="form-group">
                             <select class="form-select" name="course" id="exampleFormControlSelect1" required>
-                                <option disabled selected>Select Prefered Course</option>
+                                <option disabled selected value="">Select Prefered Course</option>
                                 @foreach($courses as $c => $vsl)
                                     @foreach($vsl->children as $s => $vals)
                                         <option value="{{$vals->id}}">{{$vals->name}}</option>
@@ -76,7 +76,7 @@
                         </div>
                         <div class="form-group">
                             <select class="form-select" name="program" id="exampleFormControlSelect1" required>
-                                <option disabled selected>Select Program Type</option>
+                                <option disabled selected value="">Select Program Type</option>
                                 <option value="ug">UG</option>
                                 <option value="pg">PG</option>
                                 <option value="diploma">Diploma</option>
