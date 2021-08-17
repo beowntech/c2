@@ -286,9 +286,9 @@ class EnquiryController extends Controller
             $data->from_page = str_replace(env('APP_URL'),'',url()->previous());
             $data->save();
             if ($data) {
-                return back()->with('success', 'Form has been Submitted. Thank you for your Enquiry!');
+                return back()->with('informationSuccess', 'Form has been Submitted. Thank you for your Enquiry!');
             }
-            return back()->with('error', 'Problem While Submitting');
+            return back()->with('informationError', 'Problem While Submitting');
         }
         return response()->json(['status'=>'No Details Provided']);
     }

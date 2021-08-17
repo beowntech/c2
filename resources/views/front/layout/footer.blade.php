@@ -269,12 +269,15 @@
     })();
 </script>
  <script>
-    $(window).on('load',function(){
-  if(getCookie('landingForm') == null) {
-            $('#enqModalCenter').modal('show');
-        }
-        $('#enqModalCenter').modal('show');
-    });
+     @if(\Session::has('informationSuccess') || \Session::has('informationError'))
+     @else
+     $(window).on('load', function () {
+         if (getCookie('landingForm') == null) {
+             $('#enqModalCenter').modal('show');
+         }
+         $('#enqModalCenter').modal('show');
+     });
+     @endif
 
     $(document).ready(function(){
 
