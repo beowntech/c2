@@ -56,6 +56,8 @@
 {{--                    <a href="#" class="btn site-btn-1 btn-lg text-white font-weight-bold">Talk To Counselor <i class="fas fa-headset blink-element clr-first"></i></a>--}}
 {{--                </div>--}}
                 <div class="mb-3 bg-white py-3 px-3">
+                    @if (\Session::has('informationSuccess') || \Session::has('informationError'))
+                    @else
                     <h2 class="site-title-sm mb-2">Fill Your<span
                             class="clr-second"> Information</span></h2>
                     <form action="/information-submit" class="needs-validation" novalidate method="POST">
@@ -96,20 +98,18 @@
                             <input type="text" class="form-control" name="contact" id="exampleInputPassword1"
                                    placeholder="Enter Contact No." required>
                         </div>
-                        @if (\Session::has('success'))
-                            <div class="alert alert-success">
-                                {!! \Session::get('success') !!}
-                            </div>
-                        @elseif(\Session::has('error'))
-                            <div class="alert alert-danger">
-                                {!! \Session::get('error') !!}
-                            </div>
-                        @endif
-                        @if (\Session::has('success') || \Session::has('error'))
-                        @else
                         <button type="submit" class="btn site-btn-1 float-right">Save My Seat</button>
-                        @endif
                     </form>
+                    @endif
+                        @if (\Session::has('informationSuccess'))
+                            <div class="alert alert-success">
+                                {!! \Session::get('informationSuccess') !!}
+                            </div>
+                        @elseif(\Session::has('informationError'))
+                            <div class="alert alert-danger">
+                                {!! \Session::get('informationError') !!}
+                            </div>
+                        @endif
                 </div>
                 <div class="mb-3 bg-white text-center py-3">
                     <h2 class="site-title-sm mb-2">Follow & Share on<span class="clr-second"> Social Media.</span> </h2>
@@ -121,11 +121,11 @@
                         <li class="list-inline-item"><a href="#"><i class="fab fa-whatsapp"></i></a></li>
                     </ul>
                 </div>
-                <div class="mb-3 bg-white text-center py-3">
-                    <h2 class="site-title-sm mb-2">Interested in  <span class="clr-second"> {{$val->catg[0]->name}}</span> </h2>
+{{--                <div class="mb-3 bg-white text-center py-3">--}}
+{{--                    <h2 class="site-title-sm mb-2">Interested in  <span class="clr-second"> {{$val->catg[0]->name}}</span> </h2>--}}
 
-                    <a href="#review" class="btn site-transparent-btn-1 btn-sm text-white">Ask Question</a>
-                </div>
+{{--                    <a href="#review" class="btn site-transparent-btn-1 btn-sm text-white">Ask Question</a>--}}
+{{--                </div>--}}
 
                 <div class="mb-3 bg-white">
 
