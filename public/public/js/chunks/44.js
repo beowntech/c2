@@ -573,7 +573,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../../node_module
 
 
 // module
-exports.push([module.i, "[dir] .demo-alignment li[data-v-bc21baa6]:hover {\n  transform: translate(0, 8px);\n  box-shadow: 0px 0px 40px -10px rgba(255, 255, 255, 0) !important;\n}\n", ""]);
+exports.push([module.i, "[dir] .demo-alignment li[data-v-bc21baa6]:hover {\n  transform: translate(0, 8px);\n  box-shadow: 0px 0px 40px -10px rgba(255, 255, 255, 0) !important;\n}\r\n", ""]);
 
 // exports
 

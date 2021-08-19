@@ -81,10 +81,11 @@ class PropertiesController extends Controller
 //                if (!file_exists(env('UPLOAD_PATH').'property/' . $prop->id . '/logo')) {
 //                    mkdir(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', 666, true);
 //                }
+                $path = env('UPLOAD_PATH') == "" ? public_path('/property/' . $prop->id . '/logo'):env('UPLOAD_PATH') . '/property/' . $prop->id . '/logo';
                 $requestUpload = new Request([
                     'logo' => $request->logo,
                     'id' => $prop->id,
-                    'savePath' => public_path(env('UPLOAD_PATH') . '/property/' . $prop->id . '/logo')
+                    'savePath' => $path
                 ]);
                 $this->uploadLogo($requestUpload);
 //                $request->logo->move(env('UPLOAD_PATH').'property/' . $prop->id . '/logo', $featuredname);
@@ -103,10 +104,11 @@ class PropertiesController extends Controller
             ->update(array('description' => $request->description));
         if ($prop) {
 //            $featuredname = 'featured_' . time() . '.' . $request->featured->getClientOriginalExtension();
+            $path = env('UPLOAD_PATH') == "" ? public_path('/property/' . $request->prop_id . '/gallery/featured'):env('UPLOAD_PATH') . '/property/' . $request->prop_id . '/gallery/featured';
             $req = new Request([
                 'featured' => $request->featured,
                 'id' => $request->prop_id,
-                'savePath' => public_path(env('UPLOAD_PATH') . '/property/' . $request->prop_id . '/gallery/featured')
+                'savePath' => $path
             ]);
             $this->uploadFeatured($req);
 //            $request->featured->move(env('UPLOAD_PATH') . 'property/' . $request->prop_id . '/gallery/featured', $featuredname);
@@ -225,13 +227,20 @@ class PropertiesController extends Controller
     {
 
         if ($request->hasFile('logo')) {
-            $featuredname = 'logo_' . time() . '.' . $request->logo->getClientOriginalExtension();
-            $request->logo->move(env('UPLOAD_PATH') . 'property/' . $request->prop_id . '/logo', $featuredname);
+//            $featuredname = 'logo_' . time() . '.' . $request->logo->getClientOriginalExtension();
+            $path = env('UPLOAD_PATH') == "" ? public_path('/property/' . $request->prop_id . '/logo'):env('UPLOAD_PATH') . '/property/' . $request->prop_id . '/logo';
+            $requestUpload = new Request([
+                'logo' => $request->logo,
+                'id' => $request->prop_id,
+                'savePath' => $path
+            ]);
+            $this->uploadLogo($requestUpload);
+//            $request->logo->move(env('UPLOAD_PATH') . 'property/' . $request->prop_id . '/logo', $featuredname);
             $prop = Properties::where('id', $request->prop_id)
                 ->update(array('name' => $request->name,
                     'hotel_contact' => $request->hotel,
                     'email' => $request->email,
-                    'logo' => $featuredname,
+//                    'logo' => $featuredname,
                     'short_name' => $request->sname,
                     'short_description' => $request->sdescription,
                     'affiliated_by' => $request->aff,
@@ -241,9 +250,16 @@ class PropertiesController extends Controller
 
             if ($prop) {
                 if ($request->hasFile('featured')) {
-                    $featuredname = 'featured_' . time() . '.' . $request->featured->getClientOriginalExtension();
-                    $request->featured->move(env('UPLOAD_PATH') . 'property/' . $request->prop_id . '/gallery/featured', $featuredname);
-                    ImagesModel::where('property_id', $request->prop_id)->update(array('featured' => $featuredname));
+//                    $featuredname = 'featured_' . time() . '.' . $request->featured->getClientOriginalExtension();
+//                    $request->featured->move(env('UPLOAD_PATH') . 'property/' . $request->prop_id . '/gallery/featured', $featuredname);
+                    $path = env('UPLOAD_PATH') == "" ? public_path('/property/' . $request->prop_id . '/gallery/featured'):env('UPLOAD_PATH') . '/property/' . $request->prop_id . '/gallery/featured';
+                    $req = new Request([
+                        'featured' => $request->featured,
+                        'id' => $request->prop_id,
+                        'savePath' => $path
+                    ]);
+                    $this->uploadFeatured($req);
+//                    ImagesModel::where('property_id', $request->prop_id)->update(array('featured' => $featuredname));
                     return response()->json(['status' => 1]);
                 }
                 return response()->json(['status' => 1]);
@@ -271,6 +287,15 @@ class PropertiesController extends Controller
             return response()->json(['status' => 1]);
         }
         return response()->json(['status' => 0]);
+    }
+
+    public function updateDescription(Request $request){
+        $data = Properties::where('id', $request->prop_id)
+            ->update(array('description' => $request->description));
+        if($data){
+            return response()->json(['status'=>1]);
+        }
+        return response()->json(['status'=>0]);
     }
 
     public function updateLocation(Request $request)
@@ -467,9 +492,10 @@ class PropertiesController extends Controller
         foreach ($file as $g => $k) {
 //            $filen = 'image_' . $g . "_" . time() . '.' . $k->getClientOriginalExtension();
 //            $image[] = $filen;
+            $path = env('UPLOAD_PATH') == "" ? public_path('/property/' . $request->id . '/gallery/images'):env('UPLOAD_PATH') . '/property/' . $request->id . '/gallery/images';
             $this->uploadGallery(new Request([
                 'gallery' => $k,
-                'savePath' => public_path(env('UPLOAD_PATH') . '/property/' . $request->id . '/gallery/images'),
+                'savePath' => $path,
                 'id' => $request->id
             ]));
 //            $k->move(env('UPLOAD_PATH') . 'property/' . $request->id . '/gallery/images', $filen);
@@ -488,15 +514,19 @@ class PropertiesController extends Controller
     {
         $data = ImagesModel::where('property_id', $request->id)->get();
         $i = 0;
-        $dat = json_decode($data[0]->images);
+        $dat = json_decode($data[0]->images, true);
         foreach ($dat as $element) {
             //check the property of every element
             if ($request->image == $element) {
-                $image_path = "/property/" . $data[0]->property_id . "/gallery/images/" . $element;  // Value is not URL but directory file path
-                if (File::exists(env('UPLOAD_PATH') . $image_path)) {
-                    File::delete(env('UPLOAD_PATH') . $image_path);
-                    unset($dat[$i]);
+                $extensionArray = ["-xl.png", "-xl.jpg", "-xl.jpeg", "-xl.webp", "-lg.webp", "-md.webp", "-sm.webp", "-sm-350x200.webp", "-md-350x200.webp", "-lg-350x200.webp", "-xl.gif"];
+                $image_path = "property/" . $data[0]->property_id . "/gallery/images/" . $element;  // Value is not URL but directory file path
+//                if (File::exists(env('UPLOAD_PATH') . $image_path . '-xl.webp')) {
+                foreach ($extensionArray as $e => $val) {
+                    $path = env('UPLOAD_PATH') == "" ? public_path($image_path . $val) : env('UPLOAD_PATH') . $image_path . $val;
+                    File::delete($path);
                 }
+//                }
+                \array_splice($dat, $i, 1);
             }
             $i++;
         }
@@ -523,11 +553,15 @@ class PropertiesController extends Controller
         foreach ($dat as $element) {
             //check the property of every element
             if ($request->image == $element) {
+                $extensionArray = ["-xl.png", "-xl.jpg", "-xl.jpeg", "-xl.webp", "-lg.webp", "-md.webp", "-sm.webp", "-sm-350x200.webp", "-md-350x200.webp", "-lg-350x200.webp", "-xl.gif"];
                 $image_path = "/property/" . $data[0]->property_id . "/placement/images/" . $element;  // Value is not URL but directory file path
-                if (File::exists(env('UPLOAD_PATH') . $image_path)) {
-                    File::delete(env('UPLOAD_PATH') . $image_path);
-                    unset($dat[$i]);
+//                if (File::exists(env('UPLOAD_PATH') . $image_path . '-xl.webp')) {
+                foreach ($extensionArray as $e => $val) {
+                    $path = env('UPLOAD_PATH') == "" ? public_path($image_path . $val) : env('UPLOAD_PATH') . $image_path . $val;
+                    File::delete($path);
                 }
+//                }
+                \array_splice($dat, $i, 1);
             }
             $i++;
         }
@@ -553,9 +587,10 @@ class PropertiesController extends Controller
         foreach ($file as $g => $k) {
             $filen = 'placement_' . $g . "_" . time() . '.' . $k->getClientOriginalExtension();
             $image[] = $filen;
-            $this->uploadGallery(new Request([
+            $path = env('UPLOAD_PATH') == "" ? public_path('/property/' . $request->id . '/placement/images'):env('UPLOAD_PATH').'/property/' . $request->id . '/placement/images';
+            return $this->uploadPlacementO(new Request([
                 'gallery' => $k,
-                'savePath' => public_path(env('UPLOAD_PATH') . '/property/' . $request->id . '/placement/images'),
+                'savePath' => $path,
                 'id' => $request->id
             ]));
 //            $k->move(env('UPLOAD_PATH') . 'property/' . $request->id . '/placement/images', $filen);
@@ -1017,7 +1052,7 @@ class PropertiesController extends Controller
         $sizeArray = [0.2, 0.5, 0.7, 1];
         $i = [];
         $time = time();
-        $img = $request->file('gallery');
+        $img = $request->gallery;
         $fileMain = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $request->id . '-' . $time;
         foreach ($sizeArray as $val) {
             $i[] = $val;
@@ -1058,7 +1093,7 @@ class PropertiesController extends Controller
         if ($check->isNotEmpty()) {
             if ($check[0]->images != null) {
                 $get = ImagesModel::where('property_id', $request->id)->get();
-                $array = (array)$get[0]->images;
+                $array = json_decode($get[0]->images,true);
                 array_push($array, $fileMain);
                 ImagesModel::where('property_id', $request->id)
                     ->update(array('images' => $array));
@@ -1082,7 +1117,7 @@ class PropertiesController extends Controller
         $i = [];
         $time = time();
         $img = $request->gallery;
-        $fileMain = 'image'. '-' . $request->id . '-' . $time;
+        $fileMain = 'image' . '-' . $request->id . '-' . $time;
         foreach ($sizeArray as $val) {
             $i[] = $val;
             $valName = "";
@@ -1095,7 +1130,7 @@ class PropertiesController extends Controller
             } elseif ($val == 1) {
                 $valName = "xl";
             }
-            $filename = 'image'. '-' . $request->id . '-' . $time . '-' . $valName;
+            $filename = 'image' . '-' . $request->id . '-' . $time . '-' . $valName;
             $extension = $img->getExtension();
             $size = getimagesize($img);
             $newWidth = $val * $size[0];
@@ -1123,7 +1158,7 @@ class PropertiesController extends Controller
         if ($check->isNotEmpty()) {
             if ($check[0]->images != null) {
                 $get = ImagesModel::where('property_id', $request->id)->get();
-                $array = json_decode($get[0]->images,true);
+                $array = json_decode($get[0]->images, true);
                 array_push($array, $fileMain);
                 ImagesModel::where('property_id', $request->id)
                     ->update(array('images' => $array));
@@ -1141,13 +1176,13 @@ class PropertiesController extends Controller
 //            return response()->json(['status' => $fileMain]);
     }
 
-    public function uploadPlacementPlugin(Request $request)
+    public function uploadPlacementO(Request $request)
     {
         $sizeArray = [0.2, 0.5, 0.7, 1];
         $i = [];
         $time = time();
         $img = $request->gallery;
-        $fileMain = 'placement'. '-' . $request->id . '-' . $time;
+        $fileMain = 'placement' . '-' . $request->id . '-' . $time;
         foreach ($sizeArray as $val) {
             $i[] = $val;
             $valName = "";
@@ -1160,7 +1195,73 @@ class PropertiesController extends Controller
             } elseif ($val == 1) {
                 $valName = "xl";
             }
-            $filename = 'placement'. '-' . $request->id . '-' . $time . '-' . $valName;
+            $filename = 'placement' . '-' . $request->id . '-' . $time . '-' . $valName;
+            $extension = $img->getClientOriginalExtension();
+            $size = getimagesize($img);
+            $newWidth = $val * $size[0];
+            $newHeight = $val * $size[1];
+            $savePath = $request->savePath;
+            if (!file_exists($savePath)) {
+                mkdir($savePath, 666, true);
+            }
+            if ($val == 1) {
+                Image::make($img)->save($savePath . '/' . $filename . '.' . $extension);
+                Image::make($img)->encode('webp', 100)->save($savePath . '/' . $filename . '.webp');
+            } else {
+                Image::make($img)
+                    ->encode('webp', 20)
+                    ->resize($newWidth, $newHeight)
+                    ->save($savePath . '/' . $filename . '.webp');
+                Image::make($img)
+                    ->encode('webp', 20)
+                    ->fit(200, 200)
+                    ->save($savePath . '/' . $filename . '-350x200' . '.webp');
+            }
+            $imageArray[] = $filename;
+        }
+        $check = ImagesModel::where('property_id', $request->id)->get();
+        if ($check->isNotEmpty()) {
+            if ($check[0]->placements != null) {
+                $get = ImagesModel::where('property_id', $request->id)->get();
+                $array = json_decode($get[0]->placements, true);
+                array_push($array, $fileMain);
+                ImagesModel::where('property_id', $request->id)
+                    ->update(array('placements' => $array));
+            } else {
+                ImagesModel::where('property_id', $request->id)
+                    ->update(array('placements' => array($fileMain)));
+            }
+        } else {
+            $gallery = new ImagesModel();
+            $gallery->property_id = $request->id;
+            $gallery->placements = array($fileMain);
+            $gallery->status = 1;
+            $gallery->save();
+        }
+        echo 'Done';
+//            return response()->json(['status' => $fileMain]);
+    }
+
+    public function uploadPlacementPlugin(Request $request)
+    {
+        $sizeArray = [0.2, 0.5, 0.7, 1];
+        $i = [];
+        $time = time();
+        $img = $request->gallery;
+        $fileMain = 'placement' . '-' . $request->id . '-' . $time;
+        foreach ($sizeArray as $val) {
+            $i[] = $val;
+            $valName = "";
+            if ($val == 0.2) {
+                $valName = "sm";
+            } elseif ($val == 0.5) {
+                $valName = "md";
+            } elseif ($val == 0.7) {
+                $valName = "lg";
+            } elseif ($val == 1) {
+                $valName = "xl";
+            }
+            $filename = 'placement' . '-' . $request->id . '-' . $time . '-' . $valName;
             $extension = $img->getExtension();
             $size = getimagesize($img);
             $newWidth = $val * $size[0];
@@ -1188,7 +1289,7 @@ class PropertiesController extends Controller
         if ($check->isNotEmpty()) {
             if ($check[0]->placements != null) {
                 $get = ImagesModel::where('property_id', $request->id)->get();
-                $array = json_decode($get[0]->placements,true);
+                $array = json_decode($get[0]->placements, true);
                 array_push($array, $fileMain);
                 ImagesModel::where('property_id', $request->id)
                     ->update(array('placements' => $array));
@@ -1217,38 +1318,38 @@ class PropertiesController extends Controller
         foreach ($data as $i => $item) {
             $featuredPath = 'property/' . $item->id . '/gallery/featured';
             $fD = Storage::disk('public_folder')->files($featuredPath);
-            ImagesModel::where('property_id', $item->id)->update(array('featured'=>null));
+            ImagesModel::where('property_id', $item->id)->update(array('featured' => null));
             foreach ($fD as $f) {
-                File::deleteDirectory(public_path('property/'.$item->id.'/gallery/featured/temp-files'));
-                $image = $this->createFileObject(public_path('property/'.$item->id.'/gallery/featured/'.str_replace($featuredPath . '/', '', $f)));
+                File::deleteDirectory(public_path('property/' . $item->id . '/gallery/featured/temp-files'));
+                $image = $this->createFileObject(public_path('property/' . $item->id . '/gallery/featured/' . str_replace($featuredPath . '/', '', $f)));
                 $request = new Request([
                     'featured' => $image,
                     'id' => $item->id,
-                    'savePath' => 'property2/'.$item->id.'/gallery/featured'
+                    'savePath' => 'property2/' . $item->id . '/gallery/featured'
                 ]);
                 $this->uploadFeaturedPlugin($request);
 //                $featured[$item->id][] = array('featured' => str_replace($featuredPath . '/', '', $f));
             }
             $galleryPath = 'property/' . $item->id . '/gallery/images';
             $fD = Storage::disk('public_folder')->files($galleryPath);
-            ImagesModel::where('property_id', $item->id)->update(array('images'=>null));
+            ImagesModel::where('property_id', $item->id)->update(array('images' => null));
             foreach ($fD as $f) {
-                    File::deleteDirectory(public_path('property/' . $item->id . '/gallery/images/temp-files'));
-                    $image = $this->createFileObject(public_path('property/' . $item->id . '/gallery/images/' . str_replace($galleryPath . '/', '', $f)));
-                    $request = new Request([
-                        'gallery' => $image,
-                        'id' => $item->id,
-                        'savePath' => 'property2/' . $item->id . '/gallery/images'
-                    ]);
-                    echo $this->uploadGalleryPlugin($request);
+                File::deleteDirectory(public_path('property/' . $item->id . '/gallery/images/temp-files'));
+                $image = $this->createFileObject(public_path('property/' . $item->id . '/gallery/images/' . str_replace($galleryPath . '/', '', $f)));
+                $request = new Request([
+                    'gallery' => $image,
+                    'id' => $item->id,
+                    'savePath' => 'property2/' . $item->id . '/gallery/images'
+                ]);
+                echo $this->uploadGalleryPlugin($request);
 //                $gallery[$item->id][] = array('image' => str_replace($galleryPath . '/', '', $f));
             }
             $logoPath = 'property/' . $item->id . '/logo';
             $fD = Storage::disk('public_folder')->files($logoPath);
-            Properties::where('id', $item->id)->update(array('logo'=>null));
+            Properties::where('id', $item->id)->update(array('logo' => null));
             foreach ($fD as $f) {
-                File::deleteDirectory(public_path('property/'.$item->id.'/logo/temp-files'));
-                if($item->id != 69 && $item->id != 82) {
+                File::deleteDirectory(public_path('property/' . $item->id . '/logo/temp-files'));
+                if ($item->id != 69 && $item->id != 82) {
                     $image = $this->createFileObject(public_path('property/' . $item->id . '/logo/' . str_replace($logoPath . '/', '', $f)));
                     $request = new Request([
                         'logo' => $image,
@@ -1261,14 +1362,14 @@ class PropertiesController extends Controller
             }
             $placementPath = 'property/' . $item->id . '/placement/images';
             $fD = Storage::disk('public_folder')->files($placementPath);
-            ImagesModel::where('property_id', $item->id)->update(array('placements'=>null));
+            ImagesModel::where('property_id', $item->id)->update(array('placements' => null));
             foreach ($fD as $j => $f) {
-                File::deleteDirectory(public_path('property/'.$item->id.'/placement/images/temp-files'));
-                $image = $this->createFileObject(public_path('property/'.$item->id.'/placement/images/'.str_replace($placementPath . '/', '', $f)));
+                File::deleteDirectory(public_path('property/' . $item->id . '/placement/images/temp-files'));
+                $image = $this->createFileObject(public_path('property/' . $item->id . '/placement/images/' . str_replace($placementPath . '/', '', $f)));
                 $request = new Request([
                     'gallery' => $image,
                     'id' => $item->id,
-                    'savePath' => 'property2/'.$item->id.'/placement/images'
+                    'savePath' => 'property2/' . $item->id . '/placement/images'
                 ]);
                 $this->uploadPlacementPlugin($request);
 //                $placement[$item->id][] = array('placement' => str_replace($placementPath . '/', '', $f));

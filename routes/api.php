@@ -158,6 +158,7 @@ Route::group(['prefix' => 'properties'], function () {
     Route::get('placement/delete', 'PropertiesController@deletePlacement');
     Route::post('update/basic', 'PropertiesController@updateBasic');
     Route::post('update/location', 'PropertiesController@updateLocation');
+    Route::post('update/description', 'PropertiesController@updateDescription');
     Route::post('delete', 'PropertiesController@deleteProp');
     Route::get('getStat','PropertiesController@dashboardData');
     Route::post('getLocation','PropertiesController@getLocation');

@@ -325,7 +325,8 @@ var render = function() {
                                     "/property/" +
                                     _vm.mainid +
                                     "/placement/images/" +
-                                    image
+                                    image +
+                                    "-sm-350x200.webp"
                                 }
                               })
                             ])

@@ -446,6 +446,8 @@ vee_validate__WEBPACK_IMPORTED_MODULE_9__["Validator"].localize('en', dict);
                   // this.getCity()
                 }
               }).catch(function (err) {
+                reject("correct all values");
+
                 _this.$vs.loading.close();
 
                 console.log(err);

@@ -1,16 +1,14 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[154],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/property/seo.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/property/seo.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -38,146 +36,176 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: "seo",
   data: function data() {
     return {
-      title: "",
-      slug: "",
-      author: "",
-      canonical: "",
-      focusK: "",
-      description: "",
-      Ttitle: "",
-      Timage: "",
-      Tdescription: "",
-      Otitle: "",
-      Oimage: "",
-      Odescription: "",
-      seo_id: null,
-      readingTime: "",
-      scheme: ""
+      categoryTitle: 'Category Name',
+      categorySubtitle: 'petiole antimasquer nonenduring hoofish unbed anergic sweetwood ailsyte.',
+      sections: [{
+        "id": 0,
+        "title": 'Buying',
+        "questions": [{
+          "id": 0,
+          "question": 'Cake icing gummi bears?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 1,
+          "question": 'Jelly soufflé apple pie?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 2,
+          "question": 'Soufflé apple pie ice cream cotton?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 3,
+          "question": 'Powder wafer brownie?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 4,
+          "question": 'Toffee donut dragée cotton candy?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 5,
+          "question": 'Soufflé chupa chups chocolate bar?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }]
+      }, {
+        "id": 1,
+        "title": 'Item Support',
+        "questions": [{
+          "id": 0,
+          "question": 'Dessert halvah carrot cake sweet?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 1,
+          "question": 'Jelly beans bonbon marshmallow?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 2,
+          "question": 'Marzipan chocolate gummi bears bonbon powder?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 3,
+          "question": 'Chupa chups lemon drops caramels?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }]
+      }, {
+        "id": 2,
+        "title": 'Payments',
+        "questions": [{
+          "id": 0,
+          "question": 'Oat cake lemon drops sweet sweet?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 1,
+          "question": 'Cotton candy brownie ice cream wafer roll?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 2,
+          "question": 'Chocolate bonbon cake sugar plum?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 3,
+          "question": 'Cake fruitcake chupa chups?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 4,
+          "question": 'Fruitcake bonbon dessert gingerbread powder?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }]
+      }, {
+        "id": 3,
+        "title": 'Downloads',
+        "questions": [{
+          "id": 0,
+          "question": 'Marshmallow jelly beans oat cake?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 1,
+          "question": 'Cake ice cream jujubes cookie?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 2,
+          "question": 'Sesame snaps tart cake pie chocolate?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 3,
+          "question": 'Chocolate cake chocolate tootsi?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 4,
+          "question": 'Caramels lemon drops tiramisu cake?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 5,
+          "question": 'Brownie dessert gummies. Tiramisu bear claw apple?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }]
+      }, {
+        "id": 4,
+        "title": 'Licenses',
+        "questions": [{
+          "id": 0,
+          "question": 'Macaroon tootsie roll?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 1,
+          "question": 'Cheesecake sweet soufflé jelly tiramisu chocolate?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 2,
+          "question": 'Carrot cake topping tiramisu oat?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 3,
+          "question": 'Ice cream soufflé marshmallow?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 4,
+          "question": 'Dragée liquorice dragée jelly beans?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 5,
+          "question": 'Lemon drops gingerbread chupa chups tiramisu?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }]
+      }, {
+        "id": 5,
+        "title": 'Documents',
+        "questions": [{
+          "id": 0,
+          "question": 'Brownie dessert gummies?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 1,
+          "question": 'Cookie tiramisu lollipop?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 2,
+          "question": 'Bonbon sugar plum jelly-o?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }, {
+          "id": 3,
+          "question": 'Halvah chupa chups chupa chups?',
+          "answerUrl": "/pages/knowledge-base/category/question"
+        }]
+      }]
     };
   },
-  methods: {
-    getData: function getData() {
-      var _this = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/properties/getSEO', {
-        prop_id: this.$route.params.PropId
-      }).then(function (res) {
-        console.log(res);
-        _this.seo_id = res.data[0].id;
-        _this.title = res.data[0].title;
-        _this.slug = res.data[0].permalink;
-        _this.canonical = res.data[0].canonical;
-        _this.scheme = res.data[0].json_schema;
-        _this.author = res.data[0].author_name;
-        _this.focusK = res.data[0].primary_focus_keyword;
-        _this.description = res.data[0].description;
-        _this.readingTime = res.data[0].estimated_reading_time_minutes;
-      }).catch(function (err) {
-        console.log(err);
-      });
-    },
-    updateData: function updateData() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/properties/updateSEO', {
-        title: this.title,
-        slug: this.slug,
-        canonical: this.canonical,
-        author: this.author,
-        schema: this.scheme,
-        description: this.description,
-        focus: this.focusK,
-        seo_id: this.seo_id
-      }).then(function (res) {
-        _this2.alert('SEO Details Updated', 'SEO Details Update Successfully', 'green');
-
-        console.log(res);
-      }).catch(function (err) {
-        console.log(err);
-      });
-    },
-    alert: function alert(title, text, color) {
-      this.$vs.notify({
-        color: color,
-        title: title,
-        text: text,
-        position: 'top-right'
-      });
-    }
-  },
-  beforeMount: function beforeMount() {
-    this.$vs.loading.close();
-    this.getData();
+  computed: {},
+  methods: {},
+  components: {},
+  mounted: function mounted() {
+    this.$emit('changeRouteTitle', 'Category');
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/property/seo.vue?vue&type=template&id=5eac7ca6&scoped=true&":
-/*!**************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/property/seo.vue?vue&type=template&id=5eac7ca6&scoped=true& ***!
-  \**************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=template&id=94b5cb70&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=template&id=94b5cb70& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -189,170 +217,50 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "vx-col w-full mb-base" },
-    [
-      _c("vx-card", { attrs: { title: "SEO Settings" } }, [
-        _c("div", { staticClass: "vx-row" }, [
-          _c(
-            "div",
-            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
-            [
-              _c("vs-input", {
-                staticClass: "w-full",
-                attrs: { "label-placeholder": "Title" },
-                model: {
-                  value: _vm.title,
-                  callback: function($$v) {
-                    _vm.title = $$v
-                  },
-                  expression: "title"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
-            [
-              _c("vs-input", {
-                staticClass: "w-full",
-                attrs: { "label-placeholder": "Slug" },
-                model: {
-                  value: _vm.slug,
-                  callback: function($$v) {
-                    _vm.slug = $$v
-                  },
-                  expression: "slug"
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "vx-row" }, [
-          _c(
-            "div",
-            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
-            [
-              _c("vs-input", {
-                staticClass: "w-full",
-                attrs: { "label-placeholder": "Canonical" },
-                model: {
-                  value: _vm.canonical,
-                  callback: function($$v) {
-                    _vm.canonical = $$v
-                  },
-                  expression: "canonical"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "vx-col sm:w-1/2 w-full mb-2" },
-            [
-              _c("vs-input", {
-                staticClass: "w-full",
-                attrs: { "label-placeholder": "Primary Focus Keyword" },
-                model: {
-                  value: _vm.focusK,
-                  callback: function($$v) {
-                    _vm.focusK = $$v
-                  },
-                  expression: "focusK"
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "vx-row" }, [
-          _c(
-            "div",
-            { staticClass: "vx-col sm:w-1/2 w-full mb-6" },
-            [
-              _c("vs-input", {
-                staticClass: "w-full",
-                attrs: { "label-placeholder": "Reading Time" },
-                model: {
-                  value: _vm.readingTime,
-                  callback: function($$v) {
-                    _vm.readingTime = $$v
-                  },
-                  expression: "readingTime"
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "vx-row" }, [
-          _c(
-            "div",
-            { staticClass: "vx-col  w-full mb-6" },
-            [
-              _c("vs-textarea", {
-                attrs: { counter: "160", label: "Description" },
-                model: {
-                  value: _vm.description,
-                  callback: function($$v) {
-                    _vm.description = $$v
-                  },
-                  expression: "description"
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "vx-row" }, [
-          _c(
-            "div",
-            { staticClass: "vx-col  w-full mb-6" },
-            [
-              _c("vs-textarea", {
-                attrs: { label: "JSON Schema" },
-                model: {
-                  value: _vm.scheme,
-                  callback: function($$v) {
-                    _vm.scheme = $$v
-                  },
-                  expression: "scheme"
-                }
-              })
-            ],
-            1
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "vx-row" }, [
-          _c(
-            "div",
-            { staticClass: "vx-col w-full" },
-            [
+  return _c("div", { attrs: { id: "knowledge-base-category-page" } }, [
+    _c("p", { staticClass: "mb-4" }, [_vm._v(_vm._s(_vm.categorySubtitle))]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "vx-row mt-8 match-height" },
+      _vm._l(_vm.sections, function(section) {
+        return _c(
+          "div",
+          {
+            key: section.id,
+            staticClass: "vx-col w-full sm:w-1/2 md:w-1/3 mb-base"
+          },
+          [
+            _c("vx-card", [
+              _c("h4", { staticClass: "mb-4" }, [
+                _vm._v(_vm._s(section.title))
+              ]),
+              _vm._v(" "),
               _c(
-                "vs-button",
-                { staticClass: "mr-3 mb-2", on: { click: _vm.updateData } },
-                [_vm._v("Submit")]
+                "ul",
+                { staticClass: "bordered-items" },
+                _vm._l(section.questions, function(que) {
+                  return _c(
+                    "li",
+                    { key: que.question, staticClass: "py-2" },
+                    [
+                      _c("router-link", { attrs: { to: que.answerUrl } }, [
+                        _vm._v(_vm._s(que.question))
+                      ])
+                    ],
+                    1
+                  )
+                }),
+                0
               )
-            ],
-            1
-          )
-        ])
-      ])
-    ],
-    1
-  )
+            ])
+          ],
+          1
+        )
+      }),
+      0
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -361,17 +269,17 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/src/views/property/seo.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/src/views/property/seo.vue ***!
-  \*************************************************/
+/***/ "./resources/js/src/views/pages/KnowledgeBaseCategory.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/src/views/pages/KnowledgeBaseCategory.vue ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _seo_vue_vue_type_template_id_5eac7ca6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./seo.vue?vue&type=template&id=5eac7ca6&scoped=true& */ "./resources/js/src/views/property/seo.vue?vue&type=template&id=5eac7ca6&scoped=true&");
-/* harmony import */ var _seo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./seo.vue?vue&type=script&lang=js& */ "./resources/js/src/views/property/seo.vue?vue&type=script&lang=js&");
+/* harmony import */ var _KnowledgeBaseCategory_vue_vue_type_template_id_94b5cb70___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./KnowledgeBaseCategory.vue?vue&type=template&id=94b5cb70& */ "./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=template&id=94b5cb70&");
+/* harmony import */ var _KnowledgeBaseCategory_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./KnowledgeBaseCategory.vue?vue&type=script&lang=js& */ "./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -381,50 +289,50 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _seo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _seo_vue_vue_type_template_id_5eac7ca6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _seo_vue_vue_type_template_id_5eac7ca6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _KnowledgeBaseCategory_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _KnowledgeBaseCategory_vue_vue_type_template_id_94b5cb70___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _KnowledgeBaseCategory_vue_vue_type_template_id_94b5cb70___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
-  "5eac7ca6",
+  null,
   null
   
 )
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/views/property/seo.vue"
+component.options.__file = "resources/js/src/views/pages/KnowledgeBaseCategory.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/views/property/seo.vue?vue&type=script&lang=js&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/src/views/property/seo.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************/
+/***/ "./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./seo.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/property/seo.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KnowledgeBaseCategory_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./KnowledgeBaseCategory.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_KnowledgeBaseCategory_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/property/seo.vue?vue&type=template&id=5eac7ca6&scoped=true&":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/src/views/property/seo.vue?vue&type=template&id=5eac7ca6&scoped=true& ***!
-  \********************************************************************************************/
+/***/ "./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=template&id=94b5cb70&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=template&id=94b5cb70& ***!
+  \***********************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_vue_vue_type_template_id_5eac7ca6_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./seo.vue?vue&type=template&id=5eac7ca6&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/property/seo.vue?vue&type=template&id=5eac7ca6&scoped=true&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_vue_vue_type_template_id_5eac7ca6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KnowledgeBaseCategory_vue_vue_type_template_id_94b5cb70___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./KnowledgeBaseCategory.vue?vue&type=template&id=94b5cb70& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/pages/KnowledgeBaseCategory.vue?vue&type=template&id=94b5cb70&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KnowledgeBaseCategory_vue_vue_type_template_id_94b5cb70___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_seo_vue_vue_type_template_id_5eac7ca6_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_KnowledgeBaseCategory_vue_vue_type_template_id_94b5cb70___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

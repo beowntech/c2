@@ -7356,6 +7356,12 @@ __webpack_require__.r(__webpack_exports__);
     slug: "cyber-leads",
     i18n: "Cyber Leads"
   }, {
+    url: "/information/all",
+    name: "Information Form",
+    icon: "FileTextIcon",
+    slug: "info-form",
+    i18n: "Information Form"
+  }, {
     url: "/import-excel",
     name: "Excel",
     icon: "FileTextIcon",
