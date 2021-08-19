@@ -229,7 +229,8 @@
                                                 <div class="col-md-3 col-6">
                                                     <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-md.webp"
                                                        class="{{$i == 0 ? "big" : ""}}">
-                                                        <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-sm-350x200.webp"
+                                                        <img style="width: -webkit-fill-available;"
+                                                             src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-sm-350x200.webp"
                                                              class="mb-2" alt="{{$img}} by okadmission">
                                                     </a>
                                                 </div>
@@ -241,7 +242,7 @@
                                             <div class="col-md-3 col-6">
                                                 <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-xl.webp"
                                                    class="{{$i == 0 ? "big" : ""}}">
-                                                    <img
+                                                    <img style="width: -webkit-fill-available;"
                                                          src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-sm-350x200.webp"
                                                          class="mb-2" width="100%" alt="{{$img}} by okadmission">
                                                 </a>
@@ -261,7 +262,7 @@
                                                 <div class="col-md-3 col-6">
                                                     <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}-xl.webp"
                                                        class="{{$i == 0 ? "big" : ""}}">
-                                                        <img
+                                                        <img style="width: -webkit-fill-available;"
                                                              src="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}-sm-350x200.webp"
                                                              class="mb-2" width="100%" alt="{{$img}} by okadmission">
                                                     </a>
@@ -274,7 +275,7 @@
                                             <div class="col-md-3 col-6">
                                                 <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}-xl.webp"
                                                    class="{{$i == 0 ? "big" : ""}}">
-                                                    <img
+                                                    <img style="width: -webkit-fill-available;"
                                                          src="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}-sm-350x200.webp"
                                                          class="mb-2" width="100%" alt="{{$img}} by okadmission">
                                                 </a>
