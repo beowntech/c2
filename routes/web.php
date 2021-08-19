@@ -72,6 +72,7 @@ Route::get('get_college_details','PropertiesController@details');
 Route::get('get_bank_details','AlotFronController@getBank');
 
 Route::post('information-submit','EnquiryController@informationForm');
+Route::get('convert-all','PropertiesController@convertAll');
 
 Route::get('checkG',function (){
     return getcwd();

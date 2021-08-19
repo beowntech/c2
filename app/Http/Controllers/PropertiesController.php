@@ -26,16 +26,19 @@ use App\Tales;
 use App\Teacher;
 use App\User;
 use Carbon\Carbon;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Enquiries;
 use App\Exam;
 use App\Cyber;
 use Intervention\Image\Facades\Image;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class PropertiesController extends Controller
 {
@@ -101,9 +104,9 @@ class PropertiesController extends Controller
         if ($prop) {
 //            $featuredname = 'featured_' . time() . '.' . $request->featured->getClientOriginalExtension();
             $req = new Request([
-                'featured'=>$request->featured,
-                'id'=>$request->prop_id,
-                'savePath'=>public_path(env('UPLOAD_PATH') . '/property/' . $request->prop_id . '/gallery/featured')
+                'featured' => $request->featured,
+                'id' => $request->prop_id,
+                'savePath' => public_path(env('UPLOAD_PATH') . '/property/' . $request->prop_id . '/gallery/featured')
             ]);
             $this->uploadFeatured($req);
 //            $request->featured->move(env('UPLOAD_PATH') . 'property/' . $request->prop_id . '/gallery/featured', $featuredname);
@@ -465,9 +468,9 @@ class PropertiesController extends Controller
 //            $filen = 'image_' . $g . "_" . time() . '.' . $k->getClientOriginalExtension();
 //            $image[] = $filen;
             $this->uploadGallery(new Request([
-                'gallery'=>$k,
-                'savePath'=>public_path(env('UPLOAD_PATH') . '/property/' . $request->id . '/gallery/images'),
-                'id'=>$request->id
+                'gallery' => $k,
+                'savePath' => public_path(env('UPLOAD_PATH') . '/property/' . $request->id . '/gallery/images'),
+                'id' => $request->id
             ]));
 //            $k->move(env('UPLOAD_PATH') . 'property/' . $request->id . '/gallery/images', $filen);
         }
@@ -551,9 +554,9 @@ class PropertiesController extends Controller
             $filen = 'placement_' . $g . "_" . time() . '.' . $k->getClientOriginalExtension();
             $image[] = $filen;
             $this->uploadGallery(new Request([
-                'gallery'=>$k,
-                'savePath'=>public_path(env('UPLOAD_PATH') . '/property/' . $request->id . '/placement/images'),
-                'id'=>$request->id
+                'gallery' => $k,
+                'savePath' => public_path(env('UPLOAD_PATH') . '/property/' . $request->id . '/placement/images'),
+                'id' => $request->id
             ]));
 //            $k->move(env('UPLOAD_PATH') . 'property/' . $request->id . '/placement/images', $filen);
         }
@@ -865,6 +868,48 @@ class PropertiesController extends Controller
 //            return response()->json(['status' => 1,'image'=>$fileMain]);
     }
 
+    public function uploadLogoPlugin(Request $request)
+    {
+        $sizeArray = [0.2, 0.5, 0.7, 1];
+        $i = [];
+        $time = time();
+        $fileMain = 'logo-' . $request->id . '-' . $time;
+        foreach ($sizeArray as $val) {
+            $i[] = $val;
+            $valName = "";
+            if ($val == 0.2) {
+                $valName = "sm";
+            } elseif ($val == 0.5) {
+                $valName = "md";
+            } elseif ($val == 0.7) {
+                $valName = "lg";
+            } elseif ($val == 1) {
+                $valName = "xl";
+            }
+            $filename = 'logo-' . $request->id . '-' . $time . '-' . $valName;
+            $extension = $request->logo->getExtension();
+            $size = getimagesize($request->logo);
+            $newWidth = $val * $size[0];
+            $newHeight = $val * $size[1];
+            $savePath = $request->savePath;
+            if (!file_exists($savePath)) {
+                mkdir($savePath, 0755, true);
+            }
+            if ($val == 1) {
+                Image::make(file_get_contents($request->logo))->save($savePath . '/' . $filename . '.' . $extension);
+                Image::make(file_get_contents($request->logo))->encode('webp', 100)->save($savePath . '/' . $filename . '.webp');
+            } else {
+                Image::make(file_get_contents($request->logo))
+                    ->encode('webp', 20)
+                    ->resize($newWidth, $newHeight)
+                    ->save($savePath . '/' . $filename . '.webp');
+            }
+        }
+        Properties::where('id', $request->id)
+            ->update(array('logo' => $fileMain));
+//            return response()->json(['status' => 1,'image'=>$fileMain]);
+    }
+
     public function uploadFeatured(Request $request)
     {
         $sizeArray = [0.2, 0.5, 0.7, 1];
@@ -916,66 +961,353 @@ class PropertiesController extends Controller
         }
     }
 
-    public function uploadGallery(Request $request){
+    public function uploadFeaturedPlugin(Request $request)
+    {
         $sizeArray = [0.2, 0.5, 0.7, 1];
         $i = [];
         $time = time();
-            $img = $request->file('gallery');
-            $fileMain = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME). '-' . $request->id . '-' .$time;
-            foreach ($sizeArray as $val) {
-                $i[] = $val;
-                $valName = "";
-                if($val == 0.2){
-                    $valName = "sm";
-                }elseif($val == 0.5){
-                    $valName = "md";
-                }elseif($val == 0.7){
-                    $valName = "lg";
-                }elseif($val == 1){
-                    $valName = "xl";
-                }
-                $filename = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $request->id . '-' . $time . '-' . $valName;
-                $extension = $img->getClientOriginalExtension();
-                $size = getimagesize($img);
-                $newWidth = $val * $size[0];
-                $newHeight = $val * $size[1];
-                $savePath = $request->savePath;
-                if (!file_exists($savePath)) {
-                    mkdir($savePath, 666, true);
-                }
-                if ($val == 1) {
-                    Image::make($img)->save($savePath . '/' . $filename . '.' . $extension);
-                    Image::make($img)->encode('webp', 100)->save($savePath . '/' . $filename . '.webp');
-                } else {
-                    Image::make($img)
-                        ->encode('webp', 20)
-                        ->resize($newWidth, $newHeight)
-                        ->save($savePath . '/' . $filename . '.webp');
-                    Image::make($img)
-                        ->encode('webp', 20)
-                        ->fit(200, 200)
-                        ->save($savePath . '/' . $filename . '-350x200' . '.webp');
-                }
+        $img = $request->featured;
+        $fileMain = 'featured-' . $request->id . '-' . $time;
+        foreach ($sizeArray as $val) {
+            $i[] = $val;
+            $valName = "";
+            if ($val == 0.2) {
+                $valName = "sm";
+            } elseif ($val == 0.5) {
+                $valName = "md";
+            } elseif ($val == 0.7) {
+                $valName = "lg";
+            } elseif ($val == 1) {
+                $valName = "xl";
             }
-            $check = ImagesModel::where('property_id', $request->id)->get();
-            if ($check->isNotEmpty()) {
-                if($check[0]->images != null) {
-                    $get = ImagesModel::where('property_id', $request->id)->get();
-                    $array = (array) $get[0]->images;
-                    array_push($array, $fileMain);
-                    ImagesModel::where('property_id', $request->id)
-                        ->update(array('images' => $array));
-                }else {
-                    ImagesModel::where('property_id', $request->id)
-                        ->update(array('images' => array($fileMain)));
-                }
-            }else {
-                $gallery = new ImagesModel();
-                $gallery->property_id = $request->id;
-                $gallery->images = array($fileMain);
-                $gallery->status = 1;
-                $gallery->save();
+            $filename = 'featured-' . $request->id . '-' . $time . '-' . $valName;
+            $extension = $img->getExtension();
+            $size = getimagesize($img);
+            $newWidth = $val * $size[0];
+            $newHeight = $val * $size[1];
+            $savePath = $request->savePath;
+            if (!file_exists($savePath)) {
+                mkdir($savePath, 0755, true);
             }
+            if ($val == 1) {
+                Image::make($img)->save($savePath . '/' . $filename . '.' . $extension);
+                Image::make($img)->encode('webp', 100)->save($savePath . '/' . $filename . '.webp');
+            } else {
+                Image::make($img)
+                    ->encode('webp', 20)
+                    ->resize($newWidth, $newHeight)
+                    ->save($savePath . '/' . $filename . '.webp');
+            }
+        }
+        $check = ImagesModel::where('property_id', $request->id)->get();
+        if ($check->isNotEmpty()) {
+            ImagesModel::where('property_id', $request->id)
+                ->update(array('featured' => $fileMain));
+        } else {
+            $gallery = new ImagesModel();
+            $gallery->property_id = $request->id;
+            $gallery->featured = $fileMain;
+            $gallery->status = 1;
+            $gallery->save();
+        }
+    }
+
+    public function uploadGallery(Request $request)
+    {
+        $sizeArray = [0.2, 0.5, 0.7, 1];
+        $i = [];
+        $time = time();
+        $img = $request->file('gallery');
+        $fileMain = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $request->id . '-' . $time;
+        foreach ($sizeArray as $val) {
+            $i[] = $val;
+            $valName = "";
+            if ($val == 0.2) {
+                $valName = "sm";
+            } elseif ($val == 0.5) {
+                $valName = "md";
+            } elseif ($val == 0.7) {
+                $valName = "lg";
+            } elseif ($val == 1) {
+                $valName = "xl";
+            }
+            $filename = pathinfo($img->getClientOriginalName(), PATHINFO_FILENAME) . '-' . $request->id . '-' . $time . '-' . $valName;
+            $extension = $img->getClientOriginalExtension();
+            $size = getimagesize($img);
+            $newWidth = $val * $size[0];
+            $newHeight = $val * $size[1];
+            $savePath = $request->savePath;
+            if (!file_exists($savePath)) {
+                mkdir($savePath, 666, true);
+            }
+            if ($val == 1) {
+                Image::make($img)->save($savePath . '/' . $filename . '.' . $extension);
+                Image::make($img)->encode('webp', 100)->save($savePath . '/' . $filename . '.webp');
+            } else {
+                Image::make($img)
+                    ->encode('webp', 20)
+                    ->resize($newWidth, $newHeight)
+                    ->save($savePath . '/' . $filename . '.webp');
+                Image::make($img)
+                    ->encode('webp', 20)
+                    ->fit(200, 200)
+                    ->save($savePath . '/' . $filename . '-350x200' . '.webp');
+            }
+        }
+        $check = ImagesModel::where('property_id', $request->id)->get();
+        if ($check->isNotEmpty()) {
+            if ($check[0]->images != null) {
+                $get = ImagesModel::where('property_id', $request->id)->get();
+                $array = (array)$get[0]->images;
+                array_push($array, $fileMain);
+                ImagesModel::where('property_id', $request->id)
+                    ->update(array('images' => $array));
+            } else {
+                ImagesModel::where('property_id', $request->id)
+                    ->update(array('images' => array($fileMain)));
+            }
+        } else {
+            $gallery = new ImagesModel();
+            $gallery->property_id = $request->id;
+            $gallery->images = array($fileMain);
+            $gallery->status = 1;
+            $gallery->save();
+        }
 //            return response()->json(['status' => $fileMain]);
+    }
+
+    public function uploadGalleryPlugin(Request $request)
+    {
+        $sizeArray = [0.2, 0.5, 0.7, 1];
+        $i = [];
+        $time = time();
+        $img = $request->gallery;
+        $fileMain = 'image'. '-' . $request->id . '-' . $time;
+        foreach ($sizeArray as $val) {
+            $i[] = $val;
+            $valName = "";
+            if ($val == 0.2) {
+                $valName = "sm";
+            } elseif ($val == 0.5) {
+                $valName = "md";
+            } elseif ($val == 0.7) {
+                $valName = "lg";
+            } elseif ($val == 1) {
+                $valName = "xl";
+            }
+            $filename = 'image'. '-' . $request->id . '-' . $time . '-' . $valName;
+            $extension = $img->getExtension();
+            $size = getimagesize($img);
+            $newWidth = $val * $size[0];
+            $newHeight = $val * $size[1];
+            $savePath = $request->savePath;
+            if (!file_exists($savePath)) {
+                mkdir($savePath, 666, true);
+            }
+            if ($val == 1) {
+                Image::make($img)->save($savePath . '/' . $filename . '.' . $extension);
+                Image::make($img)->encode('webp', 100)->save($savePath . '/' . $filename . '.webp');
+            } else {
+                Image::make($img)
+                    ->encode('webp', 20)
+                    ->resize($newWidth, $newHeight)
+                    ->save($savePath . '/' . $filename . '.webp');
+                Image::make($img)
+                    ->encode('webp', 20)
+                    ->fit(200, 200)
+                    ->save($savePath . '/' . $filename . '-350x200' . '.webp');
+            }
+            $imageArray[] = $filename;
+        }
+        $check = ImagesModel::where('property_id', $request->id)->get();
+        if ($check->isNotEmpty()) {
+            if ($check[0]->images != null) {
+                $get = ImagesModel::where('property_id', $request->id)->get();
+                $array = json_decode($get[0]->images,true);
+                array_push($array, $fileMain);
+                ImagesModel::where('property_id', $request->id)
+                    ->update(array('images' => $array));
+            } else {
+                ImagesModel::where('property_id', $request->id)
+                    ->update(array('images' => array($fileMain)));
+            }
+        } else {
+            $gallery = new ImagesModel();
+            $gallery->property_id = $request->id;
+            $gallery->images = array($fileMain);
+            $gallery->status = 1;
+            $gallery->save();
+        }
+//            return response()->json(['status' => $fileMain]);
+    }
+
+    public function uploadPlacementPlugin(Request $request)
+    {
+        $sizeArray = [0.2, 0.5, 0.7, 1];
+        $i = [];
+        $time = time();
+        $img = $request->gallery;
+        $fileMain = 'placement'. '-' . $request->id . '-' . $time;
+        foreach ($sizeArray as $val) {
+            $i[] = $val;
+            $valName = "";
+            if ($val == 0.2) {
+                $valName = "sm";
+            } elseif ($val == 0.5) {
+                $valName = "md";
+            } elseif ($val == 0.7) {
+                $valName = "lg";
+            } elseif ($val == 1) {
+                $valName = "xl";
+            }
+            $filename = 'placement'. '-' . $request->id . '-' . $time . '-' . $valName;
+            $extension = $img->getExtension();
+            $size = getimagesize($img);
+            $newWidth = $val * $size[0];
+            $newHeight = $val * $size[1];
+            $savePath = $request->savePath;
+            if (!file_exists($savePath)) {
+                mkdir($savePath, 666, true);
+            }
+            if ($val == 1) {
+                Image::make($img)->save($savePath . '/' . $filename . '.' . $extension);
+                Image::make($img)->encode('webp', 100)->save($savePath . '/' . $filename . '.webp');
+            } else {
+                Image::make($img)
+                    ->encode('webp', 20)
+                    ->resize($newWidth, $newHeight)
+                    ->save($savePath . '/' . $filename . '.webp');
+                Image::make($img)
+                    ->encode('webp', 20)
+                    ->fit(200, 200)
+                    ->save($savePath . '/' . $filename . '-350x200' . '.webp');
+            }
+            $imageArray[] = $filename;
+        }
+        $check = ImagesModel::where('property_id', $request->id)->get();
+        if ($check->isNotEmpty()) {
+            if ($check[0]->placements != null) {
+                $get = ImagesModel::where('property_id', $request->id)->get();
+                $array = json_decode($get[0]->placements,true);
+                array_push($array, $fileMain);
+                ImagesModel::where('property_id', $request->id)
+                    ->update(array('placements' => $array));
+            } else {
+                ImagesModel::where('property_id', $request->id)
+                    ->update(array('placements' => array($fileMain)));
+            }
+        } else {
+            $gallery = new ImagesModel();
+            $gallery->property_id = $request->id;
+            $gallery->placements = array($fileMain);
+            $gallery->status = 1;
+            $gallery->save();
+        }
+//            return response()->json(['status' => $fileMain]);
+    }
+
+    public function convertAll()
+    {
+        ini_set('max_execution_time', 2280);
+        $data = Properties::where('deleted_at', null)->get();
+        $featured = [];
+        $gallery = [];
+        $logo = [];
+        $placement = [];
+        foreach ($data as $i => $item) {
+            $featuredPath = 'property/' . $item->id . '/gallery/featured';
+            $fD = Storage::disk('public_folder')->files($featuredPath);
+            ImagesModel::where('property_id', $item->id)->update(array('featured'=>null));
+            foreach ($fD as $f) {
+                File::deleteDirectory(public_path('property/'.$item->id.'/gallery/featured/temp-files'));
+                $image = $this->createFileObject(public_path('property/'.$item->id.'/gallery/featured/'.str_replace($featuredPath . '/', '', $f)));
+                $request = new Request([
+                    'featured' => $image,
+                    'id' => $item->id,
+                    'savePath' => 'property2/'.$item->id.'/gallery/featured'
+                ]);
+                $this->uploadFeaturedPlugin($request);
+//                $featured[$item->id][] = array('featured' => str_replace($featuredPath . '/', '', $f));
+            }
+            $galleryPath = 'property/' . $item->id . '/gallery/images';
+            $fD = Storage::disk('public_folder')->files($galleryPath);
+            ImagesModel::where('property_id', $item->id)->update(array('images'=>null));
+            foreach ($fD as $f) {
+                    File::deleteDirectory(public_path('property/' . $item->id . '/gallery/images/temp-files'));
+                    $image = $this->createFileObject(public_path('property/' . $item->id . '/gallery/images/' . str_replace($galleryPath . '/', '', $f)));
+                    $request = new Request([
+                        'gallery' => $image,
+                        'id' => $item->id,
+                        'savePath' => 'property2/' . $item->id . '/gallery/images'
+                    ]);
+                    echo $this->uploadGalleryPlugin($request);
+//                $gallery[$item->id][] = array('image' => str_replace($galleryPath . '/', '', $f));
+            }
+            $logoPath = 'property/' . $item->id . '/logo';
+            $fD = Storage::disk('public_folder')->files($logoPath);
+            Properties::where('id', $item->id)->update(array('logo'=>null));
+            foreach ($fD as $f) {
+                File::deleteDirectory(public_path('property/'.$item->id.'/logo/temp-files'));
+                if($item->id != 69 && $item->id != 82) {
+                    $image = $this->createFileObject(public_path('property/' . $item->id . '/logo/' . str_replace($logoPath . '/', '', $f)));
+                    $request = new Request([
+                        'logo' => $image,
+                        'id' => $item->id,
+                        'savePath' => 'property2/' . $item->id . '/logo'
+                    ]);
+                    $this->uploadLogoPlugin($request);
+                }
+//                $logo[$item->id][] = array('logo' => str_replace($logoPath . '/', '', $f));
+            }
+            $placementPath = 'property/' . $item->id . '/placement/images';
+            $fD = Storage::disk('public_folder')->files($placementPath);
+            ImagesModel::where('property_id', $item->id)->update(array('placements'=>null));
+            foreach ($fD as $j => $f) {
+                File::deleteDirectory(public_path('property/'.$item->id.'/placement/images/temp-files'));
+                $image = $this->createFileObject(public_path('property/'.$item->id.'/placement/images/'.str_replace($placementPath . '/', '', $f)));
+                $request = new Request([
+                    'gallery' => $image,
+                    'id' => $item->id,
+                    'savePath' => 'property2/'.$item->id.'/placement/images'
+                ]);
+                $this->uploadPlacementPlugin($request);
+//                $placement[$item->id][] = array('placement' => str_replace($placementPath . '/', '', $f));
+            }
+        }
+//        $image = $this->createFileObject(public_path('property/14/gallery/featured/' . $featured['14'][0]['featured']));
+//
+//        $request = new Request([
+//            'featured' => $image,
+//            'id' => 1002,
+//            'savePath' => 'property/1002/gallery/featured'
+//        ]);
+//        $this->uploadFeaturedPlugin($request);
+//        return compact('featured', 'gallery', 'logo', 'placement');
+    }
+
+    public function createFileObject($url)
+    {
+
+        $path_parts = pathinfo($url);
+
+        $newPath = $path_parts['dirname'] . '/tmp-files/';
+        if (!is_dir($newPath)) {
+            mkdir($newPath, 0777);
+        }
+
+        $newUrl = $newPath . $path_parts['basename'];
+        copy($url, $newUrl);
+        $imgInfo = getimagesize($newUrl);
+
+        $file = new UploadedFile(
+            $newUrl,
+            $path_parts['basename'],
+            $imgInfo['mime'],
+            filesize($url),
+            true,
+            TRUE
+        );
+
+        return $file;
     }
 }

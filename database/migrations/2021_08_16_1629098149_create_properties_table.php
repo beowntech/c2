@@ -15,10 +15,8 @@ class CreatePropertiesTable extends Migration
 		$table->string('short_name');
 		$table->integer('host');
 		$table->string('language',191)->nullable();
-		$table->string('property_type',400)->nullable();
+		$table->json('property_type')->nullable();
 		$table->text('short_description');
-		;
-		;
 		$table->integer('status');
 		$table->timestamp('created_at')->nullable();
 		$table->timestamp('updated_at')->nullable();
