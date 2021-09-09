@@ -73,9 +73,9 @@
             <div class="col-md-4 mb-3 sidebar">
                 <ul class="list-unstyled ver-line-menu social-links-gray my-3 text-center">
                     <li class="fw-bold">Follow Us On:</li>
-                    <li><a href="" class="text-decoration-none"><i class="fab fa-facebook"></i></a></li>
-                    <li><a href="" class="text-decoration-none"><i class="fab fa-instagram"></i> </a></li>
-                    <li><a href="" class="text-decoration-none"><i class="fab fa-twitter"></i> </a></li>
+                    <li><a href="https://www.facebook.com/admissionjockey" class="text-decoration-none"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://www.instagram.com/admissionjockeyofficial/" class="text-decoration-none"><i class="fab fa-instagram"></i> </a></li>
+                    <li><a href="https://twitter.com/admissionjockey" class="text-decoration-none"><i class="fab fa-twitter"></i> </a></li>
                 </ul>
                 <hr>
                 <div class="sticky-top">
