@@ -114,7 +114,7 @@
                              style="background:url(assets/images/site/cover2.jpg);background-size: cover;background-position: center;">
                             <div class="position-absolute bottom-0 start-0 text-white">
                                 <p class="mb-0 text-uppercase ps-4">sponcered</p>
-                                <h3 class="ps-4">Find Students Loan Options <i class="fas fa-arrow-circle-right"></i>
+                                <h3 class="ps-4">Find Students Hostel Options <i class="fas fa-arrow-circle-right"></i>
                                 </h3>
                             </div>
 
@@ -128,7 +128,7 @@
                              style="background:url(assets/images/site/cover2.jpg);background-size: cover;background-position: center;">
                             <div class="position-absolute bottom-0 start-0 text-white">
                                 <p class="mb-0 text-uppercase ps-4">sponcered</p>
-                                <h3 class="ps-4">Find Students Hostel Options <i class="fas fa-arrow-circle-right"></i>
+                                <h3 class="ps-4">Find Students Load Options <i class="fas fa-arrow-circle-right"></i>
                                 </h3>
                             </div>
 
