@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600;800&display=swap");
+body {
+    background-color: #fffbf9;
+    font-family: "Open Sans", sans-serif; }
+
+.blog-site-menu {
+    background-color: #fff;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2); }
+.blog-site-menu .logo {
+    width: 220px; }
+
+.f18 {
+    font-size: 18px !important; }
+
+.f24 {
+    font-size: 24px !important; }
+
+.f14 {
+    font-size: 14px !important; }
+
+.link-a {
+    font-weight: 600;
+    color: gray; }
+
+.bg-light-o {
+    background-color: #ffb423; }
+
+.bg-light-p {
+    background-color: #7d4cc1; }
+
+.form-control {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: auto; }
+
+.pcolor {
+    color: #003593; }
+
+.scolor {
+    color: #ff5b00; }
+
+.bg-pcolor {
+    background-color: #003593; }
+
+.bg-scolor {
+    background-color: #ff5b00; }
+
+.select-bgclr {
+    background: #eef1f8 !important; }
+
+.sidebar-title-h1 {
+    color: #003593;
+    font-weight: 600;
+    font-size: 26px; }
+
+.shadow-0 {
+    box-shadow: none !important; }
+
+.sidebar-title-h2 {
+    color: #003593;
+    font-weight: 600;
+    font-size: 23px; }
+
+.loan-form label {
+    font-size: 14px;
+    padding-left: 9px; }
+
+.action-bg-1 {
+    height: 120px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.4); }
+.action-bg-1 p {
+    font-size: 15px;
+    font-weight: 600;
+    text-shadow: 0 0 2px #000000e6;
+    text-transform: uppercase; }
+.action-bg-1 h3 {
+    font-size: 22px;
+    font-weight: 600;
+    text-shadow: 0 0 2px #000000e6; }
+.action-bg-1:hover {
+    cursor: pointer; }
+
+.video-box-1 {
+    height: 210px;
+    border-radius: 8px; }
+.video-box-1 h2 {
+    padding: 0 0 8px 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 30px; }
+.video-box-1:hover {
+    cursor: pointer; }
+
+.ver-line-menu li {
+    display: inline;
+    margin-right: 6px; }
+
+.sidebar {
+    padding: 0 35px; }
+
+.enq-form {
+    box-shadow: 0px 1px 6px 0px rgba(6, 56, 145, 0.22);
+    border-radius: 7px; }
+.enq-form h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #003593;
+    margin-bottom: 4px; }
+.enq-form p {
+    color: #003593; }
+.enq-form label {
+    margin-bottom: 3px;
+    padding-left: 8px;
+    font-size: 14px;
+    font-weight: 600; }
+
+.social-links li a {
+    color: #fff;
+    background: #ff5b00;
+    border-radius: 50%;
+    padding: 6px 8px 5px 9px; }
+
+.social-links-gray li a {
+    color: #fff;
+    background: #989795;
+    border-radius: 50%;
+    padding: 6px 8px 5px 9px; }
+
+.site-btn-1 {
+    border-radius: 8px;
+    background-color: #003593;
+    box-shadow: 0px 6px 8px 0px rgba(0, 53, 147, 0.32);
+    color: #fff; }
+.site-btn-1:hover {
+    color: #fff; }
+
+.site-btn-2 {
+    border-radius: 60px;
+    background-color: #003593;
+    color: #fff;
+    width: 100%; }
+.site-btn-2:hover {
+    color: #fff; }
+
+.site-btn-3 {
+    border-radius: 60px;
+    background-color: #ff5b00;
+    box-shadow: 0px 6px 8px 0px rgba(255, 91, 0, 0.3);
+    color: #fff;
+    font-weight: 600;
+    width: 100%; }
+.site-btn-3:hover {
+    color: #fff; }
+
+.mb-enq-btn {
+    background-color: #3a86fe;
+    width: 100%;
+    color: #fff;
+    font-weight: 600; }
+.mb-enq-btn:hover {
+    color: #fff; }
+
+.cprght {
+    color: #003593;
+    font-size: 14px; }
+
+#breadcrumb a {
+    color: inherit; }
+
+#main-blog {
+    padding-bottom: 30px; }
+#main-blog .blog-title {
+    font-size: 30px;
+    font-weight: 600; }
+#main-blog .blog-mini-title {
+    font-size: 18px;
+    font-weight: 600; }
+#main-blog .blog-card {
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 53, 147, 0.09);
+    padding-bottom: 2px;
+    background: #fff; }
+#main-blog .blog-card .content-box .blog-title {
+    padding: 10px 0;
+    font-size: 20px;
+    color: #003593;
+    margin-bottom: 0; }
+#main-blog .blog-card .content-box p {
+    font-size: 16px;
+    color: #1c1c1c; }
+#main-blog .blog-card .content-box a {
+    font-weight: 600;
+    color: #003593;
+    text-decoration: none; }
+#main-blog .card-featured-img {
+    width: 100%;
+    height: 175px;
+    border-radius: 4px 4px 0 0; }
+#main-blog .pagination {
+    margin-top: 15px; }
+#main-blog .pagination .page-item.active .page-link {
+    color: #003593;
+    background-color: #fff !important;
+    box-shadow: 0px 0px 5px 0px rgba(0, 53, 147, 0.07);
+    border-radius: 4px; }
+#main-blog .pagination .page-link {
+    background-color: transparent;
+    color: #003593;
+    border: 0px;
+    padding: 2px 10px; }
+#main-blog .pagination .page-link:hover {
+    text-decoration: underline; }
+#main-blog .blog-detail {
+    border-right: 1px solid #d2d2d2;
+    padding-right: 30px; }
+#main-blog .blog-detail h1, #main-blog .blog-detail h2, #main-blog .blog-detail h3, #main-blog .blog-detail h4, #main-blog .blog-detail h5.h6 {
+    color: #003593; }
+#main-blog .blog-detail h1 {
+    font-size: 28px;
+    font-weight: 600; }
+#main-blog .blog-detail h2 {
+    font-size: 26px;
+    font-weight: 600; }
+#main-blog .blog-detail h3 {
+    font-size: 24px;
+    font-weight: 600; }
+#main-blog .blog-detail blockquote {
+    border-left: 7px solid #ff5b00;
+    padding: 10px 6px 12px 10px;
+    border-radius: 4px 0px 0px 5px;
+    background: #eff2f9; }
+#main-blog .blog-detail img {
+    width: 100%;
+    height: auto !important;
+    margin: 10px 0; }
+#main-blog .blog-detail p {
+    margin: 10px 0; }
+
+#blogConsultingModal .btn-close {
+    font-size: 12px;
+    font-weight: bolder;
+    position: absolute;
+    top: 10px;
+    z-index: 33; }
+
+#blogConsultingModal .modal-body {
+    padding: 30px 40px; }
+
+#blogConsultingModal h1 {
+    font-size: 30px; }
+
+@media only screen and (max-width: 480px) {
+    .sm-hide {
+        display: none; }
+    #main-blog .blog-title {
+        font-size: 22px;
+        font-weight: 600; }
+    #main-blog .blog-detail {
+        border-right: 0px solid #d2d2d2;
+        padding-right: 15px; }
+    .sidebar {
+        padding: 0 15px; }
+    #blogConsultingModal .modal-body {
+        padding: 5px 10px; } }

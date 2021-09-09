@@ -167,6 +167,7 @@ Route::group(['prefix' => 'properties'], function () {
 Route::post('state/get','AlotFronController@getState');
 Route::post('teachers/list','AlotFronController@getTeachers');
 Route::post('city/get','AlotFronController@getCity');
+Route::get('city/search/{search?}','AlotFronController@searchCity');
 
 
 Route::group(['prefix' => 'search'], function () {
@@ -215,6 +216,15 @@ Route::get('enquiry-form','MailController@enquiryFormDetail');
 Route::get('statistics/data','PropertiesController@getData');
 Route::get('join_cyber','CyberController@joinCyber');
 Route::get('click','AlotFronController@buttonClicks');
+
+Route::get('college/search/{search?}','PropertiesController@searchCollege');
+
+
+
+Route::group(['prefix' => 'options'], function () {
+    Route::post('blog_video','OptionController@update');
+    Route::post('blog_video/get','OptionController@index');
+});
 
 
 Route::post('excel_upload','EnquiryController@importExcel');

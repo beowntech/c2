@@ -65,6 +65,11 @@ class AppServiceProvider extends ServiceProvider
             $view->with('prop', $prp)->with('bank', $bank);
         });
 
+        view()->composer('front.blog.layout.footer', function($view) {
+            $courses = FrontCategories::where('parent_id',0)->with('children')->get();
+            $view->with('courses',$courses);
+        });
+
         //
 //        Schema::defaultStringLength(191);
 //        $this->app->bind('path.public', function() {

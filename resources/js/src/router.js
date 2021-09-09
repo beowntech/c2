@@ -120,7 +120,25 @@ const router = new Router({
                 {
                     path: '/blog',
                     name: 'blog',
+                    component: () => import('./views/blog/list.vue'),
+                    meta: {
+                        rule: 'blogger',
+                        requiresAuth: true
+                    }
+                },
+                {
+                    path: '/blog/create',
+                    name: 'blog',
                     component: () => import('./views/blog/add.vue'),
+                    meta: {
+                        rule: 'blogger',
+                        requiresAuth: true
+                    }
+                },
+                {
+                    path: '/blog/video',
+                    name: 'blog-video',
+                    component: () => import('./views/blog/video.vue'),
                     meta: {
                         rule: 'blogger',
                         requiresAuth: true

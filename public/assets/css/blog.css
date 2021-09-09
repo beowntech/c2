@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Roboto+Slab:wght@300&display=swap");
+body {
+  font-family: "Open Sans", sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto Slab", serif;
+  font-weight: bolder; }
+
+.site-primary {
+  background-color: #52006e; }
+
+.section-padding {
+  padding: 80px 0; }
+
+.bg-yellow {
+  background: #ffbe0c; }
+
+#site-menu .nav-link {
+  color: #fff;
+  text-transform: capitalize;
+  font-family: "Open Sans", sans-serif;
+  font-size: 14px;
+  padding-right: 12px;
+  font-weight: 600;
+  letter-spacing: .5px; }
+
+#site-menu i {
+  color: #fff;
+  padding-left: 30px; }
+
+#site-menu .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+
+#site-menu .dropdown-menu {
+  padding: 0; }
+
+#side-menu .close {
+  border: 0;
+  background: transparent;
+  position: absolute;
+  right: 22px;
+  top: 0px; }
+
+#search-banner {
+  background: url("../images/header.jpg");
+  min-height: 70vh;
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 2000px rgba(82, 0, 110, 0.22); }
+  #search-banner .title {
+    font-size: 32pt;
+    font-weight: 900;
+    text-shadow: 2px 2px 1px black;
+    font-family: "Open Sans", sans-serif; }
+  #search-banner .sub-title {
+    font-size: 14pt; }
+  #search-banner [type="search"] {
+    outline-offset: 0px;
+    -webkit-appearance: textfield;
+    border: 0px; }
+  #search-banner .blogsearchbar {
+    color: #070707;
+    width: 390px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 10px;
+    border: 0; }
+  #search-banner .blog-search-btn {
+    position: relative;
+    top: -1px;
+    background-color: #3a86fe;
+    height: 40px;
+    border-radius: 0;
+    border: 1px;
+    color: #fff;
+    padding: 0 30px; }
+
+#main-blog .card-title {
+  font-family: "Roboto Slab", serif;
+  font-size: 22px;
+  font-weight: 600; }
+
+#main-blog .font-light {
+  font-size: 13px;
+  color: #3a3a3a; }
+
+#main-blog p {
+  margin-bottom: -4px;
+  font-size: 16px; }
+
+#main-blog .featured-blog {
+  background-color: #8238ed;
+  color: #fff;
+  margin-top: -31px;
+  margin-bottom: 7px;
+  width: 80px;
+  text-align: center;
+  padding: 0px 0 2px 0;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600; }
+
+#main-blog-datail .blog-title {
+  font-size: 32px;
+  font-family: "Roboto Slab", serif;
+  font-weight: 900; }
+
+#main-blog-datail .font-light {
+  font-size: 13px;
+  color: #3a3a3a !important; }
+
+#main-blog-datail p {
+  margin-bottom: -3px;
+  font-size: 16px;
+  color: #2f2d2d;
+  font-family: "Open Sans", sans-serif; }
+
+#main-blog-datail .featured-blog {
+  background-color: #8238ed;
+  color: #fff;
+  margin-bottom: 7px;
+  width: 80px;
+  text-align: center;
+  padding: 0px 0 2px 0;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-block; }
+
+#main-blog-datail .share-btn {
+  background-color: #3a86fe !important; }
+
+#main-blog-datail .comment-box .form-control {
+  border-radius: 0; }
+
+#main-blog-datail .comment-date {
+  font-size: 13px !important; }
+
+#main-blog-datail .comment-btn {
+  position: relative;
+  top: -1px;
+  background-color: #3a86fe;
+  height: 40px;
+  border-radius: 0;
+  border: 1px;
+  color: #fff;
+  padding: 0 40px;
+  font-weight: 800; }
+
+.sidebar .border-bottom {
+  border-bottom: 1px solid #3a86fe !important; }
+
+.sidebar i {
+  margin-right: 5px; }
+
+.enquiry-form .form-control {
+  border-radius: 0; }
+
+.enquiry-form .enq-btn {
+  background-color: #3a86fe;
+  border-radius: 0;
+  border: 1px;
+  color: #fff;
+  font-weight: 800; }
+
+.enquiry-form .fs-6 {
+  font-size: 14px !important;
+  font-weight: 600;
+  margin-top: 5px !important; }
+
+footer {
+  padding: 40px 0 10px 0;
+  background: url("../images/footer-bg-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.8); }
+
+#dontsureModal .form-check {
+  background: #e8e8e8;
+  padding: 2px 30px; }
+
+@media only screen and (max-width: 480px) {
+  #search-banner .title {
+    font-size: 20pt; }
+  #search-banner .sub-title {
+    font-size: 12pt;
+    padding: 0 20px; }
+  #search-banner .blogsearchbar {
+    width: 325px;
+    margin-bottom: 15px; } }

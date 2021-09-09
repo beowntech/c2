@@ -240,7 +240,7 @@ class CategoriesController extends Controller
                 $courses = FrontCategories::where('parent_id',0)->with('children')->get();
 
                 event(new BlogViews());
-                return view('front.blog-detail', compact('data', 'related', 'colleges','courses'));
+                return view('front.blog.detail', compact('data', 'related', 'colleges','courses'));
             }
             return abort(404);
         }

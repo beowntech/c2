@@ -79,6 +79,6 @@ class SitemapIndex extends Command
                 ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
                 ->setPriority(1.0));
 
-        $sitemap->writeToFile(public_path('sitemap-index.xml'));
+        $sitemap->writeToFile(public_path('sitemap_index.xml'));
     }
 }

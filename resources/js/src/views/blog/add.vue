@@ -11,11 +11,11 @@
 <template>
     <div class="vx-row">
         <div class="vx-col w-full mb-3">
-        <vs-button v-bind:color="isAddBlog ? 'danger' : 'success'" type="gradient" style="float: right" @click="isAddBlog = !isAddBlog" v-text="isAddBlog ? 'Cancel': 'Add Blog'"></vs-button>
+<!--        <vs-button v-bind:color="isAddBlog ? 'danger' : 'success'" type="gradient" style="float: right" @click="isAddBlog = !isAddBlog" v-text="isAddBlog ? 'Cancel': 'Add Blog'"></vs-button>-->
         </div>
         <div class="vx-col w-full">
             <transition name="fade" mode="out-in">
-    <div id="add-blog-page" v-if="isAddBlog">
+    <div id="add-blog-page">
         <!-- SEARCH RESULTS -->
         <div class="vx-row mt-4 md:flex-row flex-col-reverse">
             <div class="vx-col md:w-3/5 lg:w-2/3 w-full mb-4">
@@ -69,52 +69,6 @@
                 </vx-card>
             </div>
         </div>
-    </div>
-    <div id="all-blog-page" v-else>
-        <vx-card title="Blogs">
-            <vs-table :data="blogs" pagination max-items="10" search>
-
-                <template slot="thead">
-                    <vs-th>Sno.</vs-th>
-                    <vs-th>Image</vs-th>
-                    <vs-th>Title</vs-th>
-                    <vs-th>Content</vs-th>
-                    <vs-th>Status</vs-th>
-                    <vs-th>Actions</vs-th>
-                </template>
-
-                <template slot-scope="{data}">
-                    <vs-tr :key="indextr" v-for="(tr, indextr) in data">
-
-                        <vs-td>
-                            {{indextr + 1}}
-                        </vs-td>
-                        <vs-td :data="tr.image">
-                            <img class="blog_list_img" :src="'/blog/'+tr.id+'/image/'+tr.image" style="width: 100px" />
-                        </vs-td>
-                        <vs-td :data="tr.title">
-                            {{ tr.title }}
-                        </vs-td>
-                        <vs-td :data="tr.content | strippedContent">
-                            {{tr.content | strippedContent}}
-                        </vs-td>
-                        <vs-td :data="tr.stat[0].color">
-                            <vs-chip :color="tr.stat[0].color" class="product-order-status">{{ tr.stat[0].name}}</vs-chip>
-                            <template slot="edit">
-                                <vs-select v-model="updateselected = tr.stat[0].id" @input="updateStatus(updateselected,tr.id)" class="select-large">
-                                    <vs-select-item :key="index" v-bind:value="status.id" :text="status.name" v-for="(status,index) in status" class="w-full" />
-                                </vs-select>
-                            </template>
-                        </vs-td>
-                        <vs-td class="whitespace-no-wrap">
-                            <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" @click.stop="editData(tr.id)" />
-                            <feather-icon icon="AwardIcon" svgClasses="w-5 h-5 hover:text-warning stroke-current" class="ml-2" @click.stop="seoEdit(tr.id)" />
-                            <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-warning stroke-current" class="ml-2" @click.stop="openAlert(tr.id)" />
-                        </vs-td>
-                    </vs-tr>
-                </template>
-            </vs-table>
-        </vx-card>
     </div>
             </transition>
         </div>

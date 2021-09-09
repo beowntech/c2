@@ -1411,4 +1411,13 @@ class PropertiesController extends Controller
 
         return $file;
     }
+
+
+    public function searchCollege($search=""){
+        $data = Properties::where('name','LIKE','%'.$search.'%')->get();
+        if($data->isNotEmpty()){
+            return $data;
+        }
+        return \response()->json(['message'=>"No Search String Provided"]);
+    }
 }

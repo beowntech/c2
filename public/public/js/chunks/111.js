@@ -112,52 +112,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -426,535 +380,244 @@ var render = function() {
     "div",
     { staticClass: "vx-row" },
     [
-      _c(
-        "div",
-        { staticClass: "vx-col w-full mb-3" },
-        [
-          _c("vs-button", {
-            staticStyle: { float: "right" },
-            attrs: {
-              color: _vm.isAddBlog ? "danger" : "success",
-              type: "gradient"
-            },
-            domProps: {
-              textContent: _vm._s(_vm.isAddBlog ? "Cancel" : "Add Blog")
-            },
-            on: {
-              click: function($event) {
-                _vm.isAddBlog = !_vm.isAddBlog
-              }
-            }
-          })
-        ],
-        1
-      ),
+      _c("div", { staticClass: "vx-col w-full mb-3" }),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "vx-col w-full" },
         [
           _c("transition", { attrs: { name: "fade", mode: "out-in" } }, [
-            _vm.isAddBlog
-              ? _c("div", { attrs: { id: "add-blog-page" } }, [
+            _c("div", { attrs: { id: "add-blog-page" } }, [
+              _c(
+                "div",
+                { staticClass: "vx-row mt-4 md:flex-row flex-col-reverse" },
+                [
                   _c(
                     "div",
-                    { staticClass: "vx-row mt-4 md:flex-row flex-col-reverse" },
+                    { staticClass: "vx-col md:w-3/5 lg:w-2/3 w-full mb-4" },
+                    [_c("h2", [_vm._v("Add New Blog")])]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "vx-col md:w-3/5 lg:w-2/3 w-full mb-4" },
                     [
                       _c(
                         "div",
-                        { staticClass: "vx-col md:w-3/5 lg:w-2/3 w-full mb-4" },
-                        [_c("h2", [_vm._v("Add New Blog")])]
+                        {
+                          staticClass:
+                            "search-page__search-bar flex items-center"
+                        },
+                        [
+                          _c("vs-input", {
+                            staticClass: "inputx",
+                            staticStyle: { width: "100%" },
+                            attrs: { placeholder: "Enter Blog Title" },
+                            model: {
+                              value: _vm.title,
+                              callback: function($$v) {
+                                _vm.title = $$v
+                              },
+                              expression: "title"
+                            }
+                          })
+                        ],
+                        1
                       ),
                       _vm._v(" "),
                       _c(
-                        "div",
-                        { staticClass: "vx-col md:w-3/5 lg:w-2/3 w-full mb-4" },
+                        "vx-card",
+                        {
+                          staticClass:
+                            " no-shadow search-page__search-results lg:p-2",
+                          staticStyle: {
+                            "margin-top": "30px",
+                            padding: "0px!important"
+                          }
+                        },
+                        [
+                          _c("ckeditor", {
+                            attrs: {
+                              editor: _vm.editor,
+                              config: _vm.editorConfig
+                            },
+                            model: {
+                              value: _vm.content,
+                              callback: function($$v) {
+                                _vm.content = $$v
+                              },
+                              expression: "content"
+                            }
+                          })
+                        ],
+                        1
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "vx-col md:w-2/5 lg:w-1/3 w-full mb-base" },
+                    [
+                      _c(
+                        "vx-card",
+                        {
+                          staticClass: "no-shadow",
+                          attrs: { "card-border": "" }
+                        },
                         [
                           _c(
                             "div",
                             {
-                              staticClass:
-                                "search-page__search-bar flex items-center"
+                              staticClass: "vx-row md:flex-row flex-col-reverse"
                             },
                             [
-                              _c("vs-input", {
-                                staticClass: "inputx",
-                                staticStyle: { width: "100%" },
-                                attrs: { placeholder: "Enter Blog Title" },
-                                model: {
-                                  value: _vm.title,
-                                  callback: function($$v) {
-                                    _vm.title = $$v
+                              _c("div", { staticClass: "vx-col w-full mb-4" }, [
+                                _c(
+                                  "a",
+                                  {
+                                    staticClass: "drag-area bg-transparent",
+                                    style:
+                                      "background-position: center;background-image: url(" +
+                                      _vm.image +
+                                      ");background-size: cover;",
+                                    attrs: { href: "#!" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.$refs.uploadImgInput.click()
+                                      }
+                                    }
                                   },
-                                  expression: "title"
-                                }
-                              })
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "vx-card",
-                            {
-                              staticClass:
-                                " no-shadow search-page__search-results lg:p-2",
-                              staticStyle: {
-                                "margin-top": "30px",
-                                padding: "0px!important"
-                              }
-                            },
-                            [
-                              _c("ckeditor", {
-                                attrs: {
-                                  editor: _vm.editor,
-                                  config: _vm.editorConfig
-                                },
-                                model: {
-                                  value: _vm.content,
-                                  callback: function($$v) {
-                                    _vm.content = $$v
-                                  },
-                                  expression: "content"
-                                }
-                              })
-                            ],
-                            1
+                                  [
+                                    _c("input", {
+                                      directives: [
+                                        {
+                                          name: "validate",
+                                          rawName: "v-validate",
+                                          value: "required",
+                                          expression: "'required'"
+                                        }
+                                      ],
+                                      ref: "uploadImgInput",
+                                      staticClass: "hidden",
+                                      attrs: {
+                                        type: "file",
+                                        name: "image",
+                                        accept: "image/*"
+                                      },
+                                      on: { change: _vm.showImage }
+                                    }),
+                                    _vm._v(" "),
+                                    _vm.image == null
+                                      ? _c(
+                                          "div",
+                                          { attrs: { id: "uploadImage" } },
+                                          [
+                                            _c("div", { staticClass: "icon" }, [
+                                              _c("i", {
+                                                staticClass:
+                                                  "fas fa-cloud-upload-alt"
+                                              })
+                                            ]),
+                                            _vm._v(" "),
+                                            _c("header", [
+                                              _vm._v(
+                                                "Click to Upload Featured Image"
+                                              )
+                                            ])
+                                          ]
+                                        )
+                                      : _c("div", {
+                                          attrs: { id: "showImage" }
+                                        })
+                                  ]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "vx-col w-full" },
+                                [
+                                  _c(
+                                    "vs-button",
+                                    {
+                                      staticClass: "float-end",
+                                      staticStyle: {
+                                        padding: "8px 30px",
+                                        float: "right"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                          return _vm.addBlog($event)
+                                        }
+                                      }
+                                    },
+                                    [_vm._v("Publish")]
+                                  )
+                                ],
+                                1
+                              )
+                            ]
                           )
-                        ],
-                        1
+                        ]
                       ),
                       _vm._v(" "),
                       _c(
-                        "div",
+                        "vx-card",
                         {
-                          staticClass: "vx-col md:w-2/5 lg:w-1/3 w-full mb-base"
+                          staticClass: "no-shadow mt-4",
+                          staticStyle: { padding: "1rem !important" },
+                          attrs: { "card-border": "", title: "Category" }
                         },
                         [
                           _c(
-                            "vx-card",
+                            "div",
                             {
-                              staticClass: "no-shadow",
-                              attrs: { "card-border": "" }
+                              staticClass: "vx-row md:flex-row flex-col-reverse"
                             },
                             [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "vx-row md:flex-row flex-col-reverse"
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "vx-col w-full mb-4" },
-                                    [
-                                      _c(
-                                        "a",
-                                        {
-                                          staticClass:
-                                            "drag-area bg-transparent",
-                                          style:
-                                            "background-position: center;background-image: url(" +
-                                            _vm.image +
-                                            ");background-size: cover;",
-                                          attrs: { href: "#!" },
-                                          on: {
-                                            click: function($event) {
-                                              return _vm.$refs.uploadImgInput.click()
-                                            }
-                                          }
-                                        },
-                                        [
-                                          _c("input", {
-                                            directives: [
-                                              {
-                                                name: "validate",
-                                                rawName: "v-validate",
-                                                value: "required",
-                                                expression: "'required'"
-                                              }
-                                            ],
-                                            ref: "uploadImgInput",
-                                            staticClass: "hidden",
-                                            attrs: {
-                                              type: "file",
-                                              name: "image",
-                                              accept: "image/*"
-                                            },
-                                            on: { change: _vm.showImage }
-                                          }),
-                                          _vm._v(" "),
-                                          _vm.image == null
-                                            ? _c(
-                                                "div",
-                                                {
-                                                  attrs: { id: "uploadImage" }
-                                                },
-                                                [
-                                                  _c(
-                                                    "div",
-                                                    { staticClass: "icon" },
-                                                    [
-                                                      _c("i", {
-                                                        staticClass:
-                                                          "fas fa-cloud-upload-alt"
-                                                      })
-                                                    ]
-                                                  ),
-                                                  _vm._v(" "),
-                                                  _c("header", [
-                                                    _vm._v(
-                                                      "Click to Upload Featured Image"
-                                                    )
-                                                  ])
-                                                ]
-                                              )
-                                            : _c("div", {
-                                                attrs: { id: "showImage" }
-                                              })
-                                        ]
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "div",
-                                    { staticClass: "vx-col w-full" },
-                                    [
-                                      _c(
-                                        "vs-button",
-                                        {
-                                          staticClass: "float-end",
-                                          staticStyle: {
-                                            padding: "8px 30px",
-                                            float: "right"
-                                          },
-                                          on: {
-                                            click: function($event) {
-                                              $event.stopPropagation()
-                                              return _vm.addBlog($event)
-                                            }
-                                          }
-                                        },
-                                        [_vm._v("Publish")]
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ]
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "vx-card",
-                            {
-                              staticClass: "no-shadow mt-4",
-                              staticStyle: { padding: "1rem !important" },
-                              attrs: { "card-border": "", title: "Category" }
-                            },
-                            [
-                              _c(
-                                "div",
-                                {
-                                  staticClass:
-                                    "vx-row md:flex-row flex-col-reverse"
-                                },
-                                [
-                                  _c(
-                                    "div",
-                                    { staticClass: "vx-col w-full mb-4" },
-                                    [
-                                      _c(
-                                        "ul",
-                                        { staticClass: "centerx" },
-                                        _vm._l(_vm.categories, function(
-                                          catg,
-                                          index
-                                        ) {
-                                          return _c(
-                                            "li",
-                                            { key: index, staticClass: "mb-2" },
-                                            [
-                                              _c(
-                                                "vs-checkbox",
-                                                {
-                                                  attrs: {
-                                                    "vs-value": catg.id
-                                                  },
-                                                  model: {
-                                                    value: _vm.selectedCatg,
-                                                    callback: function($$v) {
-                                                      _vm.selectedCatg = $$v
-                                                    },
-                                                    expression: "selectedCatg"
-                                                  }
-                                                },
-                                                [_vm._v(_vm._s(catg.name))]
-                                              )
-                                            ],
-                                            1
-                                          )
-                                        }),
-                                        0
-                                      )
-                                    ]
-                                  )
-                                ]
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ]
-                  )
-                ])
-              : _c(
-                  "div",
-                  { attrs: { id: "all-blog-page" } },
-                  [
-                    _c(
-                      "vx-card",
-                      { attrs: { title: "Blogs" } },
-                      [
-                        _c(
-                          "vs-table",
-                          {
-                            attrs: {
-                              data: _vm.blogs,
-                              pagination: "",
-                              "max-items": "10",
-                              search: ""
-                            },
-                            scopedSlots: _vm._u([
-                              {
-                                key: "default",
-                                fn: function(ref) {
-                                  var data = ref.data
-                                  return _vm._l(data, function(tr, indextr) {
+                              _c("div", { staticClass: "vx-col w-full mb-4" }, [
+                                _c(
+                                  "ul",
+                                  { staticClass: "centerx" },
+                                  _vm._l(_vm.categories, function(catg, index) {
                                     return _c(
-                                      "vs-tr",
-                                      { key: indextr },
+                                      "li",
+                                      { key: index, staticClass: "mb-2" },
                                       [
-                                        _c("vs-td", [
-                                          _vm._v(
-                                            "\n                            " +
-                                              _vm._s(indextr + 1) +
-                                              "\n                        "
-                                          )
-                                        ]),
-                                        _vm._v(" "),
                                         _c(
-                                          "vs-td",
-                                          { attrs: { data: tr.image } },
-                                          [
-                                            _c("img", {
-                                              staticClass: "blog_list_img",
-                                              staticStyle: { width: "100px" },
-                                              attrs: {
-                                                src:
-                                                  "/blog/" +
-                                                  tr.id +
-                                                  "/image/" +
-                                                  tr.image
-                                              }
-                                            })
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "vs-td",
-                                          { attrs: { data: tr.title } },
-                                          [
-                                            _vm._v(
-                                              "\n                            " +
-                                                _vm._s(tr.title) +
-                                                "\n                        "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "vs-td",
+                                          "vs-checkbox",
                                           {
-                                            attrs: {
-                                              data: _vm._f("strippedContent")(
-                                                tr.content
-                                              )
+                                            attrs: { "vs-value": catg.id },
+                                            model: {
+                                              value: _vm.selectedCatg,
+                                              callback: function($$v) {
+                                                _vm.selectedCatg = $$v
+                                              },
+                                              expression: "selectedCatg"
                                             }
                                           },
-                                          [
-                                            _vm._v(
-                                              "\n                            " +
-                                                _vm._s(
-                                                  _vm._f("strippedContent")(
-                                                    tr.content
-                                                  )
-                                                ) +
-                                                "\n                        "
-                                            )
-                                          ]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "vs-td",
-                                          { attrs: { data: tr.stat[0].color } },
-                                          [
-                                            _c(
-                                              "vs-chip",
-                                              {
-                                                staticClass:
-                                                  "product-order-status",
-                                                attrs: {
-                                                  color: tr.stat[0].color
-                                                }
-                                              },
-                                              [_vm._v(_vm._s(tr.stat[0].name))]
-                                            ),
-                                            _vm._v(" "),
-                                            _c(
-                                              "template",
-                                              { slot: "edit" },
-                                              [
-                                                _c(
-                                                  "vs-select",
-                                                  {
-                                                    staticClass: "select-large",
-                                                    on: {
-                                                      input: function($event) {
-                                                        return _vm.updateStatus(
-                                                          _vm.updateselected,
-                                                          tr.id
-                                                        )
-                                                      }
-                                                    },
-                                                    model: {
-                                                      value: (_vm.updateselected =
-                                                        tr.stat[0].id),
-                                                      callback: function($$v) {
-                                                        _vm.$set(
-                                                          (_vm.updateselected =
-                                                            tr.stat[0]),
-                                                          "id",
-                                                          $$v
-                                                        )
-                                                      },
-                                                      expression:
-                                                        "updateselected = tr.stat[0].id"
-                                                    }
-                                                  },
-                                                  _vm._l(_vm.status, function(
-                                                    status,
-                                                    index
-                                                  ) {
-                                                    return _c(
-                                                      "vs-select-item",
-                                                      {
-                                                        key: index,
-                                                        staticClass: "w-full",
-                                                        attrs: {
-                                                          value: status.id,
-                                                          text: status.name
-                                                        }
-                                                      }
-                                                    )
-                                                  }),
-                                                  1
-                                                )
-                                              ],
-                                              1
-                                            )
-                                          ],
-                                          2
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "vs-td",
-                                          { staticClass: "whitespace-no-wrap" },
-                                          [
-                                            _c("feather-icon", {
-                                              attrs: {
-                                                icon: "EditIcon",
-                                                svgClasses:
-                                                  "w-5 h-5 hover:text-primary stroke-current"
-                                              },
-                                              on: {
-                                                click: function($event) {
-                                                  $event.stopPropagation()
-                                                  return _vm.editData(tr.id)
-                                                }
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("feather-icon", {
-                                              staticClass: "ml-2",
-                                              attrs: {
-                                                icon: "AwardIcon",
-                                                svgClasses:
-                                                  "w-5 h-5 hover:text-warning stroke-current"
-                                              },
-                                              on: {
-                                                click: function($event) {
-                                                  $event.stopPropagation()
-                                                  return _vm.seoEdit(tr.id)
-                                                }
-                                              }
-                                            }),
-                                            _vm._v(" "),
-                                            _c("feather-icon", {
-                                              staticClass: "ml-2",
-                                              attrs: {
-                                                icon: "TrashIcon",
-                                                svgClasses:
-                                                  "w-5 h-5 hover:text-warning stroke-current"
-                                              },
-                                              on: {
-                                                click: function($event) {
-                                                  $event.stopPropagation()
-                                                  return _vm.openAlert(tr.id)
-                                                }
-                                              }
-                                            })
-                                          ],
-                                          1
+                                          [_vm._v(_vm._s(catg.name))]
                                         )
                                       ],
                                       1
                                     )
-                                  })
-                                }
-                              }
-                            ])
-                          },
-                          [
-                            _c(
-                              "template",
-                              { slot: "thead" },
-                              [
-                                _c("vs-th", [_vm._v("Sno.")]),
-                                _vm._v(" "),
-                                _c("vs-th", [_vm._v("Image")]),
-                                _vm._v(" "),
-                                _c("vs-th", [_vm._v("Title")]),
-                                _vm._v(" "),
-                                _c("vs-th", [_vm._v("Content")]),
-                                _vm._v(" "),
-                                _c("vs-th", [_vm._v("Status")]),
-                                _vm._v(" "),
-                                _c("vs-th", [_vm._v("Actions")])
-                              ],
-                              1
-                            )
-                          ],
-                          2
-                        )
-                      ],
-                      1
-                    )
-                  ],
-                  1
-                )
+                                  }),
+                                  0
+                                )
+                              ])
+                            ]
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ]
+              )
+            ])
           ])
         ],
         1

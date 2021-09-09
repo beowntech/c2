@@ -28,519 +28,529 @@
         <meta name="twitter:data1" content="@yield('author_name')">
         <meta name="twitter:label2" content="Est. reading time">
         <meta name="twitter:data2" content="@yield('reading_time')">
-            @if(isset($schema))
-            {!! $schema !!}
-                @endif
+    @if(isset($schema))
+        {!! $schema !!}
+    @endif
 @endif
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J657B829VD"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-
-            gtag('js', new Date());
-
-            gtag('config', 'G-J657B829VD');
-        </script>
-
-
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
-              crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/0bee4dcff2.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="{{asset('assets/css/selectize.bootstrap4.min.css')}}"/>
-        <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
-        <link rel="stylesheet" href="{{asset('assets/css/menucss.css')}}">
-        <link rel="stylesheet" href="{{asset('assets/dist/simple-lightbox.css?v2.4.1')}}"/>
-        <link rel="stylesheet" href="{{asset('assets/css/jquery.datatable.min.css')}}">
-        <title>Best College Finding Website - Admission Jockey </title>
-        <style>
-            .selectize-input {
-                height: 35px !important;
-            }
-
-            .sl-overlay {
-                background: #000 !important;
-            }
-
-            .sl-counter {
-                color: white !important;
-            }
-
-            .sl-prev, .sl-next, .sl-close {
-                color: white !important;
-            }
-
-            .liveSearch {
-                position: absolute;
-                width: 93%;
-                background: white;
-                padding: 20px;
-                margin-top: 36px;
-                border: white;
-                border-bottom-right-radius: 10px !important;
-                margin-left: 4px !important;
-                border-bottom-left-radius: 10px !important;
-            }
-
-            .liveSearch ul {
-                list-style-type: none;
-                float: left;
-            }
-
-            .liveSearch ul li a {
-                color: black;
-                float: left;
-                padding: 10px 0px;
-                text-decoration: none;
-            }
-
-            .liveSearch ul li {
-                padding: 0px 10px;
-            }
-
-            .liveSearchExam {
-                position: absolute;
-                width: 93%;
-                background: white;
-                padding: 20px;
-                margin-top: 36px;
-                border: white;
-                border-bottom-right-radius: 10px !important;
-                margin-left: 4px !important;
-                border-bottom-left-radius: 10px !important;
-            }
-
-            .liveSearchExam ul {
-                list-style-type: none;
-                float: left;
-            }
-
-            .liveSearchExam ul li a {
-                color: black;
-                float: left;
-                padding: 10px 0px;
-                text-decoration: none;
-            }
-
-            .liveSearchExam ul li {
-                padding: 0px 10px;
-            }
-
-            .selectize-input {
-                height: 35px !important;
-            }
-
-            .liveSearch {
-                position: absolute;
-                width: 93%;
-                background: white;
-                padding: 20px;
-                margin-top: 36px;
-                border: white;
-                border-bottom-right-radius: 10px !important;
-                margin-left: 4px !important;
-                border-bottom-left-radius: 10px !important;
-            }
-
-            .liveSearch ul {
-                list-style-type: none;
-                float: left;
-            }
-
-            .liveSearch ul li a {
-                color: black;
-                float: left;
-                padding: 10px 0px;
-                text-decoration: none;
-            }
-
-            .liveSearch ul li {
-                padding: 0px 10px;
-            }
-
-            .ratings {
-                border: none;
-                float: left;
-            }
-
-            .ratings > input {
-                display: none;
-            }
-
-            .ratings > label:before {
-                margin: 5px;
-                font-size: 1.25em;
-                font-family: "Font Awesome 5 Free";
-                display: inline-block;
-                content: "\f005";
-                font-weight: 900;
-            }
-
-            .ratings > .half:before {
-                content: "\f089";
-                position: absolute;
-            }
-
-            .ratings > label {
-                color: #ddd;
-                float: right;
-            }
-
-            .ratings > input:checked ~ label,
-            .ratings:not(:checked) > label:hover,
-            .ratings:not(:checked) > label:hover ~ label {
-                color: #FFD700;
-            }
-
-            .ratings > input:checked + label:hover,
-            .ratings > input:checked ~ label:hover,
-            .ratings > label:hover ~ input:checked ~ label,
-            .ratings > input:checked ~ label:hover ~ label {
-                color: #FFED85;
-            }
-
-            .form-control {
-                border: 1px solid #dddddd;
-                border-radius: 3px;
-                padding: 10px 20px;
-                -webkit-box-shadow: none;
-                box-shadow: none;
-                font-size: 14px;
-                font-weight: 400;
-                color: #999999;
-                background-clip: inherit !important;
-            }
-
-            .form-group {
-                margin-bottom: 1rem;
-            }
-
-            /* Common */
-            body {
-                overflow-x: hidden;
-                font-size: 16px;
-                color: #2F2F2F;
-                font-family: 'Gotham', Arial;
-                background: #eee
-            }
-
-            h1, h2, h3, h4, h5, h6 {
-                font-family: 'Gotham', Arial
-            }
-
-            ul {
-                list-style: none;
-                padding: 0
-            }
-
-            /** UI Slider **/
-            .ui-progressbar {
-                height: 2em;
-                text-align: left;
-                overflow: hidden
-            }
-
-            .ui-progressbar .ui-progressbar-value {
-                margin: -1px;
-                height: 100%
-            }
-
-            .ui-progressbar-indeterminate .ui-progressbar-value {
-                background-image: none
-            }
-
-            .ui-selectable {
-                -ms-touch-action: none;
-                touch-action: none
-            }
-
-            .ui-selectable-helper {
-                position: absolute;
-                z-index: 100;
-                border: 1px dotted black
-            }
-
-            .ui-selectmenu-menu {
-                padding: 0;
-                margin: 0;
-                position: absolute;
-                top: 0;
-                left: 0;
-                display: none
-            }
-
-            .ui-selectmenu-menu .ui-menu {
-                overflow: auto;
-                overflow-x: hidden;
-                padding-bottom: 1px
-            }
-
-            .ui-selectmenu-open {
-                display: block
-            }
-
-            .ui-selectmenu-text {
-                display: block;
-                margin-right: 20px;
-                overflow: hidden;
-                text-overflow: ellipsis
-            }
-
-            .ui-selectmenu-button.ui-button {
-                text-align: left;
-                white-space: nowrap;
-                width: 14em
-            }
-
-            .ui-selectmenu-icon.ui-icon {
-                float: right;
-                margin-top: 0
-            }
-
-            .ui-slider {
-                position: relative;
-                text-align: left
-            }
-
-            .ui-slider .ui-slider-handle {
-                position: absolute;
-                z-index: 2;
-                width: 1.2em;
-                height: 1.2em;
-                cursor: default;
-                -ms-touch-action: none;
-                touch-action: none
-            }
-
-            .ui-slider .ui-slider-range {
-                position: absolute;
-                z-index: 1;
-                font-size: .7em;
-                display: block;
-                border: 0;
-                background-position: 0 0
-            }
-
-            .ui-slider.ui-state-disabled .ui-slider-handle, .ui-slider.ui-state-disabled .ui-slider-range {
-                filter: inherit
-            }
-
-            .ui-slider-horizontal {
-                height: .8em
-            }
-
-            .ui-slider-horizontal .ui-slider-handle {
-                top: -.3em;
-                margin-left: -.6em
-            }
-
-            .ui-slider-horizontal .ui-slider-range {
-                top: 0;
-                height: 100%
-            }
-
-            /** UI Slider **/
-
-            /* Widget Theming */
-            #widget {
-                margin: 50px auto;
-            }
-
-            #widget .wid_left {
-                width: calc(100% - 355px);
-            }
-
-            #widget .wid_left .form-group {
-                margin-bottom: 80px
-            }
-
-            #widget .wid_left .form-group label {
-                margin: 0;
-                font-size: 18px;
-                font-weight: 500; /* color: #212529; */
-            }
-
-            #widget .wid_left .form-group .range_indicator {
-                display: flex;
-                justify-content: space-between
-            }
-
-            #widget .wid_left .form-group .range_indicator .indi_rgt {
-                font-size: 16px;
-                font-weight: 500; /* color: #212529; */
-            }
-
-            #widget .wid_left .form-group label > span {
-                font-size: 14px;
-                font-weight: 400
-            }
-
-            #widget .wid_right {
-                width: 275px;
-                margin-left: 80px;
-                background: #fff;
-                border-radius: 20px;
-                padding: 0px 20px 40px;
-                text-align: center;
-            }
-
-            #widget .wid_right > li {
-                font-size: 15px;
-            }
-
-            #widget .wid_right > li:last-child {
-                text-transform: uppercase
-            }
-
-            #widget .wid_right > li:last-child p {
-                color: #ff5b00;
-                margin-bottom: 0
-            }
-
-            #widget .wid_right > li p.smtxt {
-                margin: 0;
-                font-size: 13px;
-                font-weight: 400;
-                text-transform: capitalize;
-                color: #212529;
-            }
-
-            #widget .wid_right > li p {
-                display: block;
-                margin-bottom: 28px;
-                font-size: 21px;
-                font-weight: 700;
-                color: #4a4a4a
-            }
-
-            #widget .wid_right > li p i {
-                font-size: 0.8em
-            }
-
-            #widget .ui-widget.ui-widget-content {
-                background: #b9b9b9;
-                border: none;
-                -webkit-border-radius: 0px;
-                -moz-border-radius: 0px;
-                border-radius: 0px;
-                height: 13px;
-                margin-top: 14px;
-            }
-
-            #widget .ui-widget-header {
-                background: #ff5b00; /* height: 3px; */
-            }
-
-            #widget .ui-slider .ui-slider-handle {
-                width: 12px;
-                height: 12px;
-                cursor: pointer;
-                -webkit-border-radius: 0;
-                -moz-border-radius: 0;
-                border-radius: 40px;
-                background: #ff5b00;
-                border: none;
-                top: -5px;
-                outline: none;
-            }
-
-            .scalerange {
-                display: flex;
-                width: calc(100% + 32px);
-                justify-content: space-between;
-                margin: 0 -15px;
-                font-size: 12px;
-                color: #4a4a4a
-            }
-
-            .scalerange span {
-                text-align: center;
-                min-width: 35px;
-                padding-top: 16px;
-                position: relative
-            }
-
-            .scalerange span:before {
-                content: '';
-                background: #a9a9a9;
-                display: block;
-                width: 1px;
-                height: 9px;
-                position: absolute;
-                top: 7px;
-                left: calc(50% - 1px);
-            }
-
-            #widget .ui-slider .ui-slider-handle {
-                margin-left: -6px;
-                box-shadow: 0px 0px 3px black;
-            }
-
-            .fix-scroll::-webkit-scrollbar {
-                width: 7px;
-            }
-
-            .fix-scroll::-webkit-scrollbar-track {
-                -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 63%);
-                border-radius: 14px;
-            }
-
-            .fix-scroll::-webkit-scrollbar-thumb {
-                border-radius: 14px;
-                -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 93%);
-            }
-
-            .dotbox {
-                width: 100%;
-                border: 1px dashed #666;
-                padding: 16px 0;
-                font-size: 14px;
-                color: #000;
-                cursor: pointer;
-                text-shadow: none;
-                border-radius: 7px;
-            }
-
-            .flexColumnCenterMiddle {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .plus-college {
-                position: relative;
-                height: 24px;
-                width: 24px;
-                margin: 10px;
-            }
-
-        </style>
-
-
-<!-- Facebook Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '538838667302077');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=538838667302077&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J657B829VD"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-J657B829VD');
+    </script>
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
+          crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0bee4dcff2.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{asset('assets/css/selectize.bootstrap4.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('assets/css/main.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/menucss.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/dist/simple-lightbox.css?v2.4.1')}}"/>
+    <link rel="stylesheet" href="{{asset('assets/css/jquery.datatable.min.css')}}">
+    <title>Best College Finding Website - Admission Jockey </title>
+    <style>
+        .selectize-input {
+            height: 35px !important;
+        }
+
+        .sl-overlay {
+            background: #000 !important;
+        }
+
+        .sl-counter {
+            color: white !important;
+        }
+
+        .sl-prev, .sl-next, .sl-close {
+            color: white !important;
+        }
+
+        .liveSearch {
+            position: absolute;
+            width: 93%;
+            background: white;
+            padding: 20px;
+            margin-top: 36px;
+            border: white;
+            border-bottom-right-radius: 10px !important;
+            margin-left: 4px !important;
+            border-bottom-left-radius: 10px !important;
+        }
+
+        .liveSearch ul {
+            list-style-type: none;
+            float: left;
+        }
+
+        .liveSearch ul li a {
+            color: black;
+            float: left;
+            padding: 10px 0px;
+            text-decoration: none;
+        }
+
+        .liveSearch ul li {
+            padding: 0px 10px;
+        }
+
+        .liveSearchExam {
+            position: absolute;
+            width: 93%;
+            background: white;
+            padding: 20px;
+            margin-top: 36px;
+            border: white;
+            border-bottom-right-radius: 10px !important;
+            margin-left: 4px !important;
+            border-bottom-left-radius: 10px !important;
+        }
+
+        .liveSearchExam ul {
+            list-style-type: none;
+            float: left;
+        }
+
+        .liveSearchExam ul li a {
+            color: black;
+            float: left;
+            padding: 10px 0px;
+            text-decoration: none;
+        }
+
+        .liveSearchExam ul li {
+            padding: 0px 10px;
+        }
+
+        .selectize-input {
+            height: 35px !important;
+        }
+
+        .liveSearch {
+            position: absolute;
+            width: 93%;
+            background: white;
+            padding: 20px;
+            margin-top: 36px;
+            border: white;
+            border-bottom-right-radius: 10px !important;
+            margin-left: 4px !important;
+            border-bottom-left-radius: 10px !important;
+        }
+
+        .liveSearch ul {
+            list-style-type: none;
+            float: left;
+        }
+
+        .liveSearch ul li a {
+            color: black;
+            float: left;
+            padding: 10px 0px;
+            text-decoration: none;
+        }
+
+        .liveSearch ul li {
+            padding: 0px 10px;
+        }
+
+        .ratings {
+            border: none;
+            float: left;
+        }
+
+        .ratings > input {
+            display: none;
+        }
+
+        .ratings > label:before {
+            margin: 5px;
+            font-size: 1.25em;
+            font-family: "Font Awesome 5 Free";
+            display: inline-block;
+            content: "\f005";
+            font-weight: 900;
+        }
+
+        .ratings > .half:before {
+            content: "\f089";
+            position: absolute;
+        }
+
+        .ratings > label {
+            color: #ddd;
+            float: right;
+        }
+
+        .ratings > input:checked ~ label,
+        .ratings:not(:checked) > label:hover,
+        .ratings:not(:checked) > label:hover ~ label {
+            color: #FFD700;
+        }
+
+        .ratings > input:checked + label:hover,
+        .ratings > input:checked ~ label:hover,
+        .ratings > label:hover ~ input:checked ~ label,
+        .ratings > input:checked ~ label:hover ~ label {
+            color: #FFED85;
+        }
+
+        .form-control {
+            border: 1px solid #dddddd;
+            border-radius: 3px;
+            padding: 10px 20px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            font-size: 14px;
+            font-weight: 400;
+            color: #999999;
+            background-clip: inherit !important;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        /* Common */
+        body {
+            overflow-x: hidden;
+            font-size: 16px;
+            color: #2F2F2F;
+            font-family: 'Gotham', Arial;
+            background: #eee
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Gotham', Arial
+        }
+
+        ul {
+            list-style: none;
+            padding: 0
+        }
+
+        /** UI Slider **/
+        .ui-progressbar {
+            height: 2em;
+            text-align: left;
+            overflow: hidden
+        }
+
+        .ui-progressbar .ui-progressbar-value {
+            margin: -1px;
+            height: 100%
+        }
+
+        .ui-progressbar-indeterminate .ui-progressbar-value {
+            background-image: none
+        }
+
+        .ui-selectable {
+            -ms-touch-action: none;
+            touch-action: none
+        }
+
+        .ui-selectable-helper {
+            position: absolute;
+            z-index: 100;
+            border: 1px dotted black
+        }
+
+        .ui-selectmenu-menu {
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none
+        }
+
+        .ui-selectmenu-menu .ui-menu {
+            overflow: auto;
+            overflow-x: hidden;
+            padding-bottom: 1px
+        }
+
+        .ui-selectmenu-open {
+            display: block
+        }
+
+        .ui-selectmenu-text {
+            display: block;
+            margin-right: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis
+        }
+
+        .ui-selectmenu-button.ui-button {
+            text-align: left;
+            white-space: nowrap;
+            width: 14em
+        }
+
+        .ui-selectmenu-icon.ui-icon {
+            float: right;
+            margin-top: 0
+        }
+
+        .ui-slider {
+            position: relative;
+            text-align: left
+        }
+
+        .ui-slider .ui-slider-handle {
+            position: absolute;
+            z-index: 2;
+            width: 1.2em;
+            height: 1.2em;
+            cursor: default;
+            -ms-touch-action: none;
+            touch-action: none
+        }
+
+        .ui-slider .ui-slider-range {
+            position: absolute;
+            z-index: 1;
+            font-size: .7em;
+            display: block;
+            border: 0;
+            background-position: 0 0
+        }
+
+        .ui-slider.ui-state-disabled .ui-slider-handle, .ui-slider.ui-state-disabled .ui-slider-range {
+            filter: inherit
+        }
+
+        .ui-slider-horizontal {
+            height: .8em
+        }
+
+        .ui-slider-horizontal .ui-slider-handle {
+            top: -.3em;
+            margin-left: -.6em
+        }
+
+        .ui-slider-horizontal .ui-slider-range {
+            top: 0;
+            height: 100%
+        }
+
+        /** UI Slider **/
+
+        /* Widget Theming */
+        #widget {
+            margin: 50px auto;
+        }
+
+        #widget .wid_left {
+            width: calc(100% - 355px);
+        }
+
+        #widget .wid_left .form-group {
+            margin-bottom: 80px
+        }
+
+        #widget .wid_left .form-group label {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500; /* color: #212529; */
+        }
+
+        #widget .wid_left .form-group .range_indicator {
+            display: flex;
+            justify-content: space-between
+        }
+
+        #widget .wid_left .form-group .range_indicator .indi_rgt {
+            font-size: 16px;
+            font-weight: 500; /* color: #212529; */
+        }
+
+        #widget .wid_left .form-group label > span {
+            font-size: 14px;
+            font-weight: 400
+        }
+
+        #widget .wid_right {
+            width: 275px;
+            margin-left: 80px;
+            background: #fff;
+            border-radius: 20px;
+            padding: 0px 20px 40px;
+            text-align: center;
+        }
+
+        #widget .wid_right > li {
+            font-size: 15px;
+        }
+
+        #widget .wid_right > li:last-child {
+            text-transform: uppercase
+        }
+
+        #widget .wid_right > li:last-child p {
+            color: #ff5b00;
+            margin-bottom: 0
+        }
+
+        #widget .wid_right > li p.smtxt {
+            margin: 0;
+            font-size: 13px;
+            font-weight: 400;
+            text-transform: capitalize;
+            color: #212529;
+        }
+
+        #widget .wid_right > li p {
+            display: block;
+            margin-bottom: 28px;
+            font-size: 21px;
+            font-weight: 700;
+            color: #4a4a4a
+        }
+
+        #widget .wid_right > li p i {
+            font-size: 0.8em
+        }
+
+        #widget .ui-widget.ui-widget-content {
+            background: #b9b9b9;
+            border: none;
+            -webkit-border-radius: 0px;
+            -moz-border-radius: 0px;
+            border-radius: 0px;
+            height: 13px;
+            margin-top: 14px;
+        }
+
+        #widget .ui-widget-header {
+            background: #ff5b00; /* height: 3px; */
+        }
+
+        #widget .ui-slider .ui-slider-handle {
+            width: 12px;
+            height: 12px;
+            cursor: pointer;
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 40px;
+            background: #ff5b00;
+            border: none;
+            top: -5px;
+            outline: none;
+        }
+
+        .scalerange {
+            display: flex;
+            width: calc(100% + 32px);
+            justify-content: space-between;
+            margin: 0 -15px;
+            font-size: 12px;
+            color: #4a4a4a
+        }
+
+        .scalerange span {
+            text-align: center;
+            min-width: 35px;
+            padding-top: 16px;
+            position: relative
+        }
+
+        .scalerange span:before {
+            content: '';
+            background: #a9a9a9;
+            display: block;
+            width: 1px;
+            height: 9px;
+            position: absolute;
+            top: 7px;
+            left: calc(50% - 1px);
+        }
+
+        #widget .ui-slider .ui-slider-handle {
+            margin-left: -6px;
+            box-shadow: 0px 0px 3px black;
+        }
+
+        .fix-scroll::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        .fix-scroll::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 63%);
+            border-radius: 14px;
+        }
+
+        .fix-scroll::-webkit-scrollbar-thumb {
+            border-radius: 14px;
+            -webkit-box-shadow: inset 0 0 6px rgb(0 0 0 / 93%);
+        }
+
+        .dotbox {
+            width: 100%;
+            border: 1px dashed #666;
+            padding: 16px 0;
+            font-size: 14px;
+            color: #000;
+            cursor: pointer;
+            text-shadow: none;
+            border-radius: 7px;
+        }
+
+        .flexColumnCenterMiddle {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .plus-college {
+            position: relative;
+            height: 24px;
+            width: 24px;
+            margin: 10px;
+        }
+
+    </style>
+
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '538838667302077');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=538838667302077&ev=PageView&noscript=1"
+        /></noscript>
+    <!-- End Facebook Pixel Code -->
 
 </head>
 <body>
@@ -560,7 +570,8 @@ src="https://www.facebook.com/tr?id=538838667302077&ev=PageView&noscript=1"
     background: none;
     font-size: 3em;
     margin: -40px -15px 0px 5px;
-    border: none;">×</button>
+    border: none;">×
+                    </button>
                     <div class="more-links colleges">Top Universities</div>
                     <ul>
                         <li class="back"></li>
@@ -3746,17 +3757,19 @@ src="https://www.facebook.com/tr?id=538838667302077&ev=PageView&noscript=1"
                         </li>
                     </ul>
                 </li>
-{{--                @if(!Auth::user())--}}
-{{--                    <li>--}}
-{{--                        <a href="/login" class="scolor"> <i class="fas fa-user" aria-hidden="true"></i> Login </a>--}}
-{{--                    </li>--}}
-{{--                @else--}}
-{{--                    <li>--}}
-{{--                        <a href="/logout" class="scolor"> <i class="fas fa-user" aria-hidden="true"></i> Logout </a>--}}
-{{--                    </li>--}}
-{{--                @endif--}}
+                {{--                @if(!Auth::user())--}}
+                {{--                    <li>--}}
+                {{--                        <a href="/login" class="scolor"> <i class="fas fa-user" aria-hidden="true"></i> Login </a>--}}
+                {{--                    </li>--}}
+                {{--                @else--}}
+                {{--                    <li>--}}
+                {{--                        <a href="/logout" class="scolor"> <i class="fas fa-user" aria-hidden="true"></i> Logout </a>--}}
+                {{--                    </li>--}}
+                {{--                @endif--}}
                 <li>
-                    <button type="button" class="btn site-btn-1 ml-2" data-bs-toggle="modal" data-bs-target="#informationModel"> Request Free Info </button>
+                    <button type="button" class="btn site-btn-1 ml-2" data-bs-toggle="modal"
+                            data-bs-target="#informationModel"> Request Free Info
+                    </button>
                 </li>
             </ul>
         </nav>

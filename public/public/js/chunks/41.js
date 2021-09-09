@@ -3471,40 +3471,11 @@ var render = function(_h, _vm) {
             _vm._s(new Date().getFullYear()) +
             ", All rights Reserved"
         )
-      ]),
-      _vm._v(" "),
-      _c(
-        "span",
-        { staticClass: "md:flex hidden items-center" },
-        [
-          _c("span", [_vm._v("Made with")]),
-          _vm._v(" "),
-          _c("feather-icon", {
-            staticClass: "ml-2 mr-2",
-            attrs: {
-              icon: "HeartIcon",
-              svgClasses: "stroke-current text-danger w-6 h-6"
-            }
-          }),
-          _vm._v(" "),
-          _vm._m(0)
-        ],
-        1
-      )
+      ])
     ]
   )
 }
-var staticRenderFns = [
-  function(_h, _vm) {
-    var _c = _vm._c
-    return _c("span", [
-      _vm._v("by  "),
-      _c("a", { attrs: { href: "https://beowntech.com", target: "_blank" } }, [
-        _vm._v("Beowntech")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -7523,7 +7494,26 @@ __webpack_require__.r(__webpack_exports__);
     name: "Blog",
     icon: "BookIcon",
     slug: "blog",
-    i18n: "Blog"
+    i18n: "Blog",
+    submenu: [{
+      url: '/blog',
+      name: "List",
+      icon: "BookIcon",
+      slug: "blog",
+      i18n: "List"
+    }, {
+      url: '/blog/create',
+      name: "Create",
+      icon: "BookIcon",
+      slug: "blog",
+      i18n: "Create"
+    }, {
+      url: '/blog/video',
+      name: "Videos",
+      icon: "BookIcon",
+      slug: "blog",
+      i18n: "Videos"
+    }]
   }]
 }, {
   header: "Exam",

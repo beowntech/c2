@@ -54,6 +54,16 @@ Route::get('dashboard', 'AlotFronController@dashboard');
 Route::get('profile', 'AlotFronController@profile');
 Route::post('add_review','AlotFronController@addReview');
 Route::get('change-password', 'AlotFronController@changePass');
+
+Route::get('hostel-form', function (){
+    return view('front.blog.forms.hostalform');
+});
+
+Route::post('hostel-form/submit', 'BestHotelFormController@store');
+
+Route::get('loan-form', function (){
+    return view('front.blog.forms.loanform');
+});
 //Route::get('/login', function (){
 //    return view('alotfront.auth.login');
 //});
@@ -144,7 +154,7 @@ Route::get('coming-soon', function (){
 });
 
 Route::get('test', function (){
-    event(new Enquiry(3));
+    return view('front.blog.index');
 });
 
 Route::post('gakey',function (Request $request){

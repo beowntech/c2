@@ -13,6 +13,7 @@ use App\FrontCategories;
 use App\Hostel;
 use App\ImagesModel;
 use App\Locations;
+use App\Option;
 use App\PagesModel;
 use App\Properties;
 use App\Review;
@@ -268,7 +269,7 @@ class AlotFronController extends Controller
             Tales::where('id', $s->tales[0]->id)->increment('views');
             return view('front.blog-detail', compact('data', 'related', 'colleges'));
         }
-        $data = Tales::where('deleted_at',null)->paginate(12);
+        $data = Tales::where('deleted_at',null)->paginate(6);
         foreach ($data as $k => $d) {
             $sep = Tales::find($d->id);
             $data[$k]['user'] = User::where('id', $d->user_id)->get();
@@ -283,7 +284,8 @@ class AlotFronController extends Controller
         foreach ($cat as $c => $ca) {
             $type[] = Categories::where('id', $ca->type)->get();
         }
-        return view('front.blog', compact('data', 'type'));
+        $option = Option::where('option_name','blog_video')->get();
+        return view('front.blog.index', compact('data', 'type','option'));
     }
 
     public function changeCurr(Request $request)
@@ -548,5 +550,10 @@ class AlotFronController extends Controller
             DB::table('button_stats') ->where('url',$url[0])->whereDate('created_at',Carbon::today())->increment('whatsapp');
             return redirect(env('WHATSAPP'));
         }
+    }
+
+    public function searchCity($search = ""){
+        $data = CityModel::where('name','LIKE','%'.$search.'%')->limit(50)->get();
+        return $data;
     }
 }

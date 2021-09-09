@@ -266,6 +266,29 @@ export default [
                 icon: "BookIcon",
                 slug: "blog",
                 i18n: "Blog",
+                submenu: [
+                    {
+                        url: '/blog',
+                        name: "List",
+                        icon: "BookIcon",
+                        slug: "blog",
+                        i18n: "List",
+                    },
+                    {
+                        url: '/blog/create',
+                        name: "Create",
+                        icon: "BookIcon",
+                        slug: "blog",
+                        i18n: "Create",
+                    },
+                    {
+                        url: '/blog/video',
+                        name: "Videos",
+                        icon: "BookIcon",
+                        slug: "blog",
+                        i18n: "Videos",
+                    },
+                ]
             }
         ]
     },

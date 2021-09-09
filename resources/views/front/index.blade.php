@@ -38,7 +38,7 @@
 {{--                    </p>--}}
 {{--                </div>--}}
 {{--            </div>--}}
-           <div class="carousel-item active" style="min-height:100%;  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0), rgba(255, 255, 255, 0.9)), url('{{env('MEDIA_URL')}}property/15/gallery/featured/featured_1626329156.JPG');  background-size:cover;background-position: top">
+           <div class="carousel-item active" style="min-height:100%;  background:linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.0), rgba(255, 255, 255, 0.9)), url('{{env('MEDIA_URL')}}property/15/gallery/featured/featured-15-1629357165-xl.JPG');  background-size:cover;background-position: top">
                <div class="carousel-caption">
                    <p class="float-end"><a href="http://okadmission.com/college-in-bhopal/uttaranchal-university"> UTTARANCHAL P.G COLLEGE OF BIOMEDICAL SCIENCES AND HOSPITAL, Rajpur </a>
                    </p>

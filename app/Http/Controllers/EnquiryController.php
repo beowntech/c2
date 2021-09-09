@@ -279,11 +279,11 @@ class EnquiryController extends Controller
             $data = new InformationForm();
             $data->name = $request->name;
             $data->email = $request->email;
-            $data->location = $request->location;
+//            $data->location = $request->location;
             $data->contact = $request->contact;
             $data->course = $request->course;
-            $data->program_type = $request->program;
-            $data->from_page = str_replace(env('APP_URL'),'',url()->previous());
+//            $data->program_type = $request->program;
+            $data->from_page = $request->url;
             $data->save();
             if ($data) {
                 return back()->with('informationSuccess', 'Form has been Submitted. Thank you for your Enquiry!');
