@@ -285,7 +285,8 @@ class AlotFronController extends Controller
             $type[] = Categories::where('id', $ca->type)->get();
         }
         $option = Option::where('option_name','blog_video')->get();
-        return view('front.blog.index', compact('data', 'type','option'));
+        $courses = FrontCategories::where('parent_id',0)->with('children')->get();
+        return view('front.blog.index', compact('data', 'type','option','courses'));
     }
 
     public function changeCurr(Request $request)
