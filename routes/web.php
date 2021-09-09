@@ -61,6 +61,8 @@ Route::get('hostel-form', function (){
 
 Route::post('hostel-form/submit', 'BestHotelFormController@store');
 
+Route::post('comment', 'CommentController@store');
+
 Route::get('loan-form', function (){
     return view('front.blog.forms.loanform');
 });

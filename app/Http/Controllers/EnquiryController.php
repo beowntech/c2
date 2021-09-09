@@ -2,22 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Enquiry;
-use App\Enquiries;
-use App\Properties;
-use App\Review;
-use App\Status;
-use App\Testimonial;
-use App\User;
+use App\{
+    Enquiry,
+    Enquiries,
+    Properties,
+    Review,
+    Status,
+    Testimonial,
+    User,
+    Cyber,
+    Excel,
+    DynamicEnquiry,
+    DynamicPage,
+    InformationForm
+};
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Cyber;
-use App\Excel;
-
-use App\DynamicEnquiry;
-use App\DynamicPage;
 use Illuminate\Support\Facades\DB;
-use App\InformationForm;
 
 class EnquiryController extends Controller
 {

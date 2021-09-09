@@ -33,29 +33,41 @@
                     {!! $val->content !!}
                 </div>
                 <h5 class="mt-4"><i class="far fa-comments"></i> Leave a Comment</h5>
-
+                @if (\Session::has('success') || \Session::has('error'))
+                    @if (\Session::has('success'))
+                        <div class="alert alert-success">
+                            {!! \Session::get('success') !!}
+                        </div>
+                    @elseif(\Session::has('error'))
+                        <div class="alert alert-danger">
+                            {!! \Session::get('error') !!}
+                        </div>
+                    @endif
+                @else
                 <div class="bg-white p-3">
 
-                    <form>
+                    <form action="/comment" method="POST">
                         <div >
-
+                            @csrf
+                            <input type="hidden" value="{{$val->id}}" name="blog_id">
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control" placeholder="Name">
+                                    <input type="text" name="name" class="form-control" placeholder="Name" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <input type="text" class="form-control" placeholder="Email address">
+                                    <input type="text" name="email" class="form-control" placeholder="Email address" required>
                                 </div>
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <textarea name="" class="form-control" rows="4" placeholder="Write Your Comment"></textarea>
+                            <textarea name="content" class="form-control" rows="4" placeholder="Write Your Comment" required></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary px-5">Post a Comment</button>
                     </form>
                 </div>
+                @endif
 
             </div>
             <div class="col-md-4 mb-3 sidebar">
