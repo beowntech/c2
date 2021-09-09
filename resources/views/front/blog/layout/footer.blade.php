@@ -34,7 +34,7 @@
 <div class="d-block d-sm-none fixed-bottom bg-white py-1 px-3 xs-menu">
     <div class="row mb-2">
         <div class="col">
-            <a href="#" class="btn mb-enq-btn rounded-0" data-bs-toggle="modal" data-bs-target="#bestDealForm"> Get best deals </a>
+            <a href="#" class="btn mb-enq-btn rounded-0" data-bs-toggle="modal" data-bs-target="#blogConsultingModal"> Get best deals </a>
         </div>
     </div>
 </div>
