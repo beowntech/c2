@@ -199,7 +199,7 @@
                 })
         })()
         @if (\Session::has('success') || \Session::has('error'))
-        $("html, body").animate({scrollTop: $(document).height()}, 1000);
+          $("html, body").animate({scrollTop: $(document).height()}, 1000);
         @endif
     </script>
 @endsection
