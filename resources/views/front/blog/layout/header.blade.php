@@ -3,6 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/assets/images/admission-jockey-logo.png" type="image/x-icon">
+    <link rel="icon" href="/assets/images/admission-jockey-logo.png" type="image/x-icon">
     @if (trim($__env->yieldContent('show')))
         <meta name="description" content="@yield('description')"/>
         <link rel="canonical" href="@yield('canonical')"/>
@@ -32,7 +34,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.min.css">
-    <title>Admission Jockey</title>
+    <title>@yield('title')</title>
 <style>
     .blog-navigation ul{
         justify-content: center;
