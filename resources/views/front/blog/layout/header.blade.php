@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/css/selectize.bootstrap4.min.css">
-    <title>@yield('title') ?? Admission Jockey</title>
+    <title>@yield('title') : Admission Jockey</title>
 <style>
     .blog-navigation ul{
         justify-content: center;
