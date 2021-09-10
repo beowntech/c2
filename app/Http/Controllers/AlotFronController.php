@@ -557,4 +557,5 @@ class AlotFronController extends Controller
         $data = CityModel::where('name','LIKE','%'.$search.'%')->limit(50)->get();
         return $data;
     }
+
 }

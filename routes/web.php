@@ -60,6 +60,7 @@ Route::get('hostel-form', function (){
 });
 
 Route::post('hostel-form/submit', 'BestHotelFormController@store');
+Route::post('edu-loan/submit', 'EducationLoanFormController@store');
 
 Route::post('comment', 'CommentController@store');
 
@@ -70,7 +71,7 @@ Route::get('loan-form', function (){
 //    return view('alotfront.auth.login');
 //});
 Route::get('/add-tales', 'AlotFronController@tales');
-Route::get('/blogs', 'AlotFronController@blog');
+Route::get('/blog', 'AlotFronController@blog');
 Route::post('/login', 'UserController@fLogin');
 Route::post('/add_user_tale', 'AlotFronController@addTale');
 Route::post('applogin','UserController@appLogin');

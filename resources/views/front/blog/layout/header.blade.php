@@ -44,14 +44,14 @@
     <div class="container">
         <div class="row py-3">
             <div class="col-md-12">
-                <img src="assets/images/admission-jockey-logo1.png" class="logo" alt="">
+                <a href="/blog"><img src="/assets/images/admission-jockey-logo1.png" class="logo" alt=""></a>
 
                 <ul class="list-unstyled ver-line-menu float-end mb-0">
                     <li><a href="mailto:contact@admissionjockey.com" class="text-decoration-none link-a"> <img src="assets/images/icon/email.png" alt=""><span class="sm-hide"> contact@admissionjockey.com </span> </a></li>
-                    <li><a href="tel:+91 7060243009" class="text-decoration-none link-a"> <img src="assets/images/icon/call.png" alt=""> <span class="sm-hide">+91 7060243009 </span> </a></li>
-                    <li class=""><a href="#" class="sm-hide fw-bold"> Become a Partner </a></li>
+                    <li><a class="text-decoration-none link-a sm-hide"> <img src="/assets/images/icon/call.png" alt=""> <span class="sm-hide">+91 7060243009 </span> </a></li>
+                    <li><a href="tel:+91 7060243009" class="text-decoration-none link-a d-sm-none"> <img src="assets/images/icon/call.png" alt=""> <span class="sm-hide">+91 7060243009 </span> </a></li>
+                    <li class=""><a href="/cyber-partner" class="fw-bold pcolor sm-hide"> Become a Partner </a></li>
                 </ul>
-
             </div>
         </div>
     </div>

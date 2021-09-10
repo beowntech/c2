@@ -9,7 +9,7 @@
     <div class="container">
         <div class="row pt-4 pb-5">
             <div class="col-md-6 offset-md-3 loan-form">
-                <h2 class="text-center link-a f24">Apply For Best Hostel</h2>
+                <h2 class="text-center link-a f28">Apply For Best Hostel</h2>
                 <p class="text-center link-a">We are Providing best accomodation facilities near your college</p>
                 @if (\Session::has('success') || \Session::has('error'))
                     @if (\Session::has('success'))
@@ -78,7 +78,7 @@
                     </div>
 
                     <button type="submit" class="btn site-btn-3 mt-4">Submit</button>
-                    <p class="text-secondary text-center mt-4">close</p>
+                    <p class="text-secondary text-center mt-4"><a href="/blog" class="text-decoration-none text-secondary">Close</a></p>
                     </form>
                 @endif
             </div>

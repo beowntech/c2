@@ -4,7 +4,7 @@
 @section('description',$data[0]->seo[0]->description)
 @section('published_on',$data[0]->created_at)
 @section('updated_on',$data[0]->update_at)
-@section('featured','/blog/'.$data[0]->id.'/image/'.$data[0]->image)
+@section('featured','/blogs/'.$data[0]->id.'/image/'.$data[0]->image)
 @section('canonical',$data[0]->seo[0]->canonical)
 @section('keyword',$data[0]->seo[0]->primary_focus_keyword)
 {{--@section('author_name','Deb Jyoti Shah')--}}
@@ -27,7 +27,7 @@
                 <div class="college-data px-2 py-3 mb-3 bg-white">
                     <h2>{{$val->title}}</h2>
                     <!-- feartured image                -->
-                    <img src="{{env('MEDIA_URL')}}blog/{{$val->id}}/image/{{$val->image}}" class="w-100 mb-3" alt="" srcset="">
+                    <img src="{{env('MEDIA_URL')}}blogs/{{$val->id}}/image/{{$val->image}}" class="w-100 mb-3" alt="" srcset="">
                 {!! $val->content !!}
                 </div>
                  <div class="college-data px-2 py-3 mb-3 bg-white">
@@ -134,7 +134,7 @@
                         @if($rel->id != $val->id)
                     <div class="col-md-12 p-3">
                         <div class="college-info-1">
-                            <div class="cover-img position-relative" style="background:url({{env('MEDIA_URL')}}blog/{{$rel->id}}/image/{{$rel->image}});background-size:cover;">
+                            <div class="cover-img position-relative" style="background:url({{env('MEDIA_URL')}}blogs/{{$rel->id}}/image/{{$rel->image}});background-size:cover;">
 
                                 <div class="college-info-name position-absolute bottom-0 start-0 px-2 pb-1">
                                     <p><a href="/{{$rel->seo[0]->permalink}}">{{$rel->title}}</a></p>

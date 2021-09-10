@@ -20,7 +20,7 @@
                         <div class="blog-card">
 
                             <div class="card-featured-img"
-                                 style="background:url({{$val->image != null ? env('MEDIA_URL')."blog/$val->id/image/$val->image" : "/assets/images/admission-jockey-logo.png"}});background-size: cover;background-position: center;"></div>
+                                 style="background:url({{$val->image != null ? env('MEDIA_URL')."blogs/$val->id/image/$val->image" : "/assets/images/admission-jockey-logo.png"}});background-size: cover;background-position: center;"></div>
 
                             <div class="px-4 content-box">
                                 <a href="/{{$val->seo[0]->permalink}}"><h2 class="blog-title">{{$val->title}}</h2></a>

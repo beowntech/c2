@@ -35,6 +35,7 @@ class EducationLoanFormController extends Controller
      */
     public function store(Request $request)
     {
+        $request['status'] = 1;
         $data = EducationLoanForm::create($request->all());
         if($data){
             return back()->with('success','Form Submitted Successfully');

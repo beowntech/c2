@@ -4,7 +4,7 @@
 @section('description',$data[0]->seo[0]->description)
 @section('published_on',$data[0]->created_at)
 @section('updated_on',$data[0]->updated_at)
-@section('featured',env('MEDIA_URL').'blog/'.$data[0]->id.'/image/'.$data[0]->image)
+@section('featured',env('MEDIA_URL').'blogs/'.$data[0]->id.'/image/'.$data[0]->image)
 @section('canonical',$data[0]->seo[0]->canonical)
 @section('keyword',$data[0]->seo[0]->primary_focus_keyword)
 {{--@section('author_name','Deb Jyoti Shah')--}}
@@ -28,7 +28,7 @@
             <div class="col-md-8 mb-3 blog-detail">
                 <h1 class="">{{$val->title}}</h1>
                 <p class="pcolor my-1">{{date('F Y',strtotime($val->updated_at))}}</p>
-                <img src="{{env('MEDIA_URL')}}blog/{{$val->id}}/image/{{$val->image}}" witth="100%" alt="">
+                <img src="{{env('MEDIA_URL')}}blogs/{{$val->id}}/image/{{$val->image}}" witth="100%" alt="">
                 <div>
                     {!! $val->content !!}
                 </div>
@@ -130,7 +130,7 @@
                             @if($rel->id != $val->id)
                         <div class="mb-3">
                             <div class="blog-card">
-                                <div class="card-featured-img" style="background:url({{env('MEDIA_URL')}}blog/{{$rel->id}}/image/{{$rel->image}});background-size: cover;background-position: center;"></div>
+                                <div class="card-featured-img" style="background:url({{env('MEDIA_URL')}}blogs/{{$rel->id}}/image/{{$rel->image}});background-size: cover;background-position: center;"></div>
 
                                 <div class="px-4 content-box">
                                     <a href="/{{$rel->seo[0]->permalink}}"><h2 class="blog-title f18">{{$rel->title}}</h2> </a>
