@@ -56,7 +56,7 @@
                 <h2>Important Links</h2>
                 <ul class="list-unstyled">
                     <li><a href="/about-us" target="_blank"><i class="fas fa-angle-double-right"></i> About Us</a></li>
-                    <li><a href="/blogs" target="_blank"><i class="fas fa-angle-double-right"></i> Blogs</a></li>
+                    <li><a href="/blog" target="_blank"><i class="fas fa-angle-double-right"></i> Blog</a></li>
                     <li><a href="/coming-soon" target="_blank"><i class="fas fa-angle-double-right"></i> Partners</a>
                     </li>
                     <li><a href="/coming-soon" target="_blank"><i class="fas fa-angle-double-right"></i> Careers</a>
