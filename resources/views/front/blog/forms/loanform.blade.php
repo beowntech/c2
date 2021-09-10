@@ -162,7 +162,7 @@
                 load: function (query, callback) {
                     if (!query.length) return callback();
                     $.ajax({
-                        url: "http://localhost:8000/api/city/search/" + query,
+                        url: "https://test.admissionjockey.com/api/city/search/" + query,
                         type: "GET",
                         error: function () {
                             callback();
