@@ -333,4 +333,5 @@ class MailController extends Controller
             });
             return back()->withErrors(['status'=>'done']);
     }
+
 }

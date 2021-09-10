@@ -19,6 +19,7 @@ use App\{
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class EnquiryController extends Controller
 {
@@ -287,6 +288,7 @@ class EnquiryController extends Controller
             $data->from_page = $request->url;
             $data->save();
             if ($data) {
+                $this->mail($request);
                 return back()->with('informationSuccess', 'Form has been Submitted. Thank you for your Enquiry!');
             }
             return back()->with('informationError', 'Problem While Submitting');
@@ -297,6 +299,29 @@ class EnquiryController extends Controller
     public function informationFormEnquiries(){
         $data = InformationForm::all();
         return $data;
+    }
+
+
+    public function mail(Request $request)
+    {
+
+        $data = array(
+            'email' => $request->email,
+            'subject' => 'Detail Page Enquiry',
+            'name' => $request->name,
+            'mailbody' => '
+                Full Name: '.$request->name. '
+                Email: ' . $request->input('email') . '
+                Phone Number: ' . $request->input('contact') . '
+                Course: ' . $request->input('course')
+        );
+        $emails = explode(',', env('RECEIVE_EMAIL'));
+        Mail::send([], [], function ($message) use ($emails, $data) {
+            $message->to($emails);
+            $message->subject($data['subject'] . " from " . $data['name']);
+            $message->setBody($data['mailbody']);
+        });
+        return response()->json(['status' => 1]);
     }
 
 }

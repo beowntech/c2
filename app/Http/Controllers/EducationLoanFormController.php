@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\EducationLoanForm;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EducationLoanFormController extends Controller
 {
@@ -38,6 +39,7 @@ class EducationLoanFormController extends Controller
         $request['status'] = 1;
         $data = EducationLoanForm::create($request->all());
         if($data){
+            $this->mail($request);
             return back()->with('success','Form Submitted Successfully');
         }
         return back()->with('error','Error in Form Submitting');
@@ -86,5 +88,30 @@ class EducationLoanFormController extends Controller
     public function destroy(EducationLoanForm $educationLoanForm)
     {
         //
+    }
+
+
+    public function mail(Request $request)
+    {
+
+        $data = array(
+            'email' => $request->email,
+            'subject' => 'Loan Form Enquiry',
+            'name' => $request->first_name,
+            'mailbody' => '
+                Full Name: '.$request->first_name.' '.$request->last_name. '
+                Email: ' . $request->input('email') . '
+                Phone Number: ' . $request->input('mobile_number') . '
+                Time of Study: ' . $request->input('tim_of_study') . '
+                Loan Amount: ' . $request->input('loan_amount') . '
+                AdmissionStatus: ' . $request->input('admission_status')
+        );
+        $emails = explode(',', env('RECEIVE_EMAIL'));
+        Mail::send([], [], function ($message) use ($emails, $data) {
+            $message->to($emails);
+            $message->subject($data['subject'] . " from " . $data['name']);
+            $message->setBody($data['mailbody']);
+        });
+        return response()->json(['status' => 1]);
     }
 }
