@@ -1,4 +1,5 @@
 @extends('front.blog.layout.header')
+@section('title','Apply For Education Loan')
 @section('content')
     <section>
         <div class="container">

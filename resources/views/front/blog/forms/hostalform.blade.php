@@ -1,4 +1,5 @@
 @extends('front.blog.layout.header')
+@section('title','Apply For Best Hostel')
 @section('content')
     <style>
         .selectize-dropdown-content div{

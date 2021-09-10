@@ -1,4 +1,5 @@
 @extends('front.blog.layout.header')
+@section('title','Blog')
 @section('content')
     <section id="main-blog">
         <div class="container py-3">
