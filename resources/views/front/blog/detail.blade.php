@@ -106,8 +106,11 @@
                                         <input type="hidden" name="url" value="{{Request::path()}}">
                                         <div class="mb-2">
                                             <label for="exampleInput" class="form-label">Name</label>
-                                            <input type="text" class="form-control" name="name" id="exampleInput"
+                                            <input type="text" class="form-control" placeholder="Write your Name" name="name" id="exampleInput"
                                                    required>
+                                            <div class="invalid-feedback">
+                                                Please enter your full name
+                                            </div>
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">Prefered Course</label>
@@ -119,18 +122,27 @@
                                                     @endforeach
                                                 @endforeach
                                             </select>
+                                            <div class="invalid-feedback">
+                                                Please select Course
+                                            </div>
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputEmail1" class="form-label">Email Id</label>
-                                            <input type="email" class="form-control" name="email"
+                                            <input type="email" class="form-control" placeholder="example@example.com" name="email"
                                                    id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                            <div class="invalid-feedback">
+                                                Please enter your valid email Id
+                                            </div>
                                         </div>
                                         <div class="mb-2">
                                             <label for="exampleInputPassword1" class="form-label">Phone No</label>
-                                            <input type="text" class="form-control" name="contact"
+                                            <input type="text" placeholder="Enter your Number" class="form-control" name="contact"
                                                    id="exampleInputPassword1" required>
+                                            <div class="invalid-feedback">
+                                                Please enter your valid phone no.
+                                            </div>
                                         </div>
-                                        <button type="submit" class="btn site-btn-2">Submit</button>
+                                        <button type="submit" class="btn site-btn-2 mt-3">Submit</button>
                                     </form>
                                 @endif
                             </div>

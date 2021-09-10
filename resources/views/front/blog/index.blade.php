@@ -141,63 +141,71 @@
         </div>
     </section>
     <!-- Modal -->
-    <div class="modal fade" id="blogConsultingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal fade" id="blogConsultingModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" id="blogConsultDiloag">
             <div class="modal-content">
                 <div class="modal-header border-0 p-1">
-                    <button type="button" class="btn-close float-start" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close float-start" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="blogConsultBody">
                     <div class="row">
-                        <div class="col-md-6 sm-hide">
-                            <h2 class="pcolor">We provide <br> best guidence </h2>
-                            <img src="assets/images/site/enq-modal.png" width="100%" class="text-center mt-3" alt="">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="enq-form bg-white p-3 shadow-0">
-                                @if (\Session::has('informationSuccess') || \Session::has('informationError'))
-                                    @if (\Session::has('informationSuccess'))
-                                        <div class="alert alert-success">
-                                            {!! \Session::get('informationSuccess') !!}
-                                        </div>
-                                    @elseif(\Session::has('informationError'))
-                                        <div class="alert alert-danger">
-                                            {!! \Session::get('informationError') !!}
-                                        </div>
-                                    @endif
-                                @else
-                                    <p>Share Your Information</p>
-                                    <form action="/information-submit" class="footer-needs-validation" novalidate method="POST">
-                                        @csrf
-                                        <input type="hidden" name="url" value="{{Request::path()}}">
-                                        <div class="mb-2">
-                                            <label for="exampleInput" class="form-label">Name</label>
-                                            <input type="text" class="form-control" name="name" id="exampleInput" required>
-                                        </div>
-                                        <div class="mb-2">
-                                            <label for="exampleInputEmail1" class="form-label">Prefered Course</label>
-                                            <select name="course" id="" class="form-control" required>
-                                                <option value="" disabled selected>Select Course</option>
-                                                @foreach($courses as $c => $vsl)
-                                                    @foreach($vsl->children as $s => $vals)
-                                                        <option value="{{$vals->id}}">{{$vals->name}}</option>
+                        @if (\Session::has('informationSuccess') || \Session::has('informationError'))
+                            @if (\Session::has('informationSuccess'))
+                                <div class="col-md-12 text-center">
+                                    <img src="/assets/images/check.png" style="width: 10%;">
+                                    <h5 style="font-weight: 600;">Thank you for filling out your information!</h5>
+                                    <h5 style="font-weight: 600;">Our Expert will connect with you to provide the best guidance!</h5>
+                                    <p>Please enjoy, and let us know if there's anything else we can help you with </p>
+                                </div>
+                            @endif
+                            @else
+                                <div class="col-md-6 sm-hide">
+                                    <h2 class="pcolor">We provide <br> best guidence </h2>
+                                    <img src="assets/images/site/enq-modal.png" width="100%" class="text-center mt-3"
+                                         alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="enq-form bg-white p-3 shadow-0">
+                                        <p>Share Your Information</p>
+                                        <form action="/information-submit" class="footer-needs-validation" novalidate
+                                              method="POST">
+                                            @csrf
+                                            <input type="hidden" name="url" value="{{Request::path()}}">
+                                            <div class="mb-2">
+                                                <label for="exampleInput" class="form-label">Name</label>
+                                                <input type="text" class="form-control" placeholder="Write your Name"
+                                                       name="name" id="exampleInput" required>
+                                            </div>
+                                            <div class="mb-2">
+                                                <label for="exampleInputEmail1" class="form-label">Prefered
+                                                    Course</label>
+                                                <select name="course" id="" class="form-control" required>
+                                                    <option value="" disabled selected>Select Course</option>
+                                                    @foreach($courses as $c => $vsl)
+                                                        @foreach($vsl->children as $s => $vals)
+                                                            <option value="{{$vals->id}}">{{$vals->name}}</option>
+                                                        @endforeach
                                                     @endforeach
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                        <div class="mb-2">
-                                            <label for="exampleInputEmail1" class="form-label">Email Id</label>
-                                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                                        </div>
-                                        <div class="mb-2">
-                                            <label for="exampleInputPassword1" class="form-label">Phone No</label>
-                                            <input type="text" class="form-control" name="contact" id="exampleInputPassword1" required>
-                                        </div>
-                                        <button type="submit" class="btn site-btn-2">Submit</button>
-                                    </form>
-                                @endif
-                            </div>
-                        </div>
+                                                </select>
+                                            </div>
+                                            <div class="mb-2">
+                                                <label for="exampleInputEmail1" class="form-label">Email Id</label>
+                                                <input type="email" class="form-control"
+                                                       placeholder="example@example.com" name="email"
+                                                       id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                            </div>
+                                            <div class="mb-2">
+                                                <label for="exampleInputPassword1" class="form-label">Phone No</label>
+                                                <input type="text" class="form-control" placeholder="Enter your Number"
+                                                       name="contact" id="exampleInputPassword1" required>
+                                            </div>
+                                            <button type="submit" class="btn site-btn-2 mt-3">Submit</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            @endif
                     </div>
                 </div>
 
