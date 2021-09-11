@@ -8,9 +8,9 @@
 </head>
 <body >
 <style>@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap');</style>
-<div style="background-color:#fff4ee;padding: 0 30px;font-family: 'Open Sans', sans-serif; color:#151617;">
+<div style="background-color:#fff4ee;padding: 0 20px;font-family: 'Open Sans', sans-serif; color:#151617;">
     <div style="background-color:#fff;border-right: 5px solid #023793;border-left: 5px solid #023793; text-align:center;">
-        <div style="padding-top: 40px; padding-left: 10px; padding-right: 10px;">
+        <div style="padding-top: 40px; padding-left: 10px; padding-bottom: 15px; padding-right: 10px;">
             <img src="{{env('APP_URL')}}/assets/images/admission-jockey-logo1.png" alt="">
             <p style="font-size: 14px;"><u>Indias most trusted & reliable personal admission assistance platform</u></p>
             <h2 style="font-weight: 600;font-size: 26px;">Welcome {{$data['name']}}!</h2>
@@ -52,7 +52,7 @@
                 <li style="display: inline-block;"><a href="https://www.facebook.com/admissionjockey" target="_blank"><img src="{{env('APP_URL')}}/assets/images/icon/fb.png" width="30px" alt=""></a></li>
                 <li style="display: inline-block;"><a href="https://www.linkedin.com/company/admission-jockey/" target="_blank"><img src="{{env('APP_URL')}}/assets/images/icon/linked.png" width="30px" alt=""></a></li>
                 <li style="display: inline-block;"><a href="https://twitter.com/admissionjockey" target="_blank"><img src="{{env('APP_URL')}}/assets/images/icon/twitter.png" width="30px" alt=""></a></li>
-                <li style="display: inline-block;"><a href="https://www.instagram.com/admissionjockeyofficial/" target="_blank"><img src="../assets/images/icon/instag.png" width="30px" alt=""></a></li>
+                <li style="display: inline-block;"><a href="https://www.instagram.com/admissionjockeyofficial/" target="_blank"><img src="{{env('APP_URL')}}/assets/images/icon/instag.png" width="30px" alt=""></a></li>
                 <li style="display: inline-block;"><a href="https://wa.me/917060243009" target="_blank"><img src="{{env('APP_URL')}}/assets/images/icon/whatsapp.png" width="30px" alt=""></a></li>
             </ul>
             <p style="color:#003593;line-height: 1.7;">
