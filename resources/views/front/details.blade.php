@@ -227,7 +227,7 @@
                                         @foreach(json_decode($val->images[0]->images) as $i => $img)
                                             @if($i < 4)
                                                 <div class="col-md-3 col-6">
-                                                    <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-md.webp"
+                                                    <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
                                                        class="{{$i == 0 ? "big" : ""}}">
                                                         <img style="width: -webkit-fill-available;"
                                                              src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-sm-350x200.webp"

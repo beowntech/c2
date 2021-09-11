@@ -414,13 +414,13 @@
             @foreach($prop as $k => $val)
             <div class="col-md-3 p-3">
                 <div class="college-info-1">
-                    <div class="cover-img position-relative lazy" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}}-md.webp);
+                    <div class="cover-img position-relative lazy" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}});
                              background-size:cover;">
                         @if($val->featured == 1)
                             <div class="ribbon"><span>featured</span></div>
                             @endif
                         <div class="college-info-logo"><a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities->isEmpty() ? "" : $val->cities[0]->name)))}}/{{$val->seo->isEmpty() ? "" : $val->seo[0]->permalink}}">
-                                <img data-original="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}-md.webp" alt="{{$val->name}}"></a></div>
+                                <img data-original="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}" alt="{{$val->name}}"></a></div>
                         <div class="college-info-name position-absolute bottom-0 start-0 px-2 pb-1">
                             <p><a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities->isEmpty() ? "" : $val->cities[0]->name)))}}/{{$val->seo->isEmpty() ? "": $val->seo[0]->permalink}}">{{$val->name}}</a></p>
                             <span><i class="fas fa-map-marker-alt"></i> {{$val->cities->isEmpty() ? "" : $val->cities[0]->name}}</span>
