@@ -14,7 +14,7 @@
             <img src="{{env('APP_URL')}}/assets/images/admission-jockey-logo1.png" alt="">
             <p style="font-size: 14px;"><u>Indias most trusted & reliable personal admission assistance platform</u></p>
             <h2 style="font-weight: 600;font-size: 26px;">Welcome {{$data['name']}}!</h2>
-            <p>We are delighted to have you on board with Admission Jockey and promise to assist you at each step of your career decision/journey.</p>
+            <p style="margin-top: -20px">We are delighted to have you on board with Admission Jockey and promise to assist you at each step of your career decision/journey.</p>
             <h4 style="font-weight: 600;font-size: 20px;">WHY ADMISSION JOCKEY?</h4>
             <p>Admission Jockey is a one stop destination that will help you from exam preparation to College admissions.</p>
             <p style="color:#003593;line-height: 1.7;">✓ Find India's best colleges in one place <br>

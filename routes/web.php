@@ -178,6 +178,12 @@ Route::get('cyber-partner', function () {
 
 Route::post('contact/send', 'MailController@sendContact')->name('contact');
 Route::get('pgpage','SitemapController@ppPage');
+
+Route::get('/useremail',function (){
+    $data = array('name'=>'Naval');
+    return view('emails.user_email',compact('data'));
+});
+
 Route::get('/pp/{slug?}',function (Request $request){
     $data = SEO::where('permalink',$request->slug)->get();
     if($data->isNotEmpty()) {
