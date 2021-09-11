@@ -93,7 +93,7 @@
 <script>
     function onClick() {
         grecaptcha.ready(function() {
-            grecaptcha.execute('reCAPTCHA_site_key', {action: 'submit'}).then(function(token) {
+            grecaptcha.execute('6Ldf01wcAAAAAEcZbXZ1dWEsdh_hdrHaXy2om-HY', {action: 'submit'}).then(function(token) {
                 addEnquiry();
                 // Add your logic to submit to your backend server here.
             });
