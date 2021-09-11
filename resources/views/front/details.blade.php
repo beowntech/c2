@@ -4,7 +4,7 @@
 @section('description',$data[0]->short_description)
 @section('published_on',$data[0]->created_at)
 @section('updated_on',$data[0]->updated_at)
-@section('featured','https://'.Request::getHost().env('MEDIA_URL').'property/'.$data[0]->id.'/gallery/featured/'.$data[0]->images[0]->featured)
+@section('featured','https://'.Request::getHost().env('MEDIA_URL').'property/'.$data[0]->id.'/gallery/featured/'.count($data[0]->images) != 0 ? $data[0]->images[0]->featured : '')
 @section('canonical',$data[0]->seo[0]->canonical)
 @section('author_name',$data[0]->seo[0]->author_name)
 @section('keyword',$data[0]->seo[0]->primary_focus_keyword)
