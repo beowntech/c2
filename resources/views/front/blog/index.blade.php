@@ -112,7 +112,7 @@
                 <div class="col-md-6 mb-3 position-relative">
                     <a href="/hostel-form">
                         <div class="action-bg-1"
-                             style="background:url(assets/images/site/cover2.jpg);background-size: cover;background-position: center;">
+                             style="background:url(assets/images/site/hostel.jpg);background-size: cover;background-position: center;">
                             <div class="position-absolute bottom-0 start-0 text-white">
                                 <p class="mb-0 text-uppercase ps-4">sponcered</p>
                                 <h3 class="ps-4">Find Students Hostel Options <i class="fas fa-arrow-circle-right"></i>
@@ -126,7 +126,7 @@
                 <div class="col-md-6 mb-3 position-relative">
                     <a href="/loan-form">
                         <div class="action-bg-1"
-                             style="background:url(assets/images/site/cover2.jpg);background-size: cover;background-position: center;">
+                             style="background:url(assets/images/site/loan.jpg);background-size: cover;background-position: center;">
                             <div class="position-absolute bottom-0 start-0 text-white">
                                 <p class="mb-0 text-uppercase ps-4">sponcered</p>
                                 <h3 class="ps-4">Find Students Load Options <i class="fas fa-arrow-circle-right"></i>
