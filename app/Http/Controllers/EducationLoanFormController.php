@@ -108,9 +108,14 @@ class EducationLoanFormController extends Controller
         );
         $emails = explode(',', env('RECEIVE_EMAIL'));
         Mail::send([], [], function ($message) use ($emails, $data) {
+            $message->from(env('MAIL_USERNAME'), env('APP_NAME'));
             $message->to($emails);
             $message->subject($data['subject'] . " from " . $data['name']);
             $message->setBody($data['mailbody']);
+        });
+        Mail::send("emails.user_email",['data'=>$data], function($message) use ($data) {
+            $message->from(env('MAIL_USERNAME'), env('APP_NAME'));
+            $message->to($data['email'])->subject("Welcome to Admission Jockey");
         });
         return response()->json(['status' => 1]);
     }
