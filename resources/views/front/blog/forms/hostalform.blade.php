@@ -18,7 +18,7 @@
                         </div>
                     @endif
                 @else
-                <form action="/hostel-form/submit" class="needs-validation" novalidate method="POST">
+                <form action="/hostel-form/submit" id="hostel-form" class="needs-validation" novalidate method="POST">
                     @csrf
                     <div class="mb-3">
                         <div class="row">
@@ -73,7 +73,9 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn site-btn-3 mt-4">Submit</button>
+                    <button data-sitekey="6Ldf01wcAAAAAEcZbXZ1dWEsdh_hdrHaXy2om-HY"
+                            data-callback='onSubmit'
+                            data-action='submit' class="btn site-btn-3 mt-4">Submit</button>
                     <p class="text-secondary text-center mt-4"><a href="/blog" class="text-decoration-none text-secondary">Close</a></p>
                     </form>
                 @endif
@@ -189,6 +191,9 @@
                 }
             });
         });
+        function onSubmit(token) {
+            document.getElementById("hostel-form").submit();
+        }
     </script>
 @endsection
 

@@ -18,7 +18,7 @@
                             </div>
                         @endif
                     @else
-                        <form action="/edu-loan/submit" method="POST" novalidate class="needs-validation">
+                        <form action="/edu-loan/submit" id="education-loan-form" method="POST" novalidate class="needs-validation">
                             @csrf
                             <div class="mb-3">
                                 <div class="row">
@@ -108,7 +108,9 @@
                                 <label class="form-check-label" for="defaultCheck1">
                                     I authorize AdmissionJockey to connect with me over call and Whatsapp</label>
                             </div>
-                            <button type="submit" class="btn site-btn-3 mt-4">Submit</button>
+                            <button data-sitekey="6Ldf01wcAAAAAEcZbXZ1dWEsdh_hdrHaXy2om-HY"
+                                    data-callback='onSubmit'
+                                    data-action='submit' class="btn site-btn-3 mt-4">Submit</button>
                             <p class="text-secondary text-center mt-4">
                                 <a href="/blog" class="text-decoration-none text-secondary">Close</a>
                             </p>
@@ -143,6 +145,9 @@
         })()
     </script>
     <script>
+        function onSubmit(token) {
+            document.getElementById("education-loan-form").submit();
+        }
         $(function () {
             $("#city-select").selectize({
                 placeholder: 'Select City',

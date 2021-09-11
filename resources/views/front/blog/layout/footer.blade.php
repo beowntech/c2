@@ -55,7 +55,7 @@
                             event.stopPropagation()
                         }else {
                             event.preventDefault()
-                            onClick();
+                            onClick(1);
                         }
 
                         form.classList.add('was-validated')
@@ -91,10 +91,19 @@
 @yield('script')
 <script src="https://www.google.com/recaptcha/api.js?render=6Ldf01wcAAAAAEcZbXZ1dWEsdh_hdrHaXy2om-HY"></script>
 <script>
-    function onClick() {
+    function onClick(type) {
         grecaptcha.ready(function() {
             grecaptcha.execute('6Ldf01wcAAAAAEcZbXZ1dWEsdh_hdrHaXy2om-HY', {action: 'submit'}).then(function(token) {
-                addEnquiry();
+                switch(type) {
+                    case 1:
+                        addEnquiry();
+                        break;
+                    case 2:
+                        // code block
+                        break;
+                    default:
+                    // code block
+                }
                 // Add your logic to submit to your backend server here.
             });
         });

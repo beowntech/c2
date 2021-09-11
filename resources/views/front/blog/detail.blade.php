@@ -100,7 +100,7 @@
                                 @else
                                     <h2>Get Free Consulting</h2>
                                     <p>we providing expert guidence</p>
-                                    <form action="/information-submit" class="needs-validation" novalidate
+                                    <form action="/information-submit" id="information-form" class="needs-validation" novalidate
                                           method="POST">
                                         @csrf
                                         <input type="hidden" name="url" value="{{Request::path()}}">
@@ -142,7 +142,9 @@
                                                 Please enter your valid phone no.
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn site-btn-2 mt-3">Submit</button>
+                                        <button data-sitekey="6Ldf01wcAAAAAEcZbXZ1dWEsdh_hdrHaXy2om-HY"
+                                                data-callback='onSubmit'
+                                                data-action='submit' class="btn site-btn-2 mt-3">Submit</button>
                                     </form>
                                 @endif
                             </div>
@@ -213,5 +215,8 @@
         @if (\Session::has('success') || \Session::has('error'))
           $("html, body").animate({scrollTop: $(document).height()}, 1000);
         @endif
+        function onSubmit(token) {
+            document.getElementById("information-form").submit();
+        }
     </script>
 @endsection
