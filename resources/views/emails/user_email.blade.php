@@ -49,11 +49,11 @@
 
             <p style="color:#003593;line-height: 1.7;">connect with us</p>
             <ul style="list-style-type: none;">
-                <li style="display: inline-block;"><a href="https://www.facebook.com/admissionjockey" target="_blank"><img src="../assets/images/icon/fb.png" width="30px" alt=""></a></li>
-                <li style="display: inline-block;"><a href="https://www.linkedin.com/company/admission-jockey/" target="_blank"><img src="../assets/images/icon/linked.png" width="30px" alt=""></a></li>
-                <li style="display: inline-block;"><a href="https://twitter.com/admissionjockey" target="_blank"><img src="../assets/images/icon/twitter.png" width="30px" alt=""></a></li>
+                <li style="display: inline-block;"><a href="https://www.facebook.com/admissionjockey" target="_blank"><img src="{{env('APP_URL')}}/assets/images/icon/fb.png" width="30px" alt=""></a></li>
+                <li style="display: inline-block;"><a href="https://www.linkedin.com/company/admission-jockey/" target="_blank"><img src="{{env('APP_URL')}}/assets/images/icon/linked.png" width="30px" alt=""></a></li>
+                <li style="display: inline-block;"><a href="https://twitter.com/admissionjockey" target="_blank"><img src="{{env('APP_URL')}}/assets/images/icon/twitter.png" width="30px" alt=""></a></li>
                 <li style="display: inline-block;"><a href="https://www.instagram.com/admissionjockeyofficial/" target="_blank"><img src="../assets/images/icon/instag.png" width="30px" alt=""></a></li>
-                <li style="display: inline-block;"><a href="https://wa.me/917060243009" target="_blank"><img src="../assets/images/icon/whatsapp.png" width="30px" alt=""></a></li>
+                <li style="display: inline-block;"><a href="https://wa.me/917060243009" target="_blank"><img src="{{env('APP_URL')}}/assets/images/icon/whatsapp.png" width="30px" alt=""></a></li>
             </ul>
             <p style="color:#003593;line-height: 1.7;">
                 <img src="{{env('APP_URL')}}/assets/images/aj-icon.png" alt="" width="20px" style="position: relative; right: 2px; top: 5px;"> Copyright © 2021. Admission Jockey
