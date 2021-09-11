@@ -59,6 +59,7 @@ Route::get('hostel-form', function (){
     return view('front.blog.forms.hostalform');
 });
 
+
 Route::post('hostel-form/submit', 'BestHotelFormController@store');
 Route::post('edu-loan/submit', 'EducationLoanFormController@store');
 
@@ -238,7 +239,9 @@ Route::get('/exam-gen',function (){
     }
     $sitemap->writeToFile(public_path('sitemap-exams.xml'));
 });
-
+Route::get('/blogs', function (){
+    return redirect('/blog');
+});
 //Route::post('/send-notification', [App\Http\Controllers\HomeController::class, 'sendNotification'])->name('send.notification');
 Route::get('{city?}/{id?}',['uses' => 'CategoriesController@single'])->name('details');
 
