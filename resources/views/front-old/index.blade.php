@@ -583,7 +583,7 @@
 			</div>
 			<div class="quic-book-ser-right">
 				<div class="hom-cre-acc-left">
-					<h3>What service do you need? <span>Ok Admission</span></h3>
+					<h3>What service do you need? <span>Admission Jockey</span></h3>
 					<p>Tell us more about your requirements so that we can connect you to the right service provider.</p>
 					<ul>
 						<li>
@@ -812,7 +812,7 @@
 						<li>
 							<a href="#"><img src="front/images/icon/hcat6.png" alt=""> Find Education Services</a>
 						</li>
-					
+
 					</ul>
 				</div>
 			</div>

@@ -16,7 +16,7 @@
         <section>
             <div class="container" data-aos="fade-up">
                 <div class="section-header text-center py-4">
-                    <h2 class="site-title">The what and why of OK Admission?</h2>
+                    <h2 class="site-title">The what and why of Admission Jockey?</h2>
 
                 </div>
                 <div class="row gy-4 bg-white pb-2">
@@ -24,8 +24,8 @@
                         <img src="/assets/images/site/edu-loan.jpg" width="100%" alt="">
                     </div>
                     <div class="col-lg-8">
-                        <h2 class="site-title scolor text-start"> What is OK Admission?</h2>
-                        <h3>OK Admission aims to be the best among the leading higher education search portals in India. Our website <a href="www.okadmission.com" target="_blank" class="scolor">www.okadmission.com</a>  hosts a wide range of educational institutions and makes admission an accessible and convenient process for students across the nation.</h3>
+                        <h2 class="site-title scolor text-start"> What is Admission Jockey?</h2>
+                        <h3>Admission Jockey aims to be the best among the leading higher education search portals in India. Our website <a href="www.okadmission.com" target="_blank" class="scolor">www.okadmission.com</a>  hosts a wide range of educational institutions and makes admission an accessible and convenient process for students across the nation.</h3>
 
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                                 <img src="/assets/images/site/a (2).png" alt="">
                             </div>
                             <div class="col-md-10">
-                                <h4>Take the assistance of OK Admission through <span class="scolor">FREE career counseling</span> or <span class="scolor">COMPARE feature.</span></h4>
+                                <h4>Take the assistance of Admission Jockey through <span class="scolor">FREE career counseling</span> or <span class="scolor">COMPARE feature.</span></h4>
                             </div>
                         </div>
                         <div class="row my-1">

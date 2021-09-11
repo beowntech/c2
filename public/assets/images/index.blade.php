@@ -249,7 +249,7 @@
             </div>
             <div class="col-md-7 pl-3 mb-4">
                 <h1>What service do you need? </h1>
-                <h1>Ok Admission</h1>
+                <h1>Admission Jockey</h1>
                 <p>Tell us more about your requirements so that we can connect you to the right service provider.</p>
             </div>
         </div>

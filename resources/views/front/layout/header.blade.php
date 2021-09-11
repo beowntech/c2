@@ -557,7 +557,7 @@
 
 <header id="header">
     <div class="container">
-        <div class="logo1"><a href="/"><img class="ml-2" src="/assets/images/admission-jockey-logo1.png"
+        <div class="logo1"><a href="/"><img class="ml-2" src="/assets/images/admission-jockey-logo1-main.png"
                                             alt="Admission Jockey"></a></div>
 
         <nav>

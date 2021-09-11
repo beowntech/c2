@@ -2,14 +2,14 @@
   <div class="container">
     <div class="row py-4">
       <div class="col-md-4">
-        <a href="index.php"><img src="assets/images/logo-1.png" class="site-logo" alt="Ok admission" srcset=""></a>
+        <a href="index.php"><img src="assets/images/logo-1.png" class="site-logo" alt="Admission Jockey" srcset=""></a>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi id voluptatem perspiciatis iste itaque molestias, quidem dolor omnis ea eligendi atque nihil aspernatur ipsam unde deleniti. Nisi incidunt totam dignissimos.</p>
         <ul class="list-inline social-links">
           <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
           <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
           <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
           <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-          <li class="list-inline-item"><a href="#"><i class="fab fa-whatsapp"></i></a></li> 
+          <li class="list-inline-item"><a href="#"><i class="fab fa-whatsapp"></i></a></li>
         </ul>
       </div>
       <div class="col-md-3">
@@ -39,11 +39,11 @@
         <ul class="list-unstyled">
           <li><a href="http://okadmission.com/coming-soon" target="_blank"><i class="fas fa-angle-double-right"></i> About Us</a></li>
           <li><a href="http://okadmission.com/coming-soon" target="_blank"><i class="fas fa-angle-double-right"></i> Blogs</a></li>
-          <li><a href="http://okadmission.com/coming-soon" target="_blank"><i class="fas fa-angle-double-right"></i> Partners</a></li>  
+          <li><a href="http://okadmission.com/coming-soon" target="_blank"><i class="fas fa-angle-double-right"></i> Partners</a></li>
           <li><a href="http://okadmission.com/coming-soon" target="_blank"><i class="fas fa-angle-double-right"></i> Careers</a></li>
         </ul>
       </div>
-      
+
     </div>
   </div>
   <div class="container py-2">
@@ -62,12 +62,12 @@
     <div class="row border-top">
 
       <div class="col">
-        <p>Copyright © 2021. ok admission. </p>
+        <p>Copyright © 2021. Admission Jockey. </p>
       </div>
     </div>
   </div>
 </footer>
-  
+
 <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasBottomLabel">Compare Colleges</h5>
@@ -82,38 +82,38 @@
                 <a href="#">
                       <div class="p-3 icon-bx position-relative box">
                       <div class="ribbon"><span>featured</span></div>
-                          <img src="assets/images/icon/hcat1.png" width="65px" alt="">  
+                          <img src="assets/images/icon/hcat1.png" width="65px" alt="">
                           College 1
                           <div class="position-absolute top-0 end-0" ><i class="far fa-window-close site-btn-close"></i></div>
                       </div>
                   </a>
-              
+
             </div>
             <div class="col-4 data-type-1 text-center ">
                   <a href="#">
                       <div class="p-3 icon-bx position-relative box">
                       <div class="ribbon"><span>featured</span></div>
-                          <img src="assets/images/icon/hcat1.png" width="65px" alt="">  
+                          <img src="assets/images/icon/hcat1.png" width="65px" alt="">
                           College 2
                           <div class="position-absolute top-0 end-0" ><i class="far fa-window-close site-btn-close"></i></div>
                       </div>
                   </a>
-              
+
             </div>
             <div class="col-4 data-type-1 text-center ">
                 <a href="#">
                       <div class="p-3 icon-bx position-relative box">
                       <div class="ribbon"><span>featured</span></div>
-                          <img src="assets/images/icon/hcat1.png" width="65px" alt="">  
+                          <img src="assets/images/icon/hcat1.png" width="65px" alt="">
                           College 3
                           <div class="position-absolute top-0 end-0" ><i class="far fa-window-close site-btn-close"></i></div>
                       </div>
                   </a>
-              
+
             </div>
             </div>
           </div>
-          
+
           <div class="col-md-3 data-type-1 text-center ">
                <div class="p-3 icon-bx">
                   <button class="btn site-btn-2">Compare</button>
@@ -131,15 +131,15 @@
 <div class="modal fade custom-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-xl">
     <div class="modal-content">
-      
+
       <div class="modal-body p-0">
       <button type="button" class="btn-close float-end m-2 p-0" data-bs-dismiss="modal" aria-label="Close"></button>
         <div class="row enq-info">
-         
+
           <div class="col-md-4 bg-pcolor pb-3 enq-info  d-none d-sm-block">
-            <div class="p-2 text-center">  
+            <div class="p-2 text-center">
                 <h4 class="py-3 text-white title">Why should I fill this?</h4>
-                <div class="py-2 text-win">                  
+                <div class="py-2 text-win">
                     <img src="assets/images/icon/d1.png" alt="">
                     <p>Receive advertiser details instantly</p>
                 </div>
@@ -153,7 +153,7 @@ your liking via email/sms</p>
                     <p>Our experts will get in touch to help
 you out when required</p>
                 </div>
-                
+
             </div>
           </div>
           <div class="col-md-8">
@@ -186,7 +186,7 @@ you out when required</p>
               </div>
             </div>
             <div class="row">
-              
+
               <div class="col-md-6">
                 <div class="input-group mb-3">
                   <input type="text" class="form-control website-form" placeholder="Intrested Course">
@@ -194,19 +194,19 @@ you out when required</p>
               </div>
             </div>
             <p class="small text-dark">By submitting this form, you accept and agree to our <a href="#">Terms of Use</a> .</p>
-            <p><a href="#"> Already Registered? Click Here To Login.</a> 
-            
+            <p><a href="#"> Already Registered? Click Here To Login.</a>
+
             <button type="button" class="btn site-btn-2 btn-sm float-end mt-5 mb-3">SUBMIT</button></p>
             </form>
-            
+
           </div>
         </div>
       </div>
-     
+
     </div>
   </div>
 </div>
-<div class="static-icon-bar">  
+<div class="static-icon-bar">
 <a href="tel:+917060243009" class="call" target="_blank"><i class="fas fa-phone-square shakeicon-left"></i></a>
 <a href="https://wa.me/917060243009" class="whatsapp" target="_blank"><i class="fab fa-whatsapp-square shakeicon-right"></i></a>
 
@@ -244,7 +244,7 @@ you out when required</p>
          // remove padding top from body
         document.body.style.paddingTop = '0';
         $("search-bar-3").hide();
-      } 
+      }
   });
 });
     </script> -->
@@ -258,7 +258,7 @@ you out when required</p>
         $("#nextForm").click(function () {
             $(".second-step-enq").show();
             $(".first-step-enq").hide();
-            
+
         });
 
     });

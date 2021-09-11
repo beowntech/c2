@@ -13,7 +13,7 @@
     <script src="https://kit.fontawesome.com/0bee4dcff2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/main.css">
 	<link href="assets/css/menucss.css" rel="stylesheet" type="text/css">
-    <title>Best College Finding Website - ok Admission  </title>
+    <title>Best College Finding Website - Admission Jockey  </title>
   </head>
   <body>
    <!-- <section id="top-header">
@@ -65,7 +65,7 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-						
+
 						<li class="nav-item"> <a class="nav-link" href="#">top universities</a>
 						</li>
 						<li class="nav-item"> <a class="nav-link" href="#">top courses</a>
@@ -78,130 +78,130 @@
 						</li>
 						<li class="nav-item"> <a class="nav-link capsule-btn" href="#bottom"><i class="fas fa-user"></i>  Login</a>
 						</li> -->
-						
-					<!--<li class="nav-item dropdown"> 
+
+					<!--<li class="nav-item dropdown">
 					 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">B.Tech</a>
 						<div class="dropdown-menu nav-dropdown-container row px-0" aria-labelledby="navbarDropdown">
-								<div class="menu-dropdown-left col-md-3 px-0"> 
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a> 
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a> 
+								<div class="menu-dropdown-left col-md-3 px-0">
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a>
 								</div>
-								
+
 						</div>
 					</li>
-					<li class="nav-item dropdown"> 
+					<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">MBA</a>
 					<div class="dropdown-menu nav-dropdown-container row px-0" aria-labelledby="navbarDropdown">
-								<div class="menu-dropdown-left col-md-3 px-0"> 
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a> 
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>  
-									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a> 
+								<div class="menu-dropdown-left col-md-3 px-0">
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>
+									<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a>
 								</div>
-								
+
 						</div>
 					</li>
-					<li class="nav-item dropdown"> 
+					<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">MBBS</a>
 					<div class="dropdown-menu nav-dropdown-container row px-0" aria-labelledby="navbarDropdown">
-								<div class="menu-dropdown-left col-md-3 px-0"> 
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a> 
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>  
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a> 
+								<div class="menu-dropdown-left col-md-3 px-0">
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a>
 								</div>
-								
+
 						</div>
 					</li>
-					<li class="nav-item dropdown"> 
+					<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">DESIGN</a>
 					<div class="dropdown-menu nav-dropdown-container row px-0" aria-labelledby="navbarDropdown">
-								<div class="menu-dropdown-left col-md-3 px-0"> 
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a> 
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>  
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a> 
+								<div class="menu-dropdown-left col-md-3 px-0">
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a>
 								</div>
-								
+
 						</div>
 					</li>
-					<li class="nav-item dropdown"> 
+					<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">LAW</a>
 					<div class="dropdown-menu nav-dropdown-container row px-0" aria-labelledby="navbarDropdown">
-								<div class="menu-dropdown-left col-md-3 px-0"> 
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a> 
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>  
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a> 
+								<div class="menu-dropdown-left col-md-3 px-0">
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a>
 								</div>
-								
+
 						</div>
 					</li>
-					<li class="nav-item dropdown"> 
+					<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">SCIENCE</a>
 					<div class="dropdown-menu nav-dropdown-container row px-0" aria-labelledby="navbarDropdown">
-								<div class="menu-dropdown-left col-md-3 px-0"> 
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a> 
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>  
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a> 
+								<div class="menu-dropdown-left col-md-3 px-0">
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a>
 								</div>
-								
+
 						</div>
 					</li>
-					<li class="nav-item dropdown"> 
+					<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">MANAGEMENT</a>
 					<div class="dropdown-menu nav-dropdown-container row px-0" aria-labelledby="navbarDropdown">
-								<div class="menu-dropdown-left col-md-3 px-0"> 
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>  
-								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a> 
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>  
-								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a> 
+								<div class="menu-dropdown-left col-md-3 px-0">
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block cd-active" data-id="top-cities---states">Top Cities &amp; States</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="colleges">Colleges</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="b-tech-exams">B.Tech Exams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="popular-streams">Popular Streams</a>
+								<a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="ranking-2021">Ranking 2021</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block" data-id="college-predictor">College Predictor</a>
+								 <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="cut-off">Cut Off</a>  <a href="javascript:void(0)" class="cd-dropdown-bar-link d-block  " data-id="news---alerts">News &amp; Alerts</a>
 								</div>
-								
+
 						</div>
-					</li> 
-					<li class="nav-item"> 
+					</li>
+					<li class="nav-item">
 					<a class="nav-link" href="#" >Counseler</a> </li>-->
-<!-- 					
+<!--
 				</ul>
 			</div>
 		</div>
 	</nav>
 </section> -->
 
-   
-<header id="header">    
+
+<header id="header">
     <div class="container-fluid">
        <div class="logo1"><a href="/"><img src="assets/images/transpanent.png" alt="Admission Jockey"></a></div>
-       
+
        <nav>
           <button class="menu"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
           <ul class="px-0 mb-0">
-            
+
              <li class="sub-links">
                 <div class="more-links colleges">Top Universities</div>
                 <ul>
@@ -2802,7 +2802,7 @@
                      </ul>
                   </li>
                </ul>
-            </li>            
+            </li>
              <li class="sub-links">
                 <div class="more-links courses">Top Courses</div>
                 <ul class="four-column">
@@ -2851,10 +2851,10 @@
                    </li>
                 </ul>
              </li>
-            
-            
+
+
           </ul>
        </nav>
-       
+
     </div>
  </header>

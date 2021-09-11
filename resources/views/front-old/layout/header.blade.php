@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Best College Finding Website - ok Admission</title>
+	<title>Best College Finding Website - Admission Jockey</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="shortcut icon" href="images/fav.ico" type="image/x-icon">
@@ -99,7 +99,7 @@
 						<p>Explore some of the best Colleges from around the world from our partners and friends.</p>
 					</div>
 					<div class="cat-v3-hom-list">
-					
+
 					<ul>
 						<li>
 							<a href="#"><img src="front/images/icon/hcat1.png" alt=""> Find Best Colleges</a>
@@ -112,11 +112,11 @@
 						</li>
 						<li>
 							<a href="#"><img src="front/images/icon/hcat4.png" alt=""> Free Counceling By Expert</a>
-						</li>						
+						</li>
 					</ul>
 				</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>

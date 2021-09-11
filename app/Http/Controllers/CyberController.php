@@ -100,7 +100,7 @@ class CyberController extends Controller
                 $data->assignRole('Cyber');
                 $datas = array(
                     'email' => $request->input('email'),
-                    'subject' => 'Cyber Partner - OK Admission',
+                    'subject' => 'Cyber Partner - Admission Jockey',
                     'name' => $request->input('name'),
                     'mailbody' => 'Your Request has been sent to admin. Thanks for taking interest in Cyber Partner'
                 );
