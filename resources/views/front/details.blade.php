@@ -14,7 +14,7 @@
     @foreach($data as $d => $val)
         <div class="bg-light" id="detail-page">
             <section class="pb-2"
-                     style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}}-lg.webp);background-size:cover;background-repeat: no-repeat;
+                     style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}});background-size:cover;background-repeat: no-repeat;
                          background-position: center;box-shadow: inset 0 0 0 2000px rgba(2, 20, 57, 0.72);">
                 <div class="container">
                     <div class="row">
@@ -230,7 +230,7 @@
                                                     <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
                                                        class="{{$i == 0 ? "big" : ""}}">
                                                         <img style="width: -webkit-fill-available;"
-                                                             src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-sm-350x200.webp"
+                                                             src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
                                                              class="mb-2" alt="{{$img}} by okadmission">
                                                     </a>
                                                 </div>
@@ -243,7 +243,7 @@
                                                 <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-xl.webp"
                                                    class="{{$i == 0 ? "big" : ""}}">
                                                     <img style="width: -webkit-fill-available;"
-                                                         src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-sm-350x200.webp"
+                                                         src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
                                                          class="mb-2" width="100%" alt="{{$img}} by okadmission">
                                                 </a>
                                             </div>
@@ -260,10 +260,10 @@
                                         @foreach(json_decode($val->images[0]->placements) as $i => $img)
                                             @if($i < 4)
                                                 <div class="col-md-3 col-6">
-                                                    <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}-xl.webp"
+                                                    <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}"
                                                        class="{{$i == 0 ? "big" : ""}}">
                                                         <img style="width: -webkit-fill-available;"
-                                                             src="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}-sm-350x200.webp"
+                                                             src="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}"
                                                              class="mb-2" width="100%" alt="{{$img}} by okadmission">
                                                     </a>
                                                 </div>
@@ -273,10 +273,10 @@
                                     <div class="row gallery2" id="viewPlacement" style="display:none">
                                         @foreach(json_decode($val->images[0]->placements) as $i => $img)
                                             <div class="col-md-3 col-6">
-                                                <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}-xl.webp"
+                                                <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}"
                                                    class="{{$i == 0 ? "big" : ""}}">
                                                     <img style="width: -webkit-fill-available;"
-                                                         src="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}-sm-350x200.webp"
+                                                         src="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}"
                                                          class="mb-2" width="100%" alt="{{$img}} by okadmission">
                                                 </a>
                                             </div>
@@ -497,10 +497,10 @@
                                         <div class="col-md-12 p-3">
                                             <div class="college-info-1">
                                                 <div class="cover-img position-relative box"
-                                                     style="background:url({{env('MEDIA_URL')}}property/{{$rel->id}}/gallery/featured/{{$rel->images[0]->featured}}-lg.webp);background-size:cover;">
+                                                     style="background:url({{env('MEDIA_URL')}}property/{{$rel->id}}/gallery/featured/{{$rel->images[0]->featured}});background-size:cover;">
                                                     <div class="ribbon"><span>featured</span></div>
                                                     <div class="college-info-logo"><img
-                                                            src="{{env('MEDIA_URL')}}property/{{$rel->id}}/logo/{{$rel->logo}}-lg.webp" alt="">
+                                                            src="{{env('MEDIA_URL')}}property/{{$rel->id}}/logo/{{$rel->logo}}" alt="">
                                                     </div>
                                                     <div
                                                         class="college-info-name position-absolute bottom-0 start-0 px-2 pb-1">
@@ -525,9 +525,9 @@
                                         <div class="col-md-12 p-3">
                                             <div class="college-info-1">
                                                 <div class="cover-img position-relative"
-                                                     style="background:url({{env('MEDIA_URL')}}property/{{$rel->id}}/gallery/featured/{{$rel->images[0]->featured}}-lg.webp);background-size:cover;">
+                                                     style="background:url({{env('MEDIA_URL')}}property/{{$rel->id}}/gallery/featured/{{$rel->images[0]->featured}});background-size:cover;">
                                                     <div class="college-info-logo"><img
-                                                            src="{{env('MEDIA_URL')}}property/{{$rel->id}}/logo/{{$rel->logo}}-lg.webp" alt="">
+                                                            src="{{env('MEDIA_URL')}}property/{{$rel->id}}/logo/{{$rel->logo}}" alt="">
                                                     </div>
                                                     <div
                                                         class="college-info-name position-absolute bottom-0 start-0 px-2 pb-1">
@@ -573,10 +573,10 @@
                                 <div class="col-md-3 p-3">
                                     <div class="college-info-1">
                                         <div class="cover-img position-relative box"
-                                             style="background:url({{env('MEDIA_URL')}}property/{{$fea->id}}/gallery/featured/{{$fea->images[0]->featured}}-lg.webp);background-size:cover;">
+                                             style="background:url({{env('MEDIA_URL')}}property/{{$fea->id}}/gallery/featured/{{$fea->images[0]->featured}});background-size:cover;">
                                             <div class="ribbon"><span>featured</span></div>
                                             <div class="college-info-logo"><img
-                                                    src="{{env('MEDIA_URL')}}property/{{$fea->id}}/logo/{{$fea->logo}}-lg.webp" alt=""></div>
+                                                    src="{{env('MEDIA_URL')}}property/{{$fea->id}}/logo/{{$fea->logo}}" alt=""></div>
                                             <div class="college-info-name position-absolute bottom-0 start-0 px-2 pb-1">
                                                 <p>
                                                     <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($fea->cities[0]->name)))}}/{{$fea->seo[0]->permalink}}">{{$fea->name}}</a>
@@ -599,9 +599,9 @@
                                 <div class="col-md-3 p-3">
                                     <div class="college-info-1">
                                         <div class="cover-img position-relative"
-                                             style="background:url({{env('MEDIA_URL')}}property/{{$fea->id}}/gallery/featured/{{$fea->images[0]->featured}}-lg.webp);background-size:cover;">
+                                             style="background:url({{env('MEDIA_URL')}}property/{{$fea->id}}/gallery/featured/{{$fea->images[0]->featured}});background-size:cover;">
                                             <div class="college-info-logo"><img
-                                                    src="{{env('MEDIA_URL')}}property/{{$fea->id}}/logo/{{$fea->logo}}-lg.webp" alt=""></div>
+                                                    src="{{env('MEDIA_URL')}}property/{{$fea->id}}/logo/{{$fea->logo}}" alt=""></div>
                                             <div class="college-info-name position-absolute bottom-0 start-0 px-2 pb-1">
                                                 <p>
                                                     <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($fea->cities[0]->name)))}}/{{$fea->seo[0]->permalink}}">{{$fea->name}}</a>

@@ -171,7 +171,7 @@
                @if($ca->featured == 1)
                 <div class="col-md-3 p-3">
                     <div class="college-info-1">
-                        <div class="cover-img position-relative box" style="background:url({{env('MEDIA_URL')}}property/{{$ca->id}}/gallery/featured/{{$ca->images[0]->featured}}-lg.webp);background-size:cover;">
+                        <div class="cover-img position-relative box" style="background:url({{env('MEDIA_URL')}}property/{{$ca->id}}/gallery/featured/{{$ca->images[0]->featured}});background-size:cover;">
                             <div class="ribbon"><span>featured</span></div>
                             <div class="college-info-logo"><img src="{{env('MEDIA_URL')}}property/{{$ca->id}}/logo/{{$ca->logo}}" alt=""></div>
                             <div class="college-info-name position-absolute bottom-0 start-0 px-2 pb-1">
@@ -188,7 +188,7 @@
                 @else
                     <div class="col-md-3 p-3">
                         <div class="college-info-1">
-                            <div class="cover-img position-relative " style="background:url({{env('MEDIA_URL')}}property/{{$ca->id}}/gallery/featured/{{$ca->images[0]->featured}}-lg.webp);background-size:cover;">
+                            <div class="cover-img position-relative " style="background:url({{env('MEDIA_URL')}}property/{{$ca->id}}/gallery/featured/{{$ca->images[0]->featured}});background-size:cover;">
                                 <div class="college-info-logo"><img src="{{env('MEDIA_URL')}}property/{{$ca->id}}/logo/{{$ca->logo}}" alt=""></div>
                                 <div class="college-info-name position-absolute bottom-0 start-0 px-2 pb-1">
                                     <p><a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($ca->location[0]->cities[0]->name)))}}/{{$ca->seo != null ? $ca->seo[0]->permalink:''}}">{{$ca->name}}</a></p>

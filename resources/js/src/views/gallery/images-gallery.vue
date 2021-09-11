@@ -29,7 +29,7 @@
                 <div v-for="(image, key) in imagescurrent" :key="key" class="vs-col md:w-1/6 mb-2" style="height: 142px !important;margin-right: 10px;position: relative">
                     <div>
                         <div class="xGallery" @click="openPrompt(image)">X</div>
-                        <img v-bind:src="'/property/'+mainid+'/gallery/images/'+image+'-sm-350x200.webp'" class="preview" style="width: 100%;height: 142px" :ref="'image'" />
+                        <img v-bind:src="'/property/'+mainid+'/gallery/images/'+image" class="preview" style="width: 100%;height: 142px" :ref="'image'" />
                     </div>
                 </div>
                 </div>
