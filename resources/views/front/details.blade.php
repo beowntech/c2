@@ -525,7 +525,7 @@
                                         <div class="col-md-12 p-3">
                                             <div class="college-info-1">
                                                 <div class="cover-img position-relative"
-                                                     style="background:url({{env('MEDIA_URL')}}property/{{$rel->id}}/gallery/featured/{{count($rel->images) != 0 ? $rel->images[0]->featured}});background-size:cover;">
+                                                     style="background:url({{env('MEDIA_URL')}}property/{{$rel->id}}/gallery/featured/{{count($rel->images) != 0 ? $rel->images[0]->featured:''}});background-size:cover;">
                                                     <div class="college-info-logo"><img
                                                             src="{{env('MEDIA_URL')}}property/{{$rel->id}}/logo/{{$rel->logo}}" alt="">
                                                     </div>
@@ -573,7 +573,7 @@
                                 <div class="col-md-3 p-3">
                                     <div class="college-info-1">
                                         <div class="cover-img position-relative box"
-                                             style="background:url({{env('MEDIA_URL')}}property/{{$fea->id}}/gallery/featured/{{count($fea->images) != 0 ? $fea->images[0]->featured}});background-size:cover;">
+                                             style="background:url({{env('MEDIA_URL')}}property/{{$fea->id}}/gallery/featured/{{count($fea->images) != 0 ? $fea->images[0]->featured:''}});background-size:cover;">
                                             <div class="ribbon"><span>featured</span></div>
                                             <div class="college-info-logo"><img
                                                     src="{{env('MEDIA_URL')}}property/{{$fea->id}}/logo/{{$fea->logo}}" alt=""></div>
