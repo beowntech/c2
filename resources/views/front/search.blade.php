@@ -76,7 +76,7 @@
                             <div class="cover-img box" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{count($val->images) != 0 ? $val->images[0]->featured:''}});background-size:cover;">
                                 <div class="ribbon"><span>featured</span></div>
                                 <div class="college-info-logo position-absolute bottom-0 start-5 p-2 ">
-                                    <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities[0]->name)))}}/{{$val->seo->permalink}}"> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}-sm.webp" alt=""></a>
+                                    <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities[0]->name)))}}/{{$val->seo->permalink}}"> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                                 <div class="position-relative">
                                     <div class="cover-img box" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{count($val->images) != 0 ? $val->images[0]->featured:''}});background-size:cover;">
                                         <div class="college-info-logo position-absolute bottom-0 start-5 p-2 ">
-                                            <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities[0]->name)))}}/{{$val->seo->permalink}}"> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}-sm.webp" alt=""></a>
+                                            <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities[0]->name)))}}/{{$val->seo->permalink}}"> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}" alt=""></a>
                                         </div>
                                     </div>
                                 </div>
@@ -239,7 +239,7 @@
                                     "        <div class=\"position-relative\">\n" +
                                     "            <div class=\"cover-img box\" style=\"background:url({{env('MEDIA_URL')}}property/" + response[i].id + "/gallery/images/" + JSON.parse(response[i].images[0].images)[0]+");background-size:cover;\">\n" + featured +
                                     "                <div class=\"college-info-logo position-absolute bottom-0 start-5 p-2 \">\n" +
-                                    "                    <a href=\"/college-in-" + response[i].location[0].cities[0].name.replace(' ', '_').toLowerCase() + "/" + response[i].seo[0].permalink + "\"> <img src=\"{{env('MEDIA_URL')}}property/" + response[i].id + "/logo/" + response[i].logo+"-sm.webp"+ "\" alt=\"\"></a>\n" +
+                                    "                    <a href=\"/college-in-" + response[i].location[0].cities[0].name.replace(' ', '_').toLowerCase() + "/" + response[i].seo[0].permalink + "\"> <img src=\"{{env('MEDIA_URL')}}property/" + response[i].id + "/logo/" + response[i].logo+ "\" alt=\"\"></a>\n" +
                                     "                </div>\n" +
                                     "            </div>\n" +
                                     "        </div>\n" +
