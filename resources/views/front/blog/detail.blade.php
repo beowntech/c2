@@ -85,7 +85,7 @@
                                         class="fab fa-twitter"></i> </a></li>
                         </ul>
                         <hr>
-                        <div class="sticky-top">
+                        <div class="sticky-top d-none d-sm-block">
                             <div class="enq-form bg-white p-3 site-form-shadow">
                                 @if (\Session::has('informationSuccess') || \Session::has('informationError'))
                                     @if (\Session::has('informationSuccess'))
