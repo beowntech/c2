@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-lg-8">
                         <h2 class="site-title scolor text-start"> What is Admission Jockey?</h2>
-                        <h3>Admission Jockey aims to be the best among the leading higher education search portals in India. Our website <a href="www.admissionjockey.com" target="_blank" class="scolor">www.admissionjockey.com</a>  hosts a wide range of educational institutions and makes admission an accessible and convenient process for students across the nation.</h3>
+                        <h3>Admission Jockey aims to be the best among the leading higher education search portals in India. Our website <a href="https://admissionjockey.com" target="_blank" class="scolor">admissionjockey.com</a>  hosts a wide range of educational institutions and makes admission an accessible and convenient process for students across the nation.</h3>
 
                     </div>
                 </div>
