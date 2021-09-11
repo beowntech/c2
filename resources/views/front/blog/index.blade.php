@@ -65,43 +65,43 @@
             {{--                </ul>--}}
             {{--            </nav>--}}
 
-            <div class="row mt-4">
-                <div class="col">
-                    <p class="blog-mini-title ps-4">Top Videos</p>
-                </div>
-            </div>
-            <div class="row">
-                @foreach(json_decode($option[0]->option_value) as $o => $op)
-                    <div class="col-md-4 mb-3 position-relative">
-                        <div class="{{$o == 1 ? 'bg-light-p': 'bg-light-o'}} video-box-1" data-bs-toggle="modal"
-                             data-bs-target="#Modal{{$op->video}}">
-                            <h2 class="position-absolute bottom-0 start-0">{{$op->title}}</h2>
-                        </div>
+{{--            <div class="row mt-4">--}}
+{{--                <div class="col">--}}
+{{--                    <p class="blog-mini-title ps-4">Top Videos</p>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                @foreach(json_decode($option[0]->option_value) as $o => $op)--}}
+{{--                    <div class="col-md-4 mb-3 position-relative">--}}
+{{--                        <div class="{{$o == 1 ? 'bg-light-p': 'bg-light-o'}} video-box-1" data-bs-toggle="modal"--}}
+{{--                             data-bs-target="#Modal{{$op->video}}">--}}
+{{--                            <h2 class="position-absolute bottom-0 start-0">{{$op->title}}</h2>--}}
+{{--                        </div>--}}
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="Modal{{$op->video}}" tabindex="-1"
-                             aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-lg">
-                                <div class="modal-content bg-transparent border-0">
-                                    <div class="modal-header py-0 border-0">
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                    </div>
+{{--                        <!-- Modal -->--}}
+{{--                        <div class="modal fade" id="Modal{{$op->video}}" tabindex="-1"--}}
+{{--                             aria-labelledby="exampleModalLabel" aria-hidden="true">--}}
+{{--                            <div class="modal-dialog modal-dialog-centered modal-lg">--}}
+{{--                                <div class="modal-content bg-transparent border-0">--}}
+{{--                                    <div class="modal-header py-0 border-0">--}}
+{{--                                        <button type="button" class="btn-close" data-bs-dismiss="modal"--}}
+{{--                                                aria-label="Close"></button>--}}
+{{--                                    </div>--}}
 
-                                    <div class="modal-body">
-                                        <iframe width="100%" height="500"
-                                                src="https://www.youtube.com/embed/{{$op->video}}"
-                                                title="YouTube video player" frameborder="0"
-                                                allow="accelerometer;clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                                allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+{{--                                    <div class="modal-body">--}}
+{{--                                        <iframe width="100%" height="500"--}}
+{{--                                                src="https://www.youtube.com/embed/{{$op->video}}"--}}
+{{--                                                title="YouTube video player" frameborder="0"--}}
+{{--                                                allow="accelerometer;clipboard-write; encrypted-media; gyroscope; picture-in-picture"--}}
+{{--                                                allowfullscreen></iframe>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
 
-            </div>
+{{--            </div>--}}
 
         </div>
 
