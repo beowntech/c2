@@ -55,7 +55,7 @@
                             event.stopPropagation()
                         }else {
                             event.preventDefault()
-                            addEnquiry();
+                            onClick();
                         }
 
                         form.classList.add('was-validated')
@@ -89,5 +89,16 @@
         }
     </script>
 @yield('script')
+<script src="https://www.google.com/recaptcha/api.js?render=6Ldf01wcAAAAAEcZbXZ1dWEsdh_hdrHaXy2om-HY"></script>
+<script>
+    function onClick() {
+        grecaptcha.ready(function() {
+            grecaptcha.execute('reCAPTCHA_site_key', {action: 'submit'}).then(function(token) {
+                addEnquiry();
+                // Add your logic to submit to your backend server here.
+            });
+        });
+    }
+</script>
 </body>
 </html>
