@@ -554,7 +554,11 @@ class AlotFronController extends Controller
     }
 
     public function searchCity($search = ""){
-        $data = CityModel::where('name','LIKE','%'.$search.'%')->limit(50)->get();
+        if($search == "0"){
+            $data = CityModel::whereIn('state_id',[39,38])->limit(200)->get();
+            return $data;
+        }
+        $data = CityModel::where('name','LIKE','%'.$search.'%')->whereIn('state_id',[39,38])->limit(50)->get();
         return $data;
     }
 

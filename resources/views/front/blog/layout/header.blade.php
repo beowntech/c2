@@ -39,18 +39,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/standalone/selectize.js"></script>
-    <script>
-        @if(\Session::has('informationSuccess') || \Session::has('informationError'))
-        $(window).on('load', function () {
-            $("#blogConsultDiloag").removeClass('modal-lg');
-            $("#blogConsultBody").addClass('p-3');
-            $('#blogConsultingModal').modal('show');
-        });
-        @endif
-    </script>
 <style>
+    .selectize-dropdown-content div{
+        padding: 3px 10px;
+    }
     .blog-navigation ul{
         justify-content: center;
+    }
+    .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        opacity: 0.4; /* Firefox */
+    }
+
+    .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+        opacity: 0.4;
+    }
+
+    .form-control::-ms-input-placeholder { /* Microsoft Edge */
+        opacity: 0.4;
     }
 </style>
 </head>

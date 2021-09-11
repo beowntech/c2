@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\EducationLoanForm;
+use App\Jobs\EducationLoanMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -39,7 +40,15 @@ class EducationLoanFormController extends Controller
         $request['status'] = 1;
         $data = EducationLoanForm::create($request->all());
         if($data){
-            $this->mail($request);
+            $this->dispatch(new EducationLoanMail(
+                $request->first_name,
+                $request->email,
+                $request->mobile_number,
+                $request->time_of_study,
+                $request->loan_amount,
+                $request->admission_status
+            ));
+//            $this->mail($request);
             return back()->with('success','Form Submitted Successfully');
         }
         return back()->with('error','Error in Form Submitting');
@@ -102,7 +111,7 @@ class EducationLoanFormController extends Controller
                 Full Name: '.$request->first_name.' '.$request->last_name. '
                 Email: ' . $request->input('email') . '
                 Phone Number: ' . $request->input('mobile_number') . '
-                Time of Study: ' . $request->input('tim_of_study') . '
+                Time of Study: ' . $request->input('time_of_study') . '
                 Loan Amount: ' . $request->input('loan_amount') . '
                 AdmissionStatus: ' . $request->input('admission_status')
         );

@@ -1414,6 +1414,12 @@ class PropertiesController extends Controller
 
 
     public function searchCollege($search=""){
+        if($search == "0"){
+            $data = Properties::limit(100)->get();
+            if($data->isNotEmpty()){
+                return $data;
+            }
+        }
         $data = Properties::where('name','LIKE','%'.$search.'%')->get();
         if($data->isNotEmpty()){
             return $data;

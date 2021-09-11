@@ -1,11 +1,6 @@
 @extends('front.blog.layout.header')
 @section('title','Apply For Best Hostel')
 @section('content')
-    <style>
-        .selectize-dropdown-content div{
-            padding: 3px 10px;
-        }
-    </style>
     <section>
     <div class="container">
         <div class="row pt-4 pb-5">
@@ -113,6 +108,7 @@
     <script>
         $(function () {
             $("#city-select").selectize({
+                placeholder: 'Select City',
                 valueField: "id",
                 labelField: "name",
                 searchField: "name",
@@ -130,7 +126,7 @@
                 load: function (query, callback) {
                     if (!query.length) return callback();
                     $.ajax({
-                        url: "https://test.admissionjockey.com/api/city/search/" + query,
+                        url: "{{env('APP_URL')}}/api/city/search/" + query,
                         type: "GET",
                         error: function () {
                             callback();
@@ -140,10 +136,21 @@
                         },
                     });
                 },
+                onInitialize: function(){
+                    var selectize = this;
+                    $.get("{{env('APP_URL')}}/api/city/search/0", function( data ) {
+                        selectize.addOption(data); // This is will add to option
+                        var selected_items = [];
+                        $.each(data, function( i, obj) {
+                            selected_items.push(obj.id);
+                        });
+                    });
+                }
             });
 
 
             $("#college-select").selectize({
+                placeholder: 'Select College',
                 valueField: "id",
                 labelField: "name",
                 searchField: "name",
@@ -160,7 +167,7 @@
                 },
                 load: function (query, callback) {
                     $.ajax({
-                        url: "https://test.admissionjockey.com/api/college/search/" + query,
+                        url: "{{env('APP_URL')}}/api/college/search/" + query,
                         type: "GET",
                         error: function () {
                             callback();
@@ -170,6 +177,16 @@
                         },
                     });
                 },
+                onInitialize: function(){
+                    var selectize = this;
+                    $.get("{{env('APP_URL')}}/api/college/search/0", function( data ) {
+                        selectize.addOption(data); // This is will add to option
+                        var selected_items = [];
+                        $.each(data, function( i, obj) {
+                            selected_items.push(obj.id);
+                        });
+                    });
+                }
             });
         });
     </script>

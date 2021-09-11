@@ -53,6 +53,7 @@
                                     <div class="col-md-6">
                                         <label for="">Time of Study</label>
                                         <select name="time_of_study" id="" class="form-control select-bgclr" required>
+                                            <option selected disabled value="">Select Study Time</option>
                                             @for($i=1;$i<=12;$i++)
                                                 @if(date('F',strtotime('01.'.$i.'.'.date('Y'))) == date('F'))
                                                     <option
@@ -69,6 +70,7 @@
                             <div class="mb-3">
                                 <label for="">Loan Amount (Rs.)</label>
                                 <select name="loan_amount" id="" class="form-control select-bgclr" required>
+                                    <option selected disabled value="">Select Loan Amount</option>
                                     @php($i = 5)
                                     @while($i < 50)
                                         @if($i > 5)
@@ -104,9 +106,7 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" required id="defaultCheck1">
                                 <label class="form-check-label" for="defaultCheck1">
-                                    I authorize avance Financial Services to connect with me over call and Whatsapp
-                                    overriding my registration with NDNC
-                                </label>
+                                    I authorize AdmissionJockey to connect with me over call and Whatsapp</label>
                             </div>
                             <button type="submit" class="btn site-btn-3 mt-4">Submit</button>
                             <p class="text-secondary text-center mt-4">
@@ -145,16 +145,17 @@
     <script>
         $(function () {
             $("#city-select").selectize({
+                placeholder: 'Select City',
                 valueField: "id",
                 labelField: "name",
                 searchField: "name",
                 create: false,
-                options: [],
+                options:[],
                 render: {
                     option: function (item, escape) {
                         return (
                             "<div>" +
-                            escape(item.name) +
+                            escape(item.name)+
                             "</div>"
                         );
                     },
@@ -162,7 +163,7 @@
                 load: function (query, callback) {
                     if (!query.length) return callback();
                     $.ajax({
-                        url: "/api/city/search/" + query,
+                        url: "{{env('APP_URL')}}/api/city/search/" + query,
                         type: "GET",
                         error: function () {
                             callback();
@@ -172,6 +173,16 @@
                         },
                     });
                 },
+                onInitialize: function(){
+                    var selectize = this;
+                    $.get("{{env('APP_URL')}}/api/city/search/0", function( data ) {
+                        selectize.addOption(data); // This is will add to option
+                        var selected_items = [];
+                        $.each(data, function( i, obj) {
+                            selected_items.push(obj.id);
+                        });
+                    });
+                }
             });
         });
     </script>

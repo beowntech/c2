@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\BestHotelForm;
+use App\Jobs\HostelFormMail;
+use App\Jobs\SendMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -38,7 +40,13 @@ class BestHotelFormController extends Controller
     {
         $data = BestHotelForm::create($request->all());
         if ($data) {
-            $this->mail($request);
+            dispatch(new HostelFormMail(
+                $request->first_name,
+                $request->email,
+                $request->mobile_number,
+                $request->admission_status
+            ));
+//            $this->mail($request);
             return back()->with('success', 'Form Submitted Successfully');
         }
         return back()->with('error', 'Error in Form Submitting');

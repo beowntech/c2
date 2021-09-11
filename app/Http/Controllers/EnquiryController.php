@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\{
-    Enquiry,
+use App\{Enquiry,
     Enquiries,
+    Jobs\SendMail,
     Properties,
     Review,
     Status,
@@ -14,8 +14,7 @@ use App\{
     Excel,
     DynamicEnquiry,
     DynamicPage,
-    InformationForm
-};
+    InformationForm};
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -288,10 +287,22 @@ class EnquiryController extends Controller
             $data->from_page = $request->url;
             $data->save();
             if ($data) {
-                $this->mail($request);
+                dispatch(new SendMail(
+                    $request->name,
+                    $request->email,
+                    $request->contact,
+                    $request->course
+                ));
+//                $this->mail($request);
+                if($request->ajax()){
+                    return response()->json(['status'=>1]);
+                }
                 return back()->with('informationSuccess', 'Form has been Submitted. Thank you for your Enquiry!');
             }
-            return back()->with('informationError', 'Problem While Submitting');
+            if($request->ajax()){
+                return response()->json(['status'=>1]);
+            }
+            return back()->with('informationError', 'Problem While submitting!');
         }
         return response()->json(['status'=>'No Details Provided']);
     }

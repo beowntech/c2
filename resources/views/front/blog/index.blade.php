@@ -151,25 +151,21 @@
                 </div>
                 <div class="modal-body" id="blogConsultBody">
                     <div class="row">
-                        @if (\Session::has('informationSuccess') || \Session::has('informationError'))
-                            @if (\Session::has('informationSuccess'))
-                                <div class="col-md-12 text-center">
-                                    <img src="/assets/images/check.png" style="width: 10%;">
+                                <div class="col-md-12 text-center d-none" id="success-div-popup">
+                                    <img src="/assets/images/check.png" class="mb-3" style="width: 10%;">
                                     <h5 style="font-weight: 600;">Thank you for filling out your information!</h5>
                                     <h5 style="font-weight: 600;">Our Expert will connect with you to provide the best guidance!</h5>
                                     <p>Please enjoy, and let us know if there's anything else we can help you with </p>
                                 </div>
-                            @endif
-                            @else
-                                <div class="col-md-6 sm-hide">
+                                <div id="div-popup-1" class="col-md-6 sm-hide">
                                     <h2 class="pcolor">We provide <br> best guidence </h2>
                                     <img src="assets/images/site/enq-modal.png" width="100%" class="text-center mt-3"
                                          alt="">
                                 </div>
-                                <div class="col-md-6">
+                                <div id="div-popup-2" class="col-md-6">
                                     <div class="enq-form bg-white p-3 shadow-0">
                                         <p>Share Your Information</p>
-                                        <form action="/information-submit" class="footer-needs-validation" novalidate
+                                        <form id="popup-form" class="footer-needs-validation" novalidate
                                               method="POST">
                                             @csrf
                                             <input type="hidden" name="url" value="{{Request::path()}}">
@@ -201,11 +197,10 @@
                                                 <input type="text" class="form-control" placeholder="Enter your Number"
                                                        name="contact" id="exampleInputPassword1" required>
                                             </div>
-                                            <button type="submit" class="btn site-btn-2 mt-3">Submit</button>
+                                            <button type="submit" class="btn site-btn-2 mt-3" id="popup-form-submit">Submit</button>
                                         </form>
                                     </div>
                                 </div>
-                            @endif
                     </div>
                 </div>
 

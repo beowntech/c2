@@ -25,7 +25,7 @@
         </div>
         <div class="row">
             <div class="col cprght">
-                <img src="assets/images/aj-icon.png" width="30px" alt="">
+                <img src="/assets/images/aj-icon.png" width="30px" alt="">
                 <p class="d-inline-block">Copyright &copy; 2021. Admission Jockey</p>
             </div>
         </div>
@@ -34,7 +34,7 @@
 <div class="d-block d-sm-none fixed-bottom bg-white py-1 px-3 xs-menu">
     <div class="row mb-2">
         <div class="col">
-            <a href="#" class="btn mb-enq-btn rounded-0" data-bs-toggle="modal" data-bs-target="#blogConsultingModal"> Get best deals </a>
+            <a href="#" class="btn mb-enq-btn rounded-0" data-bs-toggle="modal" data-bs-target="#blogConsultingModal"> Get Free Counseling </a>
         </div>
     </div>
 </div>
@@ -53,12 +53,40 @@
                         if (!form.checkValidity()) {
                             event.preventDefault()
                             event.stopPropagation()
+                        }else {
+                            event.preventDefault()
+                            addEnquiry();
                         }
 
                         form.classList.add('was-validated')
                     }, false)
                 })
         })()
+
+        function addEnquiry() {
+            $("#popup-form-submit").attr('disabled',true);
+            $("#popup-form-submit").html("Submitting <span class=\"spinner-border spinner-border-sm\" style=\"width: 1.3rem;height: 1.3rem;border-width: 0.14em;\" role=\"status\" aria-hidden=\"true\"></span>")
+            var form = $("#popup-form");
+            // var email = $("#blogEmail").val();
+            var token = "{{csrf_token()}}";
+            $.ajax({
+                type: "POST",
+                url: '/information-submit',
+                data: form.serialize()+ '&_token=' + token, // serializes the form's elements.
+                success: function(data) {
+                    $("#success-div-popup").removeClass('d-none');
+                    $("#div-popup-1").addClass('d-none');
+                    $("#div-popup-2").addClass('d-none');
+                    $("#blogConsultDiloag").removeClass('modal-lg');
+                    $("#blogConsultBody").addClass('p-3');
+                },
+                error: function (err) {
+                    console.log(err)
+                    $("#popup-form-submit").attr('disabled',false);
+                    $("#popup-form-submit").html("Submit");
+                }
+            });
+        }
     </script>
 @yield('script')
 </body>
