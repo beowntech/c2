@@ -13,7 +13,7 @@
     </div>
 </section>
 <section id="contact" class="contact h-100">
-<iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=beowntech%20&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+    <iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=admission%20jockey&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
 			<div class="container" data-aos="fade-up">
 				<div class="section-header text-center py-4">
 					<h2 class="site-title">Contact</h2>
