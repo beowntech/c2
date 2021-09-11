@@ -31,7 +31,7 @@
                     <div class="row college-short-info">
                         <div class="col-md-2 col-xs-12">
                             <div class="box d-inline-block">
-                                <a href=""> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}-xl.webp" class="detail-logo"
+                                <a href=""> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}" class="detail-logo"
                                                  alt=""></a>
                                 @if($val->featured == 1)
                                     <div class="ribbon"><span>featured</span></div>
@@ -240,7 +240,7 @@
                                     <div class="row gallery2" id="viewImage" style="display:none">
                                         @foreach(json_decode($val->images[0]->images) as $i => $img)
                                             <div class="col-md-3 col-6">
-                                                <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}-xl.webp"
+                                                <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
                                                    class="{{$i == 0 ? "big" : ""}}">
                                                     <img style="width: -webkit-fill-available;"
                                                          src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
