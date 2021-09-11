@@ -221,6 +221,7 @@
 {{--                                                        <p class="text-center mt-2 mb-1"><a id="viewAllFaculty" data-id="{{$val->id}}" href="#!" class="site-link">View All Courses</a></p>--}}
                             </div>
                             @if(count($val->images) != 0)
+                            @if(count($val->images) != 0)
                                 <div id="collegeGallery" class="college-data  px-2 py-3 mb-3 bg-white">
                                     <h2>College Image Gallery</h2>
                                     <div class="row gallery" id="mainImage">
@@ -301,6 +302,7 @@
                                     <p class="text-center mt-3 mb-1"><a href="#" class="site-link">View All Vidoes</a>
                                     </p>
                                 </div>
+                            @endif
                             @endif
                             <div id="collegeHostel" class="college-data  px-2 py-3 mb-3 bg-white">
                                 <h2>Hostel</h2>
