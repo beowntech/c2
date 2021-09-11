@@ -30,11 +30,8 @@
             <img src="{{env('APP_URL')}}/assets/images/maskot.png" alt="">
             <br>
             <p style="color:#003593;line-height: 1.7;">connect with us</p>
-            <ul style="list-style-type: none;">
-                <li style="display: inline-block;">+91 7060243009,</li>
-                <li style="display: inline-block;">9997740264</li>
-            </ul>
-            <ul style="list-style-type: none;">
+            <p>+91 7060243009,9997740264</p>
+            <ul style="list-style-type: none;padding: 0;margin: 0">
                 <li style="display: inline-block;"><a href="https://www.facebook.com/admissionjockey"
                                                       target="_blank"><img
                             src="{{env('APP_URL')}}/assets/images/icon/fb.png" width="30px" alt=""></a></li>
