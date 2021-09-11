@@ -10,9 +10,9 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <p class="mb-0 fw-bold"> Corprate Office:  </p>
+                <p class="mb-0 fw-bold"> Corporate Office:  </p>
                 <p>Meedo plaza, Rajpur Road, Dehradun, Uttarakhand 248001</p>
-                <p class="mb-0">+91 7060243009</p>
+                <p class="mb-0">+91 7060243009, 9997740264</p>
                 <p class="mb-4">contact@admissionjockey.com</p>
                 <ul class="list-unstyled ver-line-menu social-links">
                     <li><a href="https://www.facebook.com/admissionjockey" class="text-decoration-none"><i class="fab fa-facebook"></i></a></li>
