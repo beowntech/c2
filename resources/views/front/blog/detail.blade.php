@@ -15,7 +15,7 @@
             <div class="container py-2 small">
                 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#" class="text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
                         <li class="breadcrumb-item"><a href="/search?catg={{$val->catg[0]->name}}"
                                                        class="text-decoration-none">{{$val->catg[0]->name}}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">{{$val->title}}</li>
