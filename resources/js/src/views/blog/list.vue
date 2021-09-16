@@ -48,6 +48,15 @@
         </vx-card>
     </div>
         </div>
+        <vs-prompt
+            @cancel="selectedBlogId=null"
+            @accept="this.deleteBlog"
+            @close="close"
+            :active.sync="activePrompt">
+            <div class="con-exemple-prompt">
+                <span v-text="'Are You Sure You Want To Delete this Blog?'" ></span>
+            </div>
+        </vs-prompt>
     </div>
 </template>
 

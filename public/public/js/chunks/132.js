@@ -80,6 +80,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -294,234 +303,269 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "vx-row" }, [
-    _c("div", { staticClass: "vx-col w-full mb-3" }, [
-      _c(
-        "div",
-        { attrs: { id: "all-blog-page" } },
-        [
-          _c(
-            "vx-card",
-            { attrs: { title: "Blogs" } },
-            [
-              _c(
-                "vs-table",
-                {
-                  attrs: {
-                    data: _vm.blogs,
-                    pagination: "",
-                    "max-items": "10",
-                    search: ""
-                  },
-                  scopedSlots: _vm._u([
-                    {
-                      key: "default",
-                      fn: function(ref) {
-                        var data = ref.data
-                        return _vm._l(data, function(tr, indextr) {
-                          return _c(
-                            "vs-tr",
-                            { key: indextr },
-                            [
-                              _c("vs-td", [
-                                _vm._v(
-                                  "\n                        " +
-                                    _vm._s(indextr + 1) +
-                                    "\n                    "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c("vs-td", { attrs: { data: tr.image } }, [
-                                _c("img", {
-                                  staticClass: "blog_list_img",
-                                  staticStyle: { width: "100px" },
-                                  attrs: {
-                                    src:
-                                      "/blogs/" + tr.id + "/image/" + tr.image
-                                  }
-                                })
-                              ]),
-                              _vm._v(" "),
-                              _c("vs-td", { attrs: { data: tr.title } }, [
-                                _vm._v(
-                                  "\n                        " +
-                                    _vm._s(tr.title) +
-                                    "\n                    "
-                                )
-                              ]),
-                              _vm._v(" "),
-                              _c(
-                                "vs-td",
-                                {
-                                  attrs: {
-                                    data: _vm._f("strippedContent")(tr.content)
-                                  }
-                                },
-                                [
+  return _c(
+    "div",
+    { staticClass: "vx-row" },
+    [
+      _c("div", { staticClass: "vx-col w-full mb-3" }, [
+        _c(
+          "div",
+          { attrs: { id: "all-blog-page" } },
+          [
+            _c(
+              "vx-card",
+              { attrs: { title: "Blogs" } },
+              [
+                _c(
+                  "vs-table",
+                  {
+                    attrs: {
+                      data: _vm.blogs,
+                      pagination: "",
+                      "max-items": "10",
+                      search: ""
+                    },
+                    scopedSlots: _vm._u([
+                      {
+                        key: "default",
+                        fn: function(ref) {
+                          var data = ref.data
+                          return _vm._l(data, function(tr, indextr) {
+                            return _c(
+                              "vs-tr",
+                              { key: indextr },
+                              [
+                                _c("vs-td", [
                                   _vm._v(
                                     "\n                        " +
-                                      _vm._s(
-                                        _vm._f("strippedContent")(tr.content)
-                                      ) +
+                                      _vm._s(indextr + 1) +
                                       "\n                    "
                                   )
-                                ]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "vs-td",
-                                { attrs: { data: tr.stat[0].color } },
-                                [
-                                  _c(
-                                    "vs-chip",
-                                    {
-                                      staticClass: "product-order-status",
-                                      attrs: { color: tr.stat[0].color }
-                                    },
-                                    [_vm._v(_vm._s(tr.stat[0].name))]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "template",
-                                    { slot: "edit" },
-                                    [
-                                      _c(
-                                        "vs-select",
-                                        {
-                                          staticClass: "select-large",
-                                          on: {
-                                            input: function($event) {
-                                              return _vm.updateStatus(
-                                                _vm.updateselected,
-                                                tr.id
-                                              )
-                                            }
-                                          },
-                                          model: {
-                                            value: (_vm.updateselected =
-                                              tr.stat[0].id),
-                                            callback: function($$v) {
-                                              _vm.$set(
-                                                (_vm.updateselected =
-                                                  tr.stat[0]),
-                                                "id",
-                                                $$v
-                                              )
-                                            },
-                                            expression:
-                                              "updateselected = tr.stat[0].id"
-                                          }
-                                        },
-                                        _vm._l(_vm.status, function(
-                                          status,
-                                          index
-                                        ) {
-                                          return _c("vs-select-item", {
-                                            key: index,
-                                            staticClass: "w-full",
-                                            attrs: {
-                                              value: status.id,
-                                              text: status.name
-                                            }
-                                          })
-                                        }),
-                                        1
-                                      )
-                                    ],
-                                    1
-                                  )
-                                ],
-                                2
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "vs-td",
-                                { staticClass: "whitespace-no-wrap" },
-                                [
-                                  _c("feather-icon", {
+                                ]),
+                                _vm._v(" "),
+                                _c("vs-td", { attrs: { data: tr.image } }, [
+                                  _c("img", {
+                                    staticClass: "blog_list_img",
+                                    staticStyle: { width: "100px" },
                                     attrs: {
-                                      icon: "EditIcon",
-                                      svgClasses:
-                                        "w-5 h-5 hover:text-primary stroke-current"
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        $event.stopPropagation()
-                                        return _vm.editData(tr.id)
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("feather-icon", {
-                                    staticClass: "ml-2",
-                                    attrs: {
-                                      icon: "AwardIcon",
-                                      svgClasses:
-                                        "w-5 h-5 hover:text-warning stroke-current"
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        $event.stopPropagation()
-                                        return _vm.seoEdit(tr.id)
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c("feather-icon", {
-                                    staticClass: "ml-2",
-                                    attrs: {
-                                      icon: "TrashIcon",
-                                      svgClasses:
-                                        "w-5 h-5 hover:text-warning stroke-current"
-                                    },
-                                    on: {
-                                      click: function($event) {
-                                        $event.stopPropagation()
-                                        return _vm.openAlert(tr.id)
-                                      }
+                                      src:
+                                        "/blogs/" + tr.id + "/image/" + tr.image
                                     }
                                   })
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        })
+                                ]),
+                                _vm._v(" "),
+                                _c("vs-td", { attrs: { data: tr.title } }, [
+                                  _vm._v(
+                                    "\n                        " +
+                                      _vm._s(tr.title) +
+                                      "\n                    "
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  {
+                                    attrs: {
+                                      data: _vm._f("strippedContent")(
+                                        tr.content
+                                      )
+                                    }
+                                  },
+                                  [
+                                    _vm._v(
+                                      "\n                        " +
+                                        _vm._s(
+                                          _vm._f("strippedContent")(tr.content)
+                                        ) +
+                                        "\n                    "
+                                    )
+                                  ]
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { attrs: { data: tr.stat[0].color } },
+                                  [
+                                    _c(
+                                      "vs-chip",
+                                      {
+                                        staticClass: "product-order-status",
+                                        attrs: { color: tr.stat[0].color }
+                                      },
+                                      [_vm._v(_vm._s(tr.stat[0].name))]
+                                    ),
+                                    _vm._v(" "),
+                                    _c(
+                                      "template",
+                                      { slot: "edit" },
+                                      [
+                                        _c(
+                                          "vs-select",
+                                          {
+                                            staticClass: "select-large",
+                                            on: {
+                                              input: function($event) {
+                                                return _vm.updateStatus(
+                                                  _vm.updateselected,
+                                                  tr.id
+                                                )
+                                              }
+                                            },
+                                            model: {
+                                              value: (_vm.updateselected =
+                                                tr.stat[0].id),
+                                              callback: function($$v) {
+                                                _vm.$set(
+                                                  (_vm.updateselected =
+                                                    tr.stat[0]),
+                                                  "id",
+                                                  $$v
+                                                )
+                                              },
+                                              expression:
+                                                "updateselected = tr.stat[0].id"
+                                            }
+                                          },
+                                          _vm._l(_vm.status, function(
+                                            status,
+                                            index
+                                          ) {
+                                            return _c("vs-select-item", {
+                                              key: index,
+                                              staticClass: "w-full",
+                                              attrs: {
+                                                value: status.id,
+                                                text: status.name
+                                              }
+                                            })
+                                          }),
+                                          1
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  2
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "vs-td",
+                                  { staticClass: "whitespace-no-wrap" },
+                                  [
+                                    _c("feather-icon", {
+                                      attrs: {
+                                        icon: "EditIcon",
+                                        svgClasses:
+                                          "w-5 h-5 hover:text-primary stroke-current"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                          return _vm.editData(tr.id)
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("feather-icon", {
+                                      staticClass: "ml-2",
+                                      attrs: {
+                                        icon: "AwardIcon",
+                                        svgClasses:
+                                          "w-5 h-5 hover:text-warning stroke-current"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                          return _vm.seoEdit(tr.id)
+                                        }
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("feather-icon", {
+                                      staticClass: "ml-2",
+                                      attrs: {
+                                        icon: "TrashIcon",
+                                        svgClasses:
+                                          "w-5 h-5 hover:text-warning stroke-current"
+                                      },
+                                      on: {
+                                        click: function($event) {
+                                          $event.stopPropagation()
+                                          return _vm.openAlert(tr.id)
+                                        }
+                                      }
+                                    })
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          })
+                        }
                       }
-                    }
-                  ])
-                },
-                [
-                  _c(
-                    "template",
-                    { slot: "thead" },
-                    [
-                      _c("vs-th", [_vm._v("Sno.")]),
-                      _vm._v(" "),
-                      _c("vs-th", [_vm._v("Image")]),
-                      _vm._v(" "),
-                      _c("vs-th", [_vm._v("Title")]),
-                      _vm._v(" "),
-                      _c("vs-th", [_vm._v("Content")]),
-                      _vm._v(" "),
-                      _c("vs-th", [_vm._v("Status")]),
-                      _vm._v(" "),
-                      _c("vs-th", [_vm._v("Actions")])
-                    ],
-                    1
-                  )
-                ],
-                2
-              )
-            ],
-            1
-          )
-        ],
-        1
+                    ])
+                  },
+                  [
+                    _c(
+                      "template",
+                      { slot: "thead" },
+                      [
+                        _c("vs-th", [_vm._v("Sno.")]),
+                        _vm._v(" "),
+                        _c("vs-th", [_vm._v("Image")]),
+                        _vm._v(" "),
+                        _c("vs-th", [_vm._v("Title")]),
+                        _vm._v(" "),
+                        _c("vs-th", [_vm._v("Content")]),
+                        _vm._v(" "),
+                        _c("vs-th", [_vm._v("Status")]),
+                        _vm._v(" "),
+                        _c("vs-th", [_vm._v("Actions")])
+                      ],
+                      1
+                    )
+                  ],
+                  2
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      ]),
+      _vm._v(" "),
+      _c(
+        "vs-prompt",
+        {
+          attrs: { active: _vm.activePrompt },
+          on: {
+            cancel: function($event) {
+              _vm.selectedBlogId = null
+            },
+            accept: this.deleteBlog,
+            close: _vm.close,
+            "update:active": function($event) {
+              _vm.activePrompt = $event
+            }
+          }
+        },
+        [
+          _c("div", { staticClass: "con-exemple-prompt" }, [
+            _c("span", {
+              domProps: {
+                textContent: _vm._s(
+                  "Are You Sure You Want To Delete this Blog?"
+                )
+              }
+            })
+          ])
+        ]
       )
-    ])
-  ])
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
