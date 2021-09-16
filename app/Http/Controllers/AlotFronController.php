@@ -269,7 +269,7 @@ class AlotFronController extends Controller
             Tales::where('id', $s->tales[0]->id)->increment('views');
             return view('front.blog-detail', compact('data', 'related', 'colleges'));
         }
-        $data = Tales::where('deleted_at',null)->paginate(9);
+        $data = Tales::where('deleted_at',null)->where('status',1)->paginate(9);
         foreach ($data as $k => $d) {
             $sep = Tales::find($d->id);
             $data[$k]['user'] = User::where('id', $d->user_id)->get();
