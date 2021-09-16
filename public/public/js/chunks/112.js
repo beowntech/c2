@@ -140,7 +140,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(res);
         _this.title = res.data[0].title;
         _this.content = res.data[0].content;
-        _this.image = '/blog/' + res.data[0].id + '/image/' + res.data[0].image;
+        _this.image = '/blogs/' + res.data[0].id + '/image/' + res.data[0].image;
         _this.selectedCatg = JSON.parse(res.data[0].type);
 
         _this.$vs.loading.close();

@@ -114,7 +114,7 @@
                         console.log(res)
                         this.title = res.data[0].title;
                         this.content = res.data[0].content;
-                        this.image = '/blog/'+res.data[0].id+'/image/'+res.data[0].image;
+                        this.image = '/blogs/'+res.data[0].id+'/image/'+res.data[0].image;
                         this.selectedCatg = JSON.parse(res.data[0].type);
                         this.$vs.loading.close()
                     }).catch((err) => {
