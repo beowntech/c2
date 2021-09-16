@@ -428,7 +428,7 @@ class AlotFronController extends Controller
             $data->seo()->attach($seo->id);
             if ($request->hasFile('image')) {
                 $fileName = $permalink.'.'.$request->image->getClientOriginalExtension();
-                $request->image->move(public_path('blog/' . $data->id . '/image'), $fileName);
+                $request->image->move(public_path('blogs/' . $data->id . '/image'), $fileName);
                 Tales::where('id', $data->id)->update(array('image' => $fileName));
             }
             return 1;
@@ -447,7 +447,7 @@ class AlotFronController extends Controller
         if($request->hasFile('image')){
             $permalink = strtolower(trim(preg_replace('/[\s-]+/', "-", preg_replace('/[^A-Za-z0-9-]+/', "-", preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $request->title))))), "-"));
             $fileName = $permalink. '.' . $request->image->getClientOriginalExtension();
-            $request->image->move(public_path('blog/' . $request->id . '/image'), $fileName);
+            $request->image->move(public_path('blogs/' . $request->id . '/image'), $fileName);
             $data = Tales::where('id', $request->id)->update(
                 array('title' => $request->title,
                     'content' => $request->text,
