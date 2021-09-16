@@ -566,7 +566,7 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("h1", { staticClass: "mb-6 text-white" }, [
-                _vm._v("Ok Admission")
+                _vm._v("Admission Jockey")
               ]),
               _vm._v(" "),
               _c(

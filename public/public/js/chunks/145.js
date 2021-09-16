@@ -1,14 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[145],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=script&lang=js&":
-/*!******************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=script&lang=js& ***!
-  \******************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/click-enquiry/index.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/click-enquiry/index.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -56,78 +58,42 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      userRole: this.$acl.get[0]
+      selected: [],
+      enquiries: [],
+      count: 0
     };
   },
-  watch: {
-    userRole: function userRole(val) {
-      this.$store.dispatch('updateUserRole', {
-        aclChangeRole: this.$acl.change,
-        userRole: val
+  methods: {
+    toggleDataSidebar: function toggleDataSidebar() {
+      var val = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      this.addNewDataSidebar = val;
+    },
+    getData: function getData() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/click-enquiry/all').then(function (res) {
+        console.log(res);
+        _this.enquiries = res.data;
+      }).catch(function (err) {
+        console.log(err);
       });
     }
+  },
+  beforeMount: function beforeMount() {
+    this.getData();
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=template&id=7346554b&":
-/*!**********************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=template&id=7346554b& ***!
-  \**********************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/click-enquiry/index.vue?vue&type=template&id=3615b132&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/click-enquiry/index.vue?vue&type=template&id=3615b132& ***!
+  \*********************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -141,243 +107,133 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { attrs: { id: "access-conttrol-editor" } },
     [
       _c(
         "vx-card",
+        { attrs: { title: "Click Enquiries Data" } },
         [
-          _c("p", [
-            _vm._v("Your current role is "),
-            _c("strong", [_vm._v(_vm._s(_vm.$acl.get[0]))]),
-            _vm._v(".")
-          ]),
-          _vm._v(" "),
           _c(
-            "div",
-            { staticClass: "demo-alignment mb-base" },
-            [
-              _c(
-                "vs-radio",
-                {
-                  attrs: { "vs-value": "manager" },
-                  model: {
-                    value: _vm.userRole,
-                    callback: function($$v) {
-                      _vm.userRole = $$v
-                    },
-                    expression: "userRole"
-                  }
-                },
-                [_vm._v("Manager")]
-              ),
-              _vm._v(" "),
-              _c(
-                "vs-radio",
-                {
-                  attrs: { "vs-value": "admin" },
-                  model: {
-                    value: _vm.userRole,
-                    callback: function($$v) {
-                      _vm.userRole = $$v
-                    },
-                    expression: "userRole"
-                  }
-                },
-                [_vm._v("Admin")]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "vx-card",
+            "vs-table",
             {
               attrs: {
-                title: "Buttons",
-                "no-shadow": "",
-                "card-border": "",
-                "code-toggler": ""
-              }
+                pagination: "",
+                "max-items": "10",
+                search: "",
+                data: _vm.enquiries
+              },
+              scopedSlots: _vm._u([
+                {
+                  key: "default",
+                  fn: function(ref) {
+                    var data = ref.data
+                    return _vm._l(data, function(tr, indextr) {
+                      return _c(
+                        "vs-tr",
+                        { key: indextr, attrs: { data: tr } },
+                        [
+                          _c("vs-td", { attrs: { data: _vm.count } }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(_vm.count + 1) +
+                                "\n                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("vs-td", { attrs: { data: tr.calls } }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(tr.calls) +
+                                "\n                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("vs-td", { attrs: { data: tr.whatsapp } }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(tr.whatsapp) +
+                                "\n                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("vs-td", { attrs: { data: tr.created } }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(tr.created) +
+                                "\n                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("vs-td", { attrs: { data: tr.time } }, [
+                            _vm._v(
+                              "\n                    " +
+                                _vm._s(tr.time) +
+                                "\n                "
+                            )
+                          ]),
+                          _vm._v(" "),
+                          _c("vs-td", { attrs: { data: tr.url } }, [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href:
+                                    "" +
+                                    tr.url
+                                      .split("https://admissionjockey.com")
+                                      .join("/"),
+                                  target: "_blank"
+                                }
+                              },
+                              [
+                                _vm._v(
+                                  _vm._s(
+                                    tr.url
+                                      .split("https://admissionjockey.com")
+                                      .join("/")
+                                  )
+                                )
+                              ]
+                            )
+                          ])
+                        ],
+                        1
+                      )
+                    })
+                  }
+                }
+              ])
             },
             [
               _c(
-                "vs-button",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.$acl.check("manager"),
-                      expression: "$acl.check('manager')"
-                    }
-                  ],
-                  staticClass: "mr-4 mb-2"
-                },
-                [_vm._v("Editor And Admin")]
-              ),
-              _vm._v(" "),
-              _c(
-                "vs-button",
-                {
-                  directives: [
-                    {
-                      name: "show",
-                      rawName: "v-show",
-                      value: _vm.$acl.check("admin"),
-                      expression: "$acl.check('admin')"
-                    }
-                  ]
-                },
-                [_vm._v("Only Admin")]
-              ),
-              _vm._v(" "),
-              _c("template", { slot: "codeContainer" }, [
-                _vm._v(
-                  '\n<vs-button v-show="$acl.check(\'editor\')" class="mr-4">Editor And Admin</vs-button>\n<vs-button v-show="$acl.check(\'admin\')">Only Admin</vs-button>\n                '
-                )
-              ])
+                "template",
+                { slot: "thead" },
+                [
+                  _c("vs-th", { attrs: { "sort-key": "sno" } }, [
+                    _vm._v("Sno.")
+                  ]),
+                  _vm._v(" "),
+                  _c("vs-th", { attrs: { "sort-key": "calls" } }, [
+                    _vm._v("Calls")
+                  ]),
+                  _vm._v(" "),
+                  _c("vs-th", { attrs: { "sort-key": "whatsapps" } }, [
+                    _vm._v("Whatsapp")
+                  ]),
+                  _vm._v(" "),
+                  _c("vs-th", { attrs: { "sort-key": "date" } }, [
+                    _vm._v("Date")
+                  ]),
+                  _vm._v(" "),
+                  _c("vs-th", { attrs: { "sort-key": "time" } }, [
+                    _vm._v("Time")
+                  ]),
+                  _vm._v(" "),
+                  _c("vs-th", { attrs: { "sort-key": "url" } }, [_vm._v("URL")])
+                ],
+                1
+              )
             ],
             2
-          ),
-          _vm._v(" "),
-          _c(
-            "vx-card",
-            {
-              staticClass: "mt-base",
-              attrs: {
-                title: "Collapse",
-                "no-shadow": "",
-                "card-border": "",
-                "code-toggler": ""
-              }
-            },
-            [
-              _c(
-                "div",
-                { attrs: { slot: "no-body" }, slot: "no-body" },
-                [
-                  _c(
-                    "vs-collapse",
-                    [
-                      _c("vs-collapse-item", [
-                        _c(
-                          "div",
-                          { attrs: { slot: "header" }, slot: "header" },
-                          [_vm._v("Article 1")]
-                        ),
-                        _vm._v(
-                          "\n\n                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque rhoncus eros tortor, non fringilla lectus cursus et. Fusce vel nisi ante. Aliquam sit amet lectus pharetra, luctus mi sed, aliquet felis. Mauris a tortor viverra, ornare tellus in, consectetur leo.\n                    "
-                        ),
-                        _c("br"),
-                        _c("br"),
-                        _vm._v(
-                          "\n                    Etiam nec nunc nec nisl luctus tincidunt efficitur vitae elit. Vestibulum iaculis nibh commodo neque ultrices lobortis. Cras magna massa, pretium vitae mattis varius, pharetra nec massa. Aliquam ac ex enim. Quisque consequat dui libero, vel blandit lorem porttitor sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam sed lobortis nisl, quis eleifend metus.\n                  "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("vs-collapse-item", [
-                        _c(
-                          "div",
-                          { attrs: { slot: "header" }, slot: "header" },
-                          [_vm._v("Article 2")]
-                        ),
-                        _vm._v(
-                          "\n\n                    Nunc auctor et leo vitae suscipit. Nullam aliquet purus scelerisque enim hendrerit tristique. Maecenas tincidunt dui arcu, a aliquet nisl venenatis vitae. Praesent mauris ligula, porta at maximus ac, rutrum vitae sapien. Donec a sapien id erat dapibus dignissim sodales in est. Donec gravida dapibus sapien at sollicitudin. Maecenas iaculis quam ex,\n                    "
-                        ),
-                        _c("br"),
-                        _c("br"),
-                        _vm._v(
-                          "\n                    eu aliquam erat sagittis eget. Suspendisse mollis felis nec ipsum vehicula, at posuere libero viverra. Nam hendrerit dapibus eleifend. Aliquam elit nulla, tincidunt pellentesque enim mollis, consectetur placerat enim. Integer condimentum tristique ante et ullamcorper. Mauris placerat pretium ex. Nam aliquam sed tortor sit amet\n                    "
-                        ),
-                        _c("br"),
-                        _c("br"),
-                        _vm._v(
-                          "\n                    efficitur. Mauris quis faucibus nulla. Pellentesque egestas non ipsum vel maximus.\n                  "
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "vs-collapse-item",
-                        {
-                          directives: [
-                            {
-                              name: "show",
-                              rawName: "v-show",
-                              value: _vm.$acl.check("admin"),
-                              expression: "$acl.check('admin')"
-                            }
-                          ]
-                        },
-                        [
-                          _c(
-                            "div",
-                            { attrs: { slot: "header" }, slot: "header" },
-                            [_vm._v("Article 3 - Only Admin")]
-                          ),
-                          _vm._v(
-                            "\n\n                    Suspendisse aliquet condimentum diam, sed aliquam nisl dapibus et. Aliquam euismod ullamcorper dolor eu\n                  "
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c("vs-collapse-item", [
-                        _c(
-                          "div",
-                          { attrs: { slot: "header" }, slot: "header" },
-                          [_vm._v("Article 4")]
-                        ),
-                        _vm._v(
-                          "\n\n                    Suspendisse aliquet condimentum diam, sed aliquam nisl dapibus et. Aliquam euismod ullamcorper dolor eu imperdiet. Nullam eget odio at magna gravida suscipit sed vestibulum odio. Maecenas porta elit vel lectus molestie, eget aliquam enim feugiat. Vivamus nec faucibus nisl. Nunc venenatis tempus finibus.\n                  "
-                        )
-                      ])
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c("template", { slot: "codeContainer" }, [
-                    _vm._v(
-                      '\n<vs-collapse>\n    <vs-collapse-item>\n        <div slot="header">\n            Article 1\n        </div>\n        Lorem....metus.\n    </vs-collapse-item>\n    <vs-collapse-item>\n        <div slot="header">\n            Article 2\n        </div>\n        Nunc....maximus.\n    </vs-collapse-item>\n    <vs-collapse-item v-show="$acl.check(\'admin\')">\n        <div slot="header">\n            Article 3 - Only Admin\n        </div>\n        Suspendisse....eu\n    </vs-collapse-item>\n    <vs-collapse-item>\n        <div slot="header">\n            Article 4\n        </div>\n        Suspendisse....finibus.\n    </vs-collapse-item>\n</vs-collapse>\n                '
-                    )
-                  ])
-                ],
-                2
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "vx-card",
-            {
-              staticClass: "mt-base",
-              attrs: {
-                title: "Route Protection",
-                "no-shadow": "",
-                "card-border": "",
-                "code-toggler": ""
-              }
-            },
-            [
-              _c("p", [
-                _vm._v("You can add "),
-                _c("strong", [_vm._v("route protection")]),
-                _vm._v(
-                  " using vue-acl. Only admin can visit eCommerce Dashboard."
-                )
-              ]),
-              _vm._v(" "),
-              _c(
-                "vs-button",
-                {
-                  staticClass: "mt-4",
-                  attrs: {
-                    to: "/dashboard/ecommerce",
-                    color: _vm.$acl.check("admin") ? "primary" : "danger"
-                  }
-                },
-                [_vm._v("visit")]
-              )
-            ],
-            1
           )
         ],
         1
@@ -393,18 +249,18 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/src/views/components/extra-components/access-control/AccessControl.vue":
-/*!*********************************************************************************************!*\
-  !*** ./resources/js/src/views/components/extra-components/access-control/AccessControl.vue ***!
-  \*********************************************************************************************/
+/***/ "./resources/js/src/views/click-enquiry/index.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/src/views/click-enquiry/index.vue ***!
+  \********************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AccessControl_vue_vue_type_template_id_7346554b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccessControl.vue?vue&type=template&id=7346554b& */ "./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=template&id=7346554b&");
-/* harmony import */ var _AccessControl_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AccessControl.vue?vue&type=script&lang=js& */ "./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _index_vue_vue_type_template_id_3615b132___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=3615b132& */ "./resources/js/src/views/click-enquiry/index.vue?vue&type=template&id=3615b132&");
+/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/src/views/click-enquiry/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -413,9 +269,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _AccessControl_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _AccessControl_vue_vue_type_template_id_7346554b___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _AccessControl_vue_vue_type_template_id_7346554b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _index_vue_vue_type_template_id_3615b132___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _index_vue_vue_type_template_id_3615b132___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -425,38 +281,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/views/components/extra-components/access-control/AccessControl.vue"
+component.options.__file = "resources/js/src/views/click-enquiry/index.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************!*\
-  !*** ./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************/
+/***/ "./resources/js/src/views/click-enquiry/index.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/src/views/click-enquiry/index.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccessControl_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./AccessControl.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AccessControl_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/click-enquiry/index.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=template&id=7346554b&":
-/*!****************************************************************************************************************************!*\
-  !*** ./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=template&id=7346554b& ***!
-  \****************************************************************************************************************************/
+/***/ "./resources/js/src/views/click-enquiry/index.vue?vue&type=template&id=3615b132&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/src/views/click-enquiry/index.vue?vue&type=template&id=3615b132& ***!
+  \***************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccessControl_vue_vue_type_template_id_7346554b___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./AccessControl.vue?vue&type=template&id=7346554b& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/access-control/AccessControl.vue?vue&type=template&id=7346554b&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccessControl_vue_vue_type_template_id_7346554b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_3615b132___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=3615b132& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/click-enquiry/index.vue?vue&type=template&id=3615b132&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_3615b132___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AccessControl_vue_vue_type_template_id_7346554b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_3615b132___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

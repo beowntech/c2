@@ -21,7 +21,7 @@
                             {{indextr + 1}}
                         </vs-td>
                         <vs-td :data="tr.image">
-                            <img class="blog_list_img" :src="'/blog/'+tr.id+'/image/'+tr.image" style="width: 100px" />
+                            <img class="blog_list_img" :src="'/blogs/'+tr.id+'/image/'+tr.image" style="width: 100px" />
                         </vs-td>
                         <vs-td :data="tr.title">
                             {{ tr.title }}
