@@ -230,7 +230,7 @@
                                                 <div class="col-md-3 col-6">
                                                     <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
                                                        class="{{$i == 0 ? "big" : ""}}">
-                                                        <img style="width: -webkit-fill-available;"
+                                                        <img style="width: 100%;"
                                                              src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
                                                              class="mb-2" alt="{{$img}} by okadmission">
                                                     </a>
@@ -243,7 +243,7 @@
                                             <div class="col-md-3 col-6">
                                                 <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
                                                    class="{{$i == 0 ? "big" : ""}}">
-                                                    <img style="width: -webkit-fill-available;"
+                                                    <img style="width: 100%;"
                                                          src="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
                                                          class="mb-2" width="100%" alt="{{$img}} by okadmission">
                                                 </a>
@@ -263,7 +263,7 @@
                                                 <div class="col-md-3 col-6">
                                                     <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}"
                                                        class="{{$i == 0 ? "big" : ""}}">
-                                                        <img style="width: -webkit-fill-available;"
+                                                        <img style="width: 100%;"
                                                              src="{{env('MEDIA_URL')}}property/{{$val->id}}/placement/images/{{$img}}"
                                                              class="mb-2" width="100%" alt="{{$img}} by okadmission">
                                                     </a>
