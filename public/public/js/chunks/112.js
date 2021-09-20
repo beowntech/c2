@@ -25,6 +25,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-quill-editor */ "./node_modules/vue-quill-editor/dist/vue-quill-editor.js");
 /* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_quill_editor__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var ckeditor4_vue__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ckeditor4-vue */ "./node_modules/ckeditor4-vue/dist/ckeditor.js");
+/* harmony import */ var ckeditor4_vue__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(ckeditor4_vue__WEBPACK_IMPORTED_MODULE_8__);
 //
 //
 //
@@ -95,6 +97,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -233,7 +237,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   components: {
     videoPlayer: vue_video_player__WEBPACK_IMPORTED_MODULE_0__["videoPlayer"],
-    quillEditor: vue_quill_editor__WEBPACK_IMPORTED_MODULE_7__["quillEditor"]
+    quillEditor: vue_quill_editor__WEBPACK_IMPORTED_MODULE_7__["quillEditor"],
+    CKEditor: ckeditor4_vue__WEBPACK_IMPORTED_MODULE_8___default.a
   },
   filters: {
     strippedContent: function strippedContent(string) {
@@ -371,8 +376,8 @@ var render = function() {
                   }
                 },
                 [
-                  _c("quill-editor", {
-                    staticStyle: { "min-height": "600px" },
+                  _c("ckeditor", {
+                    attrs: { editor: _vm.editor, config: _vm.editorConfig },
                     model: {
                       value: _vm.content,
                       callback: function($$v) {

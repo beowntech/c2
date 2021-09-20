@@ -23,7 +23,8 @@
                             </div>
                             <vx-card class=" no-shadow search-page__search-results lg:p-2"
                                      style="margin-top:30px;padding: 0px!important;">
-                                <quill-editor v-model="content" style="min-height:600px;"></quill-editor>
+                                <ckeditor :editor="editor" v-model="content" :config="editorConfig"></ckeditor>
+<!--                                <quill-editor v-model="content" style="min-height:600px;"></quill-editor>-->
                             </vx-card>
                         </div>
 
@@ -77,6 +78,7 @@
     import axios from "axios";
     import $ from 'jquery';
     import {quillEditor} from 'vue-quill-editor'
+    import CKEditor from 'ckeditor4-vue';
 
     export default {
         data() {
@@ -200,6 +202,7 @@
         components: {
             videoPlayer,
             quillEditor,
+            CKEditor
         },
         filters: {
             strippedContent: function (string) {
