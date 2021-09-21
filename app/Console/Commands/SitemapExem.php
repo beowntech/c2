@@ -47,11 +47,15 @@ class SitemapExem extends Command
         foreach ($data as $s => $val) {
             if ($val->seo->isNotEmpty()) {
                 $city = Exam::where('id', $val->id)->get();
-                if($city[0]->location->isNotEmpty()) {
-                    $sitemap->add(Url::create(env('APP_URL')."/exam/".$val->seo[0]->permalink."")
-                        ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
-                        ->setLastModificationDate($val->updated_at)
-                        ->setPriority(1.0));
+                if ($city->isNotEmpty()) {
+                    foreach ($city as $c => $value) {
+                        if ($value->location->isNotEmpty()) {
+                            $sitemap->add(Url::create(env('APP_URL') . "/exam/" . $val->seo[0]->permalink . "")
+                                ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                                ->setLastModificationDate($val->updated_at)
+                                ->setPriority(1.0));
+                        }
+                    }
                 }
             }
         }

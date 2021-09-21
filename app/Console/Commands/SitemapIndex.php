@@ -7,6 +7,7 @@ use App\Properties;
 use App\SEO;
 use App\Tales;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Spatie\Sitemap\Tags\Url;
 use Spatie\Sitemap\Sitemap;
