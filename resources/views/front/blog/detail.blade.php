@@ -10,6 +10,22 @@
 {{--@section('author_name','Deb Jyoti Shah')--}}
 @section('seo_url','https://'.Request::getHost())
 @section('content')
+    <style>
+        .main-detail-content table tbody{
+            padding: 10px!important;
+        }
+        .main-detail-content table tr td{
+            padding: 10px!important;
+            border: 2px solid;
+        }
+        .main-detail-content table tr th{
+            padding: 10px!important;
+            border: 1px solid;
+            background: #003593;
+            font-size: 15px;
+            color: white;
+        }
+    </style>
     @foreach($data as $d => $val)
         <seaction id="breadcrumb">
             <div class="container py-2 small">
@@ -30,7 +46,7 @@
                         <h1 class="">{{$val->title}}</h1>
                         <p class="pcolor my-1">{{date('F Y',strtotime($val->updated_at))}}</p>
                         <img src="{{env('MEDIA_URL')}}blogs/{{$val->id}}/image/{{$val->image}}" witth="100%" alt="">
-                        <div>
+                        <div class="main-detail-content">
                             {!! $val->content !!}
                         </div>
                         <h5 class="mt-4"><i class="far fa-comments"></i> Leave a Comment</h5>
