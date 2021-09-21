@@ -241,6 +241,7 @@
                                         @endif
                                     </div>
                                     <div class="row gallery2" id="viewImage" style="display:none">
+                                        @if($val->images[0]->images != null)
                                         @foreach(json_decode($val->images[0]->images) as $i => $img)
                                             <div class="col-md-3 col-6">
                                                 <a href="{{env('MEDIA_URL')}}property/{{$val->id}}/gallery/images/{{$img}}"
@@ -251,6 +252,7 @@
                                                 </a>
                                             </div>
                                         @endforeach
+                                        @endif
                                     </div>
                                     <p class="text-center mt-3 mb-1"><a href="#" id="gallery1" class="site-link">View
                                             All Gallery</a></p>
