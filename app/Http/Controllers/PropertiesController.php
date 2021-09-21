@@ -950,7 +950,7 @@ class PropertiesController extends Controller
         $sizeArray = [0.2, 0.5, 0.7, 1];
         $i = [];
         $time = time();
-        $img = $request->file('featured');
+        $img = $request->featured;
         $fileMain = 'featured-' . $request->id . '-' . $time;
         foreach ($sizeArray as $val) {
             $i[] = $val;
@@ -965,7 +965,7 @@ class PropertiesController extends Controller
                 $valName = "xl";
             }
             $filename = 'featured-' . $request->id . '-' . $time . '-' . $valName;
-            $extension = $img->getClientOriginalExtension();
+            $extension = 'png';
             $size = getimagesize($img);
             $newWidth = $val * $size[0];
             $newHeight = $val * $size[1];
