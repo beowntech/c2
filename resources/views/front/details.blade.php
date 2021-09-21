@@ -14,7 +14,7 @@
     @foreach($data as $d => $val)
         <div class="bg-light" id="detail-page">
             <section class="pb-2"
-                     style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{count($val->images) != 0 ? (strpos($val->images[0]->featured, 'png') !== false ? $val->images[0]->featured : $val->images[0]->featured.'-lg.webp') : ''}});background-size:cover;background-repeat: no-repeat;
+                     style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{count($val->images) != 0 ? (strpos($val->images[0]->featured, 'png') !== false && strpos($val->images[0]->featured, 'jpg') !== false ? $val->images[0]->featured : $val->images[0]->featured.'-lg.webp') : ''}});background-size:cover;background-repeat: no-repeat;
                          background-position: center;box-shadow: inset 0 0 0 2000px rgba(2, 20, 57, 0.72);">
                 <div class="container">
                     <div class="row">
@@ -31,7 +31,7 @@
                     <div class="row college-short-info">
                         <div class="col-md-2 col-xs-12">
                             <div class="box d-inline-block">
-                                <a href=""> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ strpos($val->logo, 'png') !== false ? $val->logo: $val->logo.'-lg.webp'}}" class="detail-logo"
+                                <a href=""> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ strpos($val->logo, 'png') !== false && strpos($val->logo, 'jpg') !== false ? $val->logo: $val->logo.'-lg.webp'}}" class="detail-logo"
                                                  alt=""></a>
                                 @if($val->featured == 1)
                                     <div class="ribbon"><span>featured</span></div>
