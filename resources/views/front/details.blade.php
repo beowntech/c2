@@ -225,6 +225,7 @@
                                 <div id="collegeGallery" class="college-data  px-2 py-3 mb-3 bg-white">
                                     <h2>College Image Gallery</h2>
                                     <div class="row gallery" id="mainImage">
+                                        @if(count($val->images[0]->images) != 0)
                                         @foreach(json_decode($val->images[0]->images) as $i => $img)
                                             @if($i < 4)
                                                 <div class="col-md-3 col-6">
@@ -237,6 +238,7 @@
                                                 </div>
                                             @endif
                                         @endforeach
+                                        @endif
                                     </div>
                                     <div class="row gallery2" id="viewImage" style="display:none">
                                         @foreach(json_decode($val->images[0]->images) as $i => $img)
