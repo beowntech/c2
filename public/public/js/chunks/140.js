@@ -388,7 +388,7 @@ __webpack_require__.r(__webpack_exports__);
         _this8.amenitiesValue = JSON.parse(res.data[0].property_type);
         _this8.Hotel = res.data[0].hotel_contact;
         _this8.featuredImage = _apiUrls_index__WEBPACK_IMPORTED_MODULE_8__["default"].mediaUrl + "property/" + res.data[0].id + '/gallery/featured/' + res.data[0].images[0].featured + '-xl.webp';
-        _this8.image = _apiUrls_index__WEBPACK_IMPORTED_MODULE_8__["default"].mediaUrl + "property/" + res.data[0].id + '/logo/' + res.data[0].logo;
+        _this8.image = _apiUrls_index__WEBPACK_IMPORTED_MODULE_8__["default"].mediaUrl + "property/" + res.data[0].id + '/logo/' + res.data[0].logo + '-md.webp';
 
         _this8.$vs.loading.close();
 
@@ -1269,7 +1269,7 @@ render._withStripped = true
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mediaUrl: 'http://localhost:8000/'
+  mediaUrl: 'https://admissionjockey.com/'
 });
 
 /***/ }),

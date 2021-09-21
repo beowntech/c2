@@ -1,4 +1,4 @@
 
 export default {
-    mediaUrl: 'http://localhost:8000/'
+    mediaUrl: 'https://admissionjockey.com/'
 }

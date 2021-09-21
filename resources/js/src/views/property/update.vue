@@ -359,8 +359,8 @@
                         this.amenitiesValue = JSON.parse(res.data[0].property_type);
                         this.Hotel = res.data[0].hotel_contact;
                         this.featuredImage = apiurl.mediaUrl + "property/" + res.data[0].id + '/gallery/featured/' + res.data[0].images[0].featured + '-xl.webp';
-                        this.image = apiurl.mediaUrl + "property/" + res.data[0].id + '/logo/' + res.data[0].logo;
-                        this.$vs.loading.close();
+                        this.image = apiurl.mediaUrl + "property/" + res.data[0].id + '/logo/' + res.data[0].logo + '-md.webp';
+                        this.$vs.loading.close()
                         this.dataLoaded = true
                     })
                     .catch((err) => {
