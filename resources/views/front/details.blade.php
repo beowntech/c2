@@ -31,7 +31,7 @@
                     <div class="row college-short-info">
                         <div class="col-md-2 col-xs-12">
                             <div class="box d-inline-block">
-                                <a href=""> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}" class="detail-logo"
+                                <a href=""> <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ strpos($val->logo, 'png') !== false ? $val->logo: $val->logo.'-lg.webp'}}" class="detail-logo"
                                                  alt=""></a>
                                 @if($val->featured == 1)
                                     <div class="ribbon"><span>featured</span></div>
