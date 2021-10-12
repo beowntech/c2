@@ -242,6 +242,7 @@ Route::get('/exam-gen',function (){
 Route::get('/blogs', function (){
     return redirect('/blog');
 });
+
 //Route::post('/send-notification', [App\Http\Controllers\HomeController::class, 'sendNotification'])->name('send.notification');
 Route::get('{city?}/{id?}',['uses' => 'CategoriesController@single'])->name('details');
 

@@ -1,0 +1,547 @@
+@extends('v2.front.layout.header')
+@section('content')
+    <section id="heroimage" style="background:url('v2/assets/images/site/heroimage.jpg');background-repeat:no-repeat;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+
+                </div>
+                <div class="col-md-7 height-80 hero-text">
+                    <div class="vertical-65 text-center">
+                        <h1>Plan your path to college</h1>
+                        <h2>That Fits Your Best</h2>
+                        <p class="text">Finding the right College Shouldn't be hard. <br> we make it easy to discover
+                            and connect with the best ones for you</p>
+                        <div class="mb-3  position-relative">
+                            <form action="/search">
+                                <input type="search" class="form-control hero-search" id="exampleDataList"
+                                       placeholder="College Name, Courses">
+                                <button type="submit" class="btn btn-search position-absolute top-50 end-10 translate-middle-y"><i
+                                        class="fas fa-search"></i> Search
+                                </button>
+                            </form>
+                            <div class="search-result py-2 text-start bg-white border-radius-md mt-1 liveSearch">
+                                <p class="mb-0  ps-3">Colleges</p>
+                                <ul class="list-unstyled ps-4">
+                                    <li><a href="#">Top DRCC College</a></li>
+                                    <li><a href="#">Top College in Dehradun</a></li>
+                                    <li><a href="#">Top College in Delhi</a></li>
+                                    <li><a href="#">Top College in Mumbai</a></li>
+                                    <li><a href="#">Top College in Bangalore</a></li>
+                                    <li><a href="#">Top College in Mumbai</a></li>
+                                </ul>
+                                <p class="mb-0 ps-3">Courses</p>
+                                <ul class="list-unstyled ps-4">
+                                    <li><a href="#">Top DRCC College</a></li>
+                                    <li><a href="#">Top College in Dehradun</a></li>
+                                    <li><a href="#">Top College in Delhi</a></li>
+                                    <li><a href="#">Top College in Mumbai</a></li>
+                                    <li><a href="#">Top College in Bangalore</a></li>
+                                    <li><a href="#">Top College in Mumbai</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-start ps-4">Need Help - <a href="#">Click Here</a></p>
+                        <div class="hero-highlight float-end text-start">
+                            <p class="mb-0">Ranked</p>
+                            <h3 class="mb-0"><strong>150+</strong> College</h3>
+                            <a href="#">view all top college</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="height-90 py-10">
+        <div class="container">
+            <div class="row mb-10">
+                <div class="col text-center">
+                    <p class="mb-0">Why Admission Jockey?</p>
+                    <h2>Your career <br> top priority for us</h2>
+                    <div class="text-center"><img src="v2/assets/images/site/triangle.png" alt=""></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <div class="box-card-1">
+                        <img src="v2/assets/images/icon/expert-guidance.png" alt="">
+                        <h2 class="f-18">Expert Guidance</h2>
+                        <p>Get the education & career guidance from expert education jockeys</p>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="box-card-1">
+                        <img src="v2/assets/images/icon/find.png" alt="">
+                        <h2 class="f-18">Find Best college</h2>
+                        <p>Find best college for future career</p>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="box-card-1">
+                        <img src="v2/assets/images/icon/compare.png" alt="">
+                        <h2 class="f-18">Compare Colleges</h2>
+                        <p>Everythind you need to make youe decision</p>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="box-card-1">
+                        <img src="v2/assets/images/icon/afordable.png" alt="">
+                        <h2 class="f-18"> Accommodations</h2>
+                        <p>Discover Affordable Accommodations and Cheap Hotels</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="c2a">
+        <div class="container">
+            <div class="row position-relative site-shadow-lg">
+                <div class="col-md-1 text-center ">
+                    <div class="position-absolute badge-pos translate-middle">
+                        <img src="v2/assets/images/site/boy.png" class="bounce-content" alt="">
+                    </div>
+                </div>
+                <div class="col-md-6 py-4 ps-5">
+                    <h2 class="f-26">Request for your free video Guidance</h2>
+                    <p>We are providing the free video guidance for your coll</p>
+                </div>
+                <div class="col-md-5 py-4">
+                    <ul class="list-unstyled ver-line-menu float-end py-3">
+                        <li><a href="/" class="text-white "> Video Call Guide</a></li>
+                        <li><a href="/" class="btn site-btn-1 ">Schedule your Video Call</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="height-90 py-8">
+        <div class="container-fluid">
+            <div class="row mb-5">
+                <div class="col text-center">
+                    <p class="mb-0 fw-6">Don't limit yourself to one option</p>
+                    <h2>Explore your career path</h2>
+                    <div class="text-center"><img src="v2/assets/images/site/triangle.png" alt=""></div>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col text-center">
+                    <ul class="list-unstyled ver-line-menu py-3">
+                        <li>
+                            <button class="btn site-btn-2 me-3 btn-active" id="college_service">Colleges</button>
+                        </li>
+                        <li>
+                            <button class="btn site-btn-2 me-3" id="exam_service">Exams</button>
+                        </li>
+                        <li>
+                            <button class="btn site-btn-2 me-3">Courses</button>
+                        </li>
+                        <li>
+                            <button class="btn site-btn-2 me-3">Career</button>
+                        </li>
+                        <li>
+                            <button class="btn site-btn-2 me-3" id="location_service">Location</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="home-option" id="service1">
+                <div class="mainCollegeCategory row">
+                    @foreach($fcatg as $c => $ca)
+                        @foreach($ca->children as $cc => $cac)
+                            <div class="col-md-2 text-center">
+                                <div class="box-card-sm">
+                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
+                                    <a href="/search"><p class="f-16">{{$cac->name}}</p></a>
+                                </div>
+                            </div>
+                            @if($cc == 11)
+                                <?php break 2; ?>
+                            @endif
+                        @endforeach
+                    @endforeach
+                </div>
+                <div class="viewMoreCollegeCategory row d-none">
+                    @foreach($fcatg as $c => $ca)
+                        @foreach($ca->children as $cc => $cac)
+                            <div class="col-md-2 text-center">
+                                <div class="box-card-sm">
+                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
+                                    <a href="/search"><p class="f-16">{{$cac->name}}</p></a>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endforeach
+                </div>
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <button class="btn site-btn-2 me-3 shadow text-secondary viewallCollege">View More <i
+                                class="fas fa-bars text-secondary"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="home-option d-none" id="service2">
+                <div class="mainExamCategory row">
+                    @foreach($fcatg as $c => $ca)
+                        @foreach($ca->children as $cc => $cac)
+                            <div class="col-md-2 text-center">
+                                <div class="box-card-sm">
+                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
+                                    <a href="/search"><p class="f-16">{{$cac->name}}</p></a>
+                                </div>
+                            </div>
+                            @if($cc == 11)
+                                <?php break 2; ?>
+                            @endif
+                        @endforeach
+                    @endforeach
+                </div>
+                <div class="viewMoreExamCategory row d-none">
+                    @foreach($fcatg as $c => $ca)
+                        @foreach($ca->children as $cc => $cac)
+                            <div class="col-md-2 text-center">
+                                <div class="box-card-sm">
+                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
+                                    <a href="/search"><p class="f-16">{{$cac->name}}</p></a>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endforeach
+                </div>
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <button class="btn site-btn-2 me-3 shadow text-secondary viewallExam">View More <i
+                                class="fas fa-bars text-secondary"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="row home-option d-none" id="service3">
+                <div class="col-md-2 text-center">
+                    <div class="box-card-sm">
+                        <img src="/city/india.png" alt="">
+                        <a href="/search"><p class="f-16">India</p></a>
+                    </div>
+                </div>
+                @foreach($state as $s => $st)
+                    @if($s < 11)
+                        <div class="col-md-2 text-center">
+                            <div class="box-card-sm">
+                                <img src="/city/{{$st->image}}" alt="">
+                                <a href="/search?state={{$st->name}}"><p class="f-16">{{$st->name}}</p></a>
+                            </div>
+                        </div>
+                    @else
+                        <div class="col-md-2 text-center locationMore" style="display: none">
+                            <div class="box-card-sm">
+                                <img src="/city/{{$st->image}}" alt="">
+                                <a href="/search?state={{$st->name}}"><p class="f-16">{{$st->name}}</p></a>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+                <div class="row mt-4">
+                    <div class="col text-center">
+                        <button class="btn site-btn-2 me-3 shadow text-secondary viewallLocation">View More <i
+                                class="fas fa-bars text-secondary"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="free-guidance-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 text-white py-5">
+                    <h1 class="mb-4"><strong> Free</strong> Guidance to <br> find your Best Fit College</h1>
+                    <h4 class="mb-5">We will provide you the right guidance to find your best fit college for your
+                        future career. Our expert consoler will take care about your career path.</h4>
+                    <p class="f-20">How we guide</p>
+                    <ul class="f-18 mb-5 list-point-lg">
+                        <li>Tell us your college/ Location and course preference</li>
+                        <li>We will provide you personalised expert guide</li>
+                        <li>We start one to one counselling session</li>
+                        <li>We provide the multiple option career options based on the preference</li>
+                        <li>Our expert provide best fit colleges to your preferences</li>
+                    </ul>
+                    <a href="#" class="btn site-btn-3 btn-lg shadow px-4"> <i class="fas fa-mobile-alt"></i> Ask to
+                        Expert</a>
+                </div>
+                <div class="col-md-5">
+                    <div class="py-5 ps-4 mt-4">
+                        <div class="empty-1">
+
+                        </div>
+                        <div class="content-1">
+                            <img src="v2/assets/images/site/jockey-icon.png" class="bounce-content" alt="">
+                            <img src="v2/assets/images/site/expert-call.jpg" class="border-radius-lg" alt="">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="height-100">
+        <div class="container py-5">
+            <div class="row mb-5">
+                <div class="col text-center">
+                    <p class="mb-2 f-18 pcolor">Helping on education funds</p>
+                    <h2 class="mb-4 pcolor">Education loan facility</h2>
+                    <h1 class="scolor f-44 mb-4 big-title">3 Simple steps to Apply for an Educational loan</h1>
+                    <p>Students can view, apply and track the education loan <br>
+                        applications to banks anytime, anywhere by accessing the portal.</p>
+
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 offset-md-3 text-center">
+                    <img src="v2/assets/images/site/Layer 54.jpg" alt="">
+                    <br>
+                    <p class="d-inline-block">Register Now</p>
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="v2/assets/images/site/Layer 55.jpg" alt="">
+                    <br>
+                    <p class="d-inline-block">Fill up the form</p>
+                </div>
+                <div class="col-md-2 text-center">
+                    <img src="v2/assets/images/site/Layer 56.jpg" alt="">
+                    <br>
+                    <p class="d-inline-block">Apply to multiple Banks</p>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col text-center">
+                    <ul class="list-unstyled ver-line-menu py-3">
+                        <li><a href="/" class="btn site-btn-3 btn-lg site-shadow-md">Get Education Loan</a></li>
+                        <li><a href="/"> Education Loan Info</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="height-100 bgp">
+
+        <div class="container position-relative">
+            <div class="position-absolute badge-pos translate-middle">
+                <img class="animation-circle" src="v2/assets/images/site/hostel.png" alt="">
+            </div>
+
+            <div class="row mb-5 pt-5">
+                <div class="col text-center text-white">
+                    <h2 class="f-42"> Accommodation facility</h2>
+                    <p class="f-18">Reserve your accommodation and focuson your study, we <br> will provide you the
+                        better hostel facility.</p>
+                    <a href="#" class="f-20 text-white">explore all accommodation</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="v2/assets/images/site/hostel.jpg" class="border-radius-sm mb-3" width="100%" alt="">
+                </div>
+                <div class="col-md-4">
+                    <img src="v2/assets/images/site/hostel1.jpg" class="border-radius-sm mb-3" width="100%" alt="">
+                </div>
+                <div class="col-md-4">
+                    <img src="v2/assets/images/site/hostel2.jpg" class="border-radius-sm mb-3" width="100%" alt="">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col text-center text-white">
+                    <a href="#" class="btn site-btn-1 btn-lg py-2 shadow px-5 f-14">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="height-100 bgg">
+        <div class="container-fluid">
+            <div class="row py-5">
+                <div class="col text-center">
+                    <p class="mb-2 pcolor">Education Industry players who are seeking information</p>
+                    <h2 class="pcolor">Top Featured College</h2>
+
+                </div>
+            </div>
+            <div class="row college-list m-0">
+                @foreach($prop as $k => $val)
+                    <div class="col-md-4">
+                        <div class="college-card-sm">
+                            <div class="mb-2 prop-image"
+                                 style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured.'-xl.webp'}});background-position:center;background-size: cover;">
+                                <div class="prop-info">
+                                    <div class="d-inline-block">
+                                        <img
+                                            src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo.'-md.webp'}}"
+                                            class="prop-logo p-2" alt="">
+                                    </div>
+                                    <span><i class="fas fa-star"></i> 5/5 </span> 120 reviews
+                                </div>
+                            </div>
+                            <div class="px-4 prop-iden">
+                                <h2 class="f-14 mb-2">{{$val->name}}</h2>
+                                <p class="mb-3 f-12">{{$val->cities->isEmpty() ? "" : $val->cities[0]->name}}
+                                    , {{$val->location->isEmpty() ? "" : $val->location[0]->states[0]->name}}</p>
+                                <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities->isEmpty() ? "" : $val->cities[0]->name)))}}/{{$val->seo->isEmpty() ? "" : $val->seo[0]->permalink}}">
+                                    <p class="f-12">VIEW ALL COUSRSES AND FEES</p></a>
+                            </div>
+
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonial">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col text-center">
+                    <p class="mb-2 pcolor">People Saying about us</p>
+                    <h2 class="pcolor">Testimonial</h2>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active ">
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2 p-2">
+                                        <div class="testimonial-data text-center">
+                                            <div class="testimonial-info mb-4">
+                                                <img src="v2/assets/images/site/hostel.png" width="150px"
+                                                     class="user-avatar" alt="">
+                                                <div class="d-inline-block ms-4 text-start pcolor">
+                                                    <h3 class="f-24">Username</h3>
+                                                    <p>Graphic Era</p>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+                                                dolores autem reprehenderit corrupti perspiciatis cum impedit tempore a,
+                                                ea ex quos modi doloremque cumque porro, consequatur excepturi libero,
+                                                pariatur quisquam!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2 p-2">
+                                        <div class="testimonial-data text-center">
+                                            <div class="testimonial-info mb-4">
+                                                <img src="v2/assets/images/site/hostel.png" width="150px"
+                                                     class="user-avatar" alt="">
+                                                <div class="d-inline-block ms-4 text-start pcolor">
+                                                    <h3 class="f-24">Username</h3>
+                                                    <p>Graphic Era</p>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+                                                dolores autem reprehenderit corrupti perspiciatis cum impedit tempore a,
+                                                ea ex quos modi doloremque cumque porro, consequatur excepturi libero,
+                                                pariatur quisquam!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2 p-2">
+                                        <div class="testimonial-data text-center">
+                                            <div class="testimonial-info mb-4">
+                                                <img src="v2/assets/images/site/hostel.png" width="150px"
+                                                     class="user-avatar" alt="">
+                                                <div class="d-inline-block ms-4 text-start pcolor">
+                                                    <h3 class="f-24">Username</h3>
+                                                    <p>Graphic Era</p>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
+                                                dolores autem reprehenderit corrupti perspiciatis cum impedit tempore a,
+                                                ea ex quos modi doloremque cumque porro, consequatur excepturi libero,
+                                                pariatur quisquam!
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="prev">
+                        <span class="control">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                        </span>
+
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide="next">
+                        <span class="control">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="height-90 confuesed-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 text-white py-5">
+                    <h1 class="f-36 mb-3">Still Confuesed!</h1>
+
+                    <p class="f-20 mb-5">We will help you to make your career bright share your information</p>
+
+                    <div class="form-1">
+                        <form action="">
+                            <input type="text" class="form-control site-field" placeholder="Type you full name">
+                            <input type="email" class="form-control site-field" placeholder="Enterl Email Id">
+                            <select name="" id="" class="form-control site-field select-css">
+                                <option value="">Select Courses</option>
+                                <option value="">Option 1</option>
+                            </select>
+                            <button class="btn site-btn-1 shadow">Submit</button>
+                        </form>
+                    </div>
+
+                </div>
+                <div class="col-md-7">
+
+                </div>
+            </div>
+        </div>
+    </section>
+@endsection

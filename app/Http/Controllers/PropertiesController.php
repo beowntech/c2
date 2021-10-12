@@ -1369,7 +1369,7 @@ class PropertiesController extends Controller
                 $request = new Request([
                     'gallery' => $image,
                     'id' => $item->id,
-                    'savePath' => 'property2/' . $item->id . '/placement/images'
+                    'savePath' => 'property/' . $item->id . '/placement/images'
                 ]);
                 $this->uploadPlacementPlugin($request);
 //                $placement[$item->id][] = array('placement' => str_replace($placementPath . '/', '', $f));

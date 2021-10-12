@@ -210,7 +210,7 @@ class CategoriesController extends Controller
             }
         }
         $state = StateModel::orderBy('id', 'ASC')->get();
-        return view('front.search', compact('data', 'state', 'ptype', 'courseD', 'course', 'stream', 'am', 'category', 'city', 'categories'));
+        return view('v2.front.search.college-search', compact('data', 'state', 'ptype', 'courseD', 'course', 'stream', 'am', 'category', 'city', 'categories'));
     }
 
     public function single($city = "", $id = '')
@@ -309,7 +309,7 @@ class CategoriesController extends Controller
         }
         event(new ViewsEvent());
         Properties::where('id', $data[0]->id)->increment('views');
-        return view('front.details', compact('data','related', 'catg',
+        return view('v2.front.detail', compact('data','related', 'catg',
 //                'course', 'coursecount',
                 'placement', 'faculty', 'hostel', 'featured', 'review',
 //                'images',

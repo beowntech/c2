@@ -375,27 +375,27 @@
             $("#service1").removeClass('d-none');
             $("#service3").addClass('d-none');
             $("#service2").addClass('d-none');
-            $("#college_service").addClass('active');
-            $("#exam_service").removeClass('active');
-            $("#location_service").removeClass('active');
+            $("#college_service").addClass('btn-active');
+            $("#exam_service").removeClass('btn-active');
+            $("#location_service").removeClass('btn-active');
         });
         $("#exam_service").click(function (e) {
             e.preventDefault();
             $("#service1").addClass('d-none');
             $("#service3").addClass('d-none');
             $("#service2").removeClass('d-none');
-            $("#college_service").removeClass('active');
-            $("#exam_service").addClass('active');
-            $("#location_service").removeClass('active');
+            $("#college_service").removeClass('btn-active');
+            $("#exam_service").addClass('btn-active');
+            $("#location_service").removeClass('btn-active');
         });
         $("#location_service").click(function (e) {
             e.preventDefault();
             $("#service1").addClass('d-none');
             $("#service2").addClass('d-none');
             $("#service3").removeClass('d-none');
-            $("#college_service").removeClass('active');
-            $("#exam_service").removeClass('active');
-            $("#location_service").addClass('active');
+            $("#college_service").removeClass('btn-active');
+            $("#exam_service").removeClass('btn-active');
+            $("#location_service").addClass('btn-active');
         });
 
         //Selectize JS
@@ -1079,11 +1079,11 @@
           // $(".state").find("td:eq(2)").html("-");
           // $(".city").find("td:eq(2)").html("-");
       });
-
-        var myOffcanvas = document.getElementById('offcanvasBottom');
-        var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
-      var myOffcanvasBank = document.getElementById('offcanvasBank');
-      var bsOffcanvasBank = new bootstrap.Offcanvas(myOffcanvasBank);
+      //
+      //   var myOffcanvas = document.getElementById('offcanvasBottom');
+      //   var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas);
+      // var myOffcanvasBank = document.getElementById('offcanvasBank');
+      // var bsOffcanvasBank = new bootstrap.Offcanvas(myOffcanvasBank);
 
         $(".openCompare").click(function () {
             bsOffcanvas.show();
@@ -1291,9 +1291,10 @@
       }
 //on keyup, start the countdown
         $input.on('keyup', function () {
+            console.log($input.val());
             if($input.val() == ""){
                 $(".liveSearch").hide();
-                $(".liveSearch ul").html("");
+                $(".liveSearch").html("");
             }else {
                 clearTimeout(typingTimer);
                 typingTimer = setTimeout(doneTyping, doneTypingInterval);
@@ -1329,15 +1330,18 @@
                     console.log(response)
                     if(response == 0){
                         $(".liveSearch").hide();
-                        $(".liveSearch ul").html("");
+                        $(".liveSearch").html("");
                     }
                     $(".liveSearch").show();
-                    $(".liveSearch ul").html("");
+                    $(".liveSearch").html("");
+                    $(".liveSearch").append("<p class=\"mb-0  ps-3\">Colleges</p>\n" +
+                        "                                <ul class=\"list-unstyled ps-4\">");
                     for(var i = 0; i < response.length; i++) {
                         $(".liveSearch ul").append("<li>\n" +
                             "                                <a href=\"/college-in-"+response[i].location[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[i].seo[0].permalink+"\">" + response[i].name + "</a>\n" +
                             "                                    </li>");
                     }
+                    $(".liveSearch").append("</ul>");
                 },
                 error: function(red) {
                     console.log(red);
