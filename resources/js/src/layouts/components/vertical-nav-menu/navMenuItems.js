@@ -384,6 +384,35 @@ export default [
         ],
     },
     {
+        header: "Menu",
+        icon: "PackageIcon",
+        rule: "editor",
+        i18n: "Menu",
+        items: [
+            {
+                url:  "/header/menu",
+                name: "Header",
+                slug: "header/menu",
+                icon: "TrelloIcon",
+                i18n: "Header",
+            },
+            {
+                url:  "/footer/menu",
+                name: "Footer",
+                slug: "footer/menu",
+                icon: "TrelloIcon",
+                i18n: "Footer",
+            },
+            {
+                url:  "/upper_footer/menu",
+                name: "Upper Footer",
+                slug: "upper_footer/menu",
+                icon: "TrelloIcon",
+                i18n: "Upper Footer",
+            },
+        ]
+    },
+    {
         header: "Others Features",
         icon: "PackageIcon",
         rule: "editor",

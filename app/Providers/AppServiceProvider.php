@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Categories;
+use App\CategoryNameModel;
 use App\Course;
 use App\FrontCategories;
+use App\Menu;
 use App\Properties;
 use App\CityModel;
 use Illuminate\Support\Facades\Schema;
@@ -68,6 +70,69 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('front.blog.layout.footer', function($view) {
             $courses = FrontCategories::where('parent_id',0)->with('children')->get();
             $view->with('courses',$courses);
+        });
+
+        view()->composer('v2.front.layout.header', function($view) {
+            $menu = Menu::categories();
+            $view->with('menu',$menu);
+        });
+        view()->composer('v2.front.layout.footer', function($view) {
+            $data = FrontCategories::with('children')->get();
+//            $district = \App\Destination::where('status',1)->get();
+            $footer = Menu::where('page_type','main')->get('footer');
+            $footer_upper = Menu::where('page_type','main')->get('upper_footer');
+            $footer_menu= [];
+            $footer_upper_menu= [];
+            if($footer->isNotEmpty()) {
+                if($footer[0]->footer != null) {
+                    $footer_menu = json_decode($footer[0]->footer);
+                    foreach ($footer_menu as $d => $val) {
+                        if (isset($val->category)) {
+                            $catg = FrontCategories::where('id', $val->category)->get('name');
+                            $footer_menu[$d]->catg = str_replace(' ', '-', strtolower($catg[0]->name));
+                        }
+                        foreach ($val->submenu as $s => $sub) {
+                            if (isset($sub->category)) {
+                                $catgs = FrontCategories::where('id', $sub->category)->get('name');
+                                $footer_menu[$d]->submenu[$s]->catg = str_replace(' ', '-', strtolower($catgs[0]->name));
+                            }
+                        }
+                    }
+                }else{
+                    $footer_menu = [];
+                }
+            }
+            else{
+                $footer_menu = [];
+            }
+            if($footer_upper->isNotEmpty()) {
+                if($footer_upper[0]->upper_footer != null) {
+                    $footer_upper_menu = json_decode($footer_upper[0]->upper_footer);
+                    foreach ($footer_upper_menu as $d => $val) {
+                        if (isset($val->category)) {
+                            $catg = FrontCategories::where('id', $val->category)->get('name');
+                            $footer_upper_menu[$d]->catg = str_replace(' ', '-', strtolower($catg[0]->name));
+                        }
+                        foreach ($val->submenu as $s => $sub) {
+                            if (isset($sub->category)) {
+                                $catgs = FrontCategories::where('id', $sub->category)->get('name');
+                                $footer_upper_menu[$d]->submenu[$s]->catg = str_replace(' ', '-', strtolower($catgs[0]->name));
+                            }
+                        }
+                    }
+                }else{
+                    $footer_upper_menu = [];
+                }
+            }
+            else{
+                $footer_upper_menu = [];
+            }
+            $final = $footer_menu != [] ? json_encode($footer_menu): json_encode($footer_menu);
+            $final_upper = $footer_upper_menu != [] ? json_encode($footer_upper_menu): json_encode($footer_upper_menu);
+            $view->with('footerCatg',$data)
+                ->with('count',1)
+                ->with('footer_menu',$final)
+                ->with('footer_upper_menu',$final_upper);
         });
 
         //

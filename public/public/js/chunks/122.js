@@ -1,32 +1,19 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[122],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/exams/index.vue?vue&type=script&lang=js&":
-/*!*********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/exams/index.vue?vue&type=script&lang=js& ***!
-  \*********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-select */ "./node_modules/vue-select/dist/vue-select.js");
-/* harmony import */ var vue_select__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_select__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! quill/dist/quill.core.css */ "./node_modules/quill/dist/quill.core.css");
-/* harmony import */ var quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(quill_dist_quill_core_css__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! quill/dist/quill.snow.css */ "./node_modules/quill/dist/quill.snow.css");
-/* harmony import */ var quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(quill_dist_quill_snow_css__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var quill_dist_quill_bubble_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! quill/dist/quill.bubble.css */ "./node_modules/quill/dist/quill.bubble.css");
-/* harmony import */ var quill_dist_quill_bubble_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(quill_dist_quill_bubble_css__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var vue_flatpickr_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! vue-flatpickr-component */ "./node_modules/vue-flatpickr-component/dist/vue-flatpickr.min.js");
-/* harmony import */ var vue_flatpickr_component__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(vue_flatpickr_component__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var flatpickr_dist_flatpickr_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! flatpickr/dist/flatpickr.css */ "./node_modules/flatpickr/dist/flatpickr.css");
-/* harmony import */ var flatpickr_dist_flatpickr_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(flatpickr_dist_flatpickr_css__WEBPACK_IMPORTED_MODULE_7__);
-/* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! vue-quill-editor */ "./node_modules/vue-quill-editor/dist/vue-quill-editor.js");
-/* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(vue_quill_editor__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var vue_simple_suggest__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-simple-suggest */ "./node_modules/vue-simple-suggest/dist/es6.js");
+/* harmony import */ var vue_simple_suggest_dist_styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-simple-suggest/dist/styles.css */ "./node_modules/vue-simple-suggest/dist/styles.css");
+/* harmony import */ var vue_simple_suggest_dist_styles_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_simple_suggest_dist_styles_css__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_prism_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-prism-component */ "./node_modules/vue-prism-component/dist/vue-prism-component.common.js");
+/* harmony import */ var vue_prism_component__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_prism_component__WEBPACK_IMPORTED_MODULE_2__);
 //
 //
 //
@@ -191,224 +178,206 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
-
-
-
-
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'Autocomplete',
   data: function data() {
     return {
-      props: [],
-      format: "d MMMM yyyy",
-      updateselected: [],
-      status: [],
-      addSelected: false,
-      appDate: "",
-      content: "",
-      type: 0,
-      name: "",
-      categories: [],
-      selectedCatg: {},
-      selectedStream: {},
-      streams: [],
-      examFDate: "",
-      examTDate: "",
-      examEnterId: null,
-      isOnline: false,
-      changeStatus: [{
-        color: null,
-        name: null
-      }],
-      examPopActive: false,
-      appPopActive: false,
-      user: localStorage.getItem('userId')
+      chosen: '',
+      selected: null,
+      model: null,
+      mode: 'input',
+      loading: false,
+      log: []
     };
   },
-  components: {
-    'v-select': vue_select__WEBPACK_IMPORTED_MODULE_2___default.a,
-    quillEditor: vue_quill_editor__WEBPACK_IMPORTED_MODULE_8__["quillEditor"],
-    flatPickr: vue_flatpickr_component__WEBPACK_IMPORTED_MODULE_6___default.a
-  },
   methods: {
-    addScholarChange: function addScholarChange(val) {
-      this.addSelected = val === 1;
+    simpleSuggestionList: function simpleSuggestionList() {
+      return ['Vue.js', 'React.js', 'Angular.js'];
     },
-    getCategories: function getCategories() {
+    onSuggestSelect: function onSuggestSelect(suggest) {
+      this.selected = suggest;
+    },
+    boldenSuggestion: function boldenSuggestion(scope) {
+      if (!scope) return scope;
+      var suggestion = scope.suggestion,
+          query = scope.query;
+      var result = this.$refs.suggestComponent.displayProperty(suggestion);
+      if (!query) return result;
+      var texts = query.split(/[\s-_/\\|.]/gm).filter(function (t) {
+        return !!t;
+      }) || [''];
+      return result.replace(new RegExp('(.*?)(' + texts.join('|') + ')(.*?)', 'gi'), '$1<b>$2</b>$3');
+    },
+    getList: function getList(inputValue) {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/categories/course-catg').then(function (res) {
-        _this.selectedStream = {};
-        _this.categories = res.data; // this.getStream()
-      }).catch(function (err) {
-        // this.$vs.loading.close();
-        console.log(err);
+      return new Promise(function (resolve, reject) {
+        var url = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&namespace=*&search=".concat(inputValue, "&limit=10&namespace=0&format=json");
+        fetch(url).then(function (response) {
+          if (!response.ok) {
+            reject();
+          }
+
+          response.json().then(function (json) {
+            json.shift();
+            var result = [];
+            var fields = ['text', 'description', 'link'];
+            json.forEach(function (part, i) {
+              part.forEach(function (el, j) {
+                if (!result[j]) {
+                  result.push({
+                    id: j + 1
+                  });
+                }
+
+                result[j][fields[i]] = el;
+              });
+            });
+            resolve(result);
+          }).catch(function (e) {
+            reject(e);
+          });
+        }).catch(function (error) {
+          _this.loading = false;
+          reject(error);
+        });
       });
-    },
-    successUpload: function successUpload(v) {
-      console.log(v);
-      this.examEnterId = v.currentTarget.response;
-      this.alert('Logo Uploaded Successfully', 'Exam Logo Uploaded Successfully!', 'green');
-    },
-    deleteUpload: function deleteUpload(v) {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/exam/delete_image', {
-        'id': this.examEnterId
-      }).then(function (res) {
-        console.log(res);
-
-        if (res.data == 1) {
-          _this2.alert('Logo Removed Successfully', 'Exam Logo Removed Successfully!', 'green');
-        }
-      }).catch(function (err) {
-        // this.$vs.loading.close();
-        console.log(err);
-      });
-    },
-    getStream: function getStream() {
-      var _this3 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/categories/course-stream', {
-        'id': this.selectedCatg.id
-      }).then(function (res) {
-        if (res.data != 0) {
-          _this3.streams = res.data;
-        } else {
-          jquery__WEBPACK_IMPORTED_MODULE_1___default()("#stream").hide();
-        }
-      }).catch(function (err) {
-        // this.$vs.loading.close();
-        console.log(err);
-      });
-    },
-    getProps: function getProps() {
-      var _this4 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/exam/all').then(function (res) {
-        console.log(res);
-        _this4.props = res.data;
-
-        _this4.props.reverse();
-      }).catch(function (err) {
-        console.log(err);
-      });
-    },
-    getStatus: function getStatus() {
-      var _this5 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/status/all').then(function (res) {
-        console.log(res);
-        _this5.status = res.data;
-      }).catch(function (err) {
-        console.log(err);
-      });
-    },
-    addExam: function addExam() {
-      var _this6 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/exam/add', {
-        name: this.name,
-        catg: this.selectedCatg.id,
-        online: this.isOnline,
-        type: this.type,
-        course: this.selectedStream.id,
-        examFrom: this.examFDate,
-        examTo: this.examTDate,
-        app: this.appDate,
-        description: this.content,
-        examId: this.examEnterId
-      }).then(function (res) {
-        if (res.data['success'] == 1) {
-          _this6.getProps();
-
-          _this6.examEnterId = res.data['data'];
-
-          _this6.alert('Exam Added Successfully!', 'Exam Added or Updated Successfully!', 'success');
-        } else if (res.data['success'] == 0) {
-          _this6.alert('Failed to Add Exam', 'Check if Any Important Field Left!', 'danger');
-        }
-      }).catch(function (err) {
-        console.log(err);
-      });
-    },
-    updateStatus: function updateStatus(data, id) {
-      var _this7 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/properties/updateStatus', {
-        status: data.id,
-        id: id
-      }).then(function (res) {
-        if (res.data['status'] == 1) {
-          _this7.alert('Status Updated Successfully!', 'Property Status Updated Successfully!', 'success'); // window.location.reload()
-
-
-          jquery__WEBPACK_IMPORTED_MODULE_1___default()("h4").click();
-        } else {
-          _this7.alert('Error Occured!', 'There is some Error changing Status!', 'danger');
-        }
-      }).catch(function (err) {
-        console.log(err);
-      });
-    },
-    alert: function alert(title, text, color) {
-      this.$vs.notify({
-        color: color,
-        title: title,
-        text: text,
-        position: 'top-right'
-      });
-    },
-    editData: function editData(prop) {
-      this.$vs.loading();
-      this.$router.push("/property/update/" + prop).catch(function () {});
-    },
-    seoEdit: function seoEdit(prop) {
-      this.$vs.loading();
-      this.$router.push("/property/seo/" + prop).catch(function () {});
     }
   },
-  beforeMount: function beforeMount() {
-    this.getProps();
-    this.getStatus();
-    this.getCategories();
+  components: {
+    VueSimpleSuggest: vue_simple_suggest__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Prism: vue_prism_component__WEBPACK_IMPORTED_MODULE_2___default.a
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/exams/index.vue?vue&type=style&index=0&lang=css&":
-/*!****************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/exams/index.vue?vue&type=style&index=0&lang=css& ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=style&index=0&lang=scss&":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=style&index=0&lang=scss& ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+exports = module.exports = __webpack_require__(/*! ../../../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".vs-popup--content{\n  height: 250px!important;\n}\n", ""]);
+exports.push([module.i, "/*=========================================================================================\n    File Name: _variables.scss\n    Description: partial- SCSS varibales\n    ----------------------------------------------------------------------------------------\n    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template\n      Author: Pixinvent\n    Author URL: http://www.themeforest.net/user/pixinvent\n==========================================================================================*/\n\n/*========================================================\n        SPACING\n=========================================================*/\n\n/*========================================================\n        COLORS\n=========================================================*/\n\n/*========================================================\n        TYPOGRAPHY\n=========================================================*/\n\n/*========================================================\n        TYPOGRAPHY\n=========================================================*/\n\n/*========================================================\n        DARK THEME\n=========================================================*/\npre.selected.hljs {\n  height: 295px;\n  overflow: auto;\n}\n[dir] pre.selected.hljs {\n  margin: 8px 0;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  border-radius: 5px;\n  padding: 1rem;\n}\n.vue-simple-suggest.designed .input-wrapper input {\n  color: inherit;\n  position: relative;\n  font-size: 1rem;\n  transition: all 0.3s ease;\n  width: 100%;\n}\n[dir] .vue-simple-suggest.designed .input-wrapper input {\n  padding: 0.7rem;\n  border-radius: 5px;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.15);\n}\n[dir] .vue-simple-suggest.designed.focus .input-wrapper input {\n  border: 1px solid rgba(var(--vs-primary), 1) !important;\n}\n[dir] .vue-simple-suggest.designed .suggestions {\n  border-radius: 5px;\n}\n[dir] .vue-simple-suggest.designed .suggestions .suggest-item {\n  padding: 0.8rem 1rem;\n}\n[dir] .vue-simple-suggest.designed .suggestions .suggest-item.hover, [dir] .vue-simple-suggest.designed .suggestions .suggest-item.selected {\n  background-color: rgba(var(--vs-primary), 1) !important;\n}\n[dir] .theme-dark .vx-card .vue-simple-suggest input {\n  background: #262c49 !important;\n}\n[dir] .theme-dark .vx-card .vue-simple-suggest .suggestions {\n  background: #262c49 !important;\n}\n[dir] .theme-dark .vx-card pre.selected.hljs {\n  border-color: #414561 !important;\n}\n[dir] .theme-dark .vue-simple-suggest input {\n  background: #10163a !important;\n}\n[dir] .theme-dark .vue-simple-suggest .suggestions {\n  background: #10163a !important;\n}\n[dir] .theme-dark pre.selected.hljs {\n  border-color: #414561 !important;\n}", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/exams/index.vue?vue&type=style&index=0&lang=css&":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/exams/index.vue?vue&type=style&index=0&lang=css& ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=style&index=0&lang=scss&":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--8-2!./node_modules/sass-loader/dist/cjs.js??ref--8-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=style&index=0&lang=scss& ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/exams/index.vue?vue&type=style&index=0&lang=css&");
+var content = __webpack_require__(/*! !../../../../../../../node_modules/css-loader!../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Autocomplete.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=style&index=0&lang=scss&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -422,7 +391,7 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
@@ -430,10 +399,10 @@ if(false) {}
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/exams/index.vue?vue&type=template&id=76dbf89d&":
-/*!*************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/exams/index.vue?vue&type=template&id=76dbf89d& ***!
-  \*************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=template&id=2f57dab2&":
+/*!*******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=template&id=2f57dab2& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -447,650 +416,223 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "vx-row" },
+    { attrs: { id: "page-autocomplete-demo" } },
     [
       _c(
-        "div",
-        { staticClass: "vx-col w-full mb-base" },
+        "vx-card",
+        { attrs: { title: "Basic Autocomplete", "code-toggler": "" } },
         [
-          _vm.addSelected
-            ? _c(
-                "vs-button",
-                {
-                  staticStyle: { float: "right" },
-                  attrs: {
-                    color: "danger",
-                    type: "gradient",
-                    "icon-pack": "feather",
-                    icon: "icon-x"
+          _c("vue-simple-suggest", {
+            attrs: { list: _vm.simpleSuggestionList, "filter-by-query": true },
+            model: {
+              value: _vm.chosen,
+              callback: function($$v) {
+                _vm.chosen = $$v
+              },
+              expression: "chosen"
+            }
+          }),
+          _vm._v(" "),
+          _c("p", { staticClass: "mt-4" }, [
+            _vm._v("Chosen element: " + _vm._s(_vm.chosen))
+          ]),
+          _vm._v(" "),
+          _c("template", { slot: "codeContainer" }, [
+            _vm._v(
+              '\n<template>\n  <vue-simple-suggest\n    v-model="chosen"\n    :list="simpleSuggestionList"\n    :filter-by-query="true">\n    <!-- Filter by input text to only show the matching results -->\n  </vue-simple-suggest>\n\n  <p class="mt-4">Chosen element: ' +
+                _vm._s(_vm.chosen) +
+                "</p>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      chosen: '',\n    }\n  },\n  methods: {\n    simpleSuggestionList() {\n      return [\n        'Vue.js',\n        'React.js',\n        'Angular.js'\n      ]\n    },\n  }\n}\n</script>\n\n<style lang=\"scss\">\n@import \"@assets/scss/vuexy/extraComponents/autocomplete.scss\";\n</style>\n      "
+            )
+          ])
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "vx-card",
+        { attrs: { title: "Ajax Based Autocomplete", "code-toggler": "" } },
+        [
+          _c(
+            "vue-simple-suggest",
+            {
+              ref: "suggestComponent",
+              attrs: {
+                pattern: "\\w+",
+                list: _vm.getList,
+                "max-suggestions": 10,
+                "min-length": 3,
+                debounce: 200,
+                "filter-by-query": false,
+                "prevent-submit": true,
+                controls: {
+                  selectionUp: [38, 33],
+                  selectionDown: [40, 34],
+                  select: [13, 36],
+                  hideList: [27, 35]
+                },
+                mode: _vm.mode,
+                "nullable-select": true,
+                placeholder: "Search information...",
+                "value-attribute": "id",
+                "display-attribute": "text"
+              },
+              on: { select: _vm.onSuggestSelect },
+              scopedSlots: _vm._u(
+                [
+                  {
+                    key: "misc-item-above",
+                    fn: function(ref) {
+                      var suggestions = ref.suggestions
+                      var query = ref.query
+                      return [
+                        _c("div", { staticClass: "misc-item" }, [
+                          _c("span", [
+                            _vm._v(
+                              "You're searching for '" + _vm._s(query) + "'."
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
+                        suggestions.length > 0
+                          ? [
+                              _c("div", { staticClass: "misc-item" }, [
+                                _c("span", [
+                                  _vm._v(
+                                    _vm._s(suggestions.length) +
+                                      " suggestions are shown..."
+                                  )
+                                ])
+                              ]),
+                              _vm._v(" "),
+                              _c("hr")
+                            ]
+                          : !_vm.loading
+                          ? _c("div", { staticClass: "misc-item" }, [
+                              _c("span", [_vm._v("No results")])
+                            ])
+                          : _vm._e()
+                      ]
+                    }
                   },
-                  on: {
-                    click: function($event) {
-                      return _vm.addScholarChange(0)
+                  {
+                    key: "suggestion-item",
+                    fn: function(scope) {
+                      return _c(
+                        "div",
+                        { attrs: { title: scope.suggestion.description } },
+                        [
+                          _c("div", { staticClass: "text" }, [
+                            _c("span", {
+                              domProps: {
+                                innerHTML: _vm._s(_vm.boldenSuggestion(scope))
+                              }
+                            })
+                          ])
+                        ]
+                      )
+                    }
+                  },
+                  {
+                    key: "misc-item-below",
+                    fn: function(ref) {
+                      var suggestions = ref.suggestions
+                      return _vm.loading
+                        ? _c("div", { staticClass: "misc-item" }, [
+                            _c("span", [_vm._v("Loading...")])
+                          ])
+                        : _vm._e()
                     }
                   }
+                ],
+                null,
+                true
+              ),
+              model: {
+                value: _vm.model,
+                callback: function($$v) {
+                  _vm.model = $$v
                 },
-                [_vm._v(" Close\n            ")]
+                expression: "model"
+              }
+            },
+            [
+              _c("div", { staticClass: "g" }, [
+                _c("input", { attrs: { type: "text" } })
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c("p", { staticClass: "mt-3" }, [
+            _vm._v("Selected element (" + _vm._s(typeof _vm.selected) + "): "),
+            _c("pre", { staticClass: "selected hljs" }, [
+              _c("span", { domProps: { innerHTML: _vm._s(_vm.selected) } })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("template", { slot: "codeContainer" }, [
+            _vm._v(
+              '\n<template>\n  <vue-simple-suggest\n    pattern="\\w+"\n    v-model="model"\n    :list="getList"\n    :max-suggestions="10"\n    :min-length="3"\n    :debounce="200"\n    :filter-by-query="false"\n    :prevent-submit="true"\n    :controls="{\n      selectionUp: [38, 33],\n      selectionDown: [40, 34],\n      select: [13, 36],\n      hideList: [27, 35]\n    }"\n    :mode="mode"\n    :nullable-select="true"\n    ref="suggestComponent"\n    placeholder="Search information..."\n    value-attribute="id"\n    display-attribute="text"\n    @select="onSuggestSelect">\n\n    <div class="g">\n      <input type="text">\n    </div>\n\n    <template slot="misc-item-above" slot-scope="{ suggestions, query }">\n      <div class="misc-item">\n        <span>You\'re searching for \'' +
+                _vm._s("{{ query }}") +
+                '\'.</span>\n      </div>\n\n      <template v-if="suggestions.length > 0">\n        <div class="misc-item">\n          <span>' +
+                _vm._s("{{ suggestions.length }}") +
+                ' suggestions are shown...</span>\n        </div>\n        <hr>\n      </template>\n\n      <div class="misc-item" v-else-if="!loading">\n        <span>No results</span>\n      </div>\n    </template>\n\n    <div slot="suggestion-item" slot-scope="scope" :title="scope.suggestion.description">\n      <div class="text">\n        <span v-html="boldenSuggestion(scope)"></span>\n      </div>\n    </div>\n\n    <div class="misc-item" slot="misc-item-below" slot-scope="{ suggestions }" v-if="loading">\n      <span>Loading...</span>\n    </div>\n  </vue-simple-suggest>\n\n  <p class="mt-3">Selected element (' +
+                _vm._s("{{ typeof selected }}") +
+                "): <pre class=\"selected hljs\"><span v-html=\"selected\"></span></pre></p>\n</template>\n\n<script>\nexport default {\n  data() {\n    return {\n      model: null,\n    }\n  },\n  methods: {\n    getList (inputValue) {\n      return new Promise((resolve, reject) => {\n        let url = `https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&namespace=*&search=${inputValue}&limit=10&namespace=0&format=json`\n        fetch(url).then(response => {\n          if (!response.ok) {\n            reject()\n          }\n          response.json().then(json => {\n            json.shift();\n            let result = []\n            const fields = ['text', 'description', 'link']\n            json.forEach((part, i) => {\n              part.forEach((el, j) => {\n                if (!result[j]) {\n                  result.push({\n                    id: j+1\n                  })\n                }\n                result[j][fields[i]] = el\n              })\n            })\n            resolve(result)\n            // resolve([...(json.items || [])])\n          }).catch(e => {\n            reject(e)\n          })\n        }).catch(error => {\n          this.loading = false\n          reject(error)\n        })\n      })\n    },\n    onSuggestSelect (suggest) {\n      this.selected = suggest\n    },\n    boldenSuggestion(scope) {\n      if (!scope) return scope;\n      const { suggestion, query } = scope;\n      let result = this.$refs.suggestComponent.displayProperty(suggestion);\n      if (!query) return result;\n      const texts = query.split(/[\\s-_/\\\\|.]/gm).filter(t => !!t) || [''];\n      return result.replace(new RegExp('(.*?)(' + texts.join('|') + ')(.*?)','gi'), '$1<b>$2</b>$3');\n    },\n  }\n}\n</script>\n      "
+            )
+          ])
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c(
+        "vx-card",
+        { attrs: { title: "Mode" } },
+        [
+          _c("p", { staticClass: "mb-3" }, [
+            _vm._v("Determines the event, that triggers "),
+            _c("code", [_vm._v("v-model")]),
+            _vm._v(". Can be one of "),
+            _c("code", [_vm._v("'input'")]),
+            _vm._v(" (default) or "),
+            _c("code", [_vm._v("'select'")]),
+            _vm._v(".")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-3" }, [
+            _vm._v("For example, if "),
+            _c("code", [_vm._v("'input'")]),
+            _vm._v(
+              " is chosen - then v-model will update the value each time an "
+            ),
+            _c("code", [_vm._v("input")]),
+            _vm._v(" event is fired, setting the input's string.")
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-3" }, [
+            _vm._v("Same is for "),
+            _c("code", [_vm._v("'select'")]),
+            _vm._v(
+              " - v-model changes only when something is selected from the list, setting the selected value (string, object or whatever) to its argument."
+            )
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "mb-3" }, [
+            _vm._v(
+              "A proper use-case for it being when one wants to use the component only for selection binding and custom input for text binding:"
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "prism",
+            { staticClass: "rounded-lg", attrs: { language: "markup" } },
+            [
+              _vm._v(
+                '\n<vue-simple-suggest v-model="selected" mode="select">\n  <input v-model="text">\n</vue-simple-suggest>\n      '
               )
-            : _c(
-                "vs-button",
-                {
-                  staticStyle: { float: "right" },
-                  attrs: {
-                    color: "success",
-                    type: "gradient",
-                    "icon-pack": "feather",
-                    icon: "icon-plus"
-                  },
-                  on: {
-                    click: function($event) {
-                      return _vm.addScholarChange(1)
-                    }
-                  }
-                },
-                [_vm._v(" Add Exam\n            ")]
-              )
+            ]
+          )
         ],
         1
-      ),
-      _vm._v(" "),
-      _vm.addSelected
-        ? _c("div", { staticClass: "vx-col w-full mb-base" }, [
-            _c("div", { staticClass: "vx-row" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "vx-col md:w-3/5 w-full",
-                  staticStyle: { width: "65% !important" }
-                },
-                [
-                  _c("vx-card", { attrs: { title: "Add Exam" } }, [
-                    _c("div", { staticClass: "vx-row md-6" }, [
-                      _c(
-                        "div",
-                        { staticClass: "vx-col md:w-1/3 w-full mb-2" },
-                        [
-                          _c("h6", { staticClass: "mb-1" }, [
-                            _vm._v("Exam Name")
-                          ]),
-                          _vm._v(" "),
-                          _c("vs-input", {
-                            staticStyle: { width: "100%" },
-                            attrs: { placeholder: "Exam Name" },
-                            model: {
-                              value: _vm.name,
-                              callback: function($$v) {
-                                _vm.name = $$v
-                              },
-                              expression: "name"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "vx-col w-full sm:w-1/3 w-full" },
-                        [
-                          _c("h6", { staticClass: "mb-1" }, [
-                            _vm._v("Category")
-                          ]),
-                          _vm._v(" "),
-                          _c("v-select", {
-                            attrs: {
-                              options: _vm.categories,
-                              dir: _vm.$vs.rtl ? "rtl" : "ltr",
-                              placeholder: "Select & Type"
-                            },
-                            on: { input: _vm.getStream },
-                            model: {
-                              value: _vm.selectedCatg,
-                              callback: function($$v) {
-                                _vm.selectedCatg = $$v
-                              },
-                              expression: "selectedCatg"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "vx-col sm:w-1/3 w-full mb-2",
-                          staticStyle: { display: "block" },
-                          attrs: { id: "stream" }
-                        },
-                        [
-                          _c("h6", { staticClass: "mb-1" }, [_vm._v("Course")]),
-                          _vm._v(" "),
-                          _c("v-select", {
-                            attrs: {
-                              options: _vm.streams,
-                              dir: _vm.$vs.rtl ? "rtl" : "ltr",
-                              placeholder: "Select & Type"
-                            },
-                            model: {
-                              value: _vm.selectedStream,
-                              callback: function($$v) {
-                                _vm.selectedStream = $$v
-                              },
-                              expression: "selectedStream"
-                            }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "vx-col sm:w-1/3 w-full my-3" },
-                        [
-                          _c("h6", [_vm._v("is Online Exam?")]),
-                          _vm._v(" "),
-                          _c(
-                            "vs-switch",
-                            {
-                              staticClass: "mt-2",
-                              model: {
-                                value: _vm.isOnline,
-                                callback: function($$v) {
-                                  _vm.isOnline = $$v
-                                },
-                                expression: "isOnline"
-                              }
-                            },
-                            [
-                              _c(
-                                "span",
-                                { attrs: { slot: "on" }, slot: "on" },
-                                [_vm._v("Yes")]
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "span",
-                                { attrs: { slot: "off" }, slot: "off" },
-                                [_vm._v("No")]
-                              )
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "vx-col sm:w-1/3 w-full mt-5 my-3" },
-                        [
-                          _c(
-                            "vs-button",
-                            {
-                              staticStyle: { padding: "5px !important" },
-                              attrs: {
-                                color: "dark",
-                                type: "flat",
-                                "icon-pack": "feather",
-                                icon: "icon-edit",
-                                "icon-after": ""
-                              },
-                              on: {
-                                click: function($event) {
-                                  _vm.examPopActive = true
-                                }
-                              }
-                            },
-                            [_vm._v("Exam Timing")]
-                          ),
-                          _vm._v(" "),
-                          _vm.examFDate && _vm.examTDate
-                            ? _c("p", {
-                                staticStyle: { "font-size": "12px" },
-                                domProps: {
-                                  textContent: _vm._s(
-                                    _vm.examFDate + " to " + _vm.examTDate
-                                  )
-                                }
-                              })
-                            : _vm._e()
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "vx-col sm:w-1/3 w-full mt-5 my-3" },
-                        [
-                          _c(
-                            "vs-button",
-                            {
-                              staticStyle: { padding: "5px !important" },
-                              attrs: {
-                                color: "dark",
-                                type: "flat",
-                                "icon-pack": "feather",
-                                icon: "icon-edit",
-                                "icon-after": ""
-                              },
-                              on: {
-                                click: function($event) {
-                                  _vm.appPopActive = true
-                                }
-                              }
-                            },
-                            [_vm._v("Application Time")]
-                          ),
-                          _vm._v(" "),
-                          _vm.appDate
-                            ? _c("p", {
-                                staticStyle: { "font-size": "12px" },
-                                domProps: { textContent: _vm._s(_vm.appDate) }
-                              })
-                            : _vm._e()
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c("div", { staticClass: "vx-col ml-1 mr-1 mt-3" }, [
-                        _c(
-                          "div",
-                          { staticClass: "vx-col w-full" },
-                          [
-                            _c("quill-editor", {
-                              model: {
-                                value: _vm.content,
-                                callback: function($$v) {
-                                  _vm.content = $$v
-                                },
-                                expression: "content"
-                              }
-                            })
-                          ],
-                          1
-                        )
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "vx-row mt-2" }, [
-                      _c(
-                        "div",
-                        { staticClass: "vx-col w-full ml-auto" },
-                        [
-                          _c(
-                            "vs-button",
-                            {
-                              staticClass: "mr-3 mb-2 float-right",
-                              on: { click: _vm.addExam }
-                            },
-                            [_vm._v("Submit")]
-                          )
-                        ],
-                        1
-                      )
-                    ])
-                  ])
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "vx-col md:w-1/3 w-full" },
-                [
-                  _c("vx-card", { attrs: { title: "Other Details" } }, [
-                    _c("div", { staticClass: "vx-row md-6" }, [
-                      _c("div", { staticClass: "vx-col w-full mb-2" }, [
-                        _c("h6", [_vm._v("National/State Wise?")]),
-                        _vm._v(" "),
-                        _c("ul", { staticClass: "centerx mt-2" }, [
-                          _c(
-                            "li",
-                            [
-                              _c(
-                                "vs-radio",
-                                {
-                                  attrs: { "vs-value": "1" },
-                                  model: {
-                                    value: _vm.type,
-                                    callback: function($$v) {
-                                      _vm.type = $$v
-                                    },
-                                    expression: "type"
-                                  }
-                                },
-                                [_vm._v("National Wise")]
-                              )
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "li",
-                            [
-                              _c(
-                                "vs-radio",
-                                {
-                                  attrs: { "vs-value": "0" },
-                                  model: {
-                                    value: _vm.type,
-                                    callback: function($$v) {
-                                      _vm.type = $$v
-                                    },
-                                    expression: "type"
-                                  }
-                                },
-                                [_vm._v("State Wise")]
-                              )
-                            ],
-                            1
-                          )
-                        ])
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "vx-col  w-full mt-3" },
-                        [
-                          _c("h6", [_vm._v("Upload Exam Logo")]),
-                          _vm._v(" "),
-                          _c("vs-upload", {
-                            attrs: {
-                              automatic: "",
-                              action: "/api/exam/image_upload",
-                              limit: "1",
-                              data: { id: _vm.examEnterId },
-                              fileName: "photo",
-                              text: "Upload Logo"
-                            },
-                            on: {
-                              "on-delete": _vm.deleteUpload,
-                              "on-success": _vm.successUpload
-                            }
-                          })
-                        ],
-                        1
-                      )
-                    ])
-                  ])
-                ],
-                1
-              )
-            ])
-          ])
-        : _c(
-            "div",
-            { staticClass: "vx-col w-full mb-base" },
-            [
-              _c(
-                "vx-card",
-                { attrs: { title: "Exams List" } },
-                [
-                  _c(
-                    "vs-table",
-                    {
-                      attrs: {
-                        data: _vm.props,
-                        pagination: "",
-                        "max-items": "5",
-                        search: ""
-                      },
-                      scopedSlots: _vm._u([
-                        {
-                          key: "default",
-                          fn: function(ref) {
-                            var data = ref.data
-                            return _vm._l(data, function(tr, indextr) {
-                              return _c(
-                                "vs-tr",
-                                { key: indextr },
-                                [
-                                  _c(
-                                    "vs-td",
-                                    { attrs: { data: tr.exam_image } },
-                                    [
-                                      _c("img", {
-                                        attrs: {
-                                          src: "/exams/" + tr.exam_image,
-                                          width: "50px"
-                                        }
-                                      })
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "vs-td",
-                                    { attrs: { data: tr.exam_name } },
-                                    [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(
-                                            tr.exam_name != null
-                                              ? tr.exam_name
-                                              : "--"
-                                          ) +
-                                          "\n                            "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "vs-td",
-                                    { attrs: { data: tr.exam_category } },
-                                    [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(
-                                            tr.exam_category != null
-                                              ? tr.exam_category
-                                              : "--"
-                                          ) +
-                                          "\n                            "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "vs-td",
-                                    { attrs: { data: tr.exam_course } },
-                                    [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(
-                                            tr.exam_course != null
-                                              ? tr.exam_course
-                                              : "--"
-                                          ) +
-                                          "\n                            "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "vs-td",
-                                    { attrs: { data: tr.exam_type } },
-                                    [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(
-                                            tr.exam_type != null
-                                              ? tr.exam_type == 1
-                                                ? "National Wise"
-                                                : "State Wise"
-                                              : "--"
-                                          ) +
-                                          "\n                            "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "vs-td",
-                                    { attrs: { data: tr.exam_mode } },
-                                    [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(
-                                            tr.exam_mode != null
-                                              ? tr.exam_mode == 1
-                                                ? "Online"
-                                                : "Offline"
-                                              : "--"
-                                          ) +
-                                          "\n                            "
-                                      )
-                                    ]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "vs-td",
-                                    { attrs: { data: tr.exam_from_to } },
-                                    [
-                                      _vm._v(
-                                        "\n                                " +
-                                          _vm._s(
-                                            tr.exam_from_to != null
-                                              ? tr.exam_from_to
-                                              : "--"
-                                          ) +
-                                          "\n                            "
-                                      )
-                                    ]
-                                  )
-                                ],
-                                1
-                              )
-                            })
-                          }
-                        }
-                      ])
-                    },
-                    [
-                      _c(
-                        "template",
-                        { slot: "thead" },
-                        [
-                          _c("vs-th", [_vm._v("Image")]),
-                          _vm._v(" "),
-                          _c("vs-th", [_vm._v("Name")]),
-                          _vm._v(" "),
-                          _c("vs-th", [_vm._v("Category")]),
-                          _vm._v(" "),
-                          _c("vs-th", [_vm._v("Course")]),
-                          _vm._v(" "),
-                          _c("vs-th", [_vm._v("Exam Type")]),
-                          _vm._v(" "),
-                          _c("vs-th", [_vm._v("Exam Mode")]),
-                          _vm._v(" "),
-                          _c("vs-th", [_vm._v("Exam Dates")])
-                        ],
-                        1
-                      )
-                    ],
-                    2
-                  )
-                ],
-                1
-              )
-            ],
-            1
-          ),
-      _vm._v(" "),
-      _c(
-        "vs-prompt",
-        {
-          attrs: { active: _vm.examPopActive, title: "Exam Timing" },
-          on: {
-            "update:active": function($event) {
-              _vm.examPopActive = $event
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "con-exemple-prompt" }, [
-            _c("div", { staticClass: "vx-row" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "vx-col",
-                  staticStyle: { width: "50%!important" }
-                },
-                [
-                  _c("flat-pickr", {
-                    attrs: { dateFormat: "DD/MM/YYYY" },
-                    model: {
-                      value: _vm.examFDate,
-                      callback: function($$v) {
-                        _vm.examFDate = $$v
-                      },
-                      expression: "examFDate"
-                    }
-                  })
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass: "vx-col",
-                  staticStyle: { width: "50%!important" }
-                },
-                [
-                  _c("flat-pickr", {
-                    attrs: { dateFormat: "DD/MM/YYYY" },
-                    model: {
-                      value: _vm.examTDate,
-                      callback: function($$v) {
-                        _vm.examTDate = $$v
-                      },
-                      expression: "examTDate"
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ])
-        ]
-      ),
-      _vm._v(" "),
-      _c(
-        "vs-prompt",
-        {
-          attrs: { title: "Application Timing", active: _vm.appPopActive },
-          on: {
-            "update:active": function($event) {
-              _vm.appPopActive = $event
-            }
-          }
-        },
-        [
-          _c("div", { staticClass: "con-exemple-prompt" }, [
-            _c("div", { staticClass: "vx-row" }, [
-              _c(
-                "div",
-                {
-                  staticClass: "vx-col",
-                  staticStyle: { width: "50%!important" }
-                },
-                [
-                  _c("flat-pickr", {
-                    attrs: { dateFormat: "DD/MM/YYYY" },
-                    model: {
-                      value: _vm.appDate,
-                      callback: function($$v) {
-                        _vm.appDate = $$v
-                      },
-                      expression: "appDate"
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ])
-        ]
       )
     ],
     1
@@ -1103,19 +645,19 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/src/views/exams/index.vue":
-/*!************************************************!*\
-  !*** ./resources/js/src/views/exams/index.vue ***!
-  \************************************************/
+/***/ "./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue ***!
+  \******************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _index_vue_vue_type_template_id_76dbf89d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=76dbf89d& */ "./resources/js/src/views/exams/index.vue?vue&type=template&id=76dbf89d&");
-/* harmony import */ var _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index.vue?vue&type=script&lang=js& */ "./resources/js/src/views/exams/index.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./index.vue?vue&type=style&index=0&lang=css& */ "./resources/js/src/views/exams/index.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _Autocomplete_vue_vue_type_template_id_2f57dab2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Autocomplete.vue?vue&type=template&id=2f57dab2& */ "./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=template&id=2f57dab2&");
+/* harmony import */ var _Autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Autocomplete.vue?vue&type=script&lang=js& */ "./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _Autocomplete_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Autocomplete.vue?vue&type=style&index=0&lang=scss& */ "./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -1125,9 +667,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
-  _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _index_vue_vue_type_template_id_76dbf89d___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _index_vue_vue_type_template_id_76dbf89d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _Autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Autocomplete_vue_vue_type_template_id_2f57dab2___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Autocomplete_vue_vue_type_template_id_2f57dab2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -1137,54 +679,54 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/views/exams/index.vue"
+component.options.__file = "resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/views/exams/index.vue?vue&type=script&lang=js&":
-/*!*************************************************************************!*\
-  !*** ./resources/js/src/views/exams/index.vue?vue&type=script&lang=js& ***!
-  \*************************************************************************/
+/***/ "./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************!*\
+  !*** ./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/exams/index.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Autocomplete.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/exams/index.vue?vue&type=style&index=0&lang=css&":
-/*!*********************************************************************************!*\
-  !*** ./resources/js/src/views/exams/index.vue?vue&type=style&index=0&lang=css& ***!
-  \*********************************************************************************/
+/***/ "./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=style&index=0&lang=scss&":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=style&index=0&lang=scss& ***!
+  \****************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/exams/index.vue?vue&type=style&index=0&lang=css&");
-/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/style-loader!../../../../../../../node_modules/css-loader!../../../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../../../node_modules/postcss-loader/src??ref--8-2!../../../../../../../node_modules/sass-loader/dist/cjs.js??ref--8-3!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Autocomplete.vue?vue&type=style&index=0&lang=scss& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=style&index=0&lang=scss&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_2_node_modules_sass_loader_dist_cjs_js_ref_8_3_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/exams/index.vue?vue&type=template&id=76dbf89d&":
-/*!*******************************************************************************!*\
-  !*** ./resources/js/src/views/exams/index.vue?vue&type=template&id=76dbf89d& ***!
-  \*******************************************************************************/
+/***/ "./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=template&id=2f57dab2&":
+/*!*************************************************************************************************************************!*\
+  !*** ./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=template&id=2f57dab2& ***!
+  \*************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_76dbf89d___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./index.vue?vue&type=template&id=76dbf89d& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/exams/index.vue?vue&type=template&id=76dbf89d&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_76dbf89d___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_template_id_2f57dab2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./Autocomplete.vue?vue&type=template&id=2f57dab2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/autocomplete/Autocomplete.vue?vue&type=template&id=2f57dab2&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_template_id_2f57dab2___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_template_id_76dbf89d___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Autocomplete_vue_vue_type_template_id_2f57dab2___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

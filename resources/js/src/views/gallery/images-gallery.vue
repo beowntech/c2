@@ -53,21 +53,21 @@
 
     export default {
         name: "images-gallery",
-        data:function () {
+        data: function () {
             return {
                 images: [],
-                val:null,
+                val: null,
                 imagescurrent: null,
                 activePrompt: false,
                 mainid: localStorage.getItem('globalIns'),
             }
         },
-        methods:{
-            openPrompt(val){
-              this.activePrompt = true;
-              this.val = val;
+        methods: {
+            openPrompt(val) {
+                this.activePrompt = true;
+                this.val = val;
             },
-            resetGallery(){
+            resetGallery() {
                 document.getElementById("galleryImage").value = "";
                 this.images = [];
                 this.selectedFiles = [];
@@ -91,58 +91,59 @@
                     reader.readAsDataURL(this.images[i]);
                 }
             },
-            getImage(){
+            getImage() {
                 var prop_id = localStorage.getItem('globalIns');
-                axios.post('/api/properties/images',{
+                axios.post('/api/properties/images', {
                     'prop_id': prop_id,
                 })
                     .then((res) => {
                         console.log(JSON.parse(res.data['images'][0]['images']));
-                        if(res.data['success'] == 1){
-                           this.imagescurrent = JSON.parse(res.data['images'][0]['images']);
+                        if (res.data['success'] == 1) {
+                            this.imagescurrent = JSON.parse(res.data['images'][0]['images']);
                         }
                     })
                     .catch((err) => {
                         console.log(err)
                     })
             },
-            deleteImage(){
+            deleteImage() {
                 var prop_id = localStorage.getItem('globalIns');
-                axios.get('/api/properties/images/delete?id='+prop_id+'&image='+this.val)
+                axios.get('/api/properties/images/delete?id=' + prop_id + '&image=' + this.val)
                     .then((res) => {
-                        if(res.data == 1){
-                            this.alert('Image Deleted','Image Deleted Successfully','green')
+                        if (res.data == 1) {
+                            this.alert('Image Deleted', 'Image Deleted Successfully', 'green')
                             this.getImage()
-                        }else{
-                            this.alert('Problem Deleting','There is Some Problem Deleting Image','red')
+                        } else {
+                            this.alert('Problem Deleting', 'There is Some Problem Deleting Image', 'red')
                         }
                     })
                     .catch((err) => {
-                        this.alert('Problem Deleting','There is Some Problem Deleting Image','red')
+                        this.alert('Problem Deleting', 'There is Some Problem Deleting Image', 'red')
                         console.log(err)
                     })
             },
-            alert(title,text,color){
+            alert(title, text, color) {
                 this.$vs.notify({
                     color: color,
                     title: title,
                     text: text,
-                    position:'bottom-right'
+                    position: 'bottom-right'
                 });
             },
-            successUpload(e){
+            successUpload(e) {
                 console.log(e);
                 this.getImage();
             },
-            getImagePath(mainid,image){
-                if(image.includes('.jpg') && image.includes('.png') && image.includes('.JPG') && image.includes('.PNG')){
-                return '/property/'+mainid+'/gallery/images/'+ image
-            }else{
-                return '/property/'+mainid+'/gallery/images/'+ image + '-xl.webp'
+            getImagePath(mainid, image) {
+                if (image.includes('.jpg') && image.includes('.png') && image.includes('.JPG') && image.includes('.PNG')) {
+                    return '/property/' + mainid + '/gallery/images/' + image
+                } else {
+                    return '/property/' + mainid + '/gallery/images/' + image + '-xl.webp'
+                }
+            },
+            mounted() {
+                this.getImage();
             }
-        },
-        mounted() {
-            this.getImage();
         }
     }
 </script>

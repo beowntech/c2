@@ -7,81 +7,111 @@
     <section class="footer-highlight-link">
     <div class="row">
             <div class="col">
-                 <p class="mb-0  fw-bold">Top Colleges</p>
-                    <ul class="list-unstyled ver-line-menu">
-                        <li><a href="#">Top DRCC College</a></li>
-                        <li><a href="#">Top College in Dehradun</a></li>
-                        <li><a href="#">Top College in Delhi</a></li>
-                        <li><a href="#">Top College in Mumbai</a></li>
-                        <li><a href="#">Top College in Bangalore</a></li>
-                        <li><a href="#">Top College in Mumbai</a></li>
-                    </ul>
-                    <p class="mb-0  fw-bold">Top Courses</p>
-                    <ul class="list-unstyled ver-line-menu">
-                        <li><a href="#">Engeneering</a></li>
-                        <li><a href="#">Medical</a></li>
-                        <li><a href="#">Science</a></li>
-                        <li><a href="#">Commerce</a></li>
-                        <li><a href="#">Management</a></li>
-                        <li><a href="#">Arts</a></li>
-                        <li><a href="#">Computer Applications</a></li>
-                        <li><a href="#">Law</a></li>
-                        <li><a href="#">Dental</a></li>
-                    </ul>
+                @foreach(json_decode($footer_upper_menu) as $m => $val)
+                        <p class="mb-0  fw-bold">{{$val->name}}</p>
+                        <ul class="list-unstyled ver-line-menu">
+                            @foreach($val->submenu as $s => $sub)
+                                @if(isset($sub->link))
+                                    <li><a href="{{$sub->link != "/" ? "/search?query=".$sub->link: ""}}">{{ucfirst(strtolower($sub->name))}}</a>
+                                    </li>
+                                @elseif(isset($sub->category))
+                                    <li><a href="/search?course={{$sub->catg}}">{{ucfirst(strtolower($sub->name))}}</a>
+                                    </li>
+                                @endif
+                            @endforeach
+                            {{--                <li><a href="#">B.Tech/B.E</a></li>--}}
+                            {{--                <li><a href="#">MCA</a></li>--}}
+                            {{--                <li><a href="#">BCA</a></li>--}}
+                            {{--                <li><a href="#">M.Tech</a></li>--}}
+                            {{--                <li><a href="#">MA</a></li>--}}
+                            {{--                <li><a href="#">BA</a></li>--}}
+                        </ul>
+                @endforeach
+{{--                 <p class="mb-0  fw-bold">Top Colleges</p>--}}
+{{--                    <ul class="list-unstyled ver-line-menu">--}}
+{{--                        <li><a href="#">Top DRCC College</a></li>--}}
+{{--                        <li><a href="#">Top College in Dehradun</a></li>--}}
+{{--                        <li><a href="#">Top College in Delhi</a></li>--}}
+{{--                        <li><a href="#">Top College in Mumbai</a></li>--}}
+{{--                        <li><a href="#">Top College in Bangalore</a></li>--}}
+{{--                        <li><a href="#">Top College in Mumbai</a></li>--}}
+{{--                    </ul>--}}
+{{--                    <p class="mb-0  fw-bold">Top Courses</p>--}}
+{{--                    <ul class="list-unstyled ver-line-menu">--}}
+{{--                        <li><a href="#">Engeneering</a></li>--}}
+{{--                        <li><a href="#">Medical</a></li>--}}
+{{--                        <li><a href="#">Science</a></li>--}}
+{{--                        <li><a href="#">Commerce</a></li>--}}
+{{--                        <li><a href="#">Management</a></li>--}}
+{{--                        <li><a href="#">Arts</a></li>--}}
+{{--                        <li><a href="#">Computer Applications</a></li>--}}
+{{--                        <li><a href="#">Law</a></li>--}}
+{{--                        <li><a href="#">Dental</a></li>--}}
+{{--                    </ul>--}}
             </div>
         </div>
     </section>
     <div class="container-fluid">
 
         <div class="row py-5">
+            @foreach(json_decode($footer_menu) as $m => $val)
         <div class="col-md-2">
-            <p class="mb-4  fw-bold">Top Colleges</p>
+            <p class="mb-4  fw-bold">{{$val->name}}</p>
             <ul class="list-unstyled li-md">
-                <li><a href="#">M.B.A</a></li>
-                <li><a href="#">B.Tech/B.E</a></li>
-                <li><a href="#">MCA</a></li>
-                <li><a href="#">BCA</a></li>
-                <li><a href="#">M.Tech</a></li>
-                <li><a href="#">MA</a></li>
-                <li><a href="#">BA</a></li>
+                @foreach($val->submenu as $s => $sub)
+                    @if(isset($sub->link))
+                        <li><a href="{{$sub->link != "/" ? "/search?query=".$sub->link: ""}}">{{ucfirst(strtolower($sub->name))}}</a>
+                        </li>
+                    @elseif(isset($sub->category))
+                        <li><a href="/search?course={{$sub->catg}}">{{ucfirst(strtolower($sub->name))}}</a>
+                        </li>
+                    @endif
+                @endforeach
+{{--                <li><a href="#">B.Tech/B.E</a></li>--}}
+{{--                <li><a href="#">MCA</a></li>--}}
+{{--                <li><a href="#">BCA</a></li>--}}
+{{--                <li><a href="#">M.Tech</a></li>--}}
+{{--                <li><a href="#">MA</a></li>--}}
+{{--                <li><a href="#">BA</a></li>--}}
             </ul>
         </div>
-        <div class="col-md-2">
-            <p class="mb-4  fw-bold">Top Universities</p>
-            <ul class="list-unstyled li-md">
-                <li><a href="#">Engeneering</a></li>
-                <li><a href="#">Medical</a></li>
-                <li><a href="#">Science</a></li>
-                <li><a href="#">Commerce</a></li>
-                <li><a href="#">Management</a></li>
-                <li><a href="#">Law</a></li>
-                <li><a href="#">Dental</a></li>
-            </ul>
-        </div>
-        <div class="col-md-1">
-            <p class="mb-4 fw-bold">Top Exam</p>
-            <ul class="list-unstyled li-md">
-                <li><a href="#">CAT</a></li>
-                <li><a href="#">GATE</a></li>
-                <li><a href="#">JEE-Main</a></li>
-                <li><a href="#">NEET</a></li>
-                <li><a href="#">Xat</a></li>
-                <li><a href="#">Clat</a></li>
-                <li><a href="#">Mat</a></li>
-            </ul>
-        </div>
-        <div class="col-md-2">
-            <p class="mb-4 fw-bold">Study Abroad</p>
-            <ul class="list-unstyled li-md">
-                <li><a href="#">Canada</a></li>
-                <li><a href="#">USA</a></li>
-                <li><a href="#">UK</a></li>
-                <li><a href="#">UAE</a></li>
-                <li><a href="#">Australia</a></li>
-                <li><a href="#">Germany</a></li>
-                <li><a href="#">Sweden</a></li>
-            </ul>
-        </div>
+            @endforeach
+{{--        <div class="col-md-2">--}}
+{{--            <p class="mb-4  fw-bold">Top Universities</p>--}}
+{{--            <ul class="list-unstyled li-md">--}}
+{{--                <li><a href="#">Engeneering</a></li>--}}
+{{--                <li><a href="#">Medical</a></li>--}}
+{{--                <li><a href="#">Science</a></li>--}}
+{{--                <li><a href="#">Commerce</a></li>--}}
+{{--                <li><a href="#">Management</a></li>--}}
+{{--                <li><a href="#">Law</a></li>--}}
+{{--                <li><a href="#">Dental</a></li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-1">--}}
+{{--            <p class="mb-4 fw-bold">Top Exam</p>--}}
+{{--            <ul class="list-unstyled li-md">--}}
+{{--                <li><a href="#">CAT</a></li>--}}
+{{--                <li><a href="#">GATE</a></li>--}}
+{{--                <li><a href="#">JEE-Main</a></li>--}}
+{{--                <li><a href="#">NEET</a></li>--}}
+{{--                <li><a href="#">Xat</a></li>--}}
+{{--                <li><a href="#">Clat</a></li>--}}
+{{--                <li><a href="#">Mat</a></li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--        <div class="col-md-2">--}}
+{{--            <p class="mb-4 fw-bold">Study Abroad</p>--}}
+{{--            <ul class="list-unstyled li-md">--}}
+{{--                <li><a href="#">Canada</a></li>--}}
+{{--                <li><a href="#">USA</a></li>--}}
+{{--                <li><a href="#">UK</a></li>--}}
+{{--                <li><a href="#">UAE</a></li>--}}
+{{--                <li><a href="#">Australia</a></li>--}}
+{{--                <li><a href="#">Germany</a></li>--}}
+{{--                <li><a href="#">Sweden</a></li>--}}
+{{--            </ul>--}}
+{{--        </div>--}}
         <div class="col-md-1"></div>
         <div class="col-md-3">
             <p class="mb-0 fw-bold"> Corporate Office: </p>

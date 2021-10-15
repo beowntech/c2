@@ -33,6 +33,15 @@ Route::prefix('status')->group(function () {
     Route::post('update','StatusController@update');
 });
 
+Route::group(['prefix' => 'menu'], function () {
+    Route::post('create/header', 'MenuController@create');
+    Route::post('header/get', 'MenuController@index');
+    Route::post('create/footer', 'MenuController@create_footer');
+    Route::post('create/upper_footer', 'MenuController@create_upper_footer');
+    Route::post('footer/get', 'MenuController@footer_index');
+    Route::post('upper_footer/get', 'MenuController@upper_footer');
+});
+
 Route::prefix('d_page')->group(function () {
     Route::post('add','DynamiPageController@addPage');
     Route::post('image_upload','DynamiPageController@uploadImage');

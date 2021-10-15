@@ -13,6 +13,7 @@
 
 use App\Booking;
 use App\Events\Enquiry;
+use App\Menu;
 use App\Properties;
 use App\Exam;
 use App\Rooms;
@@ -241,6 +242,10 @@ Route::get('/exam-gen',function (){
 });
 Route::get('/blogs', function (){
     return redirect('/blog');
+});
+
+Route::get('checkc',function (){
+    return Menu::categories();
 });
 
 //Route::post('/send-notification', [App\Http\Controllers\HomeController::class, 'sendNotification'])->name('send.notification');

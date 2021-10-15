@@ -640,6 +640,42 @@ const router = new Router({
                     component: () => import('./views/scholarship/scholar.vue')
                 },
                 {
+                    path: '/header/menu',
+                    name: 'Header Menu',
+                    meta: {
+                        rule: 'editor',
+                        requiresAuth: true
+                    },
+                    component: () => import('./views/menu/index.vue')
+                },
+                {
+                    path: '/footer/menu',
+                    name: 'Footer Menu',
+                    meta: {
+                        rule: 'editor',
+                        requiresAuth: true
+                    },
+                    component: () => import('./views/menu/footer/index.vue')
+                },
+                {
+                    path: '/footer/menu',
+                    name: 'Footer Menu',
+                    meta: {
+                        rule: 'editor',
+                        requiresAuth: true
+                    },
+                    component: () => import('./views/menu/footer/index.vue')
+                },
+                {
+                    path: '/upper_footer/menu',
+                    name: 'Upper Footer Menu',
+                    meta: {
+                        rule: 'editor',
+                        requiresAuth: true
+                    },
+                    component: () => import('./views/menu/upper_footer/index.vue')
+                },
+                {
                     path: '/banks/list',
                     name: 'bank-list',
                     meta: {

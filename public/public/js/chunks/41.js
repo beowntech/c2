@@ -2381,7 +2381,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var VxTour = function VxTour() {
-  return __webpack_require__.e(/*! import() */ 115).then(__webpack_require__.bind(null, /*! @/components/VxTour.vue */ "./resources/js/src/components/VxTour.vue"));
+  return __webpack_require__.e(/*! import() */ 117).then(__webpack_require__.bind(null, /*! @/components/VxTour.vue */ "./resources/js/src/components/VxTour.vue"));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -7587,6 +7587,30 @@ __webpack_require__.r(__webpack_exports__);
       slug: "callers",
       i18n: "Callers"
     }]
+  }]
+}, {
+  header: "Menu",
+  icon: "PackageIcon",
+  rule: "editor",
+  i18n: "Menu",
+  items: [{
+    url: "/header/menu",
+    name: "Header",
+    slug: "header/menu",
+    icon: "TrelloIcon",
+    i18n: "Header"
+  }, {
+    url: "/footer/menu",
+    name: "Footer",
+    slug: "footer/menu",
+    icon: "TrelloIcon",
+    i18n: "Footer"
+  }, {
+    url: "/upper_footer/menu",
+    name: "Upper Footer",
+    slug: "upper_footer/menu",
+    icon: "TrelloIcon",
+    i18n: "Upper Footer"
   }]
 }, {
   header: "Others Features",
