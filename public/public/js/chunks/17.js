@@ -1,33 +1,191 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[17],{
 
-/***/ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-form-wizard/dist/vue-form-wizard.min.css":
-/*!***************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader??ref--7-1!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-form-wizard/dist/vue-form-wizard.min.css ***!
-  \***************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-apexcharts */ "./node_modules/vue-apexcharts/dist/vue-apexcharts.js");
+/* harmony import */ var vue_apexcharts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_apexcharts__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _chartConfigs_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chartConfigs.js */ "./resources/js/src/components/statistics-cards/chartConfigs.js");
+/* harmony import */ var _assets_utils_color_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @assets/utils/color.js */ "./resources/assets/utils/color.js");
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    icon: {
+      type: String,
+      required: true
+    },
+    statistic: {
+      type: [Number, String],
+      required: true
+    },
+    statisticTitle: {
+      type: String
+    },
+    showBlinker: {
+      type: Boolean
+    },
+    chartData: {// type: Array,
+      // required: true
+    },
+    color: {
+      type: String,
+      default: 'primary'
+    },
+    colorTo: {
+      type: String
+    },
+    // chartType: {
+    //     type: String,
+    //     default: 'line-chart',
+    // },
+    type: {
+      type: String,
+      default: 'line'
+    },
+    iconRight: {
+      type: Boolean,
+      default: false
+    },
+    hideChart: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data: function data() {
+    return {
+      chartOptions: null
+    };
+  },
+  watch: {
+    themePrimaryColor: function themePrimaryColor() {
+      this.$refs.apexChart.updateOptions({
+        theme: {
+          monochrome: {
+            color: this.getHex(this.color)
+          }
+        }
+      });
+    }
+  },
+  computed: {
+    themePrimaryColor: function themePrimaryColor() {
+      return this.$store.state.themePrimaryColor;
+    }
+  },
+  methods: {
+    getHex: function getHex(color) {
+      if (_assets_utils_color_js__WEBPACK_IMPORTED_MODULE_2__["default"].isColor(color)) {
+        var rgb = window.getComputedStyle(document.documentElement).getPropertyValue("--vs-".concat(color));
+        rgb = rgb.split(",");
+        return "#" + ((1 << 24) + (Number(rgb[0]) << 16) + (Number(rgb[1]) << 8) + Number(rgb[2])).toString(16).slice(1);
+      }
+
+      return color;
+    },
+    gradientToColor: function gradientToColor(color) {
+      var gradientToColors = {
+        "primary": "#A9A2F6",
+        "success": "#55DD92",
+        "warning": "#ffc085",
+        "danger": "#F97794"
+      };
+      return gradientToColors[color] ? gradientToColors[color] : gradientToColors["primary"];
+    }
+  },
+  components: {
+    VueApexCharts: vue_apexcharts__WEBPACK_IMPORTED_MODULE_0___default.a
+  },
+  created: function created() {
+    if (this.type == 'area') {
+      // assign chart options
+      this.chartOptions = Object.assign({}, _chartConfigs_js__WEBPACK_IMPORTED_MODULE_1__["default"].areaChartOptions);
+      this.chartOptions['theme'] = {
+        monochrome: {
+          enabled: true,
+          color: this.getHex(this.color),
+          shadeTo: 'light',
+          shadeIntensity: 0.65
+        }
+      };
+    } else if (this.type == "line") {
+      // Assign chart options
+      this.chartOptions = JSON.parse(JSON.stringify(_chartConfigs_js__WEBPACK_IMPORTED_MODULE_1__["default"].lineChartOptions));
+      this.chartOptions.fill.gradient.gradientToColors = [this.gradientToColor(this.colorTo || this.color)];
+      this.chartOptions.colors = [this.getHex(this.color)];
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=style&index=0&lang=css&":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=style&index=0&lang=css& ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(/*! ../../css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, ".vue-form-wizard .wizard-btn{\n  display:inline-block;\n  font-weight:400;\n  vertical-align:middle;\n  -ms-touch-action:manipulation;\n  touch-action:manipulation;\n  white-space:nowrap;\n  font-size:14px;\n  line-height:1.42857\n}[dir] .vue-form-wizard .wizard-btn{\n  margin-bottom:0;\n  text-align:center;\n  cursor:pointer;\n  background-image:none;\n  border:1px solid transparent;\n  padding:6px 12px;\n  border-radius:4px\n}\n\n.vue-form-wizard .wizard-btn.disabled,.vue-form-wizard .wizard-btn[disabled],fieldset[disabled] .vue-form-wizard .wizard-btn{\n  opacity:.65;\n  filter:alpha(opacity=65);\n  -webkit-box-shadow:none\n}\n\n[dir] .vue-form-wizard .wizard-btn.disabled, [dir] .vue-form-wizard .wizard-btn[disabled], [dir] fieldset[disabled] .vue-form-wizard .wizard-btn{\n  cursor:not-allowed;\n  -webkit-box-shadow:none;\n          box-shadow:none\n}\n\n.vue-form-wizard *{\n  -webkit-box-sizing:border-box;\n  box-sizing:border-box\n}\n\n.vue-form-wizard a{\n  text-decoration:none\n}\n\n.vue-form-wizard .wizard-nav{\n  list-style:none\n}\n\n[dir] .vue-form-wizard .wizard-nav{\n  margin-bottom:0\n}\n\n[dir=ltr] .vue-form-wizard .wizard-nav{\n  padding-left:0\n}\n\n[dir=rtl] .vue-form-wizard .wizard-nav{\n  padding-right:0\n}\n\n.vue-form-wizard .wizard-nav>li{\n  position:relative;\n  display:block\n}\n\n.vue-form-wizard .wizard-nav>li>a{\n  position:relative;\n  display:block\n}\n\n[dir] .vue-form-wizard .wizard-nav>li>a{\n  padding:10px 15px\n}\n\n.vue-form-wizard .wizard-nav>li>a:focus,.vue-form-wizard .wizard-nav>li>a:hover{\n  text-decoration:none\n}\n\n[dir] .vue-form-wizard .wizard-nav>li>a:focus, [dir] .vue-form-wizard .wizard-nav>li>a:hover{\n  background-color:#eee\n}\n\n.vue-form-wizard .wizard-nav>li.disabled>a{\n  color:#777\n}\n\n.vue-form-wizard .wizard-nav>li.disabled>a:focus,.vue-form-wizard .wizard-nav>li.disabled>a:hover{\n  color:#777;\n  text-decoration:none\n}\n\n[dir] .vue-form-wizard .wizard-nav>li.disabled>a:focus, [dir] .vue-form-wizard .wizard-nav>li.disabled>a:hover{\n  background-color:transparent;\n  cursor:not-allowed\n}\n\n.vue-form-wizard .wizard-progress-bar{\n  width:0;\n  height:100%;\n  font-size:12px;\n  line-height:20px;\n  color:#fff;\n  -webkit-box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);\n  -webkit-transition:width .6s ease;\n  transition:width .6s ease\n}\n\n[dir] .vue-form-wizard .wizard-progress-bar{\n  text-align:center;\n  background-color:#337ab7;\n  -webkit-box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);\n          box-shadow:inset 0 -1px 0 rgba(0,0,0,.15);\n  -webkit-transition:width .6s ease\n}\n\n[dir=ltr] .vue-form-wizard .wizard-progress-bar{\n  float:left\n}\n\n[dir=rtl] .vue-form-wizard .wizard-progress-bar{\n  float:right\n}\n\n.vue-form-wizard .navbar .navbar-nav>li>a.wizard-btn,.vue-form-wizard .wizard-btn{\n  -webkit-box-sizing:border-box;\n  box-sizing:border-box;\n  font-size:14px;\n  font-weight:600;\n  min-width:140px\n}\n\n[dir] .vue-form-wizard .navbar .navbar-nav>li>a.wizard-btn, [dir] .vue-form-wizard .wizard-btn{\n  border-width:2px;\n  background-color:transparent;\n  padding:6px 12px\n}\n\n.vue-form-wizard .navbar .navbar-nav>li>a.wizard-btn:focus,.vue-form-wizard .navbar .navbar-nav>li>a.wizard-btn:hover,.vue-form-wizard .wizard-btn:focus,.vue-form-wizard .wizard-btn:hover{\n  outline:0!important\n}\n\n.vue-form-wizard .wizard-nav-pills{\n  position:relative;\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -ms-flex-wrap:wrap;\n  flex-wrap:wrap\n}\n\n[dir] .vue-form-wizard .wizard-nav-pills{\n  margin-top:0;\n  text-align:center\n}\n\n.vue-form-wizard .wizard-nav-pills a,.vue-form-wizard .wizard-nav-pills li{\n  -webkit-box-flex:1;\n  -ms-flex:1;\n  flex:1;\n  -webkit-box-align:center;\n  -ms-flex-align:center;\n  align-items:center;\n  -ms-flex-wrap:wrap;\n  flex-wrap:wrap;\n  -ms-flex-positive:1;\n  flex-grow:1\n}\n\n.vue-form-wizard .wizard-nav-pills>li>a,.vue-form-wizard .wizard-nav-pills a{\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex\n}\n\n.vue-form-wizard .wizard-nav-pills>li>a{\n  -webkit-box-orient:vertical;\n  -webkit-box-direction:normal;\n  -ms-flex-direction:column;\n  flex-direction:column;\n  color:rgba(0,0,0,.2);\n  position:relative;\n  top:3px\n}\n\n[dir] .vue-form-wizard .wizard-nav-pills>li>a{\n  padding:0;\n  margin:0 auto\n}\n\n.vue-form-wizard .wizard-nav-pills>li>a:focus,.vue-form-wizard .wizard-nav-pills>li>a:hover{\n  color:rgba(0,0,0,.2);\n  outline:0!important\n}\n\n[dir] .vue-form-wizard .wizard-nav-pills>li>a:focus, [dir] .vue-form-wizard .wizard-nav-pills>li>a:hover{\n  background-color:transparent\n}\n\n.vue-form-wizard .wizard-nav-pills>li>a.disabled{\n  pointer-events:none\n}\n\n[dir] .vue-form-wizard .wizard-nav-pills>li>a.disabled{\n  cursor:default\n}\n\n.vue-form-wizard .wizard-nav-pills>li.active>a,.vue-form-wizard .wizard-nav-pills>li.active>a:focus,.vue-form-wizard .wizard-nav-pills>li.active>a:hover{\n  -webkit-transition:font-size .2s linear;\n  transition:font-size .2s linear\n}\n\n[dir] .vue-form-wizard .wizard-nav-pills>li.active>a, [dir] .vue-form-wizard .wizard-nav-pills>li.active>a:focus, [dir] .vue-form-wizard .wizard-nav-pills>li.active>a:hover{\n  background-color:transparent;\n  -webkit-transition:font-size .2s linear\n}\n\n.vue-form-wizard .wizard-nav-pills>li.active>a .wizard-icon,.vue-form-wizard .wizard-nav-pills>li.active>a:focus .wizard-icon,.vue-form-wizard .wizard-nav-pills>li.active>a:hover .wizard-icon{\n  color:#fff;\n  font-size:24px;\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-align:center;\n  -ms-flex-align:center;\n  align-items:center;\n  -webkit-box-pack:center;\n  -ms-flex-pack:center;\n  justify-content:center;\n  -webkit-transition:all .2s linear;\n  transition:all .2s linear\n}\n\n[dir] .vue-form-wizard .wizard-nav-pills>li.active>a .wizard-icon, [dir] .vue-form-wizard .wizard-nav-pills>li.active>a:focus .wizard-icon, [dir] .vue-form-wizard .wizard-nav-pills>li.active>a:hover .wizard-icon{\n  -webkit-transition:all .2s linear\n}\n\n[dir] .vue-form-wizard{\n  padding-bottom:20px\n}\n\n[dir] .vue-form-wizard .is_error{\n  border-color:#c84513!important\n}\n\n[dir] .vue-form-wizard .is_error .icon-container{\n  background:#c84513!important\n}\n\n.vue-form-wizard.xs .wizard-icon-circle{\n  width:40px;\n  height:40px;\n  font-size:16px\n}\n\n.vue-form-wizard.xs .wizard-icon-circle.tab_shape{\n  height:25px\n}\n\n.vue-form-wizard.xs .wizard-nav-pills>li.active>a .wizard-icon{\n  font-size:16px\n}\n\n.vue-form-wizard.xs .wizard-navigation .wizard-progress-with-circle{\n  position:relative;\n  top:25px;\n  height:4px\n}\n\n.vue-form-wizard.sm .wizard-icon-circle{\n  width:50px;\n  height:50px;\n  font-size:20px\n}\n\n.vue-form-wizard.sm .wizard-icon-circle.tab_shape{\n  height:30px\n}\n\n.vue-form-wizard.sm .wizard-nav-pills>li.active>a .wizard-icon{\n  font-size:20px\n}\n\n.vue-form-wizard.sm .wizard-navigation .wizard-progress-with-circle{\n  position:relative;\n  top:30px;\n  height:4px\n}\n\n.vue-form-wizard.md .wizard-icon-circle{\n  width:70px;\n  height:70px;\n  font-size:24px\n}\n\n.vue-form-wizard.md .wizard-icon-circle.tab_shape{\n  height:40px\n}\n\n.vue-form-wizard.md .wizard-nav-pills>li.active>a .wizard-icon{\n  font-size:24px\n}\n\n.vue-form-wizard.md .wizard-navigation .wizard-progress-with-circle{\n  position:relative;\n  top:40px;\n  height:4px\n}\n\n.vue-form-wizard.lg .wizard-icon-circle{\n  width:90px;\n  height:90px;\n  font-size:28px\n}\n\n.vue-form-wizard.lg .wizard-icon-circle.tab_shape{\n  height:50px\n}\n\n.vue-form-wizard.lg .wizard-nav-pills>li.active>a .wizard-icon{\n  font-size:28px\n}\n\n.vue-form-wizard.lg .wizard-navigation .wizard-progress-with-circle{\n  position:relative;\n  top:50px;\n  height:4px\n}\n\n.vue-form-wizard .wizard-icon-circle{\n  font-size:18px;\n  font-weight:600;\n  width:70px;\n  height:70px;\n  position:relative;\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-pack:center;\n  -ms-flex-pack:center;\n  justify-content:center;\n  -ms-flex-line-pack:center;\n  align-content:center\n}\n\n[dir] .vue-form-wizard .wizard-icon-circle{\n  border:3px solid #f3f2ee;\n  border-radius:50%;\n  background-color:#fff\n}\n\n[dir] .vue-form-wizard .wizard-icon-circle.square_shape{\n  border-radius:0\n}\n\n.vue-form-wizard .wizard-icon-circle.tab_shape{\n  width:100%;\n  min-width:100px;\n  height:40px\n}\n\n[dir] .vue-form-wizard .wizard-icon-circle.tab_shape{\n  border:none;\n  background-color:#f3f2ee;\n  border-radius:0\n}\n\n.vue-form-wizard .wizard-icon-circle .wizard-icon-container{\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-pack:center;\n  -ms-flex-pack:center;\n  justify-content:center;\n  -webkit-box-flex:1;\n  -ms-flex:1;\n  flex:1\n}\n\n[dir] .vue-form-wizard .wizard-icon-circle .wizard-icon-container{\n  border-radius:40%\n}\n\n[dir] .vue-form-wizard .wizard-icon-circle .wizard-icon-container.square_shape, [dir] .vue-form-wizard .wizard-icon-circle .wizard-icon-container.tab_shape{\n  border-radius:0\n}\n\n.vue-form-wizard .wizard-icon-circle .wizard-icon{\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-align:center;\n  -ms-flex-align:center;\n  align-items:center;\n  -webkit-box-pack:center;\n  -ms-flex-pack:center;\n  justify-content:center\n}\n\n.vue-form-wizard .wizard-tab-content{\n  min-height:100px\n}\n\n[dir] .vue-form-wizard .wizard-tab-content{\n  padding:30px 20px 10px\n}\n\n.vue-form-wizard .wizard-header{\n  position:relative\n}\n\n[dir] .vue-form-wizard .wizard-header{\n  padding:15px;\n  border-radius:3px 3px 0 0;\n  text-align:center\n}\n\n.vue-form-wizard .wizard-title{\n  color:#252422;\n  font-weight:300\n}\n\n[dir] .vue-form-wizard .wizard-title{\n  margin:0;\n  text-align:center\n}\n\n.vue-form-wizard .category{\n  font-size:14px;\n  font-weight:400;\n  color:#9a9a9a\n}\n\n[dir] .vue-form-wizard .category{\n  margin-bottom:0;\n  text-align:center\n}\n\n.vue-form-wizard .wizard-navigation .wizard-progress-with-circle{\n  position:relative;\n  top:40px;\n  height:4px\n}\n\n.vue-form-wizard .wizard-navigation .wizard-progress-with-circle .wizard-progress-bar{\n  -webkit-box-shadow:none;\n  -webkit-transition:width .3s ease;\n  transition:width .3s ease\n}\n\n[dir] .vue-form-wizard .wizard-navigation .wizard-progress-with-circle .wizard-progress-bar{\n  -webkit-box-shadow:none;\n          box-shadow:none;\n  -webkit-transition:width .3s ease\n}\n\n.vue-form-wizard .clearfix:after{\n  content:\"\";\n  display:table\n}\n\n[dir] .vue-form-wizard .clearfix:after{\n  clear:both\n}\n\n[dir] .vue-form-wizard .wizard-card-footer{\n  padding:0 20px\n}\n\n[dir=ltr] .vue-form-wizard .wizard-card-footer .wizard-footer-left{\n  float:left\n}\n\n[dir=rtl] .vue-form-wizard .wizard-card-footer .wizard-footer-left{\n  float:right\n}\n\n[dir=ltr] .vue-form-wizard .wizard-card-footer .wizard-footer-right{\n  float:right\n}\n\n[dir=rtl] .vue-form-wizard .wizard-card-footer .wizard-footer-right{\n  float:left\n}\n\n@media screen and (max-width:350px){\n  .vue-form-wizard .wizard-card-footer{\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-pack:center;\n    -ms-flex-pack:center;\n    justify-content:center;\n    -webkit-box-orient:vertical;\n    -webkit-box-direction:normal;\n    -ms-flex-direction:column;\n    flex-direction:column\n  }\n\n  .vue-form-wizard .wizard-card-footer .wizard-footer-left,.vue-form-wizard .wizard-card-footer .wizard-footer-right{\n    -webkit-box-flex:1;\n    -ms-flex:1;\n    flex:1;\n    display:-webkit-box;\n    display:-ms-flexbox;\n    display:flex;\n    -webkit-box-pack:center;\n    -ms-flex-pack:center;\n    justify-content:center\n  }\n\n  [dir] .vue-form-wizard .wizard-card-footer .wizard-footer-left, [dir] .vue-form-wizard .wizard-card-footer .wizard-footer-right{\n    float:none\n  }\n\n  [dir] .vue-form-wizard .wizard-card-footer .wizard-footer-right button{\n    margin-top:10px\n  }\n}\n\n.vue-form-wizard.vertical .wizard-card-footer{\n  display:block\n}\n\n.vue-form-wizard.vertical .wizard-nav-pills{\n  -webkit-box-orient:vertical;\n  -webkit-box-direction:normal;\n  -ms-flex-direction:column;\n  flex-direction:column\n}\n\n.vue-form-wizard.vertical .wizard-navigation{\n  display:-webkit-box;\n  display:-ms-flexbox;\n  display:flex;\n  -webkit-box-orient:horizontal;\n  -webkit-box-direction:normal;\n  -ms-flex-direction:row;\n  flex-direction:row\n}\n\n[dir] .vue-form-wizard.vertical .wizard-card-footer{\n  padding-top:30px\n}", ""]);
+exports.push([module.i, ".blinking {\n  height: 10px;\n  width: 10px;\n  display: inline-block;\n}[dir] .blinking {\n  background-color: #55DD92;\n  border-radius: 50%;\n}[dir=ltr] .blinking {\n  -webkit-animation: 2s blink ease infinite;\n  animation: 2s blink ease infinite;\n}[dir=rtl] .blinking {\n  -webkit-animation: 2s blink ease infinite;\n  animation: 2s blink ease infinite;\n}\n@keyframes \"blink\" {\nfrom, to {\n    opacity: 0;\n}\n50% {\n    opacity: 1;\n}\n}\n@-webkit-keyframes \"blink\" {\nfrom, to {\n    opacity: 0;\n}\n50% {\n    opacity: 1;\n}\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ "./node_modules/vue-form-wizard/dist/vue-form-wizard.min.css":
-/*!*******************************************************************!*\
-  !*** ./node_modules/vue-form-wizard/dist/vue-form-wizard.min.css ***!
-  \*******************************************************************/
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--7-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../css-loader??ref--7-1!../../postcss-loader/src??ref--7-2!./vue-form-wizard.min.css */ "./node_modules/css-loader/index.js?!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-form-wizard/dist/vue-form-wizard.min.css");
+var content = __webpack_require__(/*! !../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./StatisticsCardLine.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=style&index=0&lang=css&");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -41,11 +199,304 @@ var options = {"hmr":true}
 options.transform = transform
 options.insertInto = undefined;
 
-var update = __webpack_require__(/*! ../../style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+var update = __webpack_require__(/*! ../../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
 
 if(content.locals) module.exports = content.locals;
 
 if(false) {}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=template&id=2d2fa5ad&":
+/*!******************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=template&id=2d2fa5ad& ***!
+  \******************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("vx-card", { staticClass: "overflow-hidden" }, [
+    _c("div", { attrs: { slot: "no-body" }, slot: "no-body" }, [
+      _c(
+        "div",
+        {
+          staticClass: "p-6",
+          class: {
+            "flex justify-between flex-row-reverse items-center": _vm.iconRight,
+            "text-center": !_vm.iconRight && _vm.hideChart,
+            "pb-0": !_vm.hideChart
+          }
+        },
+        [
+          _c("feather-icon", {
+            staticClass: "p-3 inline-flex rounded-full",
+            class: ["text-" + _vm.color, { "mb-4": !_vm.iconRight }],
+            style: { background: "rgba(var(--vs-" + _vm.color + "),.15)" },
+            attrs: { icon: _vm.icon }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "truncate" }, [
+            _c("h2", { staticClass: "mb-1 font-bold" }, [
+              _vm._v(_vm._s(_vm.statistic))
+            ]),
+            _vm._v(" "),
+            _c("span", [_vm._v(_vm._s(_vm.statisticTitle))]),
+            _vm._v(" "),
+            _vm.showBlinker ? _c("span", { staticClass: "blinking" }) : _vm._e()
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      !_vm.hideChart
+        ? _c(
+            "div",
+            { staticClass: "line-area-chart" },
+            [
+              _c("vue-apex-charts", {
+                ref: "apexChart",
+                attrs: {
+                  type: _vm.type,
+                  height: "100",
+                  width: "100%",
+                  options: _vm.chartOptions,
+                  series: _vm.chartData
+                }
+              })
+            ],
+            1
+          )
+        : _vm._e()
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./resources/js/src/components/statistics-cards/StatisticsCardLine.vue":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/src/components/statistics-cards/StatisticsCardLine.vue ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _StatisticsCardLine_vue_vue_type_template_id_2d2fa5ad___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StatisticsCardLine.vue?vue&type=template&id=2d2fa5ad& */ "./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=template&id=2d2fa5ad&");
+/* harmony import */ var _StatisticsCardLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StatisticsCardLine.vue?vue&type=script&lang=js& */ "./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _StatisticsCardLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StatisticsCardLine.vue?vue&type=style&index=0&lang=css& */ "./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _StatisticsCardLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StatisticsCardLine_vue_vue_type_template_id_2d2fa5ad___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StatisticsCardLine_vue_vue_type_template_id_2d2fa5ad___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/src/components/statistics-cards/StatisticsCardLine.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./StatisticsCardLine.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=style&index=0&lang=css&":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=style&index=0&lang=css& ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader!../../../../../node_modules/css-loader??ref--7-1!../../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../../node_modules/postcss-loader/src??ref--7-2!../../../../../node_modules/vue-loader/lib??vue-loader-options!./StatisticsCardLine.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_7_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
+
+/***/ }),
+
+/***/ "./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=template&id=2d2fa5ad&":
+/*!************************************************************************************************************!*\
+  !*** ./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=template&id=2d2fa5ad& ***!
+  \************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_template_id_2d2fa5ad___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./StatisticsCardLine.vue?vue&type=template&id=2d2fa5ad& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/components/statistics-cards/StatisticsCardLine.vue?vue&type=template&id=2d2fa5ad&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_template_id_2d2fa5ad___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StatisticsCardLine_vue_vue_type_template_id_2d2fa5ad___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/src/components/statistics-cards/chartConfigs.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/src/components/statistics-cards/chartConfigs.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  areaChartOptions: {
+    grid: {
+      show: false,
+      padding: {
+        left: 0,
+        right: 0
+      }
+    },
+    chart: {
+      toolbar: {
+        show: false
+      },
+      sparkline: {
+        enabled: true
+      }
+    },
+    dataLabels: {
+      enabled: false
+    },
+    stroke: {
+      curve: 'smooth',
+      width: 2.5
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shadeIntensity: 0.9,
+        opacityFrom: 0.5,
+        opacityTo: 0.2,
+        stops: [0, 80, 100]
+      }
+    },
+    xaxis: {
+      type: 'numeric',
+      lines: {
+        show: false
+      },
+      axisBorder: {
+        show: false
+      },
+      labels: {
+        show: false
+      }
+    },
+    yaxis: [{
+      y: 0,
+      offsetX: 0,
+      offsetY: 0,
+      padding: {
+        left: 0,
+        right: 0
+      }
+    }],
+    tooltip: {
+      x: {
+        show: false
+      }
+    }
+  },
+  lineChartOptions: {
+    grid: {
+      show: false,
+      padding: {
+        left: 0,
+        right: 0
+      }
+    },
+    chart: {
+      type: 'line',
+      dropShadow: {
+        enabled: true,
+        top: 5,
+        left: 0,
+        blur: 4,
+        opacity: 0.10
+      },
+      toolbar: {
+        show: false
+      },
+      sparkline: {
+        enabled: true
+      }
+    },
+    stroke: {
+      width: 5,
+      curve: 'smooth'
+    },
+    xaxis: {
+      type: 'numeric'
+    },
+    // colors: ['#7367F0'],
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'dark',
+        // gradientToColors: ['#A9A2F6'],
+        shadeIntensity: 1,
+        type: 'horizontal',
+        opacityFrom: 1,
+        opacityTo: 1,
+        stops: [0, 100, 100, 100]
+      }
+    },
+    markers: {
+      size: 0,
+      hover: {
+        size: 5
+      }
+    },
+    tooltip: {
+      x: {
+        show: true
+      }
+    }
+  }
+});
 
 /***/ })
 

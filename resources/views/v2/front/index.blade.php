@@ -1,6 +1,6 @@
 @extends('v2.front.layout.header')
 @section('content')
-    <section id="heroimage" style="background:url('v2/assets/images/site/heroimage.jpg');background-repeat:no-repeat;">
+    <section id="heroimage" style="background:url('/v2/assets/images/site/heroimage.jpg');background-repeat:no-repeat;background-size: cover;background-position: left;">
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
@@ -296,10 +296,9 @@
                 <div class="col text-center">
                     <p class="mb-2 f-18 pcolor">Helping on education funds</p>
                     <h2 class="mb-4 pcolor">Education loan facility</h2>
-                    <h1 class="scolor f-44 mb-4 big-title">3 Simple steps to Apply for an Educational loan</h1>
+                    <h1 class="scolor f-44 mb-4 f-roboto ">3 Simple steps to Apply for an Educational loan</h1>
                     <p>Students can view, apply and track the education loan <br>
                         applications to banks anytime, anywhere by accessing the portal.</p>
-
 
                 </div>
             </div>
@@ -381,16 +380,14 @@
                             <div class="mb-2 prop-image"
                                  style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured.'-xl.webp'}});background-position:center;background-size: cover;">
                                 <div class="prop-info">
-                                    <div class="d-inline-block">
-                                        <img
-                                            src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo.'-md.webp'}}"
-                                            class="prop-logo p-2" alt="">
+                                    <div class="d-inline-block prop-logo">
+                                        <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo.'-md.webp'}}" class="p-2" alt="">
                                     </div>
                                     <span><i class="fas fa-star"></i> 5/5 </span> 120 reviews
                                 </div>
                             </div>
                             <div class="px-4 prop-iden">
-                                <h2 class="f-14 mb-2">{{$val->name}}</h2>
+                                <h2 class="f-14 mb-2 text-truncate">{{$val->name}}</h2>
                                 <p class="mb-3 f-12">{{$val->cities->isEmpty() ? "" : $val->cities[0]->name}}
                                     , {{$val->location->isEmpty() ? "" : $val->location[0]->states[0]->name}}</p>
                                 <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities->isEmpty() ? "" : $val->cities[0]->name)))}}/{{$val->seo->isEmpty() ? "" : $val->seo[0]->permalink}}">

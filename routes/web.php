@@ -249,5 +249,5 @@ Route::get('checkc',function (){
 });
 
 //Route::post('/send-notification', [App\Http\Controllers\HomeController::class, 'sendNotification'])->name('send.notification');
-Route::get('{city?}/{id?}',['uses' => 'CategoriesController@single'])->name('details');
+Route::get('{city?}/{id?}/{more?}',['uses' => 'CategoriesController@single'])->name('details');
 

@@ -1,18 +1,16 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[153],{
 
-/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/courses/list.vue?vue&type=script&lang=js&":
-/*!**********************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/courses/list.vue?vue&type=script&lang=js& ***!
-  \**********************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
-/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
+/* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -78,115 +76,300 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      props: [],
-      updateselected: [],
-      status: [],
-      courseName: "",
-      courseId: null,
-      activePrompt2: false,
-      changeStatus: [{
-        color: null,
-        name: null
-      }],
-      user: localStorage.getItem('userId')
-    };
-  },
   methods: {
-    getProps: function getProps() {
-      var _this = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/course/get-all?prop_id=' + localStorage.getItem('globalIns')).then(function (res) {
-        console.log(res);
-        _this.props = res.data;
-
-        _this.props.reverse();
-      }).catch(function (err) {
-        console.log(err);
-      });
+    setRating: function setRating(rating) {
+      this.rating = "You have Selected: " + rating + " stars";
     },
-    getStatus: function getStatus() {
-      var _this2 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/status/all').then(function (res) {
-        console.log(res);
-        _this2.status = res.data;
-      }).catch(function (err) {
-        console.log(err);
-      });
+    showCurrentRating: function showCurrentRating(rating) {
+      this.currentRating = rating === 0 ? this.currentSelectedRating : "Click to select " + rating + " stars";
     },
-    updateStatus: function updateStatus(data, id) {
-      var _this3 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/properties/updateStatus', {
-        status: data.id,
-        id: id
-      }).then(function (res) {
-        if (res.data['status'] == 1) {
-          _this3.alert('Status Updated Successfully!', 'Property Status Updated Successfully!', 'success'); // window.location.reload()
-
-
-          jquery__WEBPACK_IMPORTED_MODULE_1___default()("h4").click();
-        } else {
-          _this3.alert('Error Occured!', 'There is some Error changing Status!', 'danger');
-        }
-      }).catch(function (err) {
-        console.log(err);
-      });
-    },
-    alert: function alert(title, text, color) {
-      this.$vs.notify({
-        color: color,
-        title: title,
-        text: text,
-        position: 'bottom-right'
-      });
-    },
-    editData: function editData(prop) {
-      this.$vs.loading();
-      this.$router.push("/course/update/" + prop).catch(function () {});
-    },
-    deleteCourse: function deleteCourse() {
-      var _this4 = this;
-
-      this.$vs.loading();
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/course/delete', {
-        id: this.courseId
-      }).then(function (res) {
-        _this4.getProps();
-
-        if (res.data['status'] == 1) {
-          _this4.$vs.loading.close();
-
-          _this4.alert('Course Deleted Successfully!', 'Course/Stream Deleted Successfully!', 'success');
-        } else {
-          _this4.$vs.loading.close();
-
-          _this4.alert('Error Occured!', 'There is some Error!', 'danger');
-        }
-      }).catch(function (err) {
-        _this4.$vs.loading.close();
-
-        console.log(err);
-      });
+    setCurrentSelectedRating: function setCurrentSelectedRating(rating) {
+      this.currentSelectedRating = "You have Selected: " + rating + " stars";
     }
   },
-  beforeMount: function beforeMount() {
-    this.getProps();
-    this.getStatus();
+  data: function data() {
+    return {
+      rating: "No Rating Selected",
+      currentRating: "No Rating",
+      currentSelectedRating: "No Current Rating",
+      boundRating: 3
+    };
+  },
+  components: {
+    StarRating: vue_star_rating__WEBPACK_IMPORTED_MODULE_0___default.a
   }
 });
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/courses/list.vue?vue&type=template&id=4ac4241f&":
-/*!**************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/courses/list.vue?vue&type=template&id=4ac4241f& ***!
-  \**************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=template&id=0614a406&":
+/*!******************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=template&id=0614a406& ***!
+  \******************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -198,205 +381,44 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
+  return _c("div", { attrs: { id: "page-star-ratings-demo" } }, [
+    _c("div", { staticClass: "vx-row" }, [
       _c(
-        "vx-card",
-        { attrs: { title: "Course List" } },
+        "div",
+        { staticClass: "vx-col w-full lg:w-1/2 mb-base" },
         [
           _c(
-            "vs-table",
+            "vx-card",
             {
-              attrs: {
-                data: _vm.props,
-                pagination: "",
-                "max-items": "5",
-                search: ""
-              },
-              scopedSlots: _vm._u([
-                {
-                  key: "default",
-                  fn: function(ref) {
-                    var data = ref.data
-                    return _vm._l(data, function(tr, indextr) {
-                      return _c(
-                        "vs-tr",
-                        { key: indextr },
-                        [
-                          _c(
-                            "vs-td",
-                            {
-                              attrs: {
-                                data:
-                                  tr.catg.length != 0
-                                    ? tr.catg[0].name
-                                    : "No Category"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\r\n                        " +
-                                  _vm._s(
-                                    tr.catg.length != 0
-                                      ? tr.catg[0].name
-                                      : "No Category"
-                                  ) +
-                                  "\r\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("vs-td", { attrs: { data: tr.streams[0].name } }, [
-                            _vm._v(
-                              "\r\n                        " +
-                                _vm._s(tr.streams[0].name) +
-                                "\r\n                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "vs-td",
-                            {
-                              attrs: {
-                                data:
-                                  tr.substream.length != 0
-                                    ? tr.substream[0].name
-                                    : "No Sub-Stream"
-                              }
-                            },
-                            [
-                              _vm._v(
-                                "\r\n                        " +
-                                  _vm._s(
-                                    tr.substream.length != 0
-                                      ? tr.substream[0].name
-                                      : "No Sub-Stream"
-                                  ) +
-                                  "\r\n                    "
-                              )
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c("vs-td", { attrs: { data: tr.type } }, [
-                            _vm._v(
-                              "\r\n                        " +
-                                _vm._s(tr.type) +
-                                "\r\n                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("vs-td", { attrs: { data: tr.program_type } }, [
-                            _vm._v(
-                              "\r\n                    " +
-                                _vm._s(
-                                  tr.program_type == 1
-                                    ? "Full Time"
-                                    : "Part Time"
-                                ) +
-                                "\r\n                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("vs-td", { attrs: { data: tr.price } }, [
-                            _vm._v(
-                              "\r\n                        " +
-                                _vm._s(tr.price) +
-                                "\r\n                    "
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c(
-                            "vs-td",
-                            { attrs: { data: tr.brochure } },
-                            [
-                              tr.brochure != null
-                                ? _c(
-                                    "vs-button",
-                                    {
-                                      attrs: {
-                                        href:
-                                          "/property/" +
-                                          tr.prop_id +
-                                          "/brochure/" +
-                                          tr.brochure
-                                      }
-                                    },
-                                    [_vm._v("Download Brochure")]
-                                  )
-                                : _c("p", [_vm._v("--")])
-                            ],
-                            1
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "vs-td",
-                            { staticClass: "whitespace-no-wrap" },
-                            [
-                              _c("feather-icon", {
-                                attrs: {
-                                  icon: "EditIcon",
-                                  svgClasses:
-                                    "w-5 h-5 hover:text-primary stroke-current"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    $event.stopPropagation()
-                                    return _vm.editData(tr.id)
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("feather-icon", {
-                                staticClass: "ml-2",
-                                attrs: {
-                                  icon: "TrashIcon",
-                                  svgClasses:
-                                    "w-5 h-5 hover:text-warning stroke-current"
-                                },
-                                on: {
-                                  click: function($event) {
-                                    $event.stopPropagation()
-                                    ;(_vm.activePrompt2 = true),
-                                      (_vm.courseId = tr.id),
-                                      (_vm.courseName = tr.streams[0].name)
-                                  }
-                                }
-                              })
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    })
-                  }
-                }
-              ])
+              staticClass: "overflow-auto",
+              attrs: { title: "Basic", "code-toggler": "" }
             },
             [
-              _c(
-                "template",
-                { slot: "thead" },
-                [
-                  _c("vs-th", [_vm._v("Category")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Stream")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Sub Stream")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Course Type")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Program Type")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Price")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Brochure")]),
-                  _vm._v(" "),
-                  _c("vs-th", [_vm._v("Actions")])
-                ],
-                1
-              )
+              _c("h6", [_vm._v("Default")]),
+              _vm._v(" "),
+              _c("star-rating", { attrs: { rtl: _vm.$vs.rtl } }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Half Stars")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl, increment: 0.5 }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Preset Stars")]),
+              _vm._v(" "),
+              _c("star-rating", { attrs: { rtl: _vm.$vs.rtl, rating: 4 } }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Fluid Stars")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl, increment: 0.01, "fixed-points": 2 }
+              }),
+              _vm._v(" "),
+              _c("template", { slot: "codeContainer" }, [
+                _vm._v(
+                  '\n<template>\n  <!-- DEFAULT -->\n  <h6>Default</h6>\n  <star-rating :rtl="$vs.rtl" />\n\n  <!-- HALF STAR -->\n  <h6 class="mt-5">Half Stars</h6>\n  <star-rating :rtl="$vs.rtl" :increment="0.5"></star-rating>\n\n  <!-- PRESET STAR -->\n  <h6 class="mt-5">Preset Stars</h6>\n  <star-rating :rtl="$vs.rtl" :rating="4"></star-rating>\n\n  <!-- FLUID STAR  -->\n  <h6 class="mt-5">Fluid Stars</h6>\n  <star-rating :rtl="$vs.rtl" :increment="0.01" :fixed-points="2"></star-rating>\n</template>\n\n<script>\nimport StarRating from \'vue-star-rating\'\n\nexport default {\n  components: {\n    StarRating\n  }\n}\n</script>\n            '
+                )
+              ])
             ],
             2
           )
@@ -405,40 +427,338 @@ var render = function() {
       ),
       _vm._v(" "),
       _c(
-        "vs-prompt",
-        {
-          attrs: {
-            title: "Are you Sure you want to Delete?",
-            active: _vm.activePrompt2
-          },
-          on: {
-            cancel: function($event) {
-              ;(_vm.courseId = null), (_vm.courseName = "")
-            },
-            close: function($event) {
-              ;(_vm.courseId = null), (_vm.courseName = "")
-            },
-            accept: _vm.deleteCourse,
-            "update:active": function($event) {
-              _vm.activePrompt2 = $event
-            }
-          }
-        },
+        "div",
+        { staticClass: "vx-col w-full lg:w-1/2 mb-base" },
         [
-          _c("div", { staticClass: "con-exemple-prompt" }, [
-            _c("p", {
-              domProps: {
-                textContent: _vm._s(
-                  "Are you sure you want to Delete " + _vm.courseName
+          _c(
+            "vx-card",
+            {
+              staticClass: "overflow-auto",
+              attrs: { title: "Customizing", "code-toggler": "" }
+            },
+            [
+              _c("h6", [_vm._v("Bordered Stars")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl, "border-width": 3 }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Style Rating")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: {
+                  rtl: _vm.$vs.rtl,
+                  "text-class": "text-warning font-medium"
+                }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-4" }, [_vm._v("Custom Star Shape")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: {
+                  rtl: _vm.$vs.rtl,
+                  "border-width": 4,
+                  "border-color": "#d8d8d8",
+                  "rounded-corners": true,
+                  "star-points": [
+                    23,
+                    2,
+                    14,
+                    17,
+                    0,
+                    19,
+                    10,
+                    34,
+                    7,
+                    50,
+                    23,
+                    43,
+                    38,
+                    50,
+                    36,
+                    34,
+                    46,
+                    19,
+                    31,
+                    17
+                  ]
+                }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Glowing Stars")]),
+              _vm._v(" "),
+              _c("star-rating", { attrs: { rtl: _vm.$vs.rtl, glow: 10 } }),
+              _vm._v(" "),
+              _c("template", { slot: "codeContainer" }, [
+                _vm._v(
+                  '\n<template>\n  <!-- BORDERED -->\n  <h6>Bordered Stars</h6>\n  <star-rating :rtl="$vs.rtl" :border-width="3"></star-rating>\n\n  <!-- STYLE RATING -->\n  <h6 class="mt-5">Style Rating</h6>\n  <star-rating :rtl="$vs.rtl" text-class="text-warning font-medium"></star-rating>\n\n  <!-- CUSTOM SHAPE -->\n  <h6 class="mt-4">Custom Star Shape</h6>\n  <star-rating :rtl="$vs.rtl" :border-width="4" border-color="#d8d8d8" :rounded-corners="true" :star-points="[23,2, 14,17, 0,19, 10,34, 7,50, 23,43, 38,50, 36,34, 46,19, 31,17]"></star-rating>\n\n  <h6 class="mt-5">Glowing Stars</h6>\n  <star-rating :rtl="$vs.rtl" :glow="10"></star-rating>\n</template>\n\n<script>\nimport StarRating from \'vue-star-rating\'\n\nexport default {\n  components: {\n    StarRating\n  }\n}\n</script>\n            '
                 )
-              }
-            })
-          ])
-        ]
+              ])
+            ],
+            2
+          )
+        ],
+        1
       )
-    ],
-    1
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c(
+        "div",
+        { staticClass: "vx-col w-full lg:w-1/2 mb-base" },
+        [
+          _c(
+            "vx-card",
+            {
+              staticClass: "overflow-auto",
+              attrs: { title: "Sizing", "code-toggler": "" }
+            },
+            [
+              _c("h6", [_vm._v("Small Stars")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl, "star-size": 20 }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Big Stars")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl, "star-size": 80 }
+              }),
+              _vm._v(" "),
+              _c("template", { slot: "codeContainer" }, [
+                _vm._v(
+                  '\n<template>\n  <!-- SMALL STARS -->\n  <h6>Small Stars</h6>\n  <star-rating :rtl="$vs.rtl" :star-size="20"></star-rating>\n\n  <!-- LARGE STARS -->\n  <h6 class="mt-5">Big Stars</h6>\n  <star-rating :rtl="$vs.rtl" :star-size="80"></star-rating>\n</template>\n\n<script>\nimport StarRating from \'vue-star-rating\'\nexport default {\n  components: {\n    StarRating\n  }\n}\n</script>\n            '
+                )
+              ])
+            ],
+            2
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "vx-col w-full lg:w-1/2 mb-base" },
+        [
+          _c(
+            "vx-card",
+            {
+              staticClass: "overflow-auto",
+              attrs: { title: "Changing color", "code-toggler": "" }
+            },
+            [
+              _c("h6", [_vm._v("Red Stars")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl, "active-color": "#EA5455" }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-4" }, [_vm._v("Vibrant Stars")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: {
+                  rtl: _vm.$vs.rtl,
+                  "inactive-color": "#b9b4f9",
+                  "active-color": "#7367f0"
+                }
+              }),
+              _vm._v(" "),
+              _c("template", { slot: "codeContainer" }, [
+                _vm._v(
+                  '\n<template>\n  <!-- RED STAR -->\n  <h6>Red Stars</h6>\n  <star-rating :rtl="$vs.rtl" active-color="#EA5455"></star-rating>\n\n  <!-- VIBRANT STAR -->\n  <h6 class="mt-4">Vibrant Stars</h6>\n  <star-rating :rtl="$vs.rtl" inactive-color="#b9b4f9" active-color="#7367f0"></star-rating>\n</template>\n\n<script>\nimport StarRating from \'vue-star-rating\'\n\nexport default {\n  components: {\n    StarRating\n  }\n}\n</script>\n            '
+                )
+              ])
+            ],
+            2
+          )
+        ],
+        1
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "vx-row" }, [
+      _c(
+        "div",
+        { staticClass: "vx-col w-full lg:w-1/2 mb-base" },
+        [
+          _c(
+            "vx-card",
+            {
+              staticClass: "overflow-auto",
+              attrs: {
+                title: "Capture, Reset or Hide Rating",
+                "code-toggler": ""
+              }
+            },
+            [
+              _c("h6", [_vm._v("Capture Rating")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl, "show-rating": false },
+                on: { "rating-selected": _vm.setRating }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "font-semibold" }, [
+                _vm._v(_vm._s(_vm.rating))
+              ]),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [
+                _vm._v("Capture Mouse Over Rating")
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticStyle: { display: "inline-block" },
+                  on: {
+                    mouseleave: function($event) {
+                      return _vm.showCurrentRating(0)
+                    }
+                  }
+                },
+                [
+                  _c("star-rating", {
+                    attrs: {
+                      rtl: _vm.$vs.rtl,
+                      "show-rating": false,
+                      increment: 0.5
+                    },
+                    on: {
+                      "current-rating": _vm.showCurrentRating,
+                      "rating-selected": _vm.setCurrentSelectedRating
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "font-semibold" }, [
+                _vm._v(_vm._s(_vm.currentRating))
+              ]),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [
+                _vm._v("Resetable stars with v-model (Vue 2.2+)")
+              ]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl },
+                model: {
+                  value: _vm.boundRating,
+                  callback: function($$v) {
+                    _vm.boundRating = $$v
+                  },
+                  expression: "boundRating"
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "font-semibold" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "cursor-pointer",
+                    on: {
+                      click: function($event) {
+                        _vm.boundRating = 0
+                      }
+                    }
+                  },
+                  [_vm._v("Reset Rating")]
+                )
+              ]),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Hide Rating")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl, "show-rating": false }
+              }),
+              _vm._v(" "),
+              _c("template", { slot: "codeContainer" }, [
+                _vm._v(
+                  '\n<template>\n  <!-- CAPTURE RATING -->\n  <h6>Capture Rating</h6>\n  <star-rating :rtl="$vs.rtl" :show-rating="false" @rating-selected="setRating"></star-rating>\n  <div class="font-semibold">' +
+                    _vm._s(_vm.rating) +
+                    '</div>\n\n  <!-- CAPTURE ON HOVER -->\n  <h6 class="mt-5">Capture Mouse Over Rating</h6>\n  <div @mouseleave="showCurrentRating(0)" style="display:inline-block;">\n    <star-rating :rtl="$vs.rtl" :show-rating="false" @current-rating="showCurrentRating" @rating-selected="setCurrentSelectedRating" :increment="0.5"></star-rating>\n  </div>\n  <div class="font-semibold">' +
+                    _vm._s(_vm.currentRating) +
+                    '</div>\n\n  <!-- RESET WTIH V-MODEL -->\n  <h6 class="mt-5">Resetable stars with v-model (Vue 2.2+)</h6>\n  <star-rating :rtl="$vs.rtl" v-model="boundRating"></star-rating>\n  <div class="font-semibold"><a @click="boundRating = 0;" class="cursor-pointer">Reset Rating</a></div>\n\n  <!-- HIDE RATIG -->\n  <h6 class="mt-5">Hide Rating</h6>\n  <star-rating :rtl="$vs.rtl" :show-rating="false"></star-rating>\n</template>\n\n<script>\nimport StarRating from \'vue-star-rating\'\n\nexport default {\n  methods: {\n    setRating: function(rating) {\n      this.rating = "You have Selected: " + rating + " stars";\n    },\n    showCurrentRating: function(rating) {\n      this.currentRating = (rating === 0) ? this.currentSelectedRating : "Click to select " + rating + " stars"\n    },\n    setCurrentSelectedRating: function(rating) {\n      this.currentSelectedRating = "You have Selected: " + rating + " stars";\n    }\n  },\n  data(){\n    return {\n      rating: "No Rating Selected",\n      currentRating: "No Rating",\n      currentSelectedRating: "No Current Rating",\n      boundRating: 3,\n    }\n  },\n  components: {\n    StarRating\n  }\n}\n</script>\n            '
+                )
+              ])
+            ],
+            2
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "vx-col w-full lg:w-1/2 mb-base" },
+        [
+          _c(
+            "vx-card",
+            {
+              staticClass: "overflow-auto",
+              attrs: { title: "Other useful options", "code-toggler": "" }
+            },
+            [
+              _c("h6", [_vm._v("Non rounded start rating")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: {
+                  rtl: _vm.$vs.rtl,
+                  rating: 4.67,
+                  "round-start-rating": false
+                }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Read Only Stars")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: {
+                  rtl: _vm.$vs.rtl,
+                  rating: 3.8,
+                  "read-only": true,
+                  increment: 0.01
+                }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Lots of stars")]),
+              _vm._v(" "),
+              _c("star-rating", {
+                attrs: { rtl: _vm.$vs.rtl, "max-rating": 10, "star-size": 20 }
+              }),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("Inline Stars")]),
+              _vm._v(" Rated\n            "),
+              _c("star-rating", {
+                attrs: {
+                  rtl: _vm.$vs.rtl,
+                  inline: true,
+                  "star-size": 20,
+                  "read-only": true,
+                  "show-rating": false,
+                  rating: 5
+                }
+              }),
+              _vm._v(" by our customers.\n\n            "),
+              _vm._v(" "),
+              _c("h6", { staticClass: "mt-5" }, [_vm._v("RTL Stars")]),
+              _vm._v(" "),
+              _c("star-rating", { attrs: { rtl: true, increment: 0.5 } }),
+              _vm._v(" "),
+              _c("template", { slot: "codeContainer" }, [
+                _vm._v(
+                  '\n<template>\n  <!-- NON ROUNDED -->\n  <h6>Non rounded start rating</h6>\n  <star-rating :rtl="$vs.rtl" :rating="4.67" :round-start-rating="false"></star-rating>\n\n  <!-- READ ONLY -->\n  <h6 class="mt-5">Read Only Stars</h6>\n  <star-rating :rtl="$vs.rtl" :rating="3.8" :read-only="true" :increment="0.01"></star-rating>\n\n  <!-- LOTS OF STARS -->\n  <h6 class="mt-5">Lots of stars</h6>\n  <star-rating :rtl="$vs.rtl" :max-rating="10" :star-size="20"></star-rating>\n\n  <!-- INLINE -->\n  <h6 class="mt-5">Inline Stars</h6> Rated\n  <star-rating :rtl="$vs.rtl" :inline="true" :star-size="20" :read-only="true" :show-rating="false" :rating="5"></star-rating> by our customers.\n\n  <!-- RTL -->\n  <h6 class="mt-5">RTL Stars</h6>\n  <star-rating :rtl="true" :increment="0.5"></star-rating>\n</template>\n\n<script>\nimport StarRating from \'vue-star-rating\'\n\nexport default {\n  components: {\n    StarRating\n  }\n}\n</script>\n            '
+                )
+              ])
+            ],
+            2
+          )
+        ],
+        1
+      )
+    ])
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -447,18 +767,18 @@ render._withStripped = true
 
 /***/ }),
 
-/***/ "./resources/js/src/views/courses/list.vue":
-/*!*************************************************!*\
-  !*** ./resources/js/src/views/courses/list.vue ***!
-  \*************************************************/
+/***/ "./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue ***!
+  \*****************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _list_vue_vue_type_template_id_4ac4241f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list.vue?vue&type=template&id=4ac4241f& */ "./resources/js/src/views/courses/list.vue?vue&type=template&id=4ac4241f&");
-/* harmony import */ var _list_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list.vue?vue&type=script&lang=js& */ "./resources/js/src/views/courses/list.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony import */ var _StarRatings_vue_vue_type_template_id_0614a406___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./StarRatings.vue?vue&type=template&id=0614a406& */ "./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=template&id=0614a406&");
+/* harmony import */ var _StarRatings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./StarRatings.vue?vue&type=script&lang=js& */ "./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -467,9 +787,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _list_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _list_vue_vue_type_template_id_4ac4241f___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _list_vue_vue_type_template_id_4ac4241f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  _StarRatings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _StarRatings_vue_vue_type_template_id_0614a406___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _StarRatings_vue_vue_type_template_id_0614a406___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
   false,
   null,
   null,
@@ -479,38 +799,38 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/src/views/courses/list.vue"
+component.options.__file = "resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue"
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/src/views/courses/list.vue?vue&type=script&lang=js&":
-/*!**************************************************************************!*\
-  !*** ./resources/js/src/views/courses/list.vue?vue&type=script&lang=js& ***!
-  \**************************************************************************/
+/***/ "./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_list_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./list.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/courses/list.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_list_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarRatings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./StarRatings.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_StarRatings_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
 
 /***/ }),
 
-/***/ "./resources/js/src/views/courses/list.vue?vue&type=template&id=4ac4241f&":
-/*!********************************************************************************!*\
-  !*** ./resources/js/src/views/courses/list.vue?vue&type=template&id=4ac4241f& ***!
-  \********************************************************************************/
+/***/ "./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=template&id=0614a406&":
+/*!************************************************************************************************************************!*\
+  !*** ./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=template&id=0614a406& ***!
+  \************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_list_vue_vue_type_template_id_4ac4241f___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./list.vue?vue&type=template&id=4ac4241f& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/courses/list.vue?vue&type=template&id=4ac4241f&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_list_vue_vue_type_template_id_4ac4241f___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StarRatings_vue_vue_type_template_id_0614a406___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../../node_modules/vue-loader/lib??vue-loader-options!./StarRatings.vue?vue&type=template&id=0614a406& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/src/views/components/extra-components/star-ratings/StarRatings.vue?vue&type=template&id=0614a406&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StarRatings_vue_vue_type_template_id_0614a406___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_list_vue_vue_type_template_id_4ac4241f___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_StarRatings_vue_vue_type_template_id_0614a406___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+.f-roboto {
+  font-family: "Roboto Slab", serif;
+  font-weight: 500; }
+
 .pcolor {
   color: #003593 !important; }
 
@@ -376,10 +381,9 @@
   padding: 12px; }
   .prop-card-1 .prop-logo {
     background: white;
-    width: 80px;
+    width: 70px;
     border: 2px solid #e7e7e7;
-    border-radius: 5px;
-    padding: 5px; }
+    border-radius: 5px; }
   .prop-card-1 a {
     text-decoration: none; }
     .prop-card-1 a .fa-star {
@@ -692,15 +696,39 @@ body {
           color: yellow; }
       .college-list .col-md-4 .college-card-sm .prop-image .prop-info .prop-logo {
         background: #fff;
+        box-shadow: 1px 1px 3px black;
+        width: 70px;
+        height: 70px;
+        vertical-align: middle; }
+        .college-list .col-md-4 .college-card-sm .prop-image .prop-info .prop-logo img {
           width: 70px;
-          height: 70px;
-        box-shadow: 1px 1px 3px black; }
+          height: auto;
+          margin: 0;
+          position: absolute;
+          top: 50%;
+          -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
   .college-list .col-md-4 .college-card-sm .prop-iden {
     font-weight: 600;
     margin-top: 30px; }
     .college-list .col-md-4 .college-card-sm .prop-iden a {
       color: #003593;
       text-decoration: none; }
+
+.prop-logo {
+  background: #fff;
+  box-shadow: 1px 1px 3px black;
+  width: 70px;
+  height: 70px;
+  vertical-align: middle; }
+  .prop-logo img {
+    width: 70px;
+    height: auto;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%); }
 
 .confuesed-section {
   background: url("../images/site/scon_bg.jpg");
@@ -850,7 +878,9 @@ footer {
     box-shadow: 1px 1px 3px black;
     margin-top: -30px;
     margin-left: 20px;
-    border-radius: 5px; }
+    border-radius: 5px;
+    width: 70px;
+    height: auto; }
 
 .college-detail .college-info {
   box-shadow: 0px 4px 2px #c9c9c9;
@@ -897,10 +927,10 @@ footer {
   background: transparent url("../images/drop.png") scroll 0 0 no-repeat;
   content: "";
   width: 22px;
-  height: 16px;
+  height: 20px;
   position: absolute;
   left: 0;
-  top: 2px; }
+  background-position: 0 3px; }
 
 .detail-menu .active a {
   color: #003593; }
@@ -920,7 +950,9 @@ footer {
 
 #compare .prop-image .prop-logo {
   background: #fff;
-  box-shadow: 1px 1px 3px black; }
+  box-shadow: 1px 1px 3px black;
+  width: 70px;
+  height: auto; }
 
 #compare .info-list li {
   font-size: 14px; }

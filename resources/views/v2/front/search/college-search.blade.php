@@ -157,7 +157,10 @@
                         <div class="col-md-6 col-xxl-4">
                             <div class="prop-card-1">
                                 <div class="logo position-relative mb-1">
-                                    <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}-md.webp" class="prop-logo" alt="">
+                                    <div class="d-inline-block prop-logo">
+                                        <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo.'-md.webp'}}" class="p-2" alt="">
+                                    </div>
+{{--                                    <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}-md.webp" class="prop-logo" alt="">--}}
                                     <p class="d-inline-block position-absolute top-0 end-0 small">
                                         <a href="">
                                             <i class="fas fa-star"></i>

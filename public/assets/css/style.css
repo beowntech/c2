@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+.f-roboto {
+    font-family: "Roboto Slab", serif;
+    font-weight: 500; }
 body {
   background-color: #fffbf9;
   font-family: "Open Sans", sans-serif;
