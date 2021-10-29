@@ -1,23 +1,30 @@
 <template>
     <vx-card title="Testimonials">
-        <vs-prompt title="Export To Excel" class="export-options" @cancle="clearFields" @accept="exportToExcel" accept-text="Export" @close="clearFields" :active.sync="activePrompt">
-            <vs-input v-model="fileName" placeholder="Enter File Name.." class="w-full" />
-            <v-select v-model="selectedFormat" :options="formats" class="my-4" />
-            <div class="flex">
-                <span class="mr-4">Cell Auto Width:</span>
-                <vs-switch v-model="cellAutoWidth">Cell Auto Width</vs-switch>
-            </div>
+        <vs-prompt title="Add Testimonial" class="export-options"
+                   @cancle="clearFields"
+                   @accept="createTestimonial"
+                   accept-text="ADD"
+                   @close="clearFields"
+                   :active.sync="activePrompt">
+            <vs-input type="file" @change="showImage" style="width: 100%"></vs-input>
+            <br>
+            <vs-input v-model="userName" placeholder="Enter User Name.." class="w-full" />
+            <br>
+            <vs-input v-model="propertyName" placeholder="Enter College Name.." class="w-full" />
+            <br>
+            <vs-textarea v-model="content" rows="6" placeholder="Enter Testimonial Content" class="w-full" />
         </vs-prompt>
         <div class="export-table">
             <vs-table pagination max-items="10" search :data="enquiry">
 
-<!--                <template slot="header">-->
-<!--                    <vs-button @click="activePrompt=true">Export</vs-button>-->
-<!--                </template>-->
+                <template slot="header">
+                    <vs-button class="float-right" @click="activePrompt=true">Add New</vs-button>
+                </template>
 
                 <template slot="thead">
-                    <vs-th sort-key="User">User</vs-th>
                     <vs-th sort-key="image">Image</vs-th>
+                    <vs-th sort-key="User">User</vs-th>
+                    <vs-th sort-key="User">Property</vs-th>
                     <vs-th sort-key="content">Content</vs-th>
                     <vs-th sort-key="id">Status</vs-th>
                 </template>
@@ -25,8 +32,11 @@
                 <template slot-scope="{data}">
                     <vs-tr :data="tr" :key="indextr" v-for="(tr, indextr) in data">
 
-                        <vs-td :data="data[indextr].user[0].name">
-                            {{ data[indextr].user[0].name }}
+                        <vs-td :data="data[indextr].user_name">
+                            {{ data[indextr].user_name }}
+                        </vs-td>
+                        <vs-td :data="data[indextr].property_name">
+                            {{ data[indextr].property_name }}
                         </vs-td>
                         <vs-td :data="data[indextr].image">
                             <a v-bind:href="/testimonials/+data[indextr].image" target="_blank">Open Image</a>
@@ -53,13 +63,17 @@
 </template>
 
 <script>
-    import axios from "axios";
+import axios from "axios";
 
-    export default {
+export default {
         data() {
             return {
                 selected: [],
                 fileName: "",
+                image: null,
+                userName:"",
+                propertyName:"",
+                content:"",
                 formats:["xlsx", "csv", "txt"] ,
                 cellAutoWidth: true,
                 selectedFormat: "xlsx",
@@ -90,6 +104,24 @@
                     .catch((err) => {
                         console.log(err)
                     })
+            },
+            createTestimonial(){
+                let formData = new FormData();
+                formData.append('image',this.image);
+                formData.append('user',this.userName);
+                formData.append('property',this.propertyName);
+                formData.append('text',this.content);
+                axios.post('/api/testimonial/add', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data;'
+                    }
+                }).then((res) => {
+                    this.getEnquiry()
+                   this.alert('Testimonial Added Successfully','','green')
+
+                }).catch((err) => {
+                    console.log(err)
+                })
             },
             exportToExcel() {
                 import('@/vendor/Export2Excel').then(excel => {
@@ -148,6 +180,9 @@
                     text: text,
                     position:'top-right'
                 });
+            },
+            showImage(e) {
+                this.image = e.target.files[0];
             },
             clearFields() {
                 this.filename = "",

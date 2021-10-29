@@ -103,14 +103,28 @@ class PropertiesController extends Controller
         $prop = Properties::where('id', $request->prop_id)
             ->update(array('description' => $request->description));
         if ($prop) {
+            $files = [];
 //            $featuredname = 'featured_' . time() . '.' . $request->featured->getClientOriginalExtension();
             $path = env('UPLOAD_PATH') == "" ? public_path('/property/' . $request->prop_id . '/gallery/featured'):env('UPLOAD_PATH') . '/property/' . $request->prop_id . '/gallery/featured';
-            $req = new Request([
-                'featured' => $request->featured,
-                'id' => $request->prop_id,
-                'savePath' => $path
-            ]);
-            $this->uploadFeatured($req);
+           foreach ($request->file('featured') as $image) {
+               $req = new Request([
+                   'featured' => $image,
+                   'id' => $request->prop_id,
+                   'savePath' => $path
+               ]);
+               $files[] = $this->uploadFeatured($req);
+           }
+            $check = ImagesModel::where('property_id', $request->prop_id)->get();
+            if ($check->isNotEmpty()) {
+                ImagesModel::where('property_id', $request->prop_id)
+                    ->update(array('featured' => json_encode($files)));
+            } else {
+                $gallery = new ImagesModel();
+                $gallery->property_id = $request->prop_id;
+                $gallery->featured = json_encode($files);
+                $gallery->status = 1;
+                $gallery->save();
+            }
 //            $request->featured->move(env('UPLOAD_PATH') . 'property/' . $request->prop_id . '/gallery/featured', $featuredname);
 
 //            $img = ImagesModel::updateOrCreate(
@@ -983,17 +997,18 @@ class PropertiesController extends Controller
                     ->save($savePath . '/' . $filename . '.webp');
             }
         }
-        $check = ImagesModel::where('property_id', $request->id)->get();
-        if ($check->isNotEmpty()) {
-            ImagesModel::where('property_id', $request->id)
-                ->update(array('featured' => $fileMain));
-        } else {
-            $gallery = new ImagesModel();
-            $gallery->property_id = $request->id;
-            $gallery->featured = $fileMain;
-            $gallery->status = 1;
-            $gallery->save();
-        }
+        return $fileMain;
+//        $check = ImagesModel::where('property_id', $request->id)->get();
+//        if ($check->isNotEmpty()) {
+//            ImagesModel::where('property_id', $request->id)
+//                ->update(array('featured' => $fileMain));
+//        } else {
+//            $gallery = new ImagesModel();
+//            $gallery->property_id = $request->id;
+//            $gallery->featured = $fileMain;
+//            $gallery->status = 1;
+//            $gallery->save();
+//        }
     }
 
     public function uploadFeaturedPlugin(Request $request)

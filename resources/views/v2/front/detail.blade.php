@@ -9,7 +9,7 @@
 @section('author_name',$data[0]->seo[0]->author_name)
 @section('keyword',$data[0]->seo[0]->primary_focus_keyword)
 @section('reading_time',$data[0]->seo[0]->estimated_reading_time_minutes)
-@section('seo_url','https://'.Request::getHost().'/college-in-'.strtolower(str_replace(' ','_',$data[0]->location[0]->cities[0]->name)).'/'.$data[0]->seo[0]->permalink)
+@section('seo_url','https://'.Request::getHost().'/college-in-'.strtolower(str_replace(' ','_',$data[0]->location->cities->name)).'/'.$data[0]->seo[0]->permalink)
 @section('content')
     @foreach($data as $d => $val)
     <main class="bglg">
@@ -17,11 +17,13 @@
             <div class="container">
                 <div class="row py-2">
                     <div class="col-md-6 offset-md-3 position-relative">
-                        <input type="search" class="form-control hero-search site-shadow-sm"
+                        <form action="{{route('search-college')}}">
+                        <input type="search" name="search" class="form-control hero-search site-shadow-sm"
                                placeholder="College Name, Courses">
                         <button class="btn btn-search position-absolute top-50 end-20 translate-middle-y"><i
                                 class="fas fa-search"></i> Search
                         </button>
+                        </form>
                         <div class="search-result py-2 text-start bg-white border-radius-md mt-1">
                             <p class="mb-0  ps-3">Colleges</p>
                             <ul class="list-unstyled ps-4">
@@ -52,31 +54,47 @@
                     <div class="col-md-12 position-relative px-0">
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                        aria-label="Slide 2"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                        aria-label="Slide 3"></button>
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                                        aria-label="Slide 4"></button>
+                                @if(is_array(json_decode($val->images[0]->featured)))
+                                @foreach(json_decode($val->images[0]->featured) as $i => $img)
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$i}}"
+                                        class="{{$i == 0 ? 'active':''}}" aria-current="true" aria-label="Slide 1"></button>
+                                @endforeach
+                                    @else
+                                    <button type="button" data-bs-target="#carouselExampleIndicators"
+                                            data-bs-slide-to="0"
+                                            aria-label="Slide 1"></button>
+                                @endif
+{{--                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"--}}
+{{--                                        aria-label="Slide 2"></button>--}}
+{{--                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"--}}
+{{--                                        aria-label="Slide 3"></button>--}}
+{{--                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"--}}
+{{--                                        aria-label="Slide 4"></button>--}}
                             </div>
                             <div class="carousel-inner">
-                                <div class="carousel-item active"
-                                     style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{count($val->images) != 0 ? (strpos($val->images[0]->featured, 'png') !== false ? $val->images[0]->featured : (strpos($val->images[0]->featured, 'jpg') !== false ? $val->images[0]->featured:$val->images[0]->featured.'-lg.webp')) : ''}});min-height: 55vh;background-position: center;background-size: cover;">
-                                </div>
-                                <div class="carousel-item"
-                                     style="background: url('/v2/assets/images/site/banner1.jpg');min-height: 55vh;background-position: center;background-size: cover;">
-                                </div>
-                                <div class="carousel-item"
-                                     style="background: url('/v2/assets/images/site/banner1.jpg');min-height: 55vh;background-position: center;background-size: cover;">
-                                </div>
-                                <div class="carousel-item"
-                                     style="background: url('/v2/assets/images/site/banner1.jpg');min-height: 55vh;background-position: center;background-size: cover;">
-                                </div>
-                                <div class="carousel-item"
-                                     style="background: url('/v2/assets/images/site/banner1.jpg');min-height: 55vh;background-position: center;background-size: cover;">
-                                </div>
+                                @if(is_array(json_decode($val->images[0]->featured)))
+                                @foreach(json_decode($val->images[0]->featured) as $i => $img)
+                                    <div class="carousel-item {{$i == 0 ? 'active':''}}"
+                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$img}}-xl.webp);min-height: 55vh;background-position: center;background-size: cover;">
+                                    </div>
+                                @endforeach
+                                @else
+                                    <div class="carousel-item active"
+                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured}}-xl.webp);min-height: 55vh;background-position: center;background-size: cover;">
+                                    </div>
+                                @endif
+{{--                                <div class="carousel-item"--}}
+{{--                                     style="background: url('/v2/assets/images/site/banner1.jpg');min-height: 55vh;background-position: center;background-size: cover;">--}}
+{{--                                </div>--}}
+{{--                                <div class="carousel-item"--}}
+{{--                                     style="background: url('/v2/assets/images/site/banner1.jpg');min-height: 55vh;background-position: center;background-size: cover;">--}}
+{{--                                </div>--}}
+{{--                                <div class="carousel-item"--}}
+{{--                                     style="background: url('/v2/assets/images/site/banner1.jpg');min-height: 55vh;background-position: center;background-size: cover;">--}}
+{{--                                </div>--}}
+{{--                                <div class="carousel-item"--}}
+{{--                                     style="background: url('/v2/assets/images/site/banner1.jpg');min-height: 55vh;background-position: center;background-size: cover;">--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                         <div class="position-absolute bottom-0 start-50 translate-middle-x w-100 detail-bottom-desc">
@@ -128,14 +146,14 @@
                                 <li class="me-3">NIRF Ranking - 12</li>
                                 <li><a href="#">MORE</a></li>
                             </ul>
-                            <p class="mb-2 f-14"><i class="fas fa-map-marker-alt"></i> {{$val->location[0]->street_name}}, {{$val->location[0]->cities[0]->name}}, {{$val->location[0]->states[0]->name}}
-                                 {{$val->location[0]->pincode}}
+                            <p class="mb-2 f-14"><i class="fas fa-map-marker-alt"></i> {{$val->location->street_name}}, {{$val->location->cities->name}}, {{$val->location->states->name}}
+                                 {{$val->location->pincode}}
                             </p>
                             <p><a href="#"><i class="fas fa-download"></i> Download College Broucher</a></p>
                             <div class="position-absolute bottom-0 end-0 pe-4 pb-3">
                                 <button class="btn site-btn-4">Schedule Video Call</button>
                                 <button class="btn site-btn-4">Chat with College</button>
-                                <button class="btn site-btn-1">Apply Now</button>
+                                <button class="btn site-btn-1 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow">Apply Now</button>
                             </div>
                         </div>
                     </div>
@@ -245,7 +263,7 @@
                                                             <td><a href="#!" class="btn site-btn-5 quickEnquiryDetail"
                                                                    data-bs-toggle="modal" data-id="{{$val->id}}"
                                                                    data-name="{{$val->name}}"
-                                                                   data-location="{{$val->location[0]->cities[0]->name}}"
+                                                                   data-location="{{$val->location->cities->name}}"
                                                                    data-bs-target="#exampleModal">Apply
                                                                     Now</a></td>
                                                         </tr>
@@ -283,7 +301,7 @@
                                                             <td><a href="#!" class="btn site-btn-5 quickEnquiryDetail"
                                                                    data-bs-toggle="modal" data-id="{{$val->id}}"
                                                                    data-name="{{$val->name}}"
-                                                                   data-location="{{$val->location[0]->cities[0]->name}}"
+                                                                   data-location="{{$val->location->cities->name}}"
                                                                    data-bs-target="#exampleModal">Apply
                                                                     Now</a></td>
                                                         </tr>
@@ -577,6 +595,19 @@
 @endsection
 @section('script')
     <script>
+        $(document).on("click", ".openApplyNow", function () {
+            var form = $("#apply-now");
+            form[0].reset();
+            var id = $(this).data('id');
+            var name = $(this).data('name');
+            form.removeClass('d-none');
+            $("#success-div").html("");
+
+            $("#applyNow .modal-body #propID").val(id);
+            $("#applyNow .modal-body #propName").val(name);
+        });
+    </script>
+    <script>
         $(document).ready(function()
         {
             $('#menu-list-detail li').click(function(e){
@@ -593,3 +624,4 @@
         }
     </script>
 @endsection
+@include('v2.front.modal.applynow')

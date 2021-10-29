@@ -18,4 +18,9 @@ class Categories extends Model
     public function children() {
         return $this->hasMany(static::class,"parent_id");
     }
+
+    public function categories(){
+        return $this->hasMany(FrontCategories::class,'name','name');
+    }
+
 }

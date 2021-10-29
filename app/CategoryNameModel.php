@@ -17,7 +17,7 @@ class CategoryNameModel extends Model
 
     //each category might have multiple children
     public function children() {
-        return $this->hasMany(Categories::class,"name")->select("id","name");
+        return $this->hasMany(Categories::class,"name")->select("id","name")->with('categories');
     }
 
 }

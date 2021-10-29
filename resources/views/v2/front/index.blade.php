@@ -13,8 +13,8 @@
                         <p class="text">Finding the right College Shouldn't be hard. <br> we make it easy to discover
                             and connect with the best ones for you</p>
                         <div class="mb-3  position-relative">
-                            <form action="/search">
-                                <input type="search" class="form-control hero-search" id="exampleDataList"
+                            <form action="{{route('search-college')}}">
+                                <input type="search" name="search" class="form-control hero-search" id="exampleDataList"
                                        placeholder="College Name, Courses">
                                 <button type="submit" class="btn btn-search position-absolute top-50 end-10 translate-middle-y"><i
                                         class="fas fa-search"></i> Search
@@ -135,15 +135,15 @@
                         <li>
                             <button class="btn site-btn-2 me-3 btn-active" id="college_service">Colleges</button>
                         </li>
-                        <li>
-                            <button class="btn site-btn-2 me-3" id="exam_service">Exams</button>
-                        </li>
+{{--                        <li>--}}
+{{--                            <button class="btn site-btn-2 me-3" id="exam_service">Exams</button>--}}
+{{--                        </li>--}}
                         <li>
                             <button class="btn site-btn-2 me-3">Courses</button>
                         </li>
-                        <li>
-                            <button class="btn site-btn-2 me-3">Career</button>
-                        </li>
+{{--                        <li>--}}
+{{--                            <button class="btn site-btn-2 me-3">Career</button>--}}
+{{--                        </li>--}}
                         <li>
                             <button class="btn site-btn-2 me-3" id="location_service">Location</button>
                         </li>
@@ -158,7 +158,8 @@
                             <div class="col-md-2 text-center">
                                 <div class="box-card-sm">
                                     <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
-                                    <a href="/search"><p class="f-16">{{$cac->name}}</p></a>
+                                    <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a>
+                                    <p class="mt-1 small">{{$cac->property}} Colleges</p>
                                 </div>
                             </div>
                             @if($cc == 11)
@@ -173,7 +174,8 @@
                             <div class="col-md-2 text-center">
                                 <div class="box-card-sm">
                                     <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
-                                    <a href="/search"><p class="f-16">{{$cac->name}}</p></a>
+                                    <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a>
+                                    <p class="mt-1 small">{{$cac->property}} Colleges</p>
                                 </div>
                             </div>
                         @endforeach
@@ -186,46 +188,48 @@
                     </div>
                 </div>
             </div>
-            <div class="home-option d-none" id="service2">
-                <div class="mainExamCategory row">
-                    @foreach($fcatg as $c => $ca)
-                        @foreach($ca->children as $cc => $cac)
-                            <div class="col-md-2 text-center">
-                                <div class="box-card-sm">
-                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
-                                    <a href="/search"><p class="f-16">{{$cac->name}}</p></a>
-                                </div>
-                            </div>
-                            @if($cc == 11)
-                                <?php break 2; ?>
-                            @endif
-                        @endforeach
-                    @endforeach
-                </div>
-                <div class="viewMoreExamCategory row d-none">
-                    @foreach($fcatg as $c => $ca)
-                        @foreach($ca->children as $cc => $cac)
-                            <div class="col-md-2 text-center">
-                                <div class="box-card-sm">
-                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
-                                    <a href="/search"><p class="f-16">{{$cac->name}}</p></a>
-                                </div>
-                            </div>
-                        @endforeach
-                    @endforeach
-                </div>
-                <div class="row mt-4">
-                    <div class="col text-center">
-                        <button class="btn site-btn-2 me-3 shadow text-secondary viewallExam">View More <i
-                                class="fas fa-bars text-secondary"></i></button>
-                    </div>
-                </div>
-            </div>
+{{--      <div class="home-option d-none" id="service2">--}}
+{{--                <div class="mainExamCategory row">--}}
+{{--                    @foreach($fcatg as $c => $ca)--}}
+{{--                        @foreach($ca->children as $cc => $cac)--}}
+{{--                            <div class="col-md-2 text-center">--}}
+{{--                                <div class="box-card-sm">--}}
+{{--                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">--}}
+{{--                                    <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a>--}}
+{{--                                    <p class="mt-1 small">{{$cac->exams}} Exams</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            @if($cc == 11)--}}
+{{--                                @php break 2; @endphp--}}
+{{--                            @endif--}}
+{{--                        @endforeach--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--                <div class="viewMoreExamCategory row d-none">--}}
+{{--                    @foreach($fcatg as $c => $ca)--}}
+{{--                        @foreach($ca->children as $cc => $cac)--}}
+{{--                            <div class="col-md-2 text-center">--}}
+{{--                                <div class="box-card-sm">--}}
+{{--                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">--}}
+{{--                                    <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a>--}}
+{{--                                    <p class="mt-1 small">{{$cac->exams}} Exams</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+{{--                    @endforeach--}}
+{{--                </div>--}}
+{{--                <div class="row mt-4">--}}
+{{--                    <div class="col text-center">--}}
+{{--                        <button class="btn site-btn-2 me-3 shadow text-secondary viewallExam">View More <i--}}
+{{--                                class="fas fa-bars text-secondary"></i></button>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="row home-option d-none" id="service3">
                 <div class="col-md-2 text-center">
                     <div class="box-card-sm">
                         <img src="/city/india.png" alt="">
-                        <a href="/search"><p class="f-16">India</p></a>
+                        <a href="{{route('search-college')}}?state=india"><p class="f-16">India</p></a>
                     </div>
                 </div>
                 @foreach($state as $s => $st)
@@ -233,14 +237,14 @@
                         <div class="col-md-2 text-center">
                             <div class="box-card-sm">
                                 <img src="/city/{{$st->image}}" alt="">
-                                <a href="/search?state={{$st->name}}"><p class="f-16">{{$st->name}}</p></a>
+                                <a href="{{route('search-college')}}?state={{$st->name}}"><p class="f-16">{{$st->name}}</p></a>
                             </div>
                         </div>
                     @else
                         <div class="col-md-2 text-center locationMore" style="display: none">
                             <div class="box-card-sm">
                                 <img src="/city/{{$st->image}}" alt="">
-                                <a href="/search?state={{$st->name}}"><p class="f-16">{{$st->name}}</p></a>
+                                <a href="{{route('search-college')}}?state={{$st->name}}"><p class="f-16">{{$st->name}}</p></a>
                             </div>
                         </div>
                     @endif
@@ -383,14 +387,16 @@
                                     <div class="d-inline-block prop-logo">
                                         <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo.'-md.webp'}}" class="p-2" alt="">
                                     </div>
-                                    <span><i class="fas fa-star"></i> 5/5 </span> 120 reviews
+                                    @if(count($val->review) > 0)
+                                    <span><i class="fas fa-star"></i> {{$val->review->avg('stars')}}/5 </span> {{count($val->review)}} reviews
+                                    @endif
                                 </div>
                             </div>
                             <div class="px-4 prop-iden">
                                 <h2 class="f-14 mb-2 text-truncate">{{$val->name}}</h2>
-                                <p class="mb-3 f-12">{{$val->cities->isEmpty() ? "" : $val->cities[0]->name}}
-                                    , {{$val->location->isEmpty() ? "" : $val->location[0]->states[0]->name}}</p>
-                                <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->cities->isEmpty() ? "" : $val->cities[0]->name)))}}/{{$val->seo->isEmpty() ? "" : $val->seo[0]->permalink}}">
+                                <p class="mb-3 f-12">{{$val->location == null ? "" : $val->location->cities->name}}
+                                    , {{$val->location == null ? "" : $val->location->states->name}}</p>
+                                <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->location == null ? "" : $val->location->cities->name)))}}/{{$val->seo->isEmpty() ? "" : $val->seo[0]->permalink}}">
                                     <p class="f-12">VIEW ALL COUSRSES AND FEES</p></a>
                             </div>
 
@@ -414,84 +420,34 @@
                 <div class="col">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
+                            @foreach($testimonial as $t => $test)
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$t}}"
+                                    class="{{$t == 0 ? 'active':''}}" aria-current="true" aria-label="Slide {{$t}}"></button>
+                            @endforeach
                         </div>
                         <div class="carousel-inner">
-                            <div class="carousel-item active ">
-                                <div class="row">
-                                    <div class="col-md-8 offset-md-2 p-2">
-                                        <div class="testimonial-data text-center">
-                                            <div class="testimonial-info mb-4">
-                                                <img src="v2/assets/images/site/hostel.png" width="150px"
-                                                     class="user-avatar" alt="">
-                                                <div class="d-inline-block ms-4 text-start pcolor">
-                                                    <h3 class="f-24">Username</h3>
-                                                    <p>Graphic Era</p>
+                            @foreach($testimonial as $t => $test)
+                                    <div class="carousel-item {{$t == 0 ? 'active':''}}">
+                                        <div class="row">
+                                            <div class="col-md-8 offset-md-2 p-2">
+                                                <div class="testimonial-data text-center">
+                                                    <div class="testimonial-info mb-4">
+                                                        <img src="{{env('MEDIA_URL')}}testimonials/{{$test->image}}" width="150px"
+                                                             class="user-avatar" alt="">
+                                                        <div class="d-inline-block ms-4 text-start pcolor">
+                                                            <h3 class="f-24">{{$test->user_name}}</h3>
+                                                            <p>{{$test->property_name}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                        {{ \Illuminate\Support\Str::limit($test->content, $limit = 200, $end = '...') }} <a href="#!">Read More</a>
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-                                                dolores autem reprehenderit corrupti perspiciatis cum impedit tempore a,
-                                                ea ex quos modi doloremque cumque porro, consequatur excepturi libero,
-                                                pariatur quisquam!
-                                            </p>
                                         </div>
+
                                     </div>
-                                </div>
-
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-md-8 offset-md-2 p-2">
-                                        <div class="testimonial-data text-center">
-                                            <div class="testimonial-info mb-4">
-                                                <img src="v2/assets/images/site/hostel.png" width="150px"
-                                                     class="user-avatar" alt="">
-                                                <div class="d-inline-block ms-4 text-start pcolor">
-                                                    <h3 class="f-24">Username</h3>
-                                                    <p>Graphic Era</p>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-                                                dolores autem reprehenderit corrupti perspiciatis cum impedit tempore a,
-                                                ea ex quos modi doloremque cumque porro, consequatur excepturi libero,
-                                                pariatur quisquam!
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="carousel-item">
-                                <div class="row">
-                                    <div class="col-md-8 offset-md-2 p-2">
-                                        <div class="testimonial-data text-center">
-                                            <div class="testimonial-info mb-4">
-                                                <img src="v2/assets/images/site/hostel.png" width="150px"
-                                                     class="user-avatar" alt="">
-                                                <div class="d-inline-block ms-4 text-start pcolor">
-                                                    <h3 class="f-24">Username</h3>
-                                                    <p>Graphic Era</p>
-                                                </div>
-                                            </div>
-                                            <p>
-                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-                                                dolores autem reprehenderit corrupti perspiciatis cum impedit tempore a,
-                                                ea ex quos modi doloremque cumque porro, consequatur excepturi libero,
-                                                pariatur quisquam!
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-
+                            @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
                                 data-bs-slide="prev">
@@ -518,19 +474,26 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-5 text-white py-5">
-                    <h1 class="f-36 mb-3">Still Confuesed!</h1>
+                    <h1 class="f-36 mb-3">Still Confused!</h1>
 
                     <p class="f-20 mb-5">We will help you to make your career bright share your information</p>
 
-                    <div class="form-1">
-                        <form action="">
-                            <input type="text" class="form-control site-field" placeholder="Type you full name">
-                            <input type="email" class="form-control site-field" placeholder="Enterl Email Id">
-                            <select name="" id="" class="form-control site-field select-css">
-                                <option value="">Select Courses</option>
-                                <option value="">Option 1</option>
+                    <div class="form-1" id="still-confused-div">
+                        <form class="confused-validation" action="{{route('multiple-form')}}" id="still-confused" novalidate>
+                            @csrf
+                            <input type="hidden" value="{{request()->url()}}" name="url">
+                            <input type="hidden" value="still-confused" name="type">
+                            <input type="text" name="name" class="form-control site-field" required placeholder="Type you Full Name">
+                            <input type="email" name="email" class="form-control site-field" required placeholder="Enter Email Id">
+                            <select name="course" class="form-control site-field select-css" required>
+                                <option value="" selected disabled>Select Courses</option>
+                                @foreach($course as $c => $cou)
+                                    @if($c > 3)
+                                <option value="{{$cou->name}}">{{$cou->name}}</option>
+                                    @endif
+                                @endforeach
                             </select>
-                            <button class="btn site-btn-1 shadow">Submit</button>
+                            <button class="btn site-btn-1 shadow" type="submit">Submit</button>
                         </form>
                     </div>
 
@@ -541,4 +504,49 @@
             </div>
         </div>
     </section>
+    <script>
+        (function () {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.querySelectorAll('.confused-validation')
+
+            // Loop over them and prevent submission
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }else{
+                            event.preventDefault();
+                            confusedForm();
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+
+        // this is the id of the form
+        function confusedForm() {
+            var form = $("#still-confused");
+            var url = form.attr('action');
+
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
+                success: function (data) {
+                    if(data['status'] == 1){
+                        form.addClass('d-none');
+                        $("#still-confused-div").append("<div class=\"alert alert-success\" role=\"alert\"><h4 class=\"alert-heading\">Form Submitted!</h4><p>Thank you for Submitting this Form</p><hr><p class=\"mb-0\">We will Inform you on your mail.</p></div>");
+                    }
+                }
+            });
+        }
+    </script>
+@endsection
+@section('script')
+
+{{--<script type="javascript" src="{{asset('v2/assets/js/ajax.js')}}"></script>--}}
 @endsection

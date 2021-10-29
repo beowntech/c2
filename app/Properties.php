@@ -53,14 +53,14 @@ class Properties extends Model
         return $this->hasMany('App\ImagesModel','property_id','id');
     }
 
-    public function reviewCount()
+    public function review()
     {
         return $this->hasMany('App\ReviewModel','property_id','id');
     }
 
     public function location()
     {
-        return $this->hasMany('App\Locations', 'prop_id', 'id')->with('cities')->with('states');
+        return $this->hasOne('App\Locations', 'prop_id', 'id')->with('cities')->with('states');
     }
 
     public function seoData()

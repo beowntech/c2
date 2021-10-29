@@ -27,6 +27,7 @@ use App\User;
 use Carbon\Carbon;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use phpDocumentor\Reflection\DocBlock\Tags\Deprecated;
 use App\Events\ViewsEvent;
@@ -122,62 +123,54 @@ class CategoriesController extends Controller
     {
         $am = [];
         $sec = [];
-        if ($request->search != "" && $request->city != "" && $request->catg != "") {
-            $catg = FrontCategories::where('name', $request->catg)->get();
-            $city = CityModel::where('name', $request->city)->get();
-            $data = Properties::where('name', '%' . $request->search . '%')->orderByRaw('featured = ? desc', 1)->where('property_type', 'like', '%' . $catg[0]->id . '%')->where('city', $city[0]->id)->with('location')->where('status', 1)->with('children')->get();
-        } else if ($request->search != "" && $request->city != "") {
-            $city = CityModel::where('name', $request->city)->get();
-            $data = Properties::where('name', '%' . $request->search . '%')->orderByRaw('featured = ? desc', 1)->where('city', $city[0]->id)->where('status', 1)->with('location')->with('children')->get();
-        } else if ($request->search != "" && $request->catg != "") {
-            $catg = FrontCategories::where('name', $request->catg)->get();
-            $data = Properties::where('name', '%' . $request->search . '%')->orderByRaw('featured = ? desc', 1)->where('property_type', 'like', '%' . $catg[0]->id . '%')->where('status', 1)->with('children')->get();
-        } else if ($request->city != "") {
-            $city = CityModel::where('name', $request->city)->get();
-            $data = Properties::where('city', $city[0]->id)->where('status', 1)->orderByRaw('featured = ? desc', 1)->with('children')->with('location')->get();
-        } else if ($request->catg != "") {
-            $catg = FrontCategories::where('name', $request->catg)->get();
-            if ($catg->isEmpty()) {
-                return abort(404);
+        $data = Properties::query()
+            ->with('location')
+            ->with('images')
+            ->with('seo')
+            ->with('courses')
+            ->with('review');
+//        if($request->query() == null){
+            $data = $data->where('status', 1)->orderByRaw('featured = ? desc', 1);
+//        }
+//        if ($request->search != "" && $request->city != "" && $request->catg != "") {
+//            $catg = FrontCategories::where('name', $request->catg)->limit(1)->get();
+//            $city = CityModel::where('name', $request->city)->get();
+//            $data = $data->where('name', '%' . $request->search . '%')->orderByRaw('featured = ? desc', 1)->where('property_type', 'like', '%' . $catg[0]->id . '%')->where('city', $city[0]->id)->with('location')->where('status', 1);
+//        }
+        if ($request->has('search')) {
+//            $city = CityModel::where('name', $request->city)->get();
+            if($request->search == ""){
+                return redirect(route('search-college'));
             }
-            $data = Properties::where('property_type', 'like', '%' . $catg[0]->id . '%')->orderByRaw('featured = ? desc', 1)->where('status', 1)->with('children')->with('location')->with('location')->get();
-        } else if ($request->state != "") {
-            $state = StateModel::where('name', $request->state)->get();
-            if ($state->isEmpty()) {
-                return abort(404);
-            }
-            $data = Properties::whereHas('location', function ($query) use ($state){
-                $query->where('state', $state[0]->id);
-            })->orderByRaw('featured = ? desc', 1)->where('status', 1)->with('location')->with('children')->get();
-        } else {
-            $data = Properties::where('status', 1)->orderByRaw('featured = ? desc', 1)->with('children')->with('location')->simplePaginate(10);
+            $data = $data->where('name', '%' . $request->search . '%')->orderByRaw('featured = ? desc', 1)->where('status', 1);
         }
-        foreach ($data as $datas => $value) {
-            $seo = Properties::find($value->id);
-//            $sec = [];
-            foreach ($value->location as $vl => $val) {
-                $data[$datas]['cities'] = CityModel::where('id', $val->city)->get();
-                $data[$datas]['states'] = StateModel::where('id', $val->state)->get();
-
-            }
-            foreach (explode(',', str_replace("[", "", str_replace("]", "", $value->amenities))) as $info) {
-                $am[$value->id][] = Amenities::where('id', $info)->get();
-            }
-
-            $data[$datas]['images'] = ImagesModel::where('property_id', $value->id)->get();
-            $data[$datas]['reviews'] = Review::where('property_id', $value->id)->get();
-            $data[$datas]['courses'] = Course::where('prop_id', $value->id)->with('streams')->get();
-            $data[$datas]['seo'] = $seo->seo[0];
-//            $data[$datas]['seo'] = SEO::where('property_id',$value->id)->get();
+        if ($request->has('catg')) {
+            $catg = FrontCategories::where('name', $request->catg)->limit(1)->get();
+            $data = $data->orderByRaw('featured = ? desc', 1)->where('property_type', 'like', '%' . $catg[0]->id . '%')->where('status', 1);
         }
-//        return $data;
-//        $prp = DB::table('location')
-//            ->select('city','id', DB::raw('count(*) as total'))
-//            ->groupBy('city','id')
-//            ->get();
-        $pRrp = Locations::all();
-
-        $prp = $pRrp->groupBy('city');
+        if ($request->has('type')) {
+            $data = $data->orderByRaw('featured = ? desc', 1)->whereIn('college_type', explode(',',$request->type))->where('status', 1);
+        }
+        if ($request->has('city')) {
+            $city = CityModel::whereIn('name', explode(',',$request->city))->pluck('id');
+           $data = $data->whereHas('location', function ($query) use ($city) {
+                    $query->whereIn('city', $city);
+                })->where('status', 1)->orderByRaw('featured = ? desc', 1);
+        }
+//        else if ($request->catg != "") {
+//            $catg = FrontCategories::where('name', $request->catg)->limit(1)->get();
+//            if ($catg->isEmpty()) {
+//                return abort(404);
+//            }
+//            $data = $data->where('property_type', 'like', '%' . $catg[0]->id . '%')->orderByRaw('featured = ? desc', 1)->where('status', 1);
+//        }
+        if ($request->has('state')) {
+            $state = StateModel::whereIn('name', explode(',',$request->state))->pluck('id');
+           $data = $data->whereHas('location', function ($query) use ($state) {
+                    $query->whereIn('state', $state);
+                })->orderByRaw('featured = ? desc', 1)->where('status', 1);
+        }
+        $data = $data->simplePaginate(20);
 
         $prpC = DB::table('properties')
             ->select('property_type', DB::raw('count(*) as total'))
@@ -191,26 +184,25 @@ class CategoriesController extends Controller
             ->select('year', DB::raw('count(*) as total'))
             ->groupBy('year')
             ->get();
-        $city = [];
+//        $city = [];
         $categories = [];
-        foreach ($prp as $k => $prps) {
-            $city[] = CityModel::where('id', $k)->limit(20)->get();
-        }
+//        foreach ($prp as $k => $prps) {
+            $city = CityModel::has('location')->withCount('location')->limit(20)->get();
+//        }
 //        dd($city);
         foreach ($prpC as $k => $prpsC) {
             $categories[] = Categories::where('id', $prpsC->property_type)->get();
         }
 //        return $categories;
-        $stream = FrontCategories::where('parent_id', '!=', 0)->has('children')->with('children')->limit(20)->get();
-        $category = CategoryNameModel::orderBy('position', 'ASC')->with('children')->get();
-        $course = Course::limit(20)->get();
-        foreach ($category as $cat => $value) {
-            foreach ($value->children as $child => $children) {
-                $category[$cat]['childrens'] = FrontCategories::where('name', '=', $children->name)->with('children')->get();
-            }
+//        $stream = FrontCategories::where('parent_id', '!=', 0)->has('children')->with('children')->limit(20)->get();
+        $category = CategoryNameModel::orderBy('position', 'ASC')->with('children.categories')->limit(20)->get();
+//        $course = Course::limit(20)->get();
+
+        $state = StateModel::orderBy('id', 'ASC')->has('location')->withCount('location')->get();
+        if($request->ajax()){
+            return $data;
         }
-        $state = StateModel::orderBy('id', 'ASC')->get();
-        return view('v2.front.search.college-search', compact('data', 'state', 'ptype', 'courseD', 'course', 'stream', 'am', 'category', 'city', 'categories'));
+        return view('v2.front.search.college-search', compact('data', 'state', 'ptype', 'courseD', 'am', 'category', 'city', 'categories'));
     }
 
     public function single($city = "", $id = '')
@@ -219,7 +211,7 @@ class CategoriesController extends Controller
             return abort(404);
         }
 
-        $url = SEO::where('permalink', $id)->where('deleted_at', null)->get();
+        $url = SEO::where('permalink', $id)->where('deleted_at', null)->limit(1)->get('id');
         if ($url->isEmpty()) {
             $blo = SEO::where('permalink', $city)->where('deleted_at', null)->get();
             if (!$blo->isEmpty()) {
@@ -271,35 +263,24 @@ class CategoriesController extends Controller
             $hostel = Hostel::where('prop_id', $value->id)->get();
             //Related Fetch
             $json = json_decode($value->property_type);
-            $related = Properties::where('property_type', 'LIKE', "%{$json[0]}%")->where('id', '!=', $value->id)->where('status', 1)->with('seo')->with('location')->with('category')->limit(5)->get();
-            if (!$related->isEmpty()) {
-                foreach ($related as $r => $rel) {
-                    foreach ($rel->location as $rl => $rels) {
-                        $related[$r]['state'] = StateModel::where('id', $rels->state)->get();
-                        $related[$r]['cities'] = CityModel::where('id', $rels->city)->get();
-                    }
-                    $related[$r]['review'] = Review::where('property_id', $rel->id)->get();
-                    $related[$r]['catg'] = Categories::where('id', $rel->property_type)->get();
-                    $related[$r]['images'] = ImagesModel::where('property_id', $rel->id)->get();
-                    $related[$r]['courses'] = Course::where('prop_id', $rel->id)->limit(4)->get();
-                }
-            }
+            $related = Properties::where('property_type', 'LIKE', "%{$json[0]}%")->where('id', '!=', $value->id)->where('status', 1)
+                ->with('seo')
+                ->with('location')
+                ->with('category')
+                ->with('review')
+                ->with('images')
+                ->with('courses')
+                ->with('category')
+                ->limit(5)->get();
             //Featured Fetch
-            $featured = Properties::where('featured', 1)->where('id', '!=', $value->id)->where('status', 1)->with('seo')->with('category')->limit(8)->get();
-            if (!$featured->isEmpty()){
-                foreach ($featured as $r => $fea) {
-                    foreach ($fea->location as $fl => $feas) {
-                        $featured[$r]['state'] = StateModel::where('id', $feas->state)->get();
-                        $featured[$r]['cities'] = CityModel::where('id', $feas->city)->get();
-                    }
-//                $seo = Properties::find($fea->id);
-                    $featured[$r]['review'] = Review::where('property_id', $fea->id)->get();
-                    $featured[$r]['catg'] = Categories::where('id', $fea->property_type)->get();
-                    $featured[$r]['images'] = ImagesModel::where('property_id', $fea->id)->get();
-                    $featured[$r]['courses'] = Course::where('prop_id', $fea->id)->get();
-//                $featured[$r]['seo'] = $seo->seo[0];
-                }
-            }
+            $featured = Properties::where('featured', 1)->where('id', '!=', $value->id)->where('status', 1)
+                ->with('seo')
+                ->with('location')
+                ->with('category')
+                ->with('review')
+                ->with('images')
+                ->with('courses')
+                ->with('category')->limit(8)->get();
             //Reviews Fetch
             $review = Review::where('property_id', $value->id)->avg('stars');
             $reviews = Review::where('property_id', $value->id)->get();

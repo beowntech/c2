@@ -409,7 +409,7 @@ const router = new Router({
                     path: '/testimonials',
                     name: 'Testimonials',
                     meta: {
-                        rule: 'admin',
+                        rule: 'sadmin',
                         requiresAuth: true
                     },
                     component: () => import('./views/testimonial/index.vue')
@@ -639,6 +639,24 @@ const router = new Router({
                     },
                     component: () => import('./views/scholarship/scholar.vue')
                 },
+                {
+                    path: '/hostel/create',
+                    name: 'Create Hostel',
+                    meta: {
+                        rule: 'editor',
+                        requiresAuth: true
+                    },
+                    component: () => import('./views/hostels/create.vue')
+                },
+                // {
+                //     path: '/hostels/list',
+                //     name: 'Hostels List',
+                //     meta: {
+                //         rule: 'editor',
+                //         requiresAuth: true
+                //     },
+                //     component: () => import('./views/hostels/list.vue')
+                // },
                 {
                     path: '/header/menu',
                     name: 'Header Menu',

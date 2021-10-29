@@ -142,8 +142,14 @@ Route::get('hostel/get','AlotFronController@getHostel');
 Route::post('amenities/get','AlotFronController@getAmen');
 Route::post('policies/get','AlotFronController@getPolicy');
 
+
+Route::group(['prefix' => 'hostels'], function () {
+    Route::post('create',[App\Http\Controllers\HostelsController::class,'create']);
+});
+
 Route::group(['prefix' => 'properties'], function () {
     Route::get('bycategory', 'Categoriescontroller@loadAjax');
+    Route::get('search-college', [App\Http\Controllers\PagesController::class,'searchCollege'])->name('search-college-api');
     Route::get('byname', 'Categoriescontroller@loadAjaxName');
     Route::post('get', 'Categoriescontroller@loadproperty');
     Route::post('step1', 'PropertiesController@step1');

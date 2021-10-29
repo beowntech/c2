@@ -9,7 +9,7 @@
 
 
 module.exports = {
-    devServer{
+    devServer: {
         watchOptions: {
             poll: true
         }

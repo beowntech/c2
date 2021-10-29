@@ -20,13 +20,13 @@
                     <li><a href="/" class="text-decoration-none"> Top University</a></li>
                     <li><a href="/" class="text-decoration-none"> Top Courses </a></li>
                     <li><a href="/" class="text-decoration-none"> Colleges </a></li>
-                    <li><a href="/" class="text-decoration-none"> Exams </a></li>
+{{--                    <li><a href="/" class="text-decoration-none"> Exams </a></li>--}}
                     <li><a href="/" class="text-decoration-none"> Admission 2021 </a></li>
-                    <li><a href="/" class="text-decoration-none"> Blog </a></li>
+                    <li><a href="{{route('blog-index')}}" class="text-decoration-none"> Blog </a></li>
                 </ul>
             </div>
             <div class="col-md-4">
-                <a href="/" class="float-end text-white fw-bold py-1"> Cyber Partner Login</a>
+                <a href="{{route('cyber-partner')}}" class="float-end text-white fw-bold py-1"> Cyber Partner Login</a>
             </div>
         </div>
     </div>

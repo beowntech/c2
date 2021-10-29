@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\PagesModel;
+use App\Properties;
 use App\SEO;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -72,5 +73,19 @@ class PagesController extends Controller
         }
         $data = PagesModel::find($request->page_id);
         return $data->seo;
+    }
+
+    public function searchCollege(Request  $request){
+//        if($request->ajax()) {
+            $data = Properties::where('name','LIKE','%'.$request->search.'%')
+                ->where('status',1)
+                ->where('deleted_at',null)
+                ->with('location')
+                ->with('courses')
+                ->with('seo')
+                ->get();
+            return $data;
+//        }
+//        return response()->json(['status'=> 'Not Able to Proceed']);
     }
 }

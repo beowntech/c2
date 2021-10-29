@@ -73,10 +73,12 @@
                 <form data-vv-scope="step-2">
                     <div class="vx-row">
                         <div class="vx-col w-full">
-                            <img v-if="featured" :src="featured" style="max-width: 40%">
-                            <input type="file" class="hidden" ref="uploadImgInputF" name="featured"
-                                   @change="showFeatured" accept="image/*" v-validate="'required'">
-                            <vs-button @click="$refs.uploadImgInputF.click()">Upload Featured Image</vs-button>
+                            <vs-upload multiple text="Upload Featured Image (Select Multiple Images)" ref="upload_featured" @change="successUpload" @on-delete="successUpload" :show-upload-button="false" action="" @on-success="successUpload" />
+<!--                            <vs-button @click="$refs.upload_featured.submit()">Upload</vs-button>-->
+<!--                            <img v-if="featured" :src="featured" style="max-width: 40%">-->
+<!--                            <input type="file" class="hidden" ref="uploadImgInputF" name="featured"-->
+<!--                                   @change="showFeatured" accept="image/*" v-validate="'required'">-->
+<!--                            <vs-button @click="$refs.uploadImgInputF.click()">Upload Featured Image</vs-button>-->
                             <br>
                             <span class="text-danger">{{ errors.first('step-2.featured') }}</span>
                         </div>
@@ -161,6 +163,7 @@
     // For custom error message
     import { quillEditor } from 'vue-quill-editor'
     import {Validator} from 'vee-validate';
+    import Button from "../components/vuesax/button/Button";
 
     const dict = {
         custom: {
@@ -261,6 +264,7 @@
                 roadName: "",
                 images: [],
                 selectedFiles: [],
+                featuredFiles: [],
                 pinCode: "",
                 citySelect: "",
                 local_area: "",
@@ -387,6 +391,7 @@
                                             // this.getState()
                                             // this.getCity()
                                         }
+                                        reject("correct all values");
                                     })
                                     .catch((err) => {
                                         reject("correct all values");
@@ -411,7 +416,11 @@
                             const bodyFormData = new FormData();
                             bodyFormData.append('description', this.textareaS);
                             bodyFormData.append('prop_id', this.currPropId);
-                            bodyFormData.append('featured', this.originalImageF);
+                            for( var i = 0; i < this.featuredFiles.length; i++ ){
+                                let file = this.featuredFiles[i];
+                                bodyFormData.append('featured[' + i + ']', file);
+                            }
+                            // bodyFormData.append('featured', this.originalImageF);
                             axios.post('/api/properties/step2',bodyFormData)
                                 .then((res) => {
                                     console.log(res);
@@ -422,6 +431,7 @@
                                         // this.getState()
                                         // this.getCity()
                                     }
+                                    reject("correct all values");
                                 })
                                 .catch((err) => {
                                     reject("correct all values");
@@ -606,7 +616,15 @@
                 $("html, body").animate({scrollTop: $(document).height()}, 1000);
             },
             successUpload(event) {
-                console.log(event);
+                // console.log(this.$refs.upload_featured.$data.filesx)
+                var files = this.$refs.upload_featured.$data.filesx;
+                this.featuredFiles = []
+                for(var i=0; i < files.length; i++){
+                    if(!files[i].remove) {
+                        this.featuredFiles.push(files[i])
+                    }
+                }
+                console.log(this.featuredFiles);
             },
             getPolicy() {
                 axios.post('/api/policies/get')
@@ -693,6 +711,7 @@
             }
         },
         components: {
+            Button,
             FormWizard,
             TabContent,
             quillEditor,

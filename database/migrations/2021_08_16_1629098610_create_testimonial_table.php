@@ -10,13 +10,16 @@ class CreateTestimonialTable extends Migration
     {
         Schema::create('testimonial', function (Blueprint $table) {
 
-		$table->bigInteger('id',true)->unsigned();
-		$table->bigInteger('user_id');
-		$table->string('image',191);
-		$table->text('content');
-		$table->timestamp('created_at')->nullable();
-		$table->timestamp('updated_at')->nullable();
-		$table->integer('status');
+            $table->bigInteger('id', true)->unsigned();
+            $table->bigInteger('user_id');
+            $table->string('user_name')->nullable();
+            $table->string('property_name')->nullable();
+            $table->integer('property_id')->nullable();
+            $table->string('image', 191);
+            $table->text('content');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+            $table->integer('status');
 
         });
     }

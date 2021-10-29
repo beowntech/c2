@@ -16,11 +16,11 @@ class Locations extends Model
 
     public function cities()
     {
-        return $this->hasMany('App\CityModel','id','city');
+        return $this->hasOne('App\CityModel','id','city');
     }
 
     public function states()
     {
-        return $this->hasMany('App\StateModel','id','state');
+        return $this->hasOne('App\StateModel','id','state');
     }
 }

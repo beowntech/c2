@@ -65,12 +65,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       selected: [],
       fileName: "",
+      image: null,
+      userName: "",
+      propertyName: "",
+      content: "",
       formats: ["xlsx", "csv", "txt"],
       cellAutoWidth: true,
       selectedFormat: "xlsx",
@@ -94,23 +108,43 @@ __webpack_require__.r(__webpack_exports__);
         console.log(err);
       });
     },
-    exportToExcel: function exportToExcel() {
+    createTestimonial: function createTestimonial() {
       var _this2 = this;
 
-      Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! @/vendor/Export2Excel */ "./resources/js/src/vendor/Export2Excel.js")).then(function (excel) {
-        var list = _this2.enquiry;
+      var formData = new FormData();
+      formData.append('image', this.image);
+      formData.append('user', this.userName);
+      formData.append('property', this.propertyName);
+      formData.append('text', this.content);
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/testimonial/add', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data;'
+        }
+      }).then(function (res) {
+        _this2.getEnquiry();
 
-        var data = _this2.formatJson(_this2.headerVal, list);
+        _this2.alert('Testimonial Added Successfully', '', 'green');
+      }).catch(function (err) {
+        console.log(err);
+      });
+    },
+    exportToExcel: function exportToExcel() {
+      var _this3 = this;
+
+      Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(11)]).then(__webpack_require__.bind(null, /*! @/vendor/Export2Excel */ "./resources/js/src/vendor/Export2Excel.js")).then(function (excel) {
+        var list = _this3.enquiry;
+
+        var data = _this3.formatJson(_this3.headerVal, list);
 
         excel.export_json_to_excel({
-          header: _this2.headerTitle,
+          header: _this3.headerTitle,
           data: data,
-          filename: _this2.fileName,
-          autoWidth: _this2.cellAutoWidth,
-          bookType: _this2.selectedFormat
+          filename: _this3.fileName,
+          autoWidth: _this3.cellAutoWidth,
+          bookType: _this3.selectedFormat
         });
 
-        _this2.clearFields();
+        _this3.clearFields();
       });
     },
     formatJson: function formatJson(filterVal, jsonData) {
@@ -127,23 +161,23 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getStatus: function getStatus() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/status/all').then(function (res) {
         console.log(res);
-        _this3.status = res.data;
+        _this4.status = res.data;
       }).catch(function (err) {
         console.log(err);
       });
     },
     updateStatus: function updateStatus(data, id) {
-      var _this4 = this;
+      var _this5 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/testimonial/update', {
         status: data.id,
         id: id
       }).then(function (res) {
-        _this4.alert('Status Updated Successfully!', 'Testimonial Status Updated Successfully!', 'success');
+        _this5.alert('Status Updated Successfully!', 'Testimonial Status Updated Successfully!', 'success');
 
         window.location.reload();
       }).catch(function (err) {
@@ -157,6 +191,9 @@ __webpack_require__.r(__webpack_exports__);
         text: text,
         position: 'top-right'
       });
+    },
+    showImage: function showImage(e) {
+      this.image = e.target.files[0];
     },
     clearFields: function clearFields() {
       this.filename = "", this.cellAutoWidth = true, this.selectedFormat = "xlsx";
@@ -194,13 +231,13 @@ var render = function() {
         {
           staticClass: "export-options",
           attrs: {
-            title: "Export To Excel",
-            "accept-text": "Export",
+            title: "Add Testimonial",
+            "accept-text": "ADD",
             active: _vm.activePrompt
           },
           on: {
             cancle: _vm.clearFields,
-            accept: _vm.exportToExcel,
+            accept: _vm.createTestimonial,
             close: _vm.clearFields,
             "update:active": function($event) {
               _vm.activePrompt = $event
@@ -209,51 +246,52 @@ var render = function() {
         },
         [
           _c("vs-input", {
+            staticStyle: { width: "100%" },
+            attrs: { type: "file" },
+            on: { change: _vm.showImage }
+          }),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("vs-input", {
             staticClass: "w-full",
-            attrs: { placeholder: "Enter File Name.." },
+            attrs: { placeholder: "Enter User Name.." },
             model: {
-              value: _vm.fileName,
+              value: _vm.userName,
               callback: function($$v) {
-                _vm.fileName = $$v
+                _vm.userName = $$v
               },
-              expression: "fileName"
+              expression: "userName"
             }
           }),
           _vm._v(" "),
-          _c("v-select", {
-            staticClass: "my-4",
-            attrs: { options: _vm.formats },
+          _c("br"),
+          _vm._v(" "),
+          _c("vs-input", {
+            staticClass: "w-full",
+            attrs: { placeholder: "Enter College Name.." },
             model: {
-              value: _vm.selectedFormat,
+              value: _vm.propertyName,
               callback: function($$v) {
-                _vm.selectedFormat = $$v
+                _vm.propertyName = $$v
               },
-              expression: "selectedFormat"
+              expression: "propertyName"
             }
           }),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "flex" },
-            [
-              _c("span", { staticClass: "mr-4" }, [_vm._v("Cell Auto Width:")]),
-              _vm._v(" "),
-              _c(
-                "vs-switch",
-                {
-                  model: {
-                    value: _vm.cellAutoWidth,
-                    callback: function($$v) {
-                      _vm.cellAutoWidth = $$v
-                    },
-                    expression: "cellAutoWidth"
-                  }
-                },
-                [_vm._v("Cell Auto Width")]
-              )
-            ],
-            1
-          )
+          _c("br"),
+          _vm._v(" "),
+          _c("vs-textarea", {
+            staticClass: "w-full",
+            attrs: { rows: "6", placeholder: "Enter Testimonial Content" },
+            model: {
+              value: _vm.content,
+              callback: function($$v) {
+                _vm.content = $$v
+              },
+              expression: "content"
+            }
+          })
         ],
         1
       ),
@@ -283,12 +321,24 @@ var render = function() {
                         [
                           _c(
                             "vs-td",
-                            { attrs: { data: data[indextr].user[0].name } },
+                            { attrs: { data: data[indextr].user_name } },
                             [
                               _vm._v(
-                                "\n                            " +
-                                  _vm._s(data[indextr].user[0].name) +
-                                  "\n                        "
+                                "\n                        " +
+                                  _vm._s(data[indextr].user_name) +
+                                  "\n                    "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "vs-td",
+                            { attrs: { data: data[indextr].property_name } },
+                            [
+                              _vm._v(
+                                "\n                        " +
+                                  _vm._s(data[indextr].property_name) +
+                                  "\n                    "
                               )
                             ]
                           ),
@@ -315,9 +365,9 @@ var render = function() {
                             { attrs: { data: data[indextr].content } },
                             [
                               _vm._v(
-                                "\n                            " +
+                                "\n                        " +
                                   _vm._s(data[indextr].content) +
-                                  "\n                        "
+                                  "\n                    "
                               )
                             ]
                           ),
@@ -394,14 +444,38 @@ var render = function() {
             [
               _c(
                 "template",
+                { slot: "header" },
+                [
+                  _c(
+                    "vs-button",
+                    {
+                      staticClass: "float-right",
+                      on: {
+                        click: function($event) {
+                          _vm.activePrompt = true
+                        }
+                      }
+                    },
+                    [_vm._v("Add New")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "template",
                 { slot: "thead" },
                 [
+                  _c("vs-th", { attrs: { "sort-key": "image" } }, [
+                    _vm._v("Image")
+                  ]),
+                  _vm._v(" "),
                   _c("vs-th", { attrs: { "sort-key": "User" } }, [
                     _vm._v("User")
                   ]),
                   _vm._v(" "),
-                  _c("vs-th", { attrs: { "sort-key": "image" } }, [
-                    _vm._v("Image")
+                  _c("vs-th", { attrs: { "sort-key": "User" } }, [
+                    _vm._v("Property")
                   ]),
                   _vm._v(" "),
                   _c("vs-th", { attrs: { "sort-key": "content" } }, [

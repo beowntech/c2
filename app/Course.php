@@ -17,7 +17,7 @@ class Course extends Model
     }
 
     public function streams() {
-        return $this->hasMany('App\FrontCategories',"id","stream");
+        return $this->hasMany(FrontCategories::class,"id","stream");
     }
 
     public function substream() {

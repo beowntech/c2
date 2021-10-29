@@ -67,12 +67,7 @@ class AlotFronController extends Controller
         }
         $prop = Properties::where('status', 1)
             ->orderByRaw('featured = ? desc',1)
-            ->limit(6)->with('seo')->with('location')->with('images')->with('courses')->get();
-        foreach ($prop as $pw => $vals) {
-            foreach ($vals->location as $p => $val) {
-                $prop[$pw]['cities'] = CityModel::where('id', $val->city)->get('name');
-            }
-        }
+            ->limit(6)->with('seo')->with('location')->with('images')->with('review')->with('courses')->get();
         $catg = Categories::where('parent_id', '!=', 0)->get();
         foreach ($catg as $c => $ca) {
             $catg[$c]['property'] = Properties::where('property_type', $ca->id)->count();
@@ -88,8 +83,9 @@ class AlotFronController extends Controller
         foreach ($state as $s => $st) {
             $state[$s]['count'] = Locations::where('state', $st->id)->count();
         }
+        $testimonial = Testimonial::where('status',1)->get();
         $seo = SEO::where('permalink','/')->get();
-        return view('v2.front.index', compact('category', 'catg','seo', 'course', 'city', 'categories', 'prop', 'fcatg', 'state'));
+        return view('v2.front.index', compact('category', 'catg','seo', 'course', 'city', 'categories', 'prop', 'fcatg', 'state','testimonial'));
 //        dd($category);
     }
 
@@ -137,11 +133,13 @@ class AlotFronController extends Controller
     public function addTestimonial(Request $request)
     {
         $test = new Testimonial();
-        $test->user_id = $request->id;
-        $filename = time() . '.' . $request->imageFile->getClientOriginalExtension();
-        $request->imageFile->move(public_path('testimonials'), $filename);
+        $test->user_name = $request->user;
+        $test->property_name = $request->property;
+        $filename = time() . '.' . $request->image->getClientOriginalExtension();
+        $request->image->move(public_path('testimonials'), $filename);
         $test->image = $filename;
-        $test->content = $request->testimonial;
+        $test->content = $request->text;
+        $test->status = 1;
         $test->save();
         if ($test) {
             return back();

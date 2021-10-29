@@ -72,12 +72,21 @@ class AppServiceProvider extends ServiceProvider
             $view->with('courses',$courses);
         });
 
+        view()->composer('v2.front.modal.applynow', function($view) {
+            $course = DB::table('front_categories')
+                ->select('name', DB::raw('count(*) as total'))
+                ->groupBy('name')
+                ->get();
+            $view->with('courses',$course);
+        });
+
+
         view()->composer('v2.front.layout.header', function($view) {
             $menu = Menu::categories();
             $view->with('menu',$menu);
         });
         view()->composer('v2.front.layout.footer', function($view) {
-            $data = FrontCategories::with('children')->get();
+//            $data = FrontCategories::with('children')->get();
 //            $district = \App\Destination::where('status',1)->get();
             $footer = Menu::where('page_type','main')->get('footer');
             $footer_upper = Menu::where('page_type','main')->get('upper_footer');
@@ -129,7 +138,8 @@ class AppServiceProvider extends ServiceProvider
             }
             $final = $footer_menu != [] ? json_encode($footer_menu): json_encode($footer_menu);
             $final_upper = $footer_upper_menu != [] ? json_encode($footer_upper_menu): json_encode($footer_upper_menu);
-            $view->with('footerCatg',$data)
+            $view
+//                ->with('footerCatg',$data)
                 ->with('count',1)
                 ->with('footer_menu',$final)
                 ->with('footer_upper_menu',$final_upper);
