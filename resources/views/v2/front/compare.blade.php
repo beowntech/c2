@@ -1,5 +1,38 @@
 @extends('v2.front.layout.header')
 @section('content')
+<style>
+    i
+{
+  float: center;
+  position: relative;
+}
+.fa-graduation-cap-half-o,.fa-graduation-cap
+{
+    color: #ffab00;
+  
+}
+.rated{
+    color: #ffab00;
+    cursor: pointer;
+}
+
+.unrated{
+    color: #757575;
+    cursor: pointer;
+}
+
+.fa-graduation-cap-half-empty:after, .fa-graduation-cap-half-full:after, .fa-graduation-cap-half-o:after {
+    content: "\f123";
+    transform: rotateY(-180deg);
+    display: inline-block;
+    left: 6px;
+    position: absolute;
+    top: 0;
+    color: #757575;
+    overflow: hidden;
+    width: 8px;
+}
+    </style>
     <section>
     <div class="container-fluid">
         <div class="row mx-0">
@@ -32,12 +65,14 @@
             <div class="col-md-3">
                 <div class="p-3">
                     <div style="float: right;cursor: pointer;" onclick="removeProp({{$p}})">X</div>
-                    <h2 class="f-14 fw-6"><a href="#" class="text-decoration-none"> {{$val->name}}</a></h2>
+                    <h2 class="f-14 fw-6"><a href="{{ route('details', ['city'=>'college-in-'.strtolower($val->location->cities->name),'id'=>$val->seo[0]->permalink]) }}" class="text-decoration-none"> {{$val->name}}</a></h2>
                     <p class="f-14"><i class="fas fa-map-marker-alt"></i> {{$val->location->cities->name}}</p>
                     <div class="mb-2 prop-image position-relative" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured.'-xl.webp'}});bacground-position:center; height:160px; background-size: cover;">
                         <div class="prop-info">
                             <div class="position-absolute bottom-0 start-0">
-                                <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo.'-md.webp'}}" class="prop-logo p-1 m-2" alt="">
+                                <a href="{{ route('details', ['city'=>'college-in-'.strtolower($val->location->cities->name),'id'=>$val->seo[0]->permalink]) }}">
+                                    <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo.'-md.webp'}}" class="prop-logo p-1 m-2" alt="">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -110,7 +145,6 @@
         </div>
         <div class="row">
             @foreach($prop as $p => $val)
-{{--                {{$val->courses}}--}}
                 <div class="col-md-3">
 
                     <ul class="list-unstyled info-list mt-2">
@@ -125,27 +159,41 @@
                         <li>{{$pa->streams[0]->name}} <span class="float-end">₹{{$pa->price}} (1st Year Fees)</span></li>
                             @endif
                         @endforeach
-{{--                        <li>M.Tech <span class="float-end">₹2.2Lakhs (1st Year Fees)</span></li>--}}
-{{--                        <li>Ph.d <span class="float-end">₹3.2Lakhs (Total Fees)</span></li>--}}
-{{--                        <li>BCA <span class="float-end">₹90,000 (1st Year Fees)</span></li>--}}
                     </ul>
                 </div>
             @endforeach
+
+            <div class="row">
+                <div class="col text-center headline">Student Rating & Reviews</div>
+            </div>
+            <div class="row">
+                @foreach($prop as $p => $val)
+                    <div class="col-md-3 text-center pt-4">
+                        @if($reviews[$p] != null)
+                        <h2 style="display: inline;font-weight:600;">{{$val->review[0]->stars}}</h2> out of 5<br>
+                        <div class="my-3"> 
+                        @if($reviews != null)
+                                    <input type="hidden"
+                                           value="{{$revs = $reviews[$p]->stars}},{{$avg = $reviews[$p] != null ? 0 : $reviews[$p]->stars}}">
+                                    @foreach(range(1,5) as $i)
+                                        @if($revs >0)
+                                            @if($revs >0.5)
+                                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                            @else
+                                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                                            @endif
+                                        @else
+                                            <i class="fa fa-graduation-cap unrated"></i>
+                                        @endif
+                                        @php $revs--;@endphp
+                                    @endforeach
+                                @endif
+                        </div>
+                        @endif
+                    </div>
+                    @endforeach
                 @for($i=4; $i > count($prop); $i--)
                     <div class="col-md-3">
-
-{{--                        <ul class="list-unstyled info-list mt-2">--}}
-{{--                            <li>Course Credential <span class="float-end">Degree</span></li>--}}
-{{--                            <li>Course Level <span class="float-end">UG</span></li>--}}
-{{--                            <li>Duration <span class="float-end">4 Year</span></li>--}}
-{{--                            <li>Mode <span class="float-end">Full Time</span></li>--}}
-{{--                        </ul>--}}
-{{--                        <ul class="list-unstyled info-list mt-2">--}}
-{{--                            <li>B.Tech <span class="float-end">₹2.2Lakhs (1st Year Fees)</span></li>--}}
-{{--                            <li>M.Tech <span class="float-end">₹2.2Lakhs (1st Year Fees)</span></li>--}}
-{{--                            <li>Ph.d <span class="float-end">₹3.2Lakhs (Total Fees)</span></li>--}}
-{{--                            <li>BCA <span class="float-end">₹90,000 (1st Year Fees)</span></li>--}}
-{{--                        </ul>--}}
                     </div>
                 @endfor
             </div>
@@ -168,36 +216,14 @@
                             <input type="text" id="compareSearch" class="form-control" placeholder="Search College">
                         </div></div>
                     <div class="bg-grey">
+                    
                         <div class="row py-3 px-5" id="compareListCollege">
-
-{{--                            <div class="col-md-6 custom-radio">--}}
-{{--                                <div class="row m-1 py-2 bg-white">--}}
-{{--                                    <div class="col-2 text-center px-1">--}}
-{{--                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-2 px-1" for="flexRadioDefault1">--}}
-{{--                                        <div class="logo position-relative">--}}
-{{--                                            <div class="d-inline-block prop-logo">--}}
-{{--                                                <img src="assets/images/admission-jockey-logo.png" class="p-2" alt="">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="col-7" for="flexRadioDefault1">--}}
-{{--                                        <div class="prop-info">--}}
-{{--                                            <p class="f-14 pcolor mb-1">Sai Group of Institution in Dehradun</p>--}}
-{{--                                            <p class="f-12 mb-1"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Dehradun, Uttarakhand</p>--}}
-{{--                                            <p class="f-14 pcolor mb-1"><i class="fas fa-rupee-sign" aria-hidden="true"></i> B.tech - 7L to 8L</p>--}}
-
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
 
                         </div>
                         <div class="row p-3 pb-4">
                             <div class="col">
                                 <ul class="list-unstyled ver-line-menu float-end">
-                                    <li class="me-2"><button class="btn site-btn-4"> close </button></li>
+                                    <li class="me-2"><button class="btn site-btn-4" data-bs-dismiss="modal" aria-label="Close"> close </button></li>
                                     <li><button class="btn site-btn-1 btn-sm float-end" onclick="chooseProp()"> Save </button></li>
                                 </ul>
 
@@ -214,21 +240,80 @@
 @endsection
 @section('script')
     <script>
+        var selected = "";
+        $(document).ready(function(){
+            $.ajax({
+                type: "GET",
+                url: "{{route('search-college-api')}}",
+                data: {'search': ""},
+                success: function (data) {
+                    $("#compareListCollege").html("");
+                    for (var i = 0; i < data.length; i++) {
+                        $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\">\n "+                            
+                        "<div class=\"row m-1 py-2 bg-white border-color col-list-card\" data-slug=\""+data[i].seo[0].permalink+"\">\n "+
+                        "<div class=\"col-2 text-center px-1\">\n" +
+                        "<span class=\"circle align-middle\">\n"+ 
+                        "<i class=\"fas fa-check-circle\"></i>\n"+ 
+                        "</span>\n"+ 
+                        "</div>\n"+ 
+                        "<div class=\"col-2 px-1\" for=\"flexRadioDefault1\">\n"+
+                        "<div class=\"logo position-relative\">\n"+ 
+                        "<div class=\"d-inline-block prop-logo\">\n"+
+                        "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"> \n"+ 
+                        "</div></div></div><div class=\"col-7\" for=\"flexRadioDefault1\">\n"+
+                        "<div class=\"prop-info\">\n"+
+                        "<p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width:300px;\">"+data[i].name+"</p>\n"+
+                        "<p class=\"f-12 mb-1\"><i class=\"fas fa-map-marker-alt\" aria-hidden=\"true\"></i> "+data[i].location.cities.name+", "+data[i].location.states.name+"</p>\n"+
+                        "<div class=\"row\"><div class=\"col-8\"><p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width: 200px;\"> "+data[i].courses[0].streams[0].name+"</p><\/div><div class=\"col-4\"><p class=\"f-14 pcolor mb-1\"><i class=\"fas fa-rupee-sign\" aria-hidden=\"true\"></i> "+data[i].courses[0].price+"</p><\/div><\/div>\n"+
+                        "</div></div></div></div>");
+                        if(i > 4){
+                            break;
+                        }
+                    }
+                }
+            });
+        });
         $("#compareSearch").keyup(function () {
             var text = $(this).val();
             $.ajax({
                 type: "GET",
                 url: "{{route('search-college-api')}}",
-                data: {
-                    'search': text
-                },
+                data: {'search': text},
                 success: function (data) {
                     $("#compareListCollege").html("");
                     for (var i = 0; i < data.length; i++) {
-                        $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\"><div class=\"row m-1 py-2 bg-white\"><div class=\"col-2 text-center px-1\"><input class=\"form-check-input\" type=\"radio\" name=\"flexRadioDefault\" value=\""+data[i].seo[0].permalink+"\" id=\"flexRadioDefault1\"><\/div><div class=\"col-2 px-1\" for=\"flexRadioDefault1\"><div class=\"logo position-relative\"><div class=\"d-inline-block prop-logo\"><img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"><\/div><\/div><\/div><div class=\"col-7\" for=\"flexRadioDefault1\"><div class=\"prop-info\"><p class=\"f-14 pcolor mb-1\">"+data[i].name+"<\/p><p class=\"f-12 mb-1\"><i class=\"fas fa-map-marker-alt\" aria-hidden=\"true\"><\/i> "+data[i].location.cities.name+", "+data[i].location.states.name+"<\/p><p class=\"f-14 pcolor mb-1\"><i class=\"fas fa-rupee-sign\" aria-hidden=\"true\"><\/i> "+data[i].courses[0].streams[0].name+" - "+data[i].courses[0].price+"<\/p><\/div><\/div><\/div><\/div>");
+                        $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\">\n "+                            
+                        "<div class=\"row m-1 py-2 bg-white border-color col-list-card\" data-slug=\""+data[i].seo[0].permalink+"\">\n "+
+                        "<div class=\"col-2 text-center px-1\">\n" +
+                        "<span class=\"circle align-middle\">\n"+ 
+                        "<i class=\"fas fa-check-circle\"></i>\n"+ 
+                        "</span>\n"+ 
+                        "</div>\n"+ 
+                        "<div class=\"col-2 px-1\" for=\"flexRadioDefault1\">\n"+
+                        "<div class=\"logo position-relative\">\n"+ 
+                        "<div class=\"d-inline-block prop-logo\">\n"+
+                        "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"> \n"+ 
+                        "</div></div></div><div class=\"col-7\" for=\"flexRadioDefault1\">\n"+
+                        "<div class=\"prop-info\">\n"+
+                        "<p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width:300px;\">"+data[i].name+"</p>\n"+
+                        "<p class=\"f-12 mb-1\"><i class=\"fas fa-map-marker-alt\" aria-hidden=\"true\"></i> "+data[i].location.cities.name+", "+data[i].location.states.name+"</p>\n"+
+                        "<div class=\"row\"><div class=\"col-8\"><p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width: 200px;\"> "+data[i].courses[0].streams[0].name+"</p><\/div><div class=\"col-4\"><p class=\"f-14 pcolor mb-1\"><i class=\"fas fa-rupee-sign\" aria-hidden=\"true\"></i> "+data[i].courses[0].price+"</p><\/div><\/div>\n"+
+                        "</div></div></div></div>");
+                        // $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\"><div class=\"row m-1 py-2 bg-white\"><div class=\"col-2 text-center px-1\"><input class=\"form-check-input\" type=\"radio\" name=\"flexRadioDefault\" value=\""+data[i].seo[0].permalink+"\" id=\"flexRadioDefault1\"><\/div><div class=\"col-2 px-1\" for=\"flexRadioDefault1\"><div class=\"logo position-relative\"><div class=\"d-inline-block prop-logo\"><img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"><\/div><\/div><\/div><div class=\"col-7\" for=\"flexRadioDefault1\"><div class=\"prop-info\"><p class=\"f-14 pcolor mb-1 d-inline-block text-truncate\" style=\"max-width: 300px;\">"+data[i].name+"<\/p><p class=\"f-12 mb-1\"><i class=\"fas fa-map-marker-alt\" aria-hidden=\"true\"><\/i> "+data[i].location.cities.name+", "+data[i].location.states.name+"<\/p><div class=\"row\"><div class=\"col-8\"><p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width: 200px;\"> "+data[i].courses[0].streams[0].name+"</p><\/div><div class=\"col-4\"><p class=\"f-14 pcolor mb-1\"><i class=\"fas fa-rupee-sign\" aria-hidden=\"true\"></i> "+data[i].courses[0].price+"</p><\/div><\/div><\/div><\/div><\/div><\/div>");
+                        if(text == "" && i > 4){
+                            break;
+                        }
                     }
                 }
             });
+        });
+
+        $(document).on('click', '.col-list-card', function () { 
+            $("#compareListCollege .col-list-card").removeClass("active")
+            $(this).addClass("active");
+            selected = "";
+            selected = $(this).data("slug");
+            // alert($(this).data("slug"));
         });
 
         function removeProp(id){
@@ -238,9 +323,9 @@
             window.location.href = split.join('-vs-');
         }
         function chooseProp(){
-            var check = $('input[name=flexRadioDefault]:checked').val();
-            if(check != undefined){
-                window.location.href = ""+window.location.href+""+"-vs-"+""+check+"";
+            // var check = $('input[name=flexRadioDefault]:checked').val();
+            if(selected != ""){
+                window.location.href = ""+window.location.href+""+"-vs-"+""+selected+"";
             }
         }
     </script>

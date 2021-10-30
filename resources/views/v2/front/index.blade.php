@@ -23,25 +23,15 @@
                             <div class="search-result py-2 text-start bg-white border-radius-md mt-1 liveSearch">
                                 <p class="mb-0  ps-3">Colleges</p>
                                 <ul class="list-unstyled ps-4">
-                                    <li><a href="#">Top DRCC College</a></li>
-                                    <li><a href="#">Top College in Dehradun</a></li>
-                                    <li><a href="#">Top College in Delhi</a></li>
-                                    <li><a href="#">Top College in Mumbai</a></li>
-                                    <li><a href="#">Top College in Bangalore</a></li>
-                                    <li><a href="#">Top College in Mumbai</a></li>
+                                  
                                 </ul>
                                 <p class="mb-0 ps-3">Courses</p>
                                 <ul class="list-unstyled ps-4">
-                                    <li><a href="#">Top DRCC College</a></li>
-                                    <li><a href="#">Top College in Dehradun</a></li>
-                                    <li><a href="#">Top College in Delhi</a></li>
-                                    <li><a href="#">Top College in Mumbai</a></li>
-                                    <li><a href="#">Top College in Bangalore</a></li>
-                                    <li><a href="#">Top College in Mumbai</a></li>
+                                   
                                 </ul>
                             </div>
                         </div>
-                        <p class="text-start ps-4">Need Help - <a href="#">Click Here</a></p>
+                        <p class="text-start ps-4">Need Help - <a href="#" class="openApplyNow" data-bs-toggle="modal" data-bs-target="#applyNow">Click Here</a></p>
                         <div class="hero-highlight float-end text-start">
                             <p class="mb-0">Ranked</p>
                             <h3 class="mb-0"><strong>150+</strong> College</h3>
@@ -274,7 +264,7 @@
                         <li>We provide the multiple option career options based on the preference</li>
                         <li>Our expert provide best fit colleges to your preferences</li>
                     </ul>
-                    <a href="#" class="btn site-btn-3 btn-lg shadow px-4"> <i class="fas fa-mobile-alt"></i> Ask to
+                    <a href="#" class="btn site-btn-3 btn-lg shadow px-4 openApplyNow" data-bs-toggle="modal" data-bs-target="#applyNow"> <i class="fas fa-mobile-alt"></i> Ask to
                         Expert</a>
                 </div>
                 <div class="col-md-5">
@@ -432,7 +422,8 @@
                                             <div class="col-md-8 offset-md-2 p-2">
                                                 <div class="testimonial-data text-center">
                                                     <div class="testimonial-info mb-4">
-                                                        <img src="{{env('MEDIA_URL')}}testimonials/{{$test->image}}" width="150px"
+                                                        <i class="fas fa-quote-left "></i>
+                                                        <img src="{{env('MEDIA_URL')}}testimonials/{{$test->image}}" width="150px" height="150px"
                                                              class="user-avatar" alt="">
                                                         <div class="d-inline-block ms-4 text-start pcolor">
                                                             <h3 class="f-24">{{$test->user_name}}</h3>
@@ -547,6 +538,19 @@
     </script>
 @endsection
 @section('script')
+<script>
+        // $(document).on("click", ".openApplyNow", function () {
+        //     var form = $("#apply-now");
+        //     form[0].reset();
+        //     var id = $(this).data('id');
+        //     var name = $(this).data('name');
+        //     form.removeClass('d-none');
+        //     $("#success-div").html("");
 
+        //     $("#applyNow .modal-body #propID").val(id);
+        //     $("#applyNow .modal-body #propName").val(name);
+        // });
+    </script>
 {{--<script type="javascript" src="{{asset('v2/assets/js/ajax.js')}}"></script>--}}
 @endsection
+@include('v2.front.modal.applynow')

@@ -896,6 +896,13 @@ footer {
     box-shadow: 2px 2px 12px #e9f1ff;
     border: 1px solid #d6e3fa;
     border-radius: 18px; }
+  #testimonial .carousel-inner .carousel-item .testimonial-info .fa-quote-left {
+    font-size: 93px;
+    margin-top: -26px;
+    margin-left: -43px;
+    position: absolute;
+    z-index: -1;
+    color: #c8c8c8; }
   #testimonial .control {
     border-radius: 50%;
     padding: 0px;
@@ -1077,6 +1084,30 @@ footer {
   padding: 6px;
   border: 1px solid #d0d0d0; }
 
+.compare-modal .custom-radio .border-color {
+  cursor: pointer !important;
+  border: 1px solid transparent; }
+  .compare-modal .custom-radio .border-color:hover {
+    border: 1px solid #ff5c0173; }
+    .compare-modal .custom-radio .border-color:hover .fa-check-circle {
+      color: #ff5c01;
+      border: 1px solid transparent;
+      opacity: .4;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease; }
+
+.compare-modal .custom-radio .active {
+  border: 1px solid #ff5c01; }
+  .compare-modal .custom-radio .active .fa-check-circle {
+    color: #ff5c01;
+    border: 1px solid transparent;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease; }
+
 .compare-modal .bg-grey {
   margin-top: 20px;
   background-color: #f5f5f5; }
@@ -1088,6 +1119,17 @@ footer {
 
 .compare-modal .form-check-input:checked[type="radio"] {
   background-image: none; }
+
+.compare-modal .circle {
+  text-align: center;
+  position: relative;
+  top: 12px;
+  border-radius: 0 0 2px #cecece; }
+  .compare-modal .circle .fa-check-circle {
+    color: transparent;
+    font-size: 50px;
+    border-radius: 50%;
+    border: 1px solid #d1d1d1; }
 
 .modal-info .icon {
   box-shadow: 0 0 2px rgba(128, 128, 128, 0.486);

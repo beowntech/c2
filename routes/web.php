@@ -151,7 +151,7 @@ Route::get('contact', function () {
     return view('front.contact');
 });
 
-Route::get('/compare/{properties}', [App\Http\Controllers\CompareController::class, 'index']);
+Route::get('/compare/{properties}', [App\Http\Controllers\CompareController::class, 'index'])->name('compare');
 
 Route::get('hostel', function () {
     return view('front.hostel');

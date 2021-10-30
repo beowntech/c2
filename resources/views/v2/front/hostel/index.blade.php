@@ -1,38 +1,45 @@
-@extends('v2.front.layout.header')
+@extends('v2.front.layout.hostel.header')
 @section('content')
 <section style=" background:url(/v2/assets/images/site/ajhostel.jpg);
   background-size:cover;
-  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.3);height:400px">
+  box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.5);height:400px">
     <div class="container">
         <div class="row py-5">
-            <div class="search-box col-md-7 text-center offset-md-3">
-                <form action="">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <div class="btn-group">
-                                <button class="btn border dropdown-toggle bg-white" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-                                    Dehradun
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                                    <li><a class="dropdown-item" href="#">Menu item</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="form-group has-icon d-inline-block">
-                            <span class="fa fa-search form-control-icon"></span>
-                            <input type="text" class="form-control rounded-0" placeholder="College nearby" style="min-width:350px">
-                        </div>
-                        <div class="input-group-append">
-                            <button class="btn site-btn-6 fw-6 rounded-0" type="button">Explore</button>
-                        </div>
+        <div class="search-box col-md-8 text-center offset-md-2">   
+            <div style=" position: relative;
+  top: 50%;
+  transform: translateY(-50%);">
+                <h2 class="scolor mb-4 fw-6">Get a place nearby your college</h2> 
+            <h4 class="text-white mb-5 fw-4">Hostel, Flats for Students & Researchers</h4>    
+        <form action="">
+            <div class="input-group mb-3 mx-5">
+                <div class="input-group-prepend">
+                    <div class="btn-group">
+                    <button class="btn border dropdown-toggle bg-white" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false" style="padding: 4.5px 25px;">
+                        Dehradun
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                    </ul>
                     </div>
-                </form>
+                </div>
+                <div class="form-group has-icon d-inline-block">
+                    <span class="fa fa-search form-control-icon"></span>
+                    <input type="text" class="form-control rounded-0" placeholder="College nearby" style="min-width:350px">
+                </div>
+                <div class="input-group-append">
+                    <button class="btn site-btn-6 fw-6 rounded-0" type="button">Explore</button>
+                </div>
             </div>
+        </form>
+            </div>       
+            
+    </div>
         </div>
     </div>
-</section>
+</section></section>
 <section>
     <div class="row py-3">
         <div class="col hostel-service text-center">
@@ -107,4 +114,11 @@
         </div>
     </div>
 </section>
+@endsection
+@section('script')
+<script>
+    $("#live-search-hostel").keyup(function(){
+
+    });
+</script>
 @endsection

@@ -5,6 +5,7 @@
         </div>
     </div>
     <section class="footer-highlight-link">
+        <div class="container">
     <div class="row">
             <div class="col">
                 @foreach(json_decode($footer_upper_menu) as $m => $val)
@@ -50,8 +51,9 @@
 {{--                    </ul>--}}
             </div>
         </div>
+        </div>
     </section>
-    <div class="container-fluid">
+    <div class="container">
 
         <div class="row py-5">
             @foreach(json_decode($footer_menu) as $m => $val)
@@ -128,7 +130,7 @@
         </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <ul class="list-unstyled ver-line-menu">
