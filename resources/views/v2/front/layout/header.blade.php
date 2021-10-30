@@ -17,11 +17,11 @@
         <div class="row">
             <div class="col-md-8">
                 <ul class="list-unstyled ver-line-menu">
-                    <li><a href="/" class="text-decoration-none"> Top University</a></li>
-                    <li><a href="/" class="text-decoration-none"> Top Courses </a></li>
-                    <li><a href="/" class="text-decoration-none"> Colleges </a></li>
+                    <li><a href="{{route('search-college')}}" class="text-decoration-none"> Top University</a></li>
+                    <li><a href="{{route('search-college')}}" class="text-decoration-none"> Top Courses </a></li>
+                    <li><a href="{{route('search-college')}}" class="text-decoration-none"> Colleges </a></li>
 {{--                    <li><a href="/" class="text-decoration-none"> Exams </a></li>--}}
-                    <li><a href="/" class="text-decoration-none"> Admission 2021 </a></li>
+                    <li><a href="{{route('search-college')}}" class="text-decoration-none"> Admission 2021 </a></li>
                     <li><a href="{{route('blog-index')}}" class="text-decoration-none"> Blog </a></li>
                 </ul>
             </div>

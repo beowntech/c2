@@ -26,6 +26,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! vue-quill-editor */ "./node_modules/vue-quill-editor/dist/vue-quill-editor.js");
 /* harmony import */ var vue_quill_editor__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(vue_quill_editor__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var _apiUrls_index__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../apiUrls/index */ "./resources/js/src/views/apiUrls/index.js");
+/* harmony import */ var ckeditor4_vue__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ckeditor4-vue */ "./node_modules/ckeditor4-vue/dist/ckeditor.js");
+/* harmony import */ var ckeditor4_vue__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(ckeditor4_vue__WEBPACK_IMPORTED_MODULE_9__);
 //
 //
 //
@@ -191,6 +193,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+
 
 
 
@@ -469,7 +473,8 @@ __webpack_require__.r(__webpack_exports__);
     FormWizard: vue_form_wizard__WEBPACK_IMPORTED_MODULE_2__["FormWizard"],
     TabContent: vue_form_wizard__WEBPACK_IMPORTED_MODULE_2__["TabContent"],
     quillEditor: vue_quill_editor__WEBPACK_IMPORTED_MODULE_7__["quillEditor"],
-    'v-select': vue_select__WEBPACK_IMPORTED_MODULE_3___default.a
+    'v-select': vue_select__WEBPACK_IMPORTED_MODULE_3___default.a,
+    CKEditor: ckeditor4_vue__WEBPACK_IMPORTED_MODULE_9___default.a
   },
   beforeMount: function beforeMount() {
     this.getData();
@@ -999,9 +1004,8 @@ var render = function() {
                 "div",
                 { staticClass: "vx-col w-full" },
                 [
-                  _c("quill-editor", {
-                    staticClass: "md:mt-10 mt-6 mb-0",
-                    attrs: { name: "property_description" },
+                  _c("ckeditor", {
+                    attrs: { editor: _vm.editor, config: _vm.editorConfig },
                     model: {
                       value: _vm.textareaLong,
                       callback: function($$v) {

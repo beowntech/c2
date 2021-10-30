@@ -101,8 +101,9 @@
             <vx-card title="Long Description" class="mb-4">
                 <div class="vx-row">
                     <div class="vx-col w-full">
-                        <quill-editor v-model="textareaLong" name="property_description"
-                                      class="md:mt-10 mt-6 mb-0"></quill-editor>
+                        <ckeditor :editor="editor" v-model="textareaLong" :config="editorConfig"></ckeditor>
+<!--                        <quill-editor v-model="textareaLong" name="property_description"-->
+<!--                                      class="md:mt-10 mt-6 mb-0"></quill-editor>-->
                         <!--                            <vs-textarea v-model="textareaS" label="Description" name="property_description" class="md:mt-10 mt-6 mb-0" rows="3" />-->
                         <span class="text-danger">{{ errors.first('step-2.property_description') }}</span>
                     </div>
@@ -174,6 +175,7 @@
     import {quillEditor} from 'vue-quill-editor'
 
     import apiurl from '../apiUrls/index'
+    import CKEditor from 'ckeditor4-vue';
 
     export default {
         data: function () {
@@ -439,6 +441,7 @@
             TabContent,
             quillEditor,
             'v-select': vSelect,
+            CKEditor
         },
         beforeMount() {
             this.getData()
