@@ -221,7 +221,7 @@
                                     </ul>
                                     <ul class="d-inline-block list-unstyled ver-line-menu text-secondary small">
                                         <li class="me-3"><button class="btn site-btn-1 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow"> Apply Now </button></li>
-                                        <li class="me-3"><a href="{{ route('compare', ['properties'=>$val->seo[0]->permalink]) }}" class="btn hover-site-btn-1 scolor"> Compare </button></li>
+                                        <li class="me-3"><a href="{{ route('compare', ['properties'=>$val->seo[0]->permalink]) }}" class="btn hover-site-btn-1 scolor"> Compare </a></li>
                                         <li class="me-3"><a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->location == null ? "" : $val->location->cities->name)))}}/{{$val->seo == null ? "" : $val->seo[0]->permalink}}" class="btn hover-site-btn-1 scolor mt-1"> Visit Details </a></li>
                                     </ul>
                                 </div>
