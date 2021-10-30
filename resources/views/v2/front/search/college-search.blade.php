@@ -6,7 +6,7 @@
                 <div class="col-md-6 offset-md-3 position-relative">
                     <form action="{{route('search-college')}}">
                     <input type="search" name="search" class="form-control hero-search site-shadow-sm" placeholder="College Name, Courses">
-                    <button type="submit" class="btn btn-search position-absolute top-50 end-20 translate-middle-y"><i class="fas fa-search"></i> Search</button>
+                    <button type="submit" class="btn btn-search position-absolute end-20 translate-middle-y" style="top:40%!important"><i class="fas fa-search"></i> Search</button>
                     </form>
                         <div class="search-result py-2 text-start bg-white border-radius-md mt-1">
                         <p class="mb-0  ps-3">Colleges</p>
