@@ -46,27 +46,27 @@
                     }
                     $("#compareOneShow").html("  <div class=\"college-info-1\">\n" +
                         "                                <div class=\"cover-img position-relative box\" style=\"background:url('/property/"+response[0].id+"/gallery/featured/"+response[0].image[0].featured+"');background-size:cover;\">\n" +
-                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/"+response[0].id+"/logo/"+response[0].logo+"\" alt=\"\"></div>\n" +
+                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/"+response[0].id+"/logo/"+response[0].logo+"\" alt=\"\"></div>\n" +
                         "                                    </a>\n" +
                         "                                    <div class=\"position-absolute top-0 end-0\" ><i class=\"far fa-window-close site-btn-close\"></i></div>\n" +
                         "                                </div>\n" +
                         "\n" +
                         "                            </div>\n" +
-                        "                            <p><a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
+                        "                            <p><a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
                         "                            <p class=\"golden-color\"><i class=\"fas fa-star\"></i> "+review+"/5</p>");
                     name.html(response[0].name);
                     // aff.html(response[0].name);
                     address.html(response[0].address);
                     state.html(response[0].states[0].name);
-                    city.html(response[0].cities[0].name);
+                    city.html(response[0].cities.name);
                     course.html(response[0].course);
-                    button.html('<a href=\"/college-in-'+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
+                    button.html('<a href=\"/college-in-'+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
                     // var html = "<tr><td class=\"w-25 option\">Courses Available: " + response[0].course + "</td></tr>" +
                     //     "<tr><td class=\"w-25 option\">Category: " + response[0].category[0].name + "</td></tr>" +
-                    //     "<tr><td class=\"w-25 option\">City: " + response[0].cities[0].name + "</td></tr>" +
+                    //     "<tr><td class=\"w-25 option\">City: " + response[0].cities.name + "</td></tr>" +
                     //     "<tr><td class=\"w-25 option\">" + verified + "</td></tr>";
                     // $("#compareoneTitle").html(response[0].name);
-                    // $("#compareoneAddress").html(response[0].address + " " + response[0].cities[0].name + ", " + response[0].states[0].name);
+                    // $("#compareoneAddress").html(response[0].address + " " + response[0].cities.name + ", " + response[0].states[0].name);
                     // $("#compareoneImage").attr("src", "/property/images/" + response[0].image[0].featured);
                     // document.getElementById("detailCompareoneDIV").style.display = "block";
                     // $("#table-compareone").append(html);
@@ -102,22 +102,22 @@
                     }
                     $("#compareTwoShow").html("  <div class=\"college-info-1\">\n" +
                         "                                <div class=\"cover-img position-relative box\" style=\"background:url('/property/"+response[0].id+"/gallery/featured/"+response[0].image[0].featured+"');background-size:cover;\">\n" +
-                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/"+response[0].id+"/logo/"+response[0].logo+"\" alt=\"\"></div>\n" +
+                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/"+response[0].id+"/logo/"+response[0].logo+"\" alt=\"\"></div>\n" +
                         "                                    </a>\n" +
                         "                                    <div class=\"position-absolute top-0 end-0\" ><i class=\"far fa-window-close site-btn-close\"></i></div>\n" +
                         "                                </div>\n" +
                         "\n" +
                         "                            </div>\n" +
-                        "                            <p><a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
+                        "                            <p><a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
                         "                            <p class=\"golden-color\"><i class=\"fas fa-star\"></i> "+review+"/5</p>");
 
                     name.html(response[0].name);
                     // aff.html(response[0].name);
                     address.html(response[0].address);
                     state.html(response[0].states[0].name);
-                    city.html(response[0].cities[0].name);
+                    city.html(response[0].cities.name);
                     course.html(response[0].course);
-                    button.html('<a href=\"/college-in-'+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
+                    button.html('<a href=\"/college-in-'+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
                     },
                 error: function() {
                     alert('Error occured');
@@ -151,22 +151,22 @@
                         "                                <div class=\"cover-img position-relative box\" style=\"background:url('/property/"+response[0].id+"/gallery/featured/"+response[0].image[0].featured+"');    background-size: contain;\n" +
                         "    background-repeat: no-repeat;\n" +
                         "    background-position: center;\">\n" +
-                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/"+response[0].id+"/logo/"+response[0].logo+"\" alt=\"\"></div>\n" +
+                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/"+response[0].id+"/logo/"+response[0].logo+"\" alt=\"\"></div>\n" +
                         "                                    </a>\n" +
                         "                                    <div class=\"position-absolute top-0 end-0\" ><i class=\"far fa-window-close site-btn-close\"></i></div>\n" +
                         "                                </div>\n" +
                         "\n" +
                         "                            </div>\n" +
-                        "                            <p><a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
+                        "                            <p><a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
                         "                            <p class=\"golden-color\"><i class=\"fas fa-star\"></i> "+review+"/5</p>");
 
                     name.html(response[0].name);
                     // aff.html(response[0].name);
                     address.html(response[0].address);
                     state.html(response[0].states[0].name);
-                    city.html(response[0].cities[0].name);
+                    city.html(response[0].cities.name);
                     course.html(response[0].course);
-                    button.html('<a href=\"/college-in-'+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
+                    button.html('<a href=\"/college-in-'+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
                     },
                 error: function() {
                     alert('Error occured');
@@ -552,16 +552,16 @@
                         "                                </div>\n" +
                         "\n" +
                         "                            </div>\n" +
-                        "                            <p><a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
+                        "                            <p><a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
                         "                            <p class=\"golden-color\"><i class=\"fas fa-star\"></i> "+review+"/5</p>");
 
                     name.html(response[0].name);
                     // aff.html(response[0].name);
                     address.html(response[0].address);
                     state.html(response[0].states[0].name);
-                    city.html(response[0].cities[0].name);
+                    city.html(response[0].cities.name);
                     course.html(response[0].course);
-                     button.html('<a href=\"/college-in-'+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
+                     button.html('<a href=\"/college-in-'+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
                 },
                 error: function() {
                     console.log('Error occured');
@@ -594,22 +594,22 @@
                     }
                     $("#compareTwoShow").html("  <div class=\"college-info-1\">\n" +
                         "                                <div class=\"cover-img position-relative box\" style=\"background:url('/property/images/"+JSON.parse(response[0].image[0].images)[0]+"');background-size:cover;\">\n" +
-                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/logo/images/"+response[0].logo+"\" alt=\"\"></div>\n" +
+                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/logo/images/"+response[0].logo+"\" alt=\"\"></div>\n" +
                         "                                    </a>\n" +
                         "                                    <div class=\"position-absolute top-0 end-0\" ><i class=\"far fa-window-close site-btn-close\"></i></div>\n" +
                         "                                </div>\n" +
                         "\n" +
                         "                            </div>\n" +
-                        "                            <p><a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
+                        "                            <p><a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
                         "                            <p class=\"golden-color\"><i class=\"fas fa-star\"></i> "+review+"/5</p>");
 
                     name.html(response[0].name);
                     // aff.html(response[0].name);
                     address.html(response[0].address);
                     state.html(response[0].states[0].name);
-                    city.html(response[0].cities[0].name);
+                    city.html(response[0].cities.name);
                     course.html(response[0].course);
-                     button.html('<a href=\"/college-in-'+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
+                     button.html('<a href=\"/college-in-'+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
                 },
                 error: function() {
                     console.log('Error occured');
@@ -642,22 +642,22 @@
                     }
                     $("#compareThreeShow").html("  <div class=\"college-info-1\">\n" +
                         "                                <div class=\"cover-img position-relative box\" style=\"background:url('/property/images/"+JSON.parse(response[0].image[0].images)[0]+"');background-size:cover;\">\n" +
-                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/logo/images/"+response[0].logo+"\" alt=\"\"></div>\n" +
+                        "                                   "+featured+" <a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\"><div class=\"college-info-logo position-absolute bottom-0 start-0 px-2 pb-1 m-2\"><img src=\"/property/logo/images/"+response[0].logo+"\" alt=\"\"></div>\n" +
                         "                                    </a>\n" +
                         "                                    <div class=\"position-absolute top-0 end-0\" ><i class=\"far fa-window-close site-btn-close\"></i></div>\n" +
                         "                                </div>\n" +
                         "\n" +
                         "                            </div>\n" +
-                        "                            <p><a href=\"/college-in-"+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
+                        "                            <p><a href=\"/college-in-"+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+"\" class='text-truncate' style=\"max-width: 300px;display: inline-block\" title='"+response[0].name+"'> "+response[0].name+" </a></p>\n" +
                         "                            <p class=\"golden-color\"><i class=\"fas fa-star\"></i> "+review+"/5</p>");
 
                     name.html(response[0].name);
                     // aff.html(response[0].name);
                     address.html(response[0].address);
                     state.html(response[0].states[0].name);
-                    city.html(response[0].cities[0].name);
+                    city.html(response[0].cities.name);
                     course.html(response[0].course);
-                    button.html('<a href=\"/college-in-'+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
+                    button.html('<a href=\"/college-in-'+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
                 },
                 error: function() {
                     console.log('Error occured');
@@ -720,7 +720,7 @@
                   tula.html(response[0].top_up_loan == 1 ? 'Available':'Not Available');
                   iss.html(response[0].insterest_subsidy_schemes);
                   cbb.html(response[0].benefits);
-                  // button.html('<a href=\"/college-in-'+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
+                  // button.html('<a href=\"/college-in-'+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
               },
               error: function() {
                   console.log('Error occured');
@@ -782,7 +782,7 @@
                   tula.html(response[0].top_up_loan == 1 ? 'Available':'Not Available');
                   iss.html(response[0].insterest_subsidy_schemes);
                   cbb.html(response[0].benefits);
-                  // button.html('<a href=\"/college-in-'+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
+                  // button.html('<a href=\"/college-in-'+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
               },
               error: function() {
                   console.log('Error occured');
@@ -844,7 +844,7 @@
                   tula.html(response[0].top_up_loan == 1 ? 'Available':'Not Available');
                   iss.html(response[0].insterest_subsidy_schemes);
                   cbb.html(response[0].benefits);
-                  // button.html('<a href=\"/college-in-'+response[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
+                  // button.html('<a href=\"/college-in-'+response[0].cities.name.toLowerCase().replace(" ", "_")+"/"+response[0].seo[0].permalink+'\" class="btn site-btn-1 text-white">View College</button>');
               },
               error: function() {
                   console.log('Error occured');
@@ -1338,7 +1338,7 @@
                         "                                <ul class=\"list-unstyled ps-4\">");
                     for(var i = 0; i < response.length; i++) {
                         $(".liveSearch ul").append("<li>\n" +
-                            "                                <a href=\"/college-in-"+response[i].location[0].cities[0].name.toLowerCase().replace(" ", "_")+"/"+response[i].seo[0].permalink+"\">" + response[i].name + "</a>\n" +
+                            "                                <a href=\"/college-in-"+response[i].location.cities.name.toLowerCase().replace(" ", "_")+"/"+response[i].seo[0].permalink+"\">" + response[i].name + "</a>\n" +
                             "                                    </li>");
                     }
                     $(".liveSearch").append("</ul>");
@@ -1941,13 +1941,13 @@
                             "        <div class=\"position-relative\">\n" +
                             "            <div class=\"cover-img box\" style=\"background:url(/property/images/"+JSON.parse(response[i].images[0].images)[0]+");background-size:cover;\">\n" +featured+
                             "                <div class=\"college-info-logo position-absolute bottom-0 start-5 p-2 \">\n" +
-                            "                    <a href=\"/college-in-"+response[i].cities[0].name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\"> <img src=\"/property/logo/images/"+response[i].logo+"\" alt=\"\"></a>\n" +
+                            "                    <a href=\"/college-in-"+response[i].cities.name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\"> <img src=\"/property/logo/images/"+response[i].logo+"\" alt=\"\"></a>\n" +
                             "                </div>\n" +
                             "            </div>\n" +
                             "        </div>\n" +
                             "    </div>\n" +
                             "    <div class=\"col-md-8 college-info position-relative\">\n" +
-                            "        <p><a href=\"/college-in-"+response[i].cities[0].name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\">"+response[i].name+"</a></p>\n" +
+                            "        <p><a href=\"/college-in-"+response[i].cities.name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\">"+response[i].name+"</a></p>\n" +
                             "        <p><span><i class=\"fas fa-map-marker-alt\"></i> "+response[i].states[0].name+", <i class=\"fas fa-certificate\"></i> UNI</span></p>\n" +
                             "        <p>\n" + courses + "</p>\n" +
                             "        <div class=\"position-absolute top-0 end-0 pe-2\">\n" +
@@ -1955,7 +1955,7 @@
                             "        </div>\n" +
                             "        <div class=\"position-absolute bottom-0 end-0 pe-2 pb-2\">\n" +
                             "            <a href=\"#\" class=\"btn site-btn-1 btn-sm text-white\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\">Quick Enquiry</a>\n" +
-                            "            <a href=\"/college-in-"+response[i].cities[0].name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\" class=\"btn site-btn-1 btn-sm text-white\">Visit College</a>\n" +
+                            "            <a href=\"/college-in-"+response[i].cities.name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\" class=\"btn site-btn-1 btn-sm text-white\">Visit College</a>\n" +
                             "            <button type=\"button\" data-id=\""+response[i].id+"\" data-name=\""+response[i].name+"\" data-image=\""+response[i].logo+"\" class=\"btn site-btn-2 btn-sm openCompare\" >Compare</button>\n" +
                             "        </div>\n" +
                             "    </div>\n" +
@@ -2010,13 +2010,13 @@
                             "        <div class=\"position-relative\">\n" +
                             "            <div class=\"cover-img box\" style=\"background:url(/property/images/"+JSON.parse(response[i].images[0].images)[0]+");background-size:cover;\">\n" +featured+
                             "                <div class=\"college-info-logo position-absolute bottom-0 start-5 p-2 \">\n" +
-                            "                    <a href=\"/college-in-"+response[i].cities[0].name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\"> <img src=\"/property/logo/images/"+response[i].logo+"\" alt=\"\"></a>\n" +
+                            "                    <a href=\"/college-in-"+response[i].cities.name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\"> <img src=\"/property/logo/images/"+response[i].logo+"\" alt=\"\"></a>\n" +
                             "                </div>\n" +
                             "            </div>\n" +
                             "        </div>\n" +
                             "    </div>\n" +
                             "    <div class=\"col-md-8 college-info position-relative\">\n" +
-                            "        <p><a href=\"/college-in-"+response[i].cities[0].name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\">"+response[i].name+"</a></p>\n" +
+                            "        <p><a href=\"/college-in-"+response[i].cities.name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\">"+response[i].name+"</a></p>\n" +
                             "        <p><span><i class=\"fas fa-map-marker-alt\"></i> "+response[i].states[0].name+", <i class=\"fas fa-certificate\"></i> UNI</span></p>\n" +
                             "        <p>\n" + courses + "</p>\n" +
                             "        <div class=\"position-absolute top-0 end-0 pe-2\">\n" +
@@ -2024,7 +2024,7 @@
                             "        </div>\n" +
                             "        <div class=\"position-absolute bottom-0 end-0 pe-2 pb-2\">\n" +
                             "            <a href=\"#\" class=\"btn site-btn-1 btn-sm text-white\" data-bs-toggle=\"modal\" data-bs-target=\"#exampleModal\">Quick Enquiry</a>\n" +
-                            "            <a href=\"/college-in-"+response[i].cities[0].name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\" class=\"btn site-btn-1 btn-sm text-white\">Visit College</a>\n" +
+                            "            <a href=\"/college-in-"+response[i].cities.name.replace(' ','_').toLowerCase()+"/"+response[i].seo[0].permalink+"\" class=\"btn site-btn-1 btn-sm text-white\">Visit College</a>\n" +
                             "            <button type=\"button\" data-id=\""+response[i].id+"\" data-name=\""+response[i].name+"\" data-image=\""+response[i].logo+"\" class=\"btn site-btn-2 btn-sm openCompare\" >Compare</button>\n" +
                             "        </div>\n" +
                             "    </div>\n" +

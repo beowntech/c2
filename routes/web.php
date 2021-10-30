@@ -48,7 +48,7 @@ Route::get('/nearby/{slug?}', [App\Http\Controllers\HostelsController::class,'ne
 Route::get('/features', function (){
     return view('v2.front.hostel.features');
 });
-Route::get('/compare', 'AlotFronController@compare')->name('compare');
+//Route::get('/compare', 'AlotFronController@compare')->name('compare');
 Route::get('/bank', 'AlotFronController@bank')->name('bank');
 Route::get('/search/colleges', 'CategoriesController@index')->name('search-college');
 Route::get('/exam/{catg?}', 'ExamController@index');
@@ -151,7 +151,7 @@ Route::get('contact', function () {
     return view('front.contact');
 });
 
-Route::get('/{properties}', [App\Http\Controllers\CompareController::class, 'index']);
+Route::get('/compare/{properties}', [App\Http\Controllers\CompareController::class, 'index']);
 
 Route::get('hostel', function () {
     return view('front.hostel');

@@ -362,7 +362,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col text-center text-white">
-                    <a href="#" class="btn site-btn-1 btn-lg py-2 shadow px-5 f-14">Enquire Now</a>
+                    <a href="/hostels" class="btn site-btn-1 btn-lg py-2 shadow px-5 f-14">Enquire Now</a>
                 </div>
             </div>
         </div>
