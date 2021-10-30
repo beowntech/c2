@@ -158,7 +158,7 @@
                             <div class="col-md-2 text-center">
                                 <div class="box-card-sm">
                                     <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
-                                    <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a>
+                                    <a href="{{route('search-college')}}?catg={{strtolower($cac->name)}}"><p class="f-16">{{$cac->name}}</p></a>
                                     <p class="mt-1 small">{{$cac->property}} Colleges</p>
                                 </div>
                             </div>
@@ -174,7 +174,7 @@
                             <div class="col-md-2 text-center">
                                 <div class="box-card-sm">
                                     <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
-                                    <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a>
+                                    <a href="{{route('search-college')}}?catg={{strtolower($cac->name)}}"><p class="f-16">{{$cac->name}}</p></a>
                                     <p class="mt-1 small">{{$cac->property}} Colleges</p>
                                 </div>
                             </div>
