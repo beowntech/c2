@@ -11,6 +11,20 @@
 @section('reading_time',$data[0]->seo[0]->estimated_reading_time_minutes)
 @section('seo_url','https://'.Request::getHost().'/college-in-'.strtolower(str_replace(' ','_',$data[0]->location->cities->name)).'/'.$data[0]->seo[0]->permalink)
 @section('content')
+<style>
+#profileImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #512DA8;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  letter-spacing: -4px;
+  line-height: 100px;
+  padding-right: 5px;
+}
+</style>
     @foreach($data as $d => $val)
     <main class="bglg">
         <section class="shadow-sm">
@@ -144,7 +158,7 @@
                                 <li class="me-3">Type - Private</li>
                                 <li class="me-3">Apporved by: {{$val->approved_by}}</li>
                                 <li class="me-3">NIRF Ranking - 12</li>
-                                <li><a href="#">MORE</a></li>
+                                {{-- <li><a href="#">MORE</a></li> --}}
                             </ul>
                             <p class="mb-2 f-14"><i class="fas fa-map-marker-alt"></i> {{$val->location->street_name}}, {{$val->location->cities->name}}, {{$val->location->states->name}}
                                  {{$val->location->pincode}}
@@ -194,18 +208,18 @@
                             @if($val->teachers->isNotEmpty())
                             <li>
                                 @if(request()->more != "")
-                                    <a href="/{{request()->city}}/{{request()->id}}#faculty">Faculty</a>
+                                    <a href="/{{request()->city}}/{{request()->id}}#faculties">Faculty</a>
                                 @else
-                                    <a href="#faculty">Faculty</a>
+                                    <a href="#faculties">Faculty</a>
                                 @endif
                             </li>
                             @endif
                             @if($hostel->isNotEmpty())
                             <li>
                                 @if(request()->more != "")
-                                    <a href="/{{request()->city}}/{{request()->id}}#hostel">Hostel</a>
+                                    <a href="/{{request()->city}}/{{request()->id}}#hostels">Hostel</a>
                                 @else
-                                    <a href="#hostel">Hostel</a>
+                                    <a href="#hostels">Hostel</a>
                                 @endif
                             </li>
                             @endif
@@ -401,30 +415,37 @@
                         </div>
                             @if($val->teachers->isNotEmpty())
                                 @if(request()->more == "")
-                                <div id="faculty" class="mb-5">
+                                <div id="faculties" class="mb-5">
                                     <h2 class="ps-3">Faculty Details</h2>
                                     <div class="bg-white p-3 detail-border">
-                                        <div class="row">
+                                        {{-- <div class="row">
                                             <div class="col-md-6  my-2">
                                                 <div class="d-flex align-items-center">
                                                     <div class="flex-shrink-0">
-                                                        <img src="/v2/assets/images/site/f-img.jpg" alt="...">
-                                                    </div>
-                                                    <div class="flex-grow-1 ms-3">
-                                                        <p class="mb-0 pcolor">Prof. (Dr.) Rakesh Kumar Sharma</p>
-                                                        <p>Vice Chancelor</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                        <div id="profileImage"></div>
+                                                        {{-- <img src="/v2/assets/images/site/f-img.jpg" alt="..."> --}}
+                                                    {{-- </div> --}}
+                                                    {{-- <div class="flex-grow-1 ms-3"> --}}
+                                                        {{-- <p class="mb-0 pcolor">Prof. (Dr.) Rakesh Kumar Sharma</p> --}}
+                                                        {{-- <p>Vice Chancelor</p> --}}
+                                                    {{-- </div> --}}
+                                                {{-- </div> --}}
+                                            {{-- </div> --}}
+                                        {{-- </div> --}}
                                         <div class="row">
                                             @foreach($val->teachers as $f => $fa)
                                                 <div class="col-md-5 faculty">
                                                     <div class="d-flex align-items-center my-2">
                                                         <div class="flex-shrink-0 ">
-                                                            <img src="/v2/assets/images/site/f-img.jpg"
-                                                                 class="faculty-avatar w-100"
-                                                                 alt="...">
+                                                            <div id="profileImage" style="background: {{sprintf('#%06X', mt_rand(0, 0xFFFFFF))}}">
+                                                                {{substr(str_replace(['Dr. ','Mr. ','Mrs. '],['','',''],$fa->name),0,1)}} 
+                                                                @if(count(explode(' ',str_replace(['Dr. ','Mr. ','Mrs. '],['','',''],$fa->name))) > 1)
+                                                                {{substr(explode(' ',str_replace(['Dr. ','Mr. ','Mrs. '],['','',''],$fa->name))[1],0,1)}}
+                                                                @endif
+                                                            </div>
+                                                            {{-- <img src="/v2/assets/images/site/f-img.jpg" --}}
+                                                                 {{-- class="faculty-avatar w-100" --}}
+                                                                 {{-- alt="..."> --}}
                                                         </div>
                                                         <div class="flex-grow-1 ms-3">
                                                             <p class="pcolor f-16 fw-6">{{$fa->name}}</p>
@@ -444,7 +465,7 @@
                             @if($hostel->isNotEmpty())
                                 @if(request()->more != "")
                                     @if(request()->more == "hostel")
-                                        <div id="hostel" class="mb-5">
+                                        <div id="hostels" class="mb-5">
                                             <h2 class="ps-3">Hostel</h2>
                                             <div class="bg-white p-3 detail-border">
                                                 @foreach($hostel as $h => $ha)
@@ -454,7 +475,7 @@
                                         </div>
                                     @endif
                                 @else
-                                    <div id="hostel" class="mb-5">
+                                    <div id="hostels" class="mb-5">
                                         <h2 class="ps-3">Hostel</h2>
                                         <div class="bg-white p-3 detail-border">
                                             @foreach($hostel as $h => $ha)
@@ -614,7 +635,9 @@
                 clickHandler();
                 $(this).addClass('active');
             });
+            
         });
+
         // Here's the handler
         function clickHandler() {
             var dots = document.querySelectorAll("li");
