@@ -9,7 +9,10 @@ class HttpsProtocol {
     public function handle($request, Closure $next)
     {
         if (!$request->secure() && env('APP_ENV') === 'production') {
-            return redirect()->secure($request->getRequestUri());
+            if(!$request->secure()) {
+                return redirect()->secure($request->getRequestUri());
+            }
+            return redirect($request->getRequestUri());
         }
 
         return $next($request);
