@@ -26,7 +26,7 @@ use Spatie\Sitemap\Tags\Url;
 use Spatie\Sitemap\Sitemap;
 
 if (env('APP_ENV') === 'production') {
-    URL::forceSchema('https');
+    \Illuminate\Support\Facades\URL::forceSchema('https');
 }
 
 Route::middleware('doNotCacheResponse')->group(function (){
