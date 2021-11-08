@@ -258,7 +258,7 @@
     </script>
     <script>
         let page = 2;
-        let url = "{{request()->query() != null ? htmlspecialchars_decode(request()->fullUrl().'&page='): request()->fullUrl().'?page='}}"
+        let url = "{{request()->query() != null ? htmlspecialchars_decode(str_replace('http','https',request()->fullUrl()).'&page='): str_replace('http','https',request()->fullUrl()).'?page='}}"
         $("#viewMore").click(function () {
             $.ajax({
                 url: url.replace('&amp;','&')+page,
