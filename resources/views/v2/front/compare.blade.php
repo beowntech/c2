@@ -9,7 +9,7 @@
 .fa-graduation-cap-half-o,.fa-graduation-cap
 {
     color: #ffab00;
-  
+
 }
 .rated{
     color: #ffab00;
@@ -171,7 +171,7 @@
                     <div class="col-md-3 text-center pt-4">
                         @if($reviews[$p] != null)
                         <h2 style="display: inline;font-weight:600;">{{$val->review[0]->stars}}</h2> out of 5<br>
-                        <div class="my-3"> 
+                        <div class="my-3">
                         @if($reviews != null)
                                     <input type="hidden"
                                            value="{{$revs = $reviews[$p]->stars}},{{$avg = $reviews[$p] != null ? 0 : $reviews[$p]->stars}}">
@@ -216,7 +216,7 @@
                             <input type="text" id="compareSearch" class="form-control" placeholder="Search College">
                         </div></div>
                     <div class="bg-grey">
-                    
+
                         <div class="row py-3 px-5" id="compareListCollege">
 
                         </div>
@@ -249,17 +249,17 @@
                 success: function (data) {
                     $("#compareListCollege").html("");
                     for (var i = 0; i < data.length; i++) {
-                        $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\">\n "+                            
+                        $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\">\n "+
                         "<div class=\"row m-1 py-2 bg-white border-color col-list-card\" data-slug=\""+data[i].seo[0].permalink+"\">\n "+
                         "<div class=\"col-2 text-center px-1\">\n" +
-                        "<span class=\"circle align-middle\">\n"+ 
-                        "<i class=\"fas fa-check-circle\"></i>\n"+ 
-                        "</span>\n"+ 
-                        "</div>\n"+ 
+                        "<span class=\"circle align-middle\">\n"+
+                        "<i class=\"fas fa-check-circle\"></i>\n"+
+                        "</span>\n"+
+                        "</div>\n"+
                         "<div class=\"col-2 px-1\" for=\"flexRadioDefault1\">\n"+
-                        "<div class=\"logo position-relative\">\n"+ 
+                        "<div class=\"logo position-relative\">\n"+
                         "<div class=\"d-inline-block prop-logo\">\n"+
-                        "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"> \n"+ 
+                        "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"> \n"+
                         "</div></div></div><div class=\"col-7\" for=\"flexRadioDefault1\">\n"+
                         "<div class=\"prop-info\">\n"+
                         "<p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width:300px;\">"+data[i].name+"</p>\n"+
@@ -277,22 +277,22 @@
             var text = $(this).val();
             $.ajax({
                 type: "GET",
-                url: "{{route('search-college-api')}}",
+                url: "{{str_replace('http','https',route('search-college-api'))}}",
                 data: {'search': text},
                 success: function (data) {
                     $("#compareListCollege").html("");
                     for (var i = 0; i < data.length; i++) {
-                        $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\">\n "+                            
+                        $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\">\n "+
                         "<div class=\"row m-1 py-2 bg-white border-color col-list-card\" data-slug=\""+data[i].seo[0].permalink+"\">\n "+
                         "<div class=\"col-2 text-center px-1\">\n" +
-                        "<span class=\"circle align-middle\">\n"+ 
-                        "<i class=\"fas fa-check-circle\"></i>\n"+ 
-                        "</span>\n"+ 
-                        "</div>\n"+ 
+                        "<span class=\"circle align-middle\">\n"+
+                        "<i class=\"fas fa-check-circle\"></i>\n"+
+                        "</span>\n"+
+                        "</div>\n"+
                         "<div class=\"col-2 px-1\" for=\"flexRadioDefault1\">\n"+
-                        "<div class=\"logo position-relative\">\n"+ 
+                        "<div class=\"logo position-relative\">\n"+
                         "<div class=\"d-inline-block prop-logo\">\n"+
-                        "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"> \n"+ 
+                        "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"> \n"+
                         "</div></div></div><div class=\"col-7\" for=\"flexRadioDefault1\">\n"+
                         "<div class=\"prop-info\">\n"+
                         "<p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width:300px;\">"+data[i].name+"</p>\n"+
@@ -308,7 +308,7 @@
             });
         });
 
-        $(document).on('click', '.col-list-card', function () { 
+        $(document).on('click', '.col-list-card', function () {
             $("#compareListCollege .col-list-card").removeClass("active")
             $(this).addClass("active");
             selected = "";
