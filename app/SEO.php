@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Hostels;
+
 class SEO extends Model
 {
     //
@@ -35,5 +37,10 @@ class SEO extends Model
     public function dynamic()
     {
         return $this->belongsToMany('App\DynamicPage');
+    }
+
+    public function hostels()
+    {
+        return $this->belongsToMany(Hostels::class,'hostels_seo','seo_id','hostels_id');
     }
 }

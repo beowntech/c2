@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\MultipleForms;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Jobs\MultipleFormJob;
 
 class MultipleFormController extends Controller
 {
@@ -20,6 +23,11 @@ class MultipleFormController extends Controller
         $data->from_url = $request->url;
         $data->save();
         if($data){
+            dispatch(new MultipleFormJob(
+                $request->name,
+                $request->email,
+                json_encode($jsonArray),
+            ));
             return response()->json(['status'=>1]);
         }
         return response()->json(['status'=>0]);

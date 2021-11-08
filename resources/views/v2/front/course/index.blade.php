@@ -1,6 +1,6 @@
 @extends('v2.front.layout.header')
 @section('content')
-<section class="shadow" style="background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/site/bg.jpg');background-position: center;
+<section class="shadow" style="background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/v2/assets/images/site/bg.jpg');background-position: center;
 background-size: cover; ">
     <div class="container">
         <div class="row py-3">
@@ -107,7 +107,7 @@ background-size: cover; ">
                 <div class="box-card-sm">
                     <div class="row">
                         <div class="col-6 text-center">
-                            <img src="/assets/images/icon/15.png" alt="">
+                            <img src="/v2/assets/images/icon/15.png" alt="">
                             <a href="#"><p class="f-16">Engeenering</p></a>
                         </div>
                         <div class="col-6">

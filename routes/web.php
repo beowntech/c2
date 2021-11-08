@@ -48,6 +48,7 @@ Route::get('/logout', function () {
 })->name('logout');
 Route::get('/', 'AlotFronController@index')->name('home');
 Route::get('/hostels', [App\Http\Controllers\HostelsController::class,'index']);
+Route::get('/hostel/{city}/{slug}', [App\Http\Controllers\HostelsController::class,'detail'])->name('hostel-detail');
 Route::get('/nearby/{slug?}', [App\Http\Controllers\HostelsController::class,'nearby']);
 Route::get('/course', function(){
     return view('v2.front.course.index');

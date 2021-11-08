@@ -86,13 +86,15 @@
                     <div class="p-2">
                         <img style="height: 245px;object-fit: cover;" src="{{env('MEDIA_URL')}}hostel/{{$val->id}}/images/{{json_decode($val->images)[0]}}-xl.webp" width="100%" class="mb-2" alt="">
                         <p class="fw-6 mb-1">{{$val->name}}</p>
-                        <p class="f-12 mb-2"><i class="fas fa-map-marker-alt"></i> {{$val->cities[0]->name}}, {{$val->states[0]->name}}</p>
+                        <p class="f-12 mb-2"><i class="fas fa-map-marker-alt"></i> {{$val->cities->name}}, {{$val->states->name}}</p>
                         <ul class="d-inline-block list-unstyled ver-line-menu text-secondary small">
                             <li class="me-4">
                                 <button class="btn site-btn-1"> Enroll Now</button>
                             </li>
                             <li class="me-4">
-                                <button class="btn hover-site-btn-1 scolor"> View</button>
+                                <a href="{{route('hostel-detail',['city'=>strtolower($val->cities->name),'slug'=>$val->seo[0]->permalink])}}">
+                                <button class="btn hover-site-btn-1 scolor">View</button>
+                                </a>
                             </li>
                         </ul>
                     </div>

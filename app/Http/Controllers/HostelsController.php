@@ -13,11 +13,12 @@ class HostelsController extends Controller
 {
 
     public function index(){
-        $data = Hostels::limit(4)->get();
-        foreach ($data as $d => $datum) {
-            $data[$d]['cities'] = CityModel::where('id',$datum->city)->get();
-            $data[$d]['states'] = StateModel::where('id',$datum->state)->get();
-        }
+        $data = Hostels::limit(4)
+        ->where('featured',1)
+        ->with('seo')
+        ->with('cities')
+        ->with('states')
+        ->get();
         return view('v2.front.hostel.index',compact('data'));
     }
 
@@ -28,11 +29,9 @@ class HostelsController extends Controller
                 return abort(404);
             }
             $prop = $seo[0]->property[0];
-            $data = Hostels::where('city',$seo[0]->property[0]->location->cities->id)->paginate(3);
-            foreach ($data as $d => $datum) {
-                $data[$d]['cities'] = CityModel::where('id', $datum->city)->get();
-                $data[$d]['states'] = StateModel::where('id', $datum->state)->get();
-            }
+            $data = Hostels::where('city',$seo[0]->property[0]->location->cities->id)
+            ->with('cities')
+            ->paginate(3);
             return view('v2.front.hostel.nearby', compact('data','prop'));
         }
         return abort(404);
@@ -44,6 +43,12 @@ class HostelsController extends Controller
         unset($json['images']);
         $data = Hostels::create($json);
         if($data){
+            $seo = new SEO();
+                $seo->title = $request->input('name');
+                $seo->description = null;
+                $seo->permalink = strtolower(trim(preg_replace('/[\s-]+/', "-", preg_replace('/[^A-Za-z0-9-]+/', "-", preg_replace('/[&]/', 'and', preg_replace('/[\']/', '', iconv('UTF-8', 'ASCII//TRANSLIT', $request->input('name')))))), "-"));
+                $seo->save();
+            $data->seo()->attach($seo->id);
             $files = [];
             $path = env('UPLOAD_PATH') == "" ? public_path('hostel/' . $data->id . '/images'):env('UPLOAD_PATH') . '/hostel/' . $data->id . '/images';
             foreach ($request->file('images') as $image) {
@@ -99,6 +104,16 @@ class HostelsController extends Controller
             }
         }
         return $fileMain;
+    }
+
+    public function detail($city,$slug){
+        $seo = SEO::where('permalink',$slug)->firstorFail();
+        $hostel = $seo->hostels[0];
+        $ci = CityModel::where('name',$city)->firstorFail();
+        if($hostel->cities->id == $ci->id){
+        return view('v2.front.hostel.detail',compact('hostel'));
+        }
+        return abort(404);
     }
 
 }

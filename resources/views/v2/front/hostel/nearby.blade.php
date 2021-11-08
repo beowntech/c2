@@ -56,7 +56,7 @@
                         </div>
                         <div class="col-5">
                             <p class="fw-6 mb-1">{{$val->name}}</p>
-                            <p class="fw-6 mb-3">{{$val->cities[0]->name}} | {{$val->gender}}</p>
+                            <p class="fw-6 mb-3">{{$val->cities->name}} | {{$val->gender}}</p>
                             <ul class="list-unstyled ver-line-menu mb-3">
                                 <li class="f-12 me-0"><p class="mb-0"><strong>Institute Nearby</strong><span class="float-end"><strong> Distance</strong></span></p></li>
                                 @foreach(json_decode($val->nearby_properties) as $prop)
