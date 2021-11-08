@@ -394,4 +394,5 @@
     </nav>
 </section>
 @yield('content')
+@yield('modal')
 @include('v2.front.layout.footer')

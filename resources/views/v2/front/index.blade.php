@@ -23,11 +23,11 @@
                             <div class="search-result py-2 text-start bg-white border-radius-md mt-1 liveSearch">
                                 <p class="mb-0  ps-3">Colleges</p>
                                 <ul class="list-unstyled ps-4">
-                                  
+
                                 </ul>
                                 <p class="mb-0 ps-3">Courses</p>
                                 <ul class="list-unstyled ps-4">
-                                   
+
                                 </ul>
                             </div>
                         </div>
@@ -537,6 +537,9 @@
         }
     </script>
 @endsection
+@section('modal')
+    @include('v2.front.modal.applynow')
+@endsection
 @section('script')
 <script>
         // $(document).on("click", ".openApplyNow", function () {
@@ -553,4 +556,3 @@
     </script>
 {{--<script type="javascript" src="{{asset('v2/assets/js/ajax.js')}}"></script>--}}
 @endsection
-@include('v2.front.modal.applynow')

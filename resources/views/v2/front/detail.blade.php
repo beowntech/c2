@@ -624,4 +624,6 @@
         }
     </script>
 @endsection
-@include('v2.front.modal.applynow')
+@section('modal')
+    @include('v2.front.modal.applynow')
+@endsection

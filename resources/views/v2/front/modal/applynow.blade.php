@@ -1,4 +1,3 @@
-
 <!-- Modal -->
 <div class="modal fade" id="applyNow" tabindex="-1" aria-labelledby="queryModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered modal-lg">
