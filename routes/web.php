@@ -25,6 +25,10 @@ use Illuminate\Support\Facades\Route;
 use Spatie\Sitemap\Tags\Url;
 use Spatie\Sitemap\Sitemap;
 
+if (env('APP_ENV') === 'production') {
+    URL::forceSchema('https');
+}
+
 Route::middleware('doNotCacheResponse')->group(function (){
 Route::get('/admin/{any}', 'ApplicationController')->where('any', '.*');
 Route::get('/admin', function () {
