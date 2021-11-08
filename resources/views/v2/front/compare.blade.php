@@ -64,7 +64,7 @@
             @foreach($prop as $p => $val)
             <div class="col-md-3">
                 <div class="p-3">
-                    <div style="float: right;cursor: pointer;" onclick="removeProp({{$p}})">X</div>
+                    <div style="float: right;cursor: pointer;" onclick="removeProp({{$p}})"><i class="far fa-times-circle"></i></div>
                     <h2 class="f-14 fw-6"><a href="{{ route('details', ['city'=>'college-in-'.strtolower($val->location->cities->name),'id'=>$val->seo[0]->permalink]) }}" class="text-decoration-none"> {{$val->name}}</a></h2>
                     <p class="f-14"><i class="fas fa-map-marker-alt"></i> {{$val->location->cities->name}}</p>
                     <div class="mb-2 prop-image position-relative" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured.'-xl.webp'}});bacground-position:center; height:160px; background-size: cover;">

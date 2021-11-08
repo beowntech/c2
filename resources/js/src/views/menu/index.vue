@@ -52,8 +52,11 @@
                                         <div class="vx-col w-full mb-2">
                                             <vs-input class="w-full" v-model="customName" placeholder="Name"></vs-input>
                                         </div>
-                                        <div class="vx-col w-full mb-2">
+                                        <div class="vx-col w-full mb-3">
                                             <vs-input class="w-full" v-model="customLink" placeholder="Link"></vs-input>
+                                        </div>
+                                        <div class="vx-col w-full mb-3">
+                                            <vs-checkbox class="w-full" v-model="customCheck">Comming Soon?</vs-checkbox>
                                         </div>
                                         <div class="vx-col w-full">
                                             <vs-button class="float-right" @click="addlinktoMenu">ADD</vs-button>
@@ -85,7 +88,7 @@
                                 <li v-for="(el,i) in list" :key="i">
                                     <div>
                                         <div class="flex vx-row px-6">
-                                            <div class="flex-1" style="place-self: center;">{{ el.name }} <span class="badge custom-badge badge-info">Main</span></div>
+                                            <div class="flex-1" style="place-self: center;">{{ el.name }} <span class="badge custom-badge badge-info">Main</span> <span v-if="el.soon" class="badge custom-success badge-success">Comming Soon</span></div>
                                             <div class="vx-col w-full md:w-1/4">
                                                 <div class="vx-row float-right">
 <!--                                                    <div class="vx-col-2">-->
@@ -138,6 +141,7 @@
                 // menuLimit: 7,
                 customName: "",
                 customLink: "",
+                customCheck: false,
                 selectedMainCatg: [],
                 list: [],
             }
@@ -249,7 +253,7 @@
             addlinktoMenu() {
                 // if (this.list.length < this.menuLimit) {
                     if (this.customName != "" && this.customLink != "") {
-                        this.list.push({name: this.customName, link: this.customLink, submenu: []})
+                        this.list.push({name: this.customName, link: this.customLink,soon:this.customCheck, submenu: []})
                         this.customName = ""
                         this.customLink = ""
                     } else {
@@ -323,6 +327,13 @@
     }
     .custom-badge{
         background: coral;
+        margin-left: 7px;
+        padding: 3px 6px;
+        color: white;
+        border-radius: 8px;
+    }
+     .custom-success{
+        background: rgb(6, 84, 158);
         margin-left: 7px;
         padding: 3px 6px;
         color: white;

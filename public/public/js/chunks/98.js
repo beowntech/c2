@@ -136,6 +136,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -153,6 +156,7 @@ __webpack_require__.r(__webpack_exports__);
       // menuLimit: 7,
       customName: "",
       customLink: "",
+      customCheck: false,
       selectedMainCatg: [],
       list: []
     };
@@ -276,6 +280,7 @@ __webpack_require__.r(__webpack_exports__);
         this.list.push({
           name: this.customName,
           link: this.customLink,
+          soon: this.customCheck,
           submenu: []
         });
         this.customName = "";
@@ -377,7 +382,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, "/*.blog_menu .vs-collapse-item--content{*/\n\n/*    overflow-y: scroll!important;*/\n\n/*}*/\n.blog_menu.open-item > .vs-collapse-item--content {\n  height: 350px !important;\n  max-height: 350px !important;\n}\n.list-item {\n  transition: all .5s\n}\n.categoryDiv {\n  overflow-y: scroll;\n  max-height: 150px;\n  height: 150px;\n}\n[dir] .categoryDiv {\n  border: 1px solid lightgrey;\n  border-radius: 7px;\n  padding: 10px !important;\n}\n[dir] .categories li {\n  margin-bottom: 6px !important;\n}\n[dir] .dragArea li > div {\n  cursor: move;\n  background: whitesmoke;\n  border-radius: 7px;\n  border: 1px solid #b5b8bd;\n  margin-bottom: 5px;\n  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;\n}\n.category-label{\n  font-size: 15px;\n  font-weight: bolder;\n}\n[dir] .category-label{\n  padding: 7px;\n}\n.custom-badge{\n  color: white;\n}\n[dir] .custom-badge{\n  background: coral;\n  padding: 3px 6px;\n  border-radius: 8px;\n}\n[dir=ltr] .custom-badge{\n  margin-left: 7px;\n}\n[dir=rtl] .custom-badge{\n  margin-right: 7px;\n}\n", ""]);
+exports.push([module.i, "/*.blog_menu .vs-collapse-item--content{*/\n\n/*    overflow-y: scroll!important;*/\n\n/*}*/\n.blog_menu.open-item > .vs-collapse-item--content {\n  height: 350px !important;\n  max-height: 350px !important;\n}\n.list-item {\n  transition: all .5s\n}\n.categoryDiv {\n  overflow-y: scroll;\n  max-height: 150px;\n  height: 150px;\n}\n[dir] .categoryDiv {\n  border: 1px solid lightgrey;\n  border-radius: 7px;\n  padding: 10px !important;\n}\n[dir] .categories li {\n  margin-bottom: 6px !important;\n}\n[dir] .dragArea li > div {\n  cursor: move;\n  background: whitesmoke;\n  border-radius: 7px;\n  border: 1px solid #b5b8bd;\n  margin-bottom: 5px;\n  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;\n}\n.category-label{\n  font-size: 15px;\n  font-weight: bolder;\n}\n[dir] .category-label{\n  padding: 7px;\n}\n.custom-badge{\n  color: white;\n}\n[dir] .custom-badge{\n  background: coral;\n  padding: 3px 6px;\n  border-radius: 8px;\n}\n[dir=ltr] .custom-badge{\n  margin-left: 7px;\n}\n[dir=rtl] .custom-badge{\n  margin-right: 7px;\n}\n.custom-success{\n  color: white;\n}\n[dir] .custom-success{\n  background: rgb(6, 84, 158);\n  padding: 3px 6px;\n  border-radius: 8px;\n}\n[dir=ltr] .custom-success{\n  margin-left: 7px;\n}\n[dir=rtl] .custom-success{\n  margin-right: 7px;\n}\n", ""]);
 
 // exports
 
@@ -672,7 +677,7 @@ var render = function() {
                           _vm._v(" "),
                           _c(
                             "div",
-                            { staticClass: "vx-col w-full mb-2" },
+                            { staticClass: "vx-col w-full mb-3" },
                             [
                               _c("vs-input", {
                                 staticClass: "w-full",
@@ -685,6 +690,28 @@ var render = function() {
                                   expression: "customLink"
                                 }
                               })
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "vx-col w-full mb-3" },
+                            [
+                              _c(
+                                "vs-checkbox",
+                                {
+                                  staticClass: "w-full",
+                                  model: {
+                                    value: _vm.customCheck,
+                                    callback: function($$v) {
+                                      _vm.customCheck = $$v
+                                    },
+                                    expression: "customCheck"
+                                  }
+                                },
+                                [_vm._v("Comming Soon?")]
+                              )
                             ],
                             1
                           ),
@@ -791,7 +818,18 @@ var render = function() {
                                                 "badge custom-badge badge-info"
                                             },
                                             [_vm._v("Main")]
-                                          )
+                                          ),
+                                          _vm._v(" "),
+                                          el.soon
+                                            ? _c(
+                                                "span",
+                                                {
+                                                  staticClass:
+                                                    "badge custom-success badge-success"
+                                                },
+                                                [_vm._v("Comming Soon")]
+                                              )
+                                            : _vm._e()
                                         ]
                                       ),
                                       _vm._v(" "),

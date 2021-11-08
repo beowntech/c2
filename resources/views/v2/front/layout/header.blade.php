@@ -45,7 +45,7 @@
                     @foreach($menu as $m => $val)
                         <li class="nav-item {{count($val->submenu) != 0 ?'dropdown':''}}">
                             @if(isset($val->link))
-                                <a class="nav-link {{count($val->submenu) != 0 ? 'dropdown-toggle':''}}"
+                                <a class="nav-link {{isset($val->soon) != false ? ($val->soon == true ? 'coming-soon':''):''}} {{count($val->submenu) != 0 ? 'dropdown-toggle':''}}"
                                    id="{{count($val->submenu) != 0 ? 'navbarDropdown'.$m:''}}"
                                    {{count($val->submenu) == 0 ? 'aria-current=page': ''}}
                                    {{count($val->submenu) != 0 ? 'role=button': ''}}

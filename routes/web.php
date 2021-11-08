@@ -49,6 +49,9 @@ Route::get('/logout', function () {
 Route::get('/', 'AlotFronController@index')->name('home');
 Route::get('/hostels', [App\Http\Controllers\HostelsController::class,'index']);
 Route::get('/nearby/{slug?}', [App\Http\Controllers\HostelsController::class,'nearby']);
+Route::get('/course', function(){
+    return view('v2.front.course.index');
+});
 Route::get('/features', function (){
     return view('v2.front.hostel.features');
 });
@@ -155,7 +158,7 @@ Route::get('contact', function () {
     return view('front.contact');
 });
 
-Route::get('/compare/{properties}', [App\Http\Controllers\CompareController::class, 'index'])->name('compare');
+Route::get('/compare/{properties?}', [App\Http\Controllers\CompareController::class, 'index'])->name('compare');
 
 Route::get('hostel', function () {
     return view('front.hostel');

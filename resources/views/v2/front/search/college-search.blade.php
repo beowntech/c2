@@ -221,7 +221,7 @@
                                     </ul>
                                     <ul class="d-inline-block list-unstyled ver-line-menu text-secondary small">
                                         <li class="me-3"><button class="btn site-btn-1 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow"> Apply Now </button></li>
-                                        <li class="me-3"><a href="{{ route('compare', ['properties'=>$val->seo[0]->permalink]) }}" class="btn hover-site-btn-1 scolor"> Compare </a></li>
+                                        <li class="me-3"><a data-bs-toggle="modal" data-bs-target="#compareModal" data-slug="{{ $val->seo[0]->permalink}}" href="#" class="btn hover-site-btn-1 scolor"> Compare </a></li>
                                         <li class="me-3"><a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->location == null ? "" : $val->location->cities->name)))}}/{{$val->seo == null ? "" : $val->seo[0]->permalink}}" class="btn hover-site-btn-1 scolor mt-1"> Visit Details </a></li>
                                     </ul>
                                 </div>
@@ -241,251 +241,129 @@
             </div>
         </div>
     </section>
-    <!---Comapre Modal--->
-    <div class="modal fade" id="compareModal" tabindex="-1" aria-labelledby="queryModalLabel" aria-hidden="true">
-        <div class="modal-dialog  modal-dialog-centered modal-xl">
-            <div class="modal-content">
-                <input type="text" id="propSelected">
-                <div class="modal-body p-0 compare-modal">
-                    <div class="p-3">
-                        <h2 class="f-22 mb-4">Choose College</h2>
-                        <!-- Actual search box -->
-                        <div class="form-group has-icon">
-                            <span class="fa fa-search form-control-icon"></span>
-                            <input type="text" id="compareSearch" class="form-control" placeholder="Search College">
-                        </div></div>
-                    <div class="bg-grey">
-
-                        <div class="row py-3 px-5" id="compareListCollege">
-
-                        </div>
-                        <div class="row p-3 pb-4">
-                            <div class="col">
-                                <ul class="list-unstyled ver-line-menu float-end">
-                                    <li class="me-2"><button class="btn site-btn-4" data-bs-dismiss="modal" aria-label="Close"> close </button></li>
-                                    <li><button class="btn site-btn-1 btn-sm float-end" onclick="chooseProp()"> Save </button></li>
-                                </ul>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
+    
+@endsection
+@section('modal')
+@include('v2.front.modal.compare')
 @endsection
 @section('script')
 <script>
-    var selected = "";
-    $(document).ready(function(){
-        $.ajax({
-            type: "GET",
-            url: "{{route('search-college-api')}}",
-            data: {'search': ""},
-            success: function (data) {
-                $("#compareListCollege").html("");
-                for (var i = 0; i < data.length; i++) {
-                    $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\">\n "+
-                    "<div class=\"row m-1 py-2 bg-white border-color col-list-card\" data-slug=\""+data[i].seo[0].permalink+"\">\n "+
-                    "<div class=\"col-2 text-center px-1\">\n" +
-                    "<span class=\"circle align-middle\">\n"+
-                    "<i class=\"fas fa-check-circle\"></i>\n"+
-                    "</span>\n"+
-                    "</div>\n"+
-                    "<div class=\"col-2 px-1\" for=\"flexRadioDefault1\">\n"+
-                    "<div class=\"logo position-relative\">\n"+
-                    "<div class=\"d-inline-block prop-logo\">\n"+
-                    "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"> \n"+
-                    "</div></div></div><div class=\"col-7\" for=\"flexRadioDefault1\">\n"+
-                    "<div class=\"prop-info\">\n"+
-                    "<p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width:300px;\">"+data[i].name+"</p>\n"+
-                    "<p class=\"f-12 mb-1\"><i class=\"fas fa-map-marker-alt\" aria-hidden=\"true\"></i> "+data[i].location.cities.name+", "+data[i].location.states.name+"</p>\n"+
-                    "<div class=\"row\"><div class=\"col-8\"><p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width: 200px;\"> "+data[i].courses[0].streams[0].name+"</p><\/div><div class=\"col-4\"><p class=\"f-14 pcolor mb-1\"><i class=\"fas fa-rupee-sign\" aria-hidden=\"true\"></i> "+data[i].courses[0].price+"</p><\/div><\/div>\n"+
-                    "</div></div></div></div>");
-                    if(i > 4){
-                        break;
-                    }
-                }
-            }
-        });
-    });
-    $("#compareSearch").keyup(function () {
-        var text = $(this).val();
-        $.ajax({
-            type: "GET",
-            url: "{{str_replace('http','https',route('search-college-api'))}}",
-            data: {'search': text},
-            success: function (data) {
-                $("#compareListCollege").html("");
-                for (var i = 0; i < data.length; i++) {
-                    $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\">\n "+
-                    "<div class=\"row m-1 py-2 bg-white border-color col-list-card\" data-slug=\""+data[i].seo[0].permalink+"\">\n "+
-                    "<div class=\"col-2 text-center px-1\">\n" +
-                    "<span class=\"circle align-middle\">\n"+
-                    "<i class=\"fas fa-check-circle\"></i>\n"+
-                    "</span>\n"+
-                    "</div>\n"+
-                    "<div class=\"col-2 px-1\" for=\"flexRadioDefault1\">\n"+
-                    "<div class=\"logo position-relative\">\n"+
-                    "<div class=\"d-inline-block prop-logo\">\n"+
-                    "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"> \n"+
-                    "</div></div></div><div class=\"col-7\" for=\"flexRadioDefault1\">\n"+
-                    "<div class=\"prop-info\">\n"+
-                    "<p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width:300px;\">"+data[i].name+"</p>\n"+
-                    "<p class=\"f-12 mb-1\"><i class=\"fas fa-map-marker-alt\" aria-hidden=\"true\"></i> "+data[i].location.cities.name+", "+data[i].location.states.name+"</p>\n"+
-                    "<div class=\"row\"><div class=\"col-8\"><p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width: 200px;\"> "+data[i].courses[0].streams[0].name+"</p><\/div><div class=\"col-4\"><p class=\"f-14 pcolor mb-1\"><i class=\"fas fa-rupee-sign\" aria-hidden=\"true\"></i> "+data[i].courses[0].price+"</p><\/div><\/div>\n"+
-                    "</div></div></div></div>");
-                    // $("#compareListCollege").append("<div class=\"col-md-6 custom-radio\"><div class=\"row m-1 py-2 bg-white\"><div class=\"col-2 text-center px-1\"><input class=\"form-check-input\" type=\"radio\" name=\"flexRadioDefault\" value=\""+data[i].seo[0].permalink+"\" id=\"flexRadioDefault1\"><\/div><div class=\"col-2 px-1\" for=\"flexRadioDefault1\"><div class=\"logo position-relative\"><div class=\"d-inline-block prop-logo\"><img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"><\/div><\/div><\/div><div class=\"col-7\" for=\"flexRadioDefault1\"><div class=\"prop-info\"><p class=\"f-14 pcolor mb-1 d-inline-block text-truncate\" style=\"max-width: 300px;\">"+data[i].name+"<\/p><p class=\"f-12 mb-1\"><i class=\"fas fa-map-marker-alt\" aria-hidden=\"true\"><\/i> "+data[i].location.cities.name+", "+data[i].location.states.name+"<\/p><div class=\"row\"><div class=\"col-8\"><p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width: 200px;\"> "+data[i].courses[0].streams[0].name+"</p><\/div><div class=\"col-4\"><p class=\"f-14 pcolor mb-1\"><i class=\"fas fa-rupee-sign\" aria-hidden=\"true\"></i> "+data[i].courses[0].price+"</p><\/div><\/div><\/div><\/div><\/div><\/div>");
-                    if(text == "" && i > 4){
-                        break;
-                    }
-                }
-            }
-        });
-    });
+    $(document).on("click", ".openApplyNow", function () {
+        var form = $("#apply-now");
+        form[0].reset();
+        var id = $(this).data('id');
+        var name = $(this).data('name');
+        form.removeClass('d-none');
+        $("#success-div").html("");
 
-    $(document).on('click', '.col-list-card', function () {
-        $("#compareListCollege .col-list-card").removeClass("active")
-        $(this).addClass("active");
-        selected = "";
-        selected = $(this).data("slug");
-        // alert($(this).data("slug"));
+        $("#applyNow .modal-body #propID").val(id);
+        $("#applyNow .modal-body #propName").val(name);
     });
-
-    function removeProp(id){
-        var url = window.location.href;
-        var split = url.split('-vs-');
-        split.splice(id,1);
-        window.location.href = split.join('-vs-');
-    }
-    function chooseProp(){
-        // var check = $('input[name=flexRadioDefault]:checked').val();
-        if(selected != ""){
-            window.location.href = ""+window.location.href+""+"-vs-"+""+selected+"";
-        }
-    }
 </script>
-@endsection
-@section('script')
-    <script>
-        $(document).on("click", ".openApplyNow", function () {
-            var form = $("#apply-now");
-            form[0].reset();
-            var id = $(this).data('id');
-            var name = $(this).data('name');
-            form.removeClass('d-none');
-            $("#success-div").html("");
-
-            $("#applyNow .modal-body #propID").val(id);
-            $("#applyNow .modal-body #propName").val(name);
-        });
-    </script>
-    <script>
-        let page = 2;
-        let url = "{{request()->query() != null ? htmlspecialchars_decode(str_replace('http','https',request()->fullUrl()).'&page='): str_replace('http','https',request()->fullUrl()).'?page='}}"
-        $("#viewMore").click(function () {
-            $.ajax({
-                url: url.replace('&amp;','&')+page,
-                success: function(result) {
-                    console.log(result);
-                    page = page + 1;
-                    if(result.next_page_url == null){
-                        $("#viewMore").addClass('d-none');
+<script>
+    let page = 2;
+    let url = "{{request()->query() != null ? htmlspecialchars_decode(str_replace('http','https',request()->fullUrl()).'&page='): str_replace('http','https',request()->fullUrl()).'?page='}}"
+    $("#viewMore").click(function () {
+        $.ajax({
+            url: url.replace('&amp;','&')+page,
+            success: function(result) {
+                console.log(result);
+                page = page + 1;
+                if(result.next_page_url == null){
+                    $("#viewMore").addClass('d-none');
+                }
+                var data = result.data;
+                for (var i = 0; i < data.length; i++) {
+                        $("#propertyData").append("<div class=\"col-md-6 col-xxl-4\">\n" +
+                            "        <div class=\"prop-card-1\">\n" +
+                            "            <div class=\"logo position-relative mb-1\">\n" +
+                            "                <div class=\"d-inline-block prop-logo\">\n" +
+                            "                    <img src=\"{{env('MEDIA_URL')}}property/" + data[i].id + "/logo/" + data[i].logo + "-md.webp\" class=\"p-2\" alt=\"\">\n" +
+                            "                </div>\n" +
+                            "                {{--                                    <img src=\"{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}-md.webp\" class=\"prop-logo\" alt=\"\">--}}\n" +
+                            "                <p class=\"d-inline-block position-absolute top-0 end-0 small\">\n" +
+                            "                    <a href=\"\">\n" +
+                            "                    </a>\n" +
+                            "                </p>\n" +
+                            "            </div>\n" +
+                            "            <div class=\"prop-info\">\n" +
+                            "                <p class=\"f-20 pcolor\">" + data[i].name + "</p>\n" +
+                            "                <p><i class=\"fas fa-map-marker-alt\"></i> " + data[i].location.cities.name + ", " + data[i].location.states.name + "</p>\n" +
+                            "                <ul class=\"d-inline-block list-unstyled ver-line-menu text-secondary small py-3\">\n" +
+                            "                    <li class=\"me-3\">Type - Private</li>\n" +
+                            "                    <li class=\"me-3\">Apporved by: " + data[i].approved_by + "</li>\n" +
+                            "                    <li class=\"me-3\">NIRF Ranking - 12</li>\n" +
+                            "                </ul>\n" +
+                            "                <ul class=\"d-inline-block list-unstyled ver-line-menu text-secondary small\">\n" +
+                            "                    <li class=\"me-3\"><button class=\"btn site-btn-1\" data-bs-toggle=\"modal\" data-bs-target=\"#applyNow\"> Apply Now </button></li>\n" +
+                            "                    <li class=\"me-3\"><button class=\"btn hover-site-btn-1 scolor\"> Compare </button></li>\n" +
+                            "                    <li class=\"me-3\"><a href=\"/college-in-\" class=\"btn hover-site-btn-1 scolor mt-1\"> Visit Details </a></li>\n" +
+                            "                </ul>\n" +
+                            "            </div>\n" +
+                            "        </div>\n" +
+                            "    </div>");
                     }
-                    var data = result.data;
-                    for (var i = 0; i < data.length; i++) {
-                            $("#propertyData").append("<div class=\"col-md-6 col-xxl-4\">\n" +
-                                "        <div class=\"prop-card-1\">\n" +
-                                "            <div class=\"logo position-relative mb-1\">\n" +
-                                "                <div class=\"d-inline-block prop-logo\">\n" +
-                                "                    <img src=\"{{env('MEDIA_URL')}}property/" + data[i].id + "/logo/" + data[i].logo + "-md.webp\" class=\"p-2\" alt=\"\">\n" +
-                                "                </div>\n" +
-                                "                {{--                                    <img src=\"{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}-md.webp\" class=\"prop-logo\" alt=\"\">--}}\n" +
-                                "                <p class=\"d-inline-block position-absolute top-0 end-0 small\">\n" +
-                                "                    <a href=\"\">\n" +
-                                "                    </a>\n" +
-                                "                </p>\n" +
-                                "            </div>\n" +
-                                "            <div class=\"prop-info\">\n" +
-                                "                <p class=\"f-20 pcolor\">" + data[i].name + "</p>\n" +
-                                "                <p><i class=\"fas fa-map-marker-alt\"></i> " + data[i].location.cities.name + ", " + data[i].location.states.name + "</p>\n" +
-                                "                <ul class=\"d-inline-block list-unstyled ver-line-menu text-secondary small py-3\">\n" +
-                                "                    <li class=\"me-3\">Type - Private</li>\n" +
-                                "                    <li class=\"me-3\">Apporved by: " + data[i].approved_by + "</li>\n" +
-                                "                    <li class=\"me-3\">NIRF Ranking - 12</li>\n" +
-                                "                </ul>\n" +
-                                "                <ul class=\"d-inline-block list-unstyled ver-line-menu text-secondary small\">\n" +
-                                "                    <li class=\"me-3\"><button class=\"btn site-btn-1\" data-bs-toggle=\"modal\" data-bs-target=\"#applyNow\"> Apply Now </button></li>\n" +
-                                "                    <li class=\"me-3\"><button class=\"btn hover-site-btn-1 scolor\"> Compare </button></li>\n" +
-                                "                    <li class=\"me-3\"><a href=\"/college-in-\" class=\"btn hover-site-btn-1 scolor mt-1\"> Visit Details </a></li>\n" +
-                                "                </ul>\n" +
-                                "            </div>\n" +
-                                "        </div>\n" +
-                                "    </div>");
-                        }
-                    }
-                });
-        });
-        $(function(){
-            var city = "";
-            var empty=false;
-            $('input[type="checkbox"][name="city[]"]').click(function () {
-                $('input[type="checkbox"][name="city[]"]:checked').each(function () {
-                    if(city != "") {
-                        city += ','+$(this).val();
-                    }else{
-                        empty = true;
-                        city = $(this).val();
-                    }
-                });
-                var url = "{{request()->query('city') != null ? request()->fullUrlWithQuery(['city'=>null]) : request()->fullUrl()}}";
-                var finalU = url + "{{request()->query() != null ? '&city=':'?city='}}"
-                if(!empty){
-                    window.location.href = url;
-                }else{
-                window.location.href = finalU.replace('&amp;','&')+city;
                 }
             });
-            var state = "";
-            var empty=false;
-            $('input[type="checkbox"][name="state[]"]').click(function () {
-                $('input[type="checkbox"][name="state[]"]:checked').each(function () {
-                    if(state != "") {
-                        state += ','+$(this).val();
-                    }else{
-                        empty = true;
-                        state = $(this).val();
-                    }
-                });
-                var url = "{{request()->query('state') != null ? request()->fullUrlWithQuery(['state'=>null]) : request()->fullUrl()}}";
-                var finalUrl = url + "{{request()->query() != null ? '&state=':'?state='}}"
-                if(!empty){
-                    window.location.href = url;
+    });
+    $(function(){
+        var city = "";
+        var empty=false;
+        $('input[type="checkbox"][name="city[]"]').click(function () {
+            $('input[type="checkbox"][name="city[]"]:checked').each(function () {
+                if(city != "") {
+                    city += ','+$(this).val();
                 }else{
-                window.location.href = finalUrl.replace('&amp;','&')+state;
+                    empty = true;
+                    city = $(this).val();
                 }
             });
-            var type = "";
-            $('input[type="checkbox"][name="type[]"]').click(function () {
-                $('input[type="checkbox"][name="type[]"]:checked').each(function () {
-                    if(type != "") {
-                        type += ','+$(this).val();
-                    }else{
-                        type = $(this).val();
-                    }
-                });
-                var url = "{{request()->query('type') != null ? request()->fullUrlWithQuery(['type'=>null]) : request()->fullUrl()}}";
-                var finalUrl = url + "{{request()->query() != null ? '&type=':'?type='}}";
-                if(!empty){
-                    window.location.href = url;
-                }else{
-                window.location.href = finalUrl.replace('&amp;','&')+type;
-                }
-            });
+            var url = "{{request()->query('city') != null ? request()->fullUrlWithQuery(['city'=>null]) : request()->fullUrl()}}";
+            var finalU = url + "{{request()->query() != null ? '&city=':'?city='}}"
+            if(!empty){
+                window.location.href = url;
+            }else{
+            window.location.href = finalU.replace('&amp;','&')+city;
+            }
         });
-    </script>
+        var state = "";
+        var empty=false;
+        $('input[type="checkbox"][name="state[]"]').click(function () {
+            $('input[type="checkbox"][name="state[]"]:checked').each(function () {
+                if(state != "") {
+                    state += ','+$(this).val();
+                }else{
+                    empty = true;
+                    state = $(this).val();
+                }
+            });
+            var url = "{{request()->query('state') != null ? request()->fullUrlWithQuery(['state'=>null]) : request()->fullUrl()}}";
+            var finalUrl = url + "{{request()->query() != null ? '&state=':'?state='}}"
+            if(!empty){
+                window.location.href = url;
+            }else{
+            window.location.href = finalUrl.replace('&amp;','&')+state;
+            }
+        });
+        var type = "";
+        $('input[type="checkbox"][name="type[]"]').click(function () {
+            $('input[type="checkbox"][name="type[]"]:checked').each(function () {
+                if(type != "") {
+                    type += ','+$(this).val();
+                }else{
+                    type = $(this).val();
+                }
+            });
+            var url = "{{request()->query('type') != null ? request()->fullUrlWithQuery(['type'=>null]) : request()->fullUrl()}}";
+            var finalUrl = url + "{{request()->query() != null ? '&type=':'?type='}}";
+            if(!empty){
+                window.location.href = url;
+            }else{
+            window.location.href = finalUrl.replace('&amp;','&')+type;
+            }
+        });
+    });
+</script>
 @endsection
 @section('modal')
     @include('v2.front.modal.applynow')

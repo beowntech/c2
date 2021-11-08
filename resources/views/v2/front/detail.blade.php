@@ -145,7 +145,7 @@
                                     <button class="btn site-btn-2 text-secondary py-0">Add Review</button>
                                 </li>
                                 <li class="me-3">
-                                    <button class="btn site-btn-2 py-0">Compare</button>
+                                    <button data-bs-toggle="modal" data-bs-target="#compareModal" data-slug="{{$val->seo[0]->permalink}}" class="btn site-btn-2 py-0">Compare</button>
                                 </li>
                             </ul>
                         </div>
@@ -613,6 +613,9 @@
         </section>
     </main>
     @endforeach
+@endsection
+@section('modal')
+@include('v2.front.modal.compare')
 @endsection
 @section('script')
     <script>
