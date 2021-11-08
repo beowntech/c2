@@ -317,7 +317,7 @@
                 var url = "{{request()->query('city') != null ? request()->fullUrlWithQuery(['city'=>null]) : request()->fullUrl()}}";
                 var finalU = url + "{{request()->query() != null ? '&city=':'?city='}}"
                 if(!empty){
-                    window.location.href = url;    
+                    window.location.href = url;
                 }else{
                 window.location.href = finalU.replace('&amp;','&')+city;
                 }
@@ -336,7 +336,7 @@
                 var url = "{{request()->query('state') != null ? request()->fullUrlWithQuery(['state'=>null]) : request()->fullUrl()}}";
                 var finalUrl = url + "{{request()->query() != null ? '&state=':'?state='}}"
                 if(!empty){
-                    window.location.href = url;    
+                    window.location.href = url;
                 }else{
                 window.location.href = finalUrl.replace('&amp;','&')+state;
                 }
@@ -353,7 +353,7 @@
                 var url = "{{request()->query('type') != null ? request()->fullUrlWithQuery(['type'=>null]) : request()->fullUrl()}}";
                 var finalUrl = url + "{{request()->query() != null ? '&type=':'?type='}}";
                 if(!empty){
-                    window.location.href = url;    
+                    window.location.href = url;
                 }else{
                 window.location.href = finalUrl.replace('&amp;','&')+type;
                 }
