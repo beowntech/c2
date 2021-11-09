@@ -96,7 +96,7 @@
                             <input type="search" name="" class="form-control form-control-sm border-radius-md ">
                             <ul class="list-unstyled filter-checkbox">
                                 @foreach($city as $c => $ct)
-                                    <li><input type="checkbox" name="city[]" {{in_array(strtolower($ct->name),explode(',',request()->query('city'))) ? 'checked': ''}} class="form-check-input" value="{{strtolower($ct->name)}}"> {{$ct->name}} - [{{$ct->location_count}}]</li>
+                                    <li><input type="checkbox" name="city[]" {{in_array(strtolower($ct->name),explode(',',request()->query('city'))) ? 'checked': ''}} class="form-check-input" id="cityC{{$c}}" value="{{strtolower($ct->name)}}"> <label for="cityC{{$c}}"> {{$ct->name}} - [{{$ct->location_count}}]</label></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -107,7 +107,7 @@
                             <input type="search" name="" class="form-control form-control-sm border-radius-md ">
                             <ul class="list-unstyled filter-checkbox">
                                 @foreach($state as $s => $st)
-                                <li> <input type="checkbox" name="state[]" {{in_array(strtolower($st->name),explode(',',request()->query('state'))) ? 'checked': ''}} class="form-check-input" value="{{strtolower($st->name)}}"> {{$st->name}} - [{{$st->location_count}}]</li>
+                                <li> <input type="checkbox" name="state[]" {{in_array(strtolower($st->name),explode(',',request()->query('state'))) ? 'checked': ''}} class="form-check-input" id="stateS{{$s}}" value="{{strtolower($st->name)}}"> <label for="stateS{{$s}}">{{$st->name}} - [{{$st->location_count}}]</label></li>
                                 @endforeach
                             </ul>
                         </div>

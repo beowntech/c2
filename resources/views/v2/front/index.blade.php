@@ -370,7 +370,7 @@
             <div class="row college-list m-0">
                 @foreach($prop as $k => $val)
                     <div class="col-md-4">
-                        <div class="college-card-sm">
+                        <div class="college-card-sm featured">
                             <div class="mb-2 prop-image"
                                  style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured.'-xl.webp'}});background-position:center;background-size: cover;">
                                 <div class="prop-info">
@@ -383,7 +383,7 @@
                                 </div>
                             </div>
                             <div class="px-4 prop-iden">
-                                <h2 class="f-14 mb-2 text-truncate">{{$val->name}}</h2>
+                                <h2 class="f-14 mb-2 text-truncate">{{$val->name}} {{$val->featured}}</h2>
                                 <p class="mb-3 f-12">{{$val->location == null ? "" : $val->location->cities->name}}
                                     , {{$val->location == null ? "" : $val->location->states->name}}</p>
                                 <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->location == null ? "" : $val->location->cities->name)))}}/{{$val->seo->isEmpty() ? "" : $val->seo[0]->permalink}}">
