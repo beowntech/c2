@@ -171,7 +171,7 @@
                         </div>
                             @endif
                         <div class="col-md-6 col-xxl-4">
-                            <div class="prop-card-1">
+                            <div class="prop-card-1 {{$val->featured == 1 ? 'featured':''}}">
                                 <div class="logo position-relative mb-1">
                                     <div class="d-inline-block prop-logo">
                                         <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->location == null ? "" : $val->location->cities->name)))}}/{{$val->seo == null ? "" : $val->seo[0]->permalink}}">

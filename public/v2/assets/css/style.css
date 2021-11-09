@@ -556,7 +556,7 @@
     box-shadow: none; }
 
 .featured {
-  background: #ffb8b8 !important; }
+  background: #ffb8b85e !important; }
 
 .animation-circle {
   -webkit-animation: spin 50s linear infinite;
