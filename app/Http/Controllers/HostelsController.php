@@ -28,6 +28,9 @@ class HostelsController extends Controller
             if($seo->isEmpty()){
                 return abort(404);
             }
+            if($seo[0]->property->isEmpty()){
+                return abort(404);
+            }
             $prop = $seo[0]->property[0];
             $data = Hostels::where('city',$seo[0]->property[0]->location->cities->id)
             ->with('cities')

@@ -75,7 +75,7 @@ class AlotFronController extends Controller
         $fcatg = FrontCategories::where('parent_id', 0)->with('children')->get();
         foreach ($fcatg as $c => $ca) {
             foreach ($ca->children as $cc => $cac) {
-                $fcatg[$c]['children'][$cc]['property'] = Properties::where('property_type', 'like', '%' . $cac->id . '%')->count();
+                $fcatg[$c]['children'][$cc]['property'] = Properties::where('property_type', 'like', '%' . $cac->id . '%')->where('status',1)->count();
                 $fcatg[$c]['children'][$cc]['exams'] = Exam::where('exam_category',$cac->id)->count();
             }
         }

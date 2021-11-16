@@ -179,7 +179,7 @@
                 <div class="row">
                     <div class="col-md-2 mt-3">
                         <ul class="list-unstyled li-md sticky-top mt-3 detail-menu" id="menu-list-detail">
-                            <li class="active">
+                            <li class="active" id="about-li">
                                 @if(request()->more != "")
                                 <a href="/{{request()->city}}/{{request()->id}}#about">About</a>
                                 @else
@@ -187,7 +187,7 @@
                                 @endif
                             </li>
                             @if($val->courses->isNotEmpty())
-                            <li>
+                            <li id="course-li">
                                 @if(request()->more != "")
                                     <a href="/{{request()->city}}/{{request()->id}}#courseandfees">Course & Fee</a>
                                 @else
@@ -198,7 +198,8 @@
 {{--                            <li><a href="#ranking">Ranking</a></li>--}}
 {{--                            <li><a href="#gallery">Gallery</a></li>--}}
                             @if($val->scholar->isNotEmpty())
-                            <li> @if(request()->more != "")
+                            <li id="scholar-li">
+                                @if(request()->more != "")
                                     <a href="/{{request()->city}}/{{request()->id}}#scholorship">Scholorship</a>
                                 @else
                                     <a href="#scholorship">Scholorship</a>
@@ -206,7 +207,7 @@
                             </li>
                             @endif
                             @if($val->teachers->isNotEmpty())
-                            <li>
+                            <li id="faculty-li">
                                 @if(request()->more != "")
                                     <a href="/{{request()->city}}/{{request()->id}}#faculties">Faculty</a>
                                 @else
@@ -215,7 +216,7 @@
                             </li>
                             @endif
                             @if($hostel->isNotEmpty())
-                            <li>
+                            <li id="hostel-li">
                                 @if(request()->more != "")
                                     <a href="/{{request()->city}}/{{request()->id}}#hostels">Hostel</a>
                                 @else
@@ -274,11 +275,7 @@
                                                                    aria-hidden="true"></i> {{$ca->price == 0 ? "N/A" : $ca->price}}
                                                             </td>
                                                             <td>{{$ca->eligibility}}</td>
-                                                            <td><a href="#!" class="btn site-btn-5 quickEnquiryDetail"
-                                                                   data-bs-toggle="modal" data-id="{{$val->id}}"
-                                                                   data-name="{{$val->name}}"
-                                                                   data-location="{{$val->location->cities->name}}"
-                                                                   data-bs-target="#exampleModal">Apply
+                                                            <td><a href="#!" class="btn site-btn-5 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow">Apply
                                                                     Now</a></td>
                                                         </tr>
                                                     @endforeach
@@ -312,11 +309,7 @@
                                                                    aria-hidden="true"></i> {{$ca->price == 0 ? "N/A" : $ca->price}}
                                                             </td>
                                                             <td>{{$ca->eligibility}}</td>
-                                                            <td><a href="#!" class="btn site-btn-5 quickEnquiryDetail"
-                                                                   data-bs-toggle="modal" data-id="{{$val->id}}"
-                                                                   data-name="{{$val->name}}"
-                                                                   data-location="{{$val->location->cities->name}}"
-                                                                   data-bs-target="#exampleModal">Apply
+                                                            <td><a href="#!" class="btn site-btn-5 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow">Apply
                                                                     Now</a></td>
                                                         </tr>
                                                     @endif
@@ -358,7 +351,7 @@
                         <div id="scholorship" class="mb-5">
                             <h2 class="ps-3">Scholorship</h2>
                             <div class="bg-white p-3 detail-border">
-                                <button class="btn site-btn-5 mb-4">Apply for Scholorship</button>
+                                <button class="btn site-btn-5 mb-4 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow">Apply for Scholorship</button>
                                 @foreach($val->scholar as $d)
                                     {!! $d->content !!}<br>
                                 @endforeach
@@ -370,7 +363,7 @@
                                     <div id="scholorship" class="mb-5">
                                         <h2 class="ps-3">Scholorship</h2>
                                         <div class="bg-white p-3 detail-border">
-                                            <button class="btn site-btn-5 mb-4">Apply for Scholorship</button>
+                                            <button class="btn site-btn-5 mb-4 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow">Apply for Scholorship</button>
                                             @foreach($val->scholar as $d)
                                                 {!! $d->content !!}<br>
                                             @endforeach
@@ -438,9 +431,9 @@
                                                     <div class="d-flex align-items-center my-2">
                                                         <div class="flex-shrink-0 ">
                                                             <div id="profileImage" style="background: {{sprintf('#%06X', mt_rand(0, 0xFFFFFF))}}">
-                                                                {{substr(str_replace(['Dr. ','Mr. ','Mrs. '],['','',''],$fa->name),0,1)}} 
-                                                                @if(count(explode(' ',str_replace(['Dr. ','Mr. ','Mrs. '],['','',''],$fa->name))) > 1)
-                                                                {{substr(explode(' ',str_replace(['Dr. ','Mr. ','Mrs. '],['','',''],$fa->name))[1],0,1)}}
+                                                                {{substr(str_replace(['Dr. ','Mr. ','Mrs. ','Ms. '],['','','',''],$fa->name),0,1)}}
+                                                                @if(count(explode(' ',str_replace(['Dr. ','Mr. ','Mrs. ','Ms. '],['','','',''],$fa->name))) > 1)
+                                                                {{substr(explode(' ',str_replace(['Dr. ','Mr. ','Mrs. ','Ms. '],['','','',''],$fa->name))[1],0,1)}}
                                                                 @endif
                                                             </div>
                                                             {{-- <img src="/v2/assets/images/site/f-img.jpg" --}}
@@ -616,6 +609,7 @@
 @endsection
 @section('modal')
 @include('v2.front.modal.compare')
+@include('v2.front.modal.applynow')
 @endsection
 @section('script')
     <script>
@@ -635,10 +629,27 @@
         $(document).ready(function()
         {
             $('#menu-list-detail li').click(function(e){
-                clickHandler();
+                //clickHandler();
+                $('#menu-list-detail li').removeClass('active');
                 $(this).addClass('active');
             });
-            
+            if(window.location.hash == "#about"){
+                $('#menu-list-detail li').removeClass('active');
+                $("#about-li").addClass('active');
+            }else if(window.location.hash == "#courseandfees"){
+                $('#menu-list-detail li').removeClass('active');
+                $("#course-li").addClass('active');
+            }else if(window.location.hash == "#scholorship"){
+                $('#menu-list-detail li').removeClass('active');
+                $("#scholar-li").addClass('active');
+            }else if(window.location.hash == "#faculties"){
+                $('#menu-list-detail li').removeClass('active');
+                $("#faculty-li").addClass('active');
+            }else if(window.location.hash == "#hostels"){
+                $('#menu-list-detail li').removeClass('active');
+                $("#hostel-li").addClass('active');
+            }
+
         });
 
         // Here's the handler
@@ -649,7 +660,4 @@
             }
         }
     </script>
-@endsection
-@section('modal')
-    @include('v2.front.modal.applynow')
 @endsection

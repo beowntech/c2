@@ -15,10 +15,10 @@
         <div class="container">
           <div class="row">
             <div class="col py-2">
-              <h2 class="d-inline-block"><a href="" class="text-white text-decoration-none"> Aj<span style="color:#ffcbcb !important;">hostel</span> </a></h2>
-              <ul class="list-unstyled ver-line-menu float-end py-2">                        
+              <h2 class="d-inline-block"><a href="{{route('hostels')}}" class="text-white text-decoration-none"> Aj<span style="color:#ffcbcb !important;">hostel</span> </a></h2>
+              <ul class="list-unstyled ver-line-menu float-end py-2">
                   <li class="text-white">+91 99977 40264</li>
-                  <li class="text-white"><a href="#" class="text-white text-decoration-none">contact@admissionjockey.com</a></li>
+                  <li class="text-white"><a href="mailto:contact@admissionjockey.com" class="text-white text-decoration-none">contact@admissionjockey.com</a></li>
               </ul>
             </div>
           </div>

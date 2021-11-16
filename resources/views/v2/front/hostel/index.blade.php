@@ -5,12 +5,12 @@
   box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.5);height:400px">
     <div class="container">
         <div class="row py-5">
-        <div class="search-box col-md-8 text-center offset-md-2">   
+        <div class="search-box col-md-8 text-center offset-md-2">
             <div style=" position: relative;
   top: 50%;
   transform: translateY(-50%);">
-                <h2 class="scolor mb-4 fw-6">Get a place nearby your college</h2> 
-            <h4 class="text-white mb-5 fw-4">Hostel, Flats for Students & Researchers</h4>    
+                <h2 class="scolor mb-4 fw-6">Get a place nearby your college</h2>
+            <h4 class="text-white mb-5 fw-4">Hostel, Flats for Students & Researchers</h4>
         <form action="">
             <div class="input-group mb-3 mx-5">
                 <div class="input-group-prepend">
@@ -19,9 +19,9 @@
                         Dehradun
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
-                        <li><a class="dropdown-item" href="#">Menu item</a></li>
-                        <li><a class="dropdown-item" href="#">Menu item</a></li>
-                        <li><a class="dropdown-item" href="#">Menu item</a></li>
+                        <li><a class="dropdown-item" href="#">Rishikesh</a></li>
+                        <li><a class="dropdown-item" href="#">Uttaranchal</a></li>
+                        {{-- <li><a class="dropdown-item" href="#">Haryana</a></li> --}}
                     </ul>
                     </div>
                 </div>
@@ -30,12 +30,12 @@
                     <input type="text" class="form-control rounded-0" placeholder="College nearby" style="min-width:350px">
                 </div>
                 <div class="input-group-append">
-                    <button class="btn site-btn-6 fw-6 rounded-0" type="button">Explore</button>
+                    <a href="{{route('nearby-hostel',['slug'=>'sai-group-of-institutions-dehradun'])}}" class="btn site-btn-6 fw-6 rounded-0" type="button">Explore</a>
                 </div>
             </div>
         </form>
-            </div>       
-            
+            </div>
+
     </div>
         </div>
     </div>

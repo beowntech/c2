@@ -47,9 +47,9 @@ Route::get('/logout', function () {
     return redirect('/');
 })->name('logout');
 Route::get('/', 'AlotFronController@index')->name('home');
-Route::get('/hostels', [App\Http\Controllers\HostelsController::class,'index']);
+Route::get('/hostels', [App\Http\Controllers\HostelsController::class,'index'])->name('hostels');
 Route::get('/hostel/{city}/{slug}', [App\Http\Controllers\HostelsController::class,'detail'])->name('hostel-detail');
-Route::get('/nearby/{slug?}', [App\Http\Controllers\HostelsController::class,'nearby']);
+Route::get('/nearby/{slug?}', [App\Http\Controllers\HostelsController::class,'nearby'])->name('nearby-hostel');
 Route::get('/course', function(){
     return view('v2.front.course.index');
 });
@@ -70,8 +70,12 @@ Route::get('profile', 'AlotFronController@profile');
 Route::post('add_review', 'AlotFronController@addReview');
 Route::get('change-password', 'AlotFronController@changePass');
 
-Route::get('hostel-form', function () {
+Route::get('blog/hostel-form', function () {
     return view('front.blog.forms.hostalform');
+});
+
+Route::get('hostel-form', function () {
+    return view('v2.front.hostel.loan-form');
 });
 
 
@@ -80,7 +84,7 @@ Route::post('edu-loan/submit', 'EducationLoanFormController@store');
 
 Route::post('comment', 'CommentController@store');
 
-Route::get('loan-form', function () {
+Route::get('/blog/loan-form', function () {
     return view('front.blog.forms.loanform');
 });
 //Route::get('/login', function (){

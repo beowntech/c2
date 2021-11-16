@@ -1,6 +1,7 @@
 @extends('v2.front.layout.header')
 @section('content')
-    <section id="heroimage" style="background:url('/v2/assets/images/site/heroimage.jpg');background-repeat:no-repeat;background-size: cover;background-position: left;">
+    <section id="heroimage"
+        style="background:url('/v2/assets/images/site/heroimage.jpg');background-repeat:no-repeat;background-size: cover;background-position: left;">
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
@@ -10,13 +11,15 @@
                     <div class="vertical-65 text-center">
                         <h1>Plan your path to college</h1>
                         <h2>That Fits Your Best</h2>
-                        <p class="text">Finding the right College Shouldn't be hard. <br> we make it easy to discover
+                        <p class="text">Finding the right College Shouldn't be hard. <br> we make it easy to
+                            discover
                             and connect with the best ones for you</p>
                         <div class="mb-3  position-relative">
-                            <form action="{{route('search-college')}}">
+                            <form action="{{ route('search-college') }}">
                                 <input type="search" name="search" class="form-control hero-search" id="exampleDataList"
-                                       placeholder="College Name, Courses">
-                                <button type="submit" class="btn btn-search position-absolute top-50 end-10 translate-middle-y"><i
+                                    placeholder="College Name, Courses">
+                                <button type="submit"
+                                    class="btn btn-search position-absolute top-50 end-10 translate-middle-y"><i
                                         class="fas fa-search"></i> Search
                                 </button>
                             </form>
@@ -31,11 +34,12 @@
                                 </ul>
                             </div>
                         </div>
-                        <p class="text-start ps-4">Need Help - <a href="#" class="openApplyNow" data-bs-toggle="modal" data-bs-target="#applyNow">Click Here</a></p>
+                        <p class="text-start ps-4">Need Help - <a href="#" class="openApplyNow" data-bs-toggle="modal"
+                                data-bs-target="#applyNow">Click Here</a></p>
                         <div class="hero-highlight float-end text-start">
                             <p class="mb-0">Ranked</p>
-                            <h3 class="mb-0"><strong>150+</strong> College</h3>
-                            <a href="#">view all top college</a>
+                            <h3 class="mb-0"><strong>50+</strong> College</h3>
+                            <a href="{{ route('search-college') }}">view all top college</a>
                         </div>
                     </div>
 
@@ -111,7 +115,7 @@
     </section>
 
     <section class="height-90 py-8">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row mb-5">
                 <div class="col text-center">
                     <p class="mb-0 fw-6">Don't limit yourself to one option</p>
@@ -125,15 +129,15 @@
                         <li>
                             <button class="btn site-btn-2 me-3 btn-active" id="college_service">Colleges</button>
                         </li>
-{{--                        <li>--}}
-{{--                            <button class="btn site-btn-2 me-3" id="exam_service">Exams</button>--}}
-{{--                        </li>--}}
+                        {{-- <li> --}}
+                        {{-- <button class="btn site-btn-2 me-3" id="exam_service">Exams</button> --}}
+                        {{-- </li> --}}
                         <li>
                             <button class="btn site-btn-2 me-3">Courses</button>
                         </li>
-{{--                        <li>--}}
-{{--                            <button class="btn site-btn-2 me-3">Career</button>--}}
-{{--                        </li>--}}
+                        {{-- <li> --}}
+                        {{-- <button class="btn site-btn-2 me-3">Career</button> --}}
+                        {{-- </li> --}}
                         <li>
                             <button class="btn site-btn-2 me-3" id="location_service">Location</button>
                         </li>
@@ -143,29 +147,33 @@
 
             <div class="home-option" id="service1">
                 <div class="mainCollegeCategory row">
-                    @foreach($fcatg as $c => $ca)
-                        @foreach($ca->children as $cc => $cac)
+                    @foreach ($fcatg as $c => $ca)
+                        @foreach ($ca->children as $cc => $cac)
                             <div class="col-md-2 text-center">
                                 <div class="box-card-sm">
-                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
-                                    <a href="{{route('search-college')}}?catg={{strtolower($cac->name)}}"><p class="f-16">{{$cac->name}}</p></a>
-                                    <p class="mt-1 small">{{$cac->property}} Colleges</p>
+                                    <img src="{{ env('MEDIA_URL') }}front/images/future/{{ $cac->image }}" alt="">
+                                    <a href="{{ route('search-college') }}?catg={{ strtolower($cac->name) }}">
+                                        <p class="f-16">{{ $cac->name }}</p>
+                                    </a>
+                                    <p class="mt-1 small">{{ $cac->property }} Colleges</p>
                                 </div>
                             </div>
-                            @if($cc == 11)
+                            @if ($cc == 11)
                                 <?php break 2; ?>
                             @endif
                         @endforeach
                     @endforeach
                 </div>
                 <div class="viewMoreCollegeCategory row d-none">
-                    @foreach($fcatg as $c => $ca)
-                        @foreach($ca->children as $cc => $cac)
+                    @foreach ($fcatg as $c => $ca)
+                        @foreach ($ca->children as $cc => $cac)
                             <div class="col-md-2 text-center">
                                 <div class="box-card-sm">
-                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">
-                                    <a href="{{route('search-college')}}?catg={{strtolower($cac->name)}}"><p class="f-16">{{$cac->name}}</p></a>
-                                    <p class="mt-1 small">{{$cac->property}} Colleges</p>
+                                    <img src="{{ env('MEDIA_URL') }}front/images/future/{{ $cac->image }}" alt="">
+                                    <a href="{{ route('search-college') }}?catg={{ strtolower($cac->name) }}">
+                                        <p class="f-16">{{ $cac->name }}</p>
+                                    </a>
+                                    <p class="mt-1 small">{{ $cac->property }} Colleges</p>
                                 </div>
                             </div>
                         @endforeach
@@ -178,63 +186,69 @@
                     </div>
                 </div>
             </div>
-{{--      <div class="home-option d-none" id="service2">--}}
-{{--                <div class="mainExamCategory row">--}}
-{{--                    @foreach($fcatg as $c => $ca)--}}
-{{--                        @foreach($ca->children as $cc => $cac)--}}
-{{--                            <div class="col-md-2 text-center">--}}
-{{--                                <div class="box-card-sm">--}}
-{{--                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">--}}
-{{--                                    <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a>--}}
-{{--                                    <p class="mt-1 small">{{$cac->exams}} Exams</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            @if($cc == 11)--}}
-{{--                                @php break 2; @endphp--}}
-{{--                            @endif--}}
-{{--                        @endforeach--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--                <div class="viewMoreExamCategory row d-none">--}}
-{{--                    @foreach($fcatg as $c => $ca)--}}
-{{--                        @foreach($ca->children as $cc => $cac)--}}
-{{--                            <div class="col-md-2 text-center">--}}
-{{--                                <div class="box-card-sm">--}}
-{{--                                    <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt="">--}}
-{{--                                    <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a>--}}
-{{--                                    <p class="mt-1 small">{{$cac->exams}} Exams</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endforeach--}}
-{{--                    @endforeach--}}
-{{--                </div>--}}
-{{--                <div class="row mt-4">--}}
-{{--                    <div class="col text-center">--}}
-{{--                        <button class="btn site-btn-2 me-3 shadow text-secondary viewallExam">View More <i--}}
-{{--                                class="fas fa-bars text-secondary"></i></button>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            {{-- <div class="home-option d-none" id="service2"> --}}
+            {{-- <div class="mainExamCategory row"> --}}
+            {{-- @foreach ($fcatg as $c => $ca) --}}
+            {{-- @foreach ($ca->children as $cc => $cac) --}}
+            {{-- <div class="col-md-2 text-center"> --}}
+            {{-- <div class="box-card-sm"> --}}
+            {{-- <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt=""> --}}
+            {{-- <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a> --}}
+            {{-- <p class="mt-1 small">{{$cac->exams}} Exams</p> --}}
+            {{-- </div> --}}
+            {{-- </div> --}}
+            {{-- @if ($cc == 11) --}}
+            {{-- @php break 2; @endphp --}}
+            {{-- @endif --}}
+            {{-- @endforeach --}}
+            {{-- @endforeach --}}
+            {{-- </div> --}}
+            {{-- <div class="viewMoreExamCategory row d-none"> --}}
+            {{-- @foreach ($fcatg as $c => $ca) --}}
+            {{-- @foreach ($ca->children as $cc => $cac) --}}
+            {{-- <div class="col-md-2 text-center"> --}}
+            {{-- <div class="box-card-sm"> --}}
+            {{-- <img src="{{env('MEDIA_URL')}}front/images/future/{{$cac->image}}" alt=""> --}}
+            {{-- <a href="{{route('search-college')}}"><p class="f-16">{{$cac->name}}</p></a> --}}
+            {{-- <p class="mt-1 small">{{$cac->exams}} Exams</p> --}}
+            {{-- </div> --}}
+            {{-- </div> --}}
+            {{-- @endforeach --}}
+            {{-- @endforeach --}}
+            {{-- </div> --}}
+            {{-- <div class="row mt-4"> --}}
+            {{-- <div class="col text-center"> --}}
+            {{-- <button class="btn site-btn-2 me-3 shadow text-secondary viewallExam">View More <i --}}
+            {{-- class="fas fa-bars text-secondary"></i></button> --}}
+            {{-- </div> --}}
+            {{-- </div> --}}
+            {{-- </div> --}}
             <div class="row home-option d-none" id="service3">
                 <div class="col-md-2 text-center">
                     <div class="box-card-sm">
                         <img src="/city/india.png" alt="">
-                        <a href="{{route('search-college')}}?state=india"><p class="f-16">India</p></a>
+                        <a href="{{ route('search-college') }}?state=india">
+                            <p class="f-16">India</p>
+                        </a>
                     </div>
                 </div>
-                @foreach($state as $s => $st)
-                    @if($s < 11)
+                @foreach ($state as $s => $st)
+                    @if ($s < 11)
                         <div class="col-md-2 text-center">
                             <div class="box-card-sm">
-                                <img src="/city/{{$st->image}}" alt="">
-                                <a href="{{route('search-college')}}?state={{$st->name}}"><p class="f-16">{{$st->name}}</p></a>
+                                <img src="/city/{{ $st->image }}" alt="">
+                                <a href="{{ route('search-college') }}?state={{ $st->name }}">
+                                    <p class="f-16">{{ $st->name }}</p>
+                                </a>
                             </div>
                         </div>
                     @else
                         <div class="col-md-2 text-center locationMore" style="display: none">
                             <div class="box-card-sm">
-                                <img src="/city/{{$st->image}}" alt="">
-                                <a href="{{route('search-college')}}?state={{$st->name}}"><p class="f-16">{{$st->name}}</p></a>
+                                <img src="/city/{{ $st->image }}" alt="">
+                                <a href="{{ route('search-college') }}?state={{ $st->name }}">
+                                    <p class="f-16">{{ $st->name }}</p>
+                                </a>
                             </div>
                         </div>
                     @endif
@@ -264,7 +278,8 @@
                         <li>We provide the multiple option career options based on the preference</li>
                         <li>Our expert provide best fit colleges to your preferences</li>
                     </ul>
-                    <a href="#" class="btn site-btn-3 btn-lg shadow px-4 openApplyNow" data-bs-toggle="modal" data-bs-target="#applyNow"> <i class="fas fa-mobile-alt"></i> Ask to
+                    <a href="#" class="btn site-btn-3 btn-lg shadow px-4 openApplyNow" data-bs-toggle="modal"
+                        data-bs-target="#applyNow"> <i class="fas fa-mobile-alt"></i> Ask to
                         Expert</a>
                 </div>
                 <div class="col-md-5">
@@ -334,7 +349,8 @@
             <div class="row mb-5 pt-5">
                 <div class="col text-center text-white">
                     <h2 class="f-42"> Accommodation facility</h2>
-                    <p class="f-18">Reserve your accommodation and focuson your study, we <br> will provide you the
+                    <p class="f-18">Reserve your accommodation and focuson your study, we <br> will provide you
+                        the
                         better hostel facility.</p>
                     <a href="#" class="f-20 text-white">explore all accommodation</a>
                 </div>
@@ -359,7 +375,7 @@
     </section>
 
     <section class="height-100 bgg">
-        <div class="container-fluid">
+        <div class="container">
             <div class="row py-5">
                 <div class="col text-center">
                     <p class="mb-2 pcolor">Education Industry players who are seeking information</p>
@@ -368,26 +384,31 @@
                 </div>
             </div>
             <div class="row college-list m-0">
-                @foreach($prop as $k => $val)
+                @foreach ($prop as $k => $val)
                     <div class="col-md-4">
                         <div class="college-card-sm featured">
                             <div class="mb-2 prop-image"
-                                 style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured.'-xl.webp'}});background-position:center;background-size: cover;">
+                                style="background:url({{ env('MEDIA_URL') }}property/{{ $val->id }}/gallery/featured/{{ $val->images[0]->featured . '-xl.webp' }});background-position:center;background-size: cover;">
                                 <div class="prop-info">
                                     <div class="d-inline-block prop-logo">
-                                        <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo.'-md.webp'}}" class="p-2" alt="">
+                                        <img src="{{ env('MEDIA_URL') }}property/{{ $val->id }}/logo/{{ $val->logo . '-md.webp' }}"
+                                            class="p-2" alt="">
                                     </div>
-                                    @if(count($val->review) > 0)
-                                    <span><i class="fas fa-star"></i> {{$val->review->avg('stars')}}/5 </span> {{count($val->review)}} reviews
+                                    @if (count($val->review) > 0)
+                                        <span><i class="fas fa-star"></i> {{ $val->review->avg('stars') }}/5 </span>
+                                        {{ count($val->review) }} reviews
                                     @endif
                                 </div>
                             </div>
                             <div class="px-4 prop-iden">
-                                <h2 class="f-14 mb-2 text-truncate">{{$val->name}} {{$val->featured}}</h2>
-                                <p class="mb-3 f-12">{{$val->location == null ? "" : $val->location->cities->name}}
-                                    , {{$val->location == null ? "" : $val->location->states->name}}</p>
-                                <a href="/college-in-{{str_replace(' ','_',str_replace('/[^A-Za-z0-9\-]/', '-',strtolower($val->location == null ? "" : $val->location->cities->name)))}}/{{$val->seo->isEmpty() ? "" : $val->seo[0]->permalink}}">
-                                    <p class="f-12">VIEW ALL COUSRSES AND FEES</p></a>
+                                <h2 class="f-14 mb-2 text-truncate">{{ $val->name }} {{ $val->featured }}</h2>
+                                <p class="mb-3 f-12">
+                                    {{ $val->location == null ? '' : $val->location->cities->name }}
+                                    , {{ $val->location == null ? '' : $val->location->states->name }}</p>
+                                <a
+                                    href="/college-in-{{ str_replace(' ', '_', str_replace('/[^A-Za-z0-9\-]/', '-', strtolower($val->location == null ? '' : $val->location->cities->name))) }}/{{ $val->seo->isEmpty() ? '' : $val->seo[0]->permalink }}">
+                                    <p class="f-12">VIEW ALL COUSRSES AND FEES</p>
+                                </a>
                             </div>
 
                         </div>
@@ -410,50 +431,52 @@
                 <div class="col">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            @foreach($testimonial as $t => $test)
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$t}}"
-                                    class="{{$t == 0 ? 'active':''}}" aria-current="true" aria-label="Slide {{$t}}"></button>
+                            @foreach ($testimonial as $t => $test)
+                                <button type="button" data-bs-target="#carouselExampleIndicators"
+                                    data-bs-slide-to="{{ $t }}" class="{{ $t == 0 ? 'active' : '' }}"
+                                    aria-current="true" aria-label="Slide {{ $t }}"></button>
                             @endforeach
                         </div>
                         <div class="carousel-inner">
-                            @foreach($testimonial as $t => $test)
-                                    <div class="carousel-item {{$t == 0 ? 'active':''}}">
-                                        <div class="row">
-                                            <div class="col-md-8 offset-md-2 p-2">
-                                                <div class="testimonial-data text-center">
-                                                    <div class="testimonial-info mb-4">
-                                                        <i class="fas fa-quote-left "></i>
-                                                        <img src="{{env('MEDIA_URL')}}testimonials/{{$test->image}}" width="150px" height="150px"
-                                                             class="user-avatar" alt="">
-                                                        <div class="d-inline-block ms-4 text-start pcolor">
-                                                            <h3 class="f-24">{{$test->user_name}}</h3>
-                                                            <p>{{$test->property_name}}</p>
-                                                        </div>
+                            @foreach ($testimonial as $t => $test)
+                                <div class="carousel-item {{ $t == 0 ? 'active' : '' }}">
+                                    <div class="row">
+                                        <div class="col-md-8 offset-md-2 p-2">
+                                            <div class="testimonial-data text-center">
+                                                <div class="testimonial-info mb-4">
+                                                    <i class="fas fa-quote-left "></i>
+                                                    <img src="{{ env('MEDIA_URL') }}testimonials/{{ $test->image }}"
+                                                        width="150px" height="150px" class="user-avatar" alt="">
+                                                    <div class="d-inline-block ms-4 text-start pcolor">
+                                                        <h3 class="f-24">{{ $test->user_name }}</h3>
+                                                        <p>{{ $test->property_name }}</p>
                                                     </div>
-                                                    <p>
-                                                        {{ \Illuminate\Support\Str::limit($test->content, $limit = 200, $end = '...') }} <a href="#!">Read More</a>
-                                                    </p>
                                                 </div>
+                                                <p>
+                                                    {{ $test->content}}
+                                                    {{-- <a href="#!">Read More</a> --}}
+                                                </p>
                                             </div>
                                         </div>
-
                                     </div>
+
+                                </div>
                             @endforeach
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="prev">
-                        <span class="control">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            data-bs-slide="prev">
+                            <span class="control">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden">Previous</span>
-                        </span>
+                            </span>
 
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                                data-bs-slide="next">
-                        <span class="control">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </span>
+                            data-bs-slide="next">
+                            <span class="control">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -470,17 +493,20 @@
                     <p class="f-20 mb-5">We will help you to make your career bright share your information</p>
 
                     <div class="form-1" id="still-confused-div">
-                        <form class="confused-validation" action="{{route('multiple-form')}}" id="still-confused" novalidate>
+                        <form class="confused-validation" action="{{ route('multiple-form') }}" id="still-confused"
+                            novalidate>
                             @csrf
-                            <input type="hidden" value="{{request()->url()}}" name="url">
+                            <input type="hidden" value="{{ request()->url() }}" name="url">
                             <input type="hidden" value="still-confused" name="type">
-                            <input type="text" name="name" class="form-control site-field" required placeholder="Type you Full Name">
-                            <input type="email" name="email" class="form-control site-field" required placeholder="Enter Email Id">
+                            <input type="text" name="name" class="form-control site-field" required
+                                placeholder="Type you Full Name">
+                            <input type="email" name="email" class="form-control site-field" required
+                                placeholder="Enter Email Id">
                             <select name="course" class="form-control site-field select-css" required>
                                 <option value="" selected disabled>Select Courses</option>
-                                @foreach($course as $c => $cou)
-                                    @if($c > 3)
-                                <option value="{{$cou->name}}">{{$cou->name}}</option>
+                                @foreach ($course as $c => $cou)
+                                    @if ($c > 3)
+                                        <option value="{{ $cou->name }}">{{ $cou->name }}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -495,8 +521,14 @@
             </div>
         </div>
     </section>
+@endsection
+@section('modal')
+    @include('v2.front.modal.applynow')
+@endsection
+
+@section('script')
     <script>
-        (function () {
+        (function() {
             'use strict'
 
             // Fetch all the forms we want to apply custom Bootstrap validation styles to
@@ -504,12 +536,12 @@
 
             // Loop over them and prevent submission
             Array.prototype.slice.call(forms)
-                .forEach(function (form) {
-                    form.addEventListener('submit', function (event) {
+                .forEach(function(form) {
+                    form.addEventListener('submit', function(event) {
                         if (!form.checkValidity()) {
                             event.preventDefault()
                             event.stopPropagation()
-                        }else{
+                        } else {
                             event.preventDefault();
                             confusedForm();
                         }
@@ -527,32 +559,48 @@
                 type: "POST",
                 url: url,
                 data: form.serialize(), // serializes the form's elements.
-                success: function (data) {
-                    if(data['status'] == 1){
+                success: function(data) {
+                    if (data['status'] == 1) {
                         form.addClass('d-none');
-                        $("#still-confused-div").append("<div class=\"alert alert-success\" role=\"alert\"><h4 class=\"alert-heading\">Form Submitted!</h4><p>Thank you for Submitting this Form</p><hr><p class=\"mb-0\">We will Inform you on your mail.</p></div>");
+                        $("#still-confused-div").append(
+                            "<div class=\"alert alert-success\" role=\"alert\"><h4 class=\"alert-heading\">Form Submitted!</h4><p>Thank you for Submitting this Form</p><hr><p class=\"mb-0\">We will Inform you on your mail.</p></div>"
+                        );
                     }
                 }
             });
         }
-    </script>
-@endsection
-@section('modal')
-    @include('v2.front.modal.applynow')
-@endsection
-@section('script')
-<script>
-        // $(document).on("click", ".openApplyNow", function () {
-        //     var form = $("#apply-now");
-        //     form[0].reset();
-        //     var id = $(this).data('id');
-        //     var name = $(this).data('name');
-        //     form.removeClass('d-none');
-        //     $("#success-div").html("");
 
-        //     $("#applyNow .modal-body #propID").val(id);
-        //     $("#applyNow .modal-body #propName").val(name);
-        // });
+        function isOnScreen(elem) {
+            // if the element doesn't exist, abort
+            if (elem.length == 0) {
+                return;
+            }
+            var $window = $(window)
+            var viewport_top = $window.scrollTop()
+            var viewport_height = $window.height()
+            var viewport_bottom = viewport_top + viewport_height
+            var $elem = $(elem)
+            var top = $elem.offset().top
+            var height = $elem.height()
+            var bottom = top + height
+
+            return (top >= viewport_top && top < viewport_bottom) ||
+                (bottom > viewport_top && bottom <= viewport_bottom) ||
+                (height > viewport_height && top <= viewport_top && bottom >= viewport_bottom)
+        }
+
+        $(document).ready(function() {
+            var myModal = new bootstrap.Modal(document.getElementById('applyNow'), {
+                keyboard: false
+            });
+            window.addEventListener('scroll', function(e) {
+                if (!isOnScreen($("#heroimage"))) {
+                    if (sessionStorage.getItem('apply-opened') == null) {
+                        myModal.show();
+                        sessionStorage.setItem('apply-opened', true);
+                    }
+                }
+            });
+        });
     </script>
-{{--<script type="javascript" src="{{asset('v2/assets/js/ajax.js')}}"></script>--}}
 @endsection

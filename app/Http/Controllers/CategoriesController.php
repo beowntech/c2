@@ -142,7 +142,7 @@ class CategoriesController extends Controller
             if($request->search == ""){
                 return redirect(route('search-college'));
             }
-            $data = $data->where('name', '%' . $request->search . '%')->orderByRaw('featured = ? desc', 1)->where('status', 1);
+            $data = $data->where('name','LIKE','%' . $request->search . '%')->orderByRaw('featured = ? desc', 1)->where('status', 1);
         }
         if ($request->has('catg')) {
             $catg = FrontCategories::where('name', $request->catg)->limit(1)->get();

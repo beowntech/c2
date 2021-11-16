@@ -13,10 +13,10 @@
                         <ul class="list-unstyled ver-line-menu">
                             @foreach($val->submenu as $s => $sub)
                                 @if(isset($sub->link))
-                                    <li><a href="{{$sub->link != "/" ? "/search?query=".$sub->link: ""}}">{{ucfirst(strtolower($sub->name))}}</a>
+                                    <li><a href="{{$sub->link != "/" ? "/search/colleges?query=".$sub->link: ""}}">{{ucfirst(strtolower($sub->name))}}</a>
                                     </li>
                                 @elseif(isset($sub->category))
-                                    <li><a href="/search?course={{$sub->catg}}">{{ucfirst(strtolower($sub->name))}}</a>
+                                    <li><a href="{{route('search-college')}}?course={{$sub->catg}}">{{ucfirst(strtolower($sub->name))}}</a>
                                     </li>
                                 @endif
                             @endforeach
@@ -62,10 +62,10 @@
             <ul class="list-unstyled li-md">
                 @foreach($val->submenu as $s => $sub)
                     @if(isset($sub->link))
-                        <li><a href="{{$sub->link != "/" ? "/search?query=".$sub->link: ""}}">{{ucfirst(strtolower($sub->name))}}</a>
+                        <li><a href="{{$sub->link != "/" ? "/search/colleges?query=".$sub->link: ""}}">{{ucfirst(strtolower($sub->name))}}</a>
                         </li>
                     @elseif(isset($sub->category))
-                        <li><a href="/search?course={{$sub->catg}}">{{ucfirst(strtolower($sub->name))}}</a>
+                        <li><a href="{{route('search-college')}}?course={{$sub->catg}}">{{ucfirst(strtolower($sub->name))}}</a>
                         </li>
                     @endif
                 @endforeach
@@ -115,7 +115,7 @@
 {{--            </ul>--}}
 {{--        </div>--}}
         <div class="col-md-1"></div>
-        <div class="col-md-3">
+        <div class="col">
             <p class="mb-0 fw-bold"> Corporate Office: </p>
             <p>Meedo plaza, Rajpur Road, Dehradun, Uttarakhand 248001</p>
             <p class="mb-0">+91 7060243009, 9997740264</p>

@@ -277,7 +277,7 @@
             var text = $(this).val();
             $.ajax({
                 type: "GET",
-                url: "{{str_replace('http','https',route('search-college-api'))}}",
+                url: "{{route('search-college-api')}}",
                 data: {'search': text},
                 success: function (data) {
                     $("#compareListCollege").html("");
