@@ -33,31 +33,11 @@
                     <div class="col-md-6 offset-md-3 position-relative">
                         <form action="{{route('search-college')}}">
                         <input type="search" name="search" class="form-control hero-search site-shadow-sm"
-                               placeholder="College Name, Courses">
+                               placeholder="College Name">
                         <button class="btn btn-search position-absolute top-50 end-20 translate-middle-y"><i
                                 class="fas fa-search"></i> Search
                         </button>
                         </form>
-                        <div class="search-result py-2 text-start bg-white border-radius-md mt-1">
-                            <p class="mb-0  ps-3">Colleges</p>
-                            <ul class="list-unstyled ps-4">
-                                <li><a href="#">Top DRCC College</a></li>
-                                <li><a href="#">Top College in Dehradun</a></li>
-                                <li><a href="#">Top College in Delhi</a></li>
-                                <li><a href="#">Top College in Mumbai</a></li>
-                                <li><a href="#">Top College in Bangalore</a></li>
-                                <li><a href="#">Top College in Mumbai</a></li>
-                            </ul>
-                            <p class="mb-0 ps-3">Courses</p>
-                            <ul class="list-unstyled ps-4">
-                                <li><a href="#">Top DRCC College</a></li>
-                                <li><a href="#">Top College in Dehradun</a></li>
-                                <li><a href="#">Top College in Delhi</a></li>
-                                <li><a href="#">Top College in Mumbai</a></li>
-                                <li><a href="#">Top College in Bangalore</a></li>
-                                <li><a href="#">Top College in Mumbai</a></li>
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -112,7 +92,11 @@
                             </div>
                         </div>
                         <div class="position-absolute bottom-0 start-50 translate-middle-x w-100 detail-bottom-desc">
-                            <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ strpos($val->logo, 'png') !== false ? $val->logo: (strpos($val->logo, 'jpg') !== false ?$val->logo:$val->logo.'-lg.webp') }}" class="prop-logo p-2 " alt="">
+                            <div class="d-inline-block prop-logo" style="background: white;bottom: 5px;position: absolute;height: 70px;z-index: 99999;">
+                               <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ strpos($val->logo, 'png') !== false ? $val->logo: (strpos($val->logo, 'jpg') !== false ?$val->logo:$val->logo.'-lg.webp') }}"
+                                        class="p-2" alt="">
+                            </div>
+                            {{-- <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ strpos($val->logo, 'png') !== false ? $val->logo: (strpos($val->logo, 'jpg') !== false ?$val->logo:$val->logo.'-lg.webp') }}" class="prop-logo p-2 " alt=""> --}}
                             <ul class="list-unstyled ver-line-menu d-inline-block py-2 text-white float-end">
                                 <li class="me-3"><i class="far fa-images"></i> {{count($val->images)}} Picture</li>
                                 <li class="me-3"><i class="fas fa-photo-video"></i> 0 Videos</li>

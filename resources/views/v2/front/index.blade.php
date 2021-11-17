@@ -17,7 +17,7 @@
                         <div class="mb-3  position-relative">
                             <form action="{{ route('search-college') }}">
                                 <input type="search" name="search" autocomplete="off" class="form-control hero-search" id="exampleDataList"
-                                    placeholder="College Name, Courses">
+                                    placeholder="College Name">
                                 <button type="submit"
                                     class="btn btn-search position-absolute top-50 end-10 translate-middle-y"><i
                                         class="fas fa-search"></i> Search
@@ -106,7 +106,7 @@
                 </div>
                 <div class="col-md-5 py-4">
                     <ul class="list-unstyled ver-line-menu float-end py-3">
-                        <li><a href="#!" class="text-white "> Video Call Guide</a></li>
+                        {{-- <li><a href="#!" class="text-white "> Video Call Guide</a></li> --}}
                         <li><a href="{{route('schedule-video-call')}}" class="btn site-btn-1 ">Schedule your Video Call</a></li>
                     </ul>
                 </div>
@@ -235,21 +235,21 @@
                 @foreach ($state as $s => $st)
                     @if ($s < 11)
                         <div class="col-md-2 text-center">
+                            <a style="text-decoration: inherit;color: black;" href="{{ route('search-college') }}?state={{ $st->name }}">
                             <div class="box-card-sm">
                                 <img src="/city/{{ $st->image }}" alt="">
-                                <a href="{{ route('search-college') }}?state={{ $st->name }}">
                                     <p class="f-16">{{ $st->name }}</p>
-                                </a>
                             </div>
+                            </a>
                         </div>
                     @else
                         <div class="col-md-2 text-center locationMore" style="display: none">
+                            <a style="text-decoration: inherit;color: black;" href="{{ route('search-college') }}?state={{ $st->name }}">
                             <div class="box-card-sm">
                                 <img src="/city/{{ $st->image }}" alt="">
-                                <a href="{{ route('search-college') }}?state={{ $st->name }}">
                                     <p class="f-16">{{ $st->name }}</p>
-                                </a>
                             </div>
+                        </a>
                         </div>
                     @endif
                 @endforeach
