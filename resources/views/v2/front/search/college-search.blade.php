@@ -64,9 +64,9 @@
             <div class="row mx-0">
                 <div class="col-md-3">
                     <div class="filter-bar">
-                        <div class="map text-center">
+                        {{-- <div class="map text-center">
                             <div class="btn site-btn-map"> Map View</div>
-                        </div>
+                        </div> --}}
                         <p class="small">{{ count($data) }} Colleges</p>
                         <div class="divider-span">
                             <p>Selected Filter <span class="float-end small"><a href="{{ request()->url() }}">Set

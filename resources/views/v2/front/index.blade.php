@@ -353,7 +353,7 @@
                     <p class="f-18">Reserve your accommodation and focuson your study, we <br> will provide you
                         the
                         better hostel facility.</p>
-                    <a href="#" class="f-20 text-white">explore all accommodation</a>
+                    <a href="/nearby/sai-group-of-institutions-dehradun" class="f-20 text-white">explore all accommodation</a>
                 </div>
             </div>
             <div class="row">
@@ -369,7 +369,7 @@
             </div>
             <div class="row mt-3">
                 <div class="col text-center text-white">
-                    <a href="/hostels" class="btn site-btn-1 btn-lg py-2 shadow px-5 f-14">Enquire Now</a>
+                    <a href="/nearby/sai-group-of-institutions-dehradun" class="btn site-btn-1 btn-lg py-2 shadow px-5 f-14">Enquire Now</a>
                 </div>
             </div>
         </div>

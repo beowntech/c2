@@ -20,18 +20,18 @@
             </div>
             <button class="btn site-btn-6 fw-6 ">Explore</button>
         </div>
-    </div>   
     </div>
-   
+    </div>
+
 </section>
 <section class="bglg">
     <div class="container">
         <div class="row">
             <div class="col-md-8 border-secondary py-4">
-               
+
                 <div class="row pe-3  mb-5">
                     <div class="col-12">
-                        <p class="fw-6 mb-1">{{$hostel->name}}</p>   
+                        <p class="fw-6 mb-1">{{$hostel->name}}</p>
                         <p class="fw-6 mb-3">{{$hostel->cities->name}} | {{$hostel->gender}}</p>
                         <div id="carouselExampleControls" class="carousel slide hostel-carousel" data-bs-ride="carousel">
                             <div class="carousel-inner">
@@ -52,7 +52,7 @@
                             </button>
                             </div>
                         </div>
-                        
+
                         <p class="mt-5 fw-6">Institute Nearby</p>
                         <div class="row">
                             <div class="col-md-6">
@@ -75,8 +75,8 @@
                                 <p>4 mins</p>
                             </div>
                         </div>
-                     
-                        
+
+
                         <p class="f-20 mt-3 fw-6">Amenities</p>
                         <div class="row">
                             <div class="col-md-3">
@@ -89,16 +89,16 @@
                                 <p>Laundry Service </p>
                             </div>
                         </div>
-                        <div class="mt-3 bg-white px-3 py-3">
+                        {{-- <div class="mt-3 bg-white px-3 py-3">
                             <p class="f-20 fw-6">Location</p>
                             <iframe width="100%" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=admission%20jockey&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                        </div>
-                        
+                        </div> --}}
+
 
                     </div>
                 </div>
 
-                
+
             </div>
             <div class="col-md-4 py-4">
                 <div class="bg-white border-radius-md py-3 site-shadow-md">
@@ -113,11 +113,11 @@
                         <input type="email"name="email" class="form-control site-field" placeholder="Email Id" required>
                         <input type="text" name="mobile" class="form-control site-field" placeholder="Mobile Number" required>
                         <input type="text" name="college" class="form-control site-field" placeholder="College" required>
-                        
+
                         <button class="btn site-btn-1 w-100 fw-6 shadow" type="submit" id="enroll-submit">Enroll Now</button>
                     </form>
                 </div>
-               
+
             </div>
         </div>
     </div>
