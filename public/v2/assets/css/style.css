@@ -418,7 +418,7 @@
   background: #fff;
   border-radius: 8px;
   margin-bottom: 20px;
-  padding: 12px; }
+  padding: 12px 12px; }
   .prop-card-1 .prop-logo {
     background: white;
     width: 70px;
@@ -428,9 +428,11 @@
     text-decoration: none; }
     .prop-card-1 a .fa-star {
       color: #f2cc13 !important; }
-  .prop-card-1 .prop-info p {
-    font-weight: 400;
-    margin-bottom: 0; }
+  .prop-card-1 .prop-info {
+    padding-bottom: 12px; }
+    .prop-card-1 .prop-info p {
+      font-weight: 400;
+      margin-bottom: 0; }
 
 .action-bg-1 {
   height: 120px;
@@ -556,7 +558,20 @@
     box-shadow: none; }
 
 .featured {
-  background: #ffb8b85e !important; }
+  background: #ffd8ba !important; }
+
+.theribbon {
+  position: relative;
+  font-size: 9px;
+  padding: 2px 8px;
+  color: #fff;
+  background-color: #ff5c01;
+  z-index: 10;
+  top: 24px;
+  left: -10px;
+  display: inline-block;
+  border-radius: 20px;
+  font-weight: 600; }
 
 .animation-circle {
   -webkit-animation: spin 50s linear infinite;
@@ -987,12 +1002,16 @@ footer {
     .video-counseling .action-btn .action-value p {
       margin-bottom: 0;
       margin-top: 4px; }
+    .video-counseling .action-btn .action-value:hover {
+      background: #ebf0f6; }
+    .video-counseling .action-btn .action-value:focus {
+      background: #fab895;
+      box-shadow: none; }
+    .video-counseling .action-btn .action-value .btn-outline-primary:focus {
+      box-shadow: none; }
 
-.video-counseling .c2 {
+.video-counseling .active {
   background: #fab895; }
-
-.video-counseling .c3 {
-  background: #ebf0f6; }
 
 .college-detail .carousel-indicators {
   top: 1px;

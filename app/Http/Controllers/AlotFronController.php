@@ -267,7 +267,7 @@ class AlotFronController extends Controller
             Tales::where('id', $s->tales[0]->id)->increment('views');
             return view('front.blog-detail', compact('data', 'related', 'colleges'));
         }
-        $data = Tales::where('deleted_at',null)->where('status',1)->paginate(9);
+        $data = Tales::where('deleted_at',null)->where('status',1)->orderBy('id','desc')->paginate(9);
         foreach ($data as $k => $d) {
             $sep = Tales::find($d->id);
             $data[$k]['user'] = User::where('id', $d->user_id)->get();
@@ -558,6 +558,15 @@ class AlotFronController extends Controller
         }
         $data = CityModel::where('name','LIKE','%'.$search.'%')->whereIn('state_id',[39,38])->limit(50)->get();
         return $data;
+    }
+
+
+    public function scheduleVideo(){
+        $course = DB::table('front_categories')
+        ->select('name', DB::raw('count(*) as total'))
+        ->groupBy('name')
+        ->get();
+        return view('v2.front.video-call.apply',compact('course'));
     }
 
 }

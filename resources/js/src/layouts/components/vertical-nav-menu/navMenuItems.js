@@ -320,6 +320,13 @@ export default [
                 icon: "ImageIcon",
                 i18n: "Ads Page",
             },
+            {
+                url: "/search/ads",
+                name: "Search Ads",
+                slug: "search/ads",
+                icon: "ImageIcon",
+                i18n: "Search Ads",
+            },
         ]
     },
     {

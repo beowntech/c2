@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ads;
 use App\Amenities;
 use App\Booking;
 use App\Categories;
@@ -197,12 +198,12 @@ class CategoriesController extends Controller
 //        $stream = FrontCategories::where('parent_id', '!=', 0)->has('children')->with('children')->limit(20)->get();
         $category = CategoryNameModel::orderBy('position', 'ASC')->with('children.categories')->limit(20)->get();
 //        $course = Course::limit(20)->get();
-
+        $ads = Ads::all();
         $state = StateModel::orderBy('id', 'ASC')->has('location')->withCount('location')->get();
         if($request->ajax()){
             return $data;
         }
-        return view('v2.front.search.college-search', compact('data', 'state', 'ptype', 'courseD', 'am', 'category', 'city', 'categories'));
+        return view('v2.front.search.college-search', compact('data', 'state', 'ptype', 'courseD', 'am', 'category', 'city', 'categories','ads'));
     }
 
     public function single($city = "", $id = '')

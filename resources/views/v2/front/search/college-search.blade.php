@@ -42,18 +42,19 @@
                     <nav style="--bs-breadcrumb-divider: '>>';" aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Admissionjockey</a></li>
-                            @if(count(request()->query()) == 0)
-                            <li class="breadcrumb-item active" area-current="page"><a href="{{ request()->fullUrl() }}"
-                                class="text-decoration-none">Search</a></li>
+                            @if (count(request()->query()) == 0)
+                                <li class="breadcrumb-item active" area-current="page"><a
+                                        href="{{ request()->fullUrl() }}" class="text-decoration-none">Search</a></li>
                             @else
-                            @foreach (request()->query() as $q => $qu)
-                                @foreach (explode(',', request()->query($q)) as $f => $fi)
-                                @if($f == 0)
-                                    <li class="breadcrumb-item active" area-current="page"><a href="{{ request()->fullUrl() }}"
-                                            class="text-decoration-none">{{ucfirst($fi)}}</a></li>
-                                            @endif
+                                @foreach (request()->query() as $q => $qu)
+                                    @foreach (explode(',', request()->query($q)) as $f => $fi)
+                                        @if ($f == 0)
+                                            <li class="breadcrumb-item active" area-current="page"><a
+                                                    href="{{ request()->fullUrl() }}"
+                                                    class="text-decoration-none">{{ ucfirst($fi) }}</a></li>
+                                        @endif
+                                    @endforeach
                                 @endforeach
-                            @endforeach
                             @endif
                             {{-- <li class="breadcrumb-item active" aria-current="page">Banglore College</li> --}}
                         </ol>
@@ -145,29 +146,31 @@
                             <ul class="list-unstyled filter-checkbox">
                                 <li> <input type="checkbox" name="type[]" id="type1"
                                         {{ in_array(1, explode(',', request()->query('type'))) ? 'checked' : '' }}
-                                        class="form-check-input" value="1">  <label
-                                        for="type1">Public</label></li>
+                                        class="form-check-input" value="1"> <label for="type1">Public</label></li>
                                 <li> <input type="checkbox" name="type[]" id="type2"
                                         {{ in_array(2, explode(',', request()->query('type'))) ? 'checked' : '' }}
-                                        class="form-check-input" value="2"> <label
-                                        for="type2">Private</label></li>
+                                        class="form-check-input" value="2"> <label for="type2">Private</label></li>
                                 <li> <input type="checkbox" name="type[]" id="type3"
                                         {{ in_array(3, explode(',', request()->query('type'))) ? 'checked' : '' }}
-                                        class="form-check-input" value="3"><label
-                                        for="type3"> Govt.</label></li>
+                                        class="form-check-input" value="3"><label for="type3"> Govt.</label></li>
                                 <li> <input type="checkbox" name="type[]" id="type4"
                                         {{ in_array(4, explode(',', request()->query('type'))) ? 'checked' : '' }}
-                                        class="form-check-input" value="4"> <label
-                                        for="type4">Deamed</label></li>
+                                        class="form-check-input" value="4"> <label for="type4">Deamed</label></li>
                             </ul>
                         </div>
                     </div>
 
                 </div>
                 <div class="col-md-9">
-                    <div class="text-center">
-                        <img src="/v2/assets/images/site/ads.png" alt="" class="">
-                    </div>
+                    @if ($ads != null)
+                        @foreach ($ads as $a)
+                            @if ($a->position == 'top')
+                                <div class="text-center">
+                                    <a href="{{json_decode($a->data)->url}}"><img src="/ads/images/{{$a->image}}" alt="" class=""></a>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
                     <div class="py-2 small">
                         <p class="d-inline-block"> {{ count($data) }} Colleges </p>
                         {{-- <ul class="d-inline-block list-unstyled ver-line-menu float-end">
@@ -213,7 +216,10 @@
                                 </div>
                             @endif
                             <div class="col-md-6">
-                                <div class="prop-card-1 {{ $val->featured == 1 ? 'featured' : '' }}">
+                                @if ($val->featured == 1)
+                                    <div class='theribbon'>FEARTURED COLLEGE </div>
+                                @endif
+                                <div class="prop-card-1 {{ $val->featured == 1 ? 'featured featured-ribbon' : '' }}">
                                     <div class="logo position-relative mb-1">
                                         <div class="d-inline-block prop-logo">
                                             <a
@@ -279,7 +285,7 @@
                                                     data-bs-target="#compareModal"
                                                     data-slug="{{ $val->seo[0]->permalink }}" href="#"
                                                     class="btn hover-site-btn-1 scolor"> Compare </a></li>
-                                            <li><a
+                                            <li><a target="_blank"
                                                     href="/college-in-{{ str_replace(' ', '_', str_replace('/[^A-Za-z0-9\-]/', '-', strtolower($val->location == null ? '' : $val->location->cities->name))) }}/{{ $val->seo == null ? '' : $val->seo[0]->permalink }}"
                                                     class="btn hover-site-btn-1 scolor mt-1"> Visit Details </a></li>
                                         </ul>
@@ -293,9 +299,15 @@
                             <button class="btn site-btn-1" id="viewMore">View More</button>
                         </div>
                     @endif
-                    <div class="text-center mb-3">
-                        <img src="/v2/assets/images/site/ads.png" alt="" class="">
-                    </div>
+                    @if ($ads != null)
+                        @foreach ($ads as $a)
+                            @if ($a->position == 'bottom')
+                                <div class="text-center mb-3">
+                                    <a href="{{json_decode($a->data)->url}}"><img src="/ads/images/{{$a->image}}" alt="" class=""></a>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </div>

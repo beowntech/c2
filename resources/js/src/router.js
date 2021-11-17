@@ -109,6 +109,15 @@ const router = new Router({
                     }
                 },
                 {
+                    path: '/search/ads',
+                    name: 'search-ads',
+                    component: () => import('./views/search-ads/index.vue'),
+                    meta: {
+                        rule: 'editor',
+                        requiresAuth: true
+                    }
+                },
+                {
                     path: '/categories/add',
                     name: 'categories',
                     component: () => import('./views/categories/add.vue'),

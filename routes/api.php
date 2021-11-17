@@ -33,6 +33,11 @@ Route::prefix('status')->group(function () {
     Route::post('update','StatusController@update');
 });
 
+Route::prefix('ads')->group(function () {
+    Route::post('create','AdsController@create');
+    Route::get('index','AdsController@index');
+});
+
 Route::group(['prefix' => 'menu'], function () {
     Route::post('create/header', 'MenuController@create');
     Route::post('header/get', 'MenuController@index');

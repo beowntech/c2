@@ -1338,7 +1338,7 @@
                         "                                <ul class=\"list-unstyled ps-4\">");
                     for(var i = 0; i < response.length; i++) {
                         $(".liveSearch ul").append("<li>\n" +
-                            "                                <a href=\"/college-in-"+response[i].location.cities.name.toLowerCase().replace(" ", "_")+"/"+response[i].seo[0].permalink+"\">" + response[i].name + "</a>\n" +
+                            "                                <a target=\"_blank\" href=\"/college-in-"+response[i].location.cities.name.toLowerCase().replace(" ", "_")+"/"+response[i].seo[0].permalink+"\">" + response[i].name + "</a>\n" +
                             "                                    </li>");
                     }
                     $(".liveSearch").append("</ul>");

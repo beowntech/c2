@@ -80,6 +80,14 @@ class AppServiceProvider extends ServiceProvider
             $view->with('courses',$course);
         });
 
+        view()->composer('v2.front.apply-now', function($view) {
+            $course = DB::table('front_categories')
+                ->select('name', DB::raw('count(*) as total'))
+                ->groupBy('name')
+                ->get();
+            $view->with('courses',$course);
+        });
+
 
         view()->composer('v2.front.layout.header', function($view) {
             $menu = Menu::categories();

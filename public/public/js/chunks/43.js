@@ -7538,6 +7538,12 @@ __webpack_require__.r(__webpack_exports__);
     slug: "dynamic-page",
     icon: "ImageIcon",
     i18n: "Ads Page"
+  }, {
+    url: "/search/ads",
+    name: "Search Ads",
+    slug: "search/ads",
+    icon: "ImageIcon",
+    i18n: "Search Ads"
   }]
 }, {
   header: "Bank Data",

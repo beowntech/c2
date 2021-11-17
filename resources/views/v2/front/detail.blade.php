@@ -165,8 +165,8 @@
                             </p>
                             <p><a href="#"><i class="fas fa-download"></i> Download College Broucher</a></p>
                             <div class="position-absolute bottom-0 end-0 pe-4 pb-3">
-                                <button class="btn site-btn-4">Schedule Video Call</button>
-                                <button class="btn site-btn-4">Chat with College</button>
+                                <a href="{{route('schedule-video-call')}}" class="btn site-btn-4">Schedule Video Call</a>
+                                {{-- <button class="btn site-btn-4">Chat with College</button> --}}
                                 <button class="btn site-btn-1 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow">Apply Now</button>
                             </div>
                         </div>

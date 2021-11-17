@@ -78,6 +78,12 @@ Route::get('hostel-form', function () {
     return view('v2.front.hostel.loan-form');
 });
 
+Route::get('apply-now', function () {
+    return view('v2.front.apply-now');
+});
+
+Route::get('video-call', [App\Http\Controllers\AlotFronController::class,'scheduleVideo'])->name('schedule-video-call');
+
 
 Route::post('hostel-form/submit', 'BestHotelFormController@store');
 Route::post('edu-loan/submit', 'EducationLoanFormController@store');

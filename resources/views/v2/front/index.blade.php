@@ -16,7 +16,7 @@
                             and connect with the best ones for you</p>
                         <div class="mb-3  position-relative">
                             <form action="{{ route('search-college') }}">
-                                <input type="search" name="search" class="form-control hero-search" id="exampleDataList"
+                                <input type="search" name="search" autocomplete="off" class="form-control hero-search" id="exampleDataList"
                                     placeholder="College Name, Courses">
                                 <button type="submit"
                                     class="btn btn-search position-absolute top-50 end-10 translate-middle-y"><i
@@ -39,7 +39,7 @@
                         <div class="hero-highlight float-end text-start">
                             <p class="mb-0">Ranked</p>
                             <h3 class="mb-0"><strong>50+</strong> College</h3>
-                            <a href="{{ route('search-college') }}">view all top college</a>
+                            <a href="/top-50-colleges-in-india">view all top college</a>
                         </div>
                     </div>
 
@@ -106,8 +106,8 @@
                 </div>
                 <div class="col-md-5 py-4">
                     <ul class="list-unstyled ver-line-menu float-end py-3">
-                        <li><a href="/" class="text-white "> Video Call Guide</a></li>
-                        <li><a href="/" class="btn site-btn-1 ">Schedule your Video Call</a></li>
+                        <li><a href="#!" class="text-white "> Video Call Guide</a></li>
+                        <li><a href="{{route('schedule-video-call')}}" class="btn site-btn-1 ">Schedule your Video Call</a></li>
                     </ul>
                 </div>
             </div>
@@ -405,7 +405,7 @@
                                 <p class="mb-3 f-12">
                                     {{ $val->location == null ? '' : $val->location->cities->name }}
                                     , {{ $val->location == null ? '' : $val->location->states->name }}</p>
-                                <a
+                                <a target="_blank"
                                     href="/college-in-{{ str_replace(' ', '_', str_replace('/[^A-Za-z0-9\-]/', '-', strtolower($val->location == null ? '' : $val->location->cities->name))) }}/{{ $val->seo->isEmpty() ? '' : $val->seo[0]->permalink }}">
                                     <p class="f-12">VIEW ALL COUSRSES AND FEES</p>
                                 </a>
