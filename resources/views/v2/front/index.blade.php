@@ -39,7 +39,7 @@
                         <div class="hero-highlight float-end text-start">
                             <p class="mb-0">Ranked</p>
                             <h3 class="mb-0"><strong>50+</strong> College</h3>
-                            <a href="/top-50-colleges-in-india">view all top college</a>
+                            <a href="https://admissionjockey.com/top-50-colleges-in-india">view all top college</a>
                         </div>
                     </div>
 
@@ -132,9 +132,9 @@
                         {{-- <li> --}}
                         {{-- <button class="btn site-btn-2 me-3" id="exam_service">Exams</button> --}}
                         {{-- </li> --}}
-                        <li>
+                        {{-- <li>
                             <button class="btn site-btn-2 me-3">Courses</button>
-                        </li>
+                        </li> --}}
                         {{-- <li> --}}
                         {{-- <button class="btn site-btn-2 me-3">Career</button> --}}
                         {{-- </li> --}}
@@ -150,13 +150,13 @@
                     @foreach ($fcatg as $c => $ca)
                         @foreach ($ca->children as $cc => $cac)
                             <div class="col-md-2 text-center">
+                                <a style="text-decoration: inherit;color: black;" href="{{ route('search-college') }}?catg={{ strtolower($cac->name) }}">
                                 <div class="box-card-sm">
                                     <img src="{{ env('MEDIA_URL') }}front/images/future/{{ $cac->image }}" alt="">
-                                    <a href="{{ route('search-college') }}?catg={{ strtolower($cac->name) }}">
                                         <p class="f-16">{{ $cac->name }}</p>
-                                    </a>
                                     <p class="mt-1 small">{{ $cac->property }} Colleges</p>
                                 </div>
+                            </a>
                             </div>
                             @if ($cc == 11)
                                 <?php break 2; ?>
@@ -168,13 +168,13 @@
                     @foreach ($fcatg as $c => $ca)
                         @foreach ($ca->children as $cc => $cac)
                             <div class="col-md-2 text-center">
+                                <a style="text-decoration: inherit;color: black;" href="{{ route('search-college') }}?catg={{ strtolower($cac->name) }}">
                                 <div class="box-card-sm">
                                     <img src="{{ env('MEDIA_URL') }}front/images/future/{{ $cac->image }}" alt="">
-                                    <a href="{{ route('search-college') }}?catg={{ strtolower($cac->name) }}">
                                         <p class="f-16">{{ $cac->name }}</p>
-                                    </a>
                                     <p class="mt-1 small">{{ $cac->property }} Colleges</p>
                                 </div>
+                                </a>
                             </div>
                         @endforeach
                     @endforeach
@@ -227,7 +227,7 @@
                 <div class="col-md-2 text-center">
                     <div class="box-card-sm">
                         <img src="/city/india.png" alt="">
-                        <a href="{{ route('search-college') }}?state=india">
+                        <a href="{{ route('search-college') }}">
                             <p class="f-16">India</p>
                         </a>
                     </div>
@@ -262,6 +262,7 @@
             </div>
         </div>
     </section>
+
 
     <section class="free-guidance-section">
         <div class="container">
@@ -447,7 +448,7 @@
                                                     <i class="fas fa-quote-left "></i>
                                                     <img src="{{ env('MEDIA_URL') }}testimonials/{{ $test->image }}"
                                                         width="150px" height="150px" class="user-avatar" alt="">
-                                                    <div class="d-inline-block ms-4 text-start pcolor">
+                                                    <div class="d-inline-block ms-4 text-start pcolor" style="position: absolute;top: 100px;">
                                                         <h3 class="f-24">{{ $test->user_name }}</h3>
                                                         <p>{{ $test->property_name }}</p>
                                                     </div>

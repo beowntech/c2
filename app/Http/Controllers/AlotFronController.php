@@ -79,10 +79,7 @@ class AlotFronController extends Controller
                 $fcatg[$c]['children'][$cc]['exams'] = Exam::where('exam_category',$cac->id)->count();
             }
         }
-        $state = StateModel::where('image', '!=', null)->get();
-        foreach ($state as $s => $st) {
-            $state[$s]['count'] = Locations::where('state', $st->id)->count();
-        }
+        $state = StateModel::where('image', '!=', null)->withCount('location')->orderByDesc("location_count")->get();
         $testimonial = Testimonial::where('status',1)->get();
         $seo = SEO::where('permalink','/')->get();
         return view('v2.front.index', compact('category', 'catg','seo', 'course', 'city', 'categories', 'prop', 'fcatg', 'state','testimonial'));

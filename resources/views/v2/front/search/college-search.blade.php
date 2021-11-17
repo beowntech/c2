@@ -5,7 +5,7 @@
             <div class="row py-2">
                 <div class="col-md-6 offset-md-3 position-relative">
                     <form action="{{ route('search-college') }}">
-                        <input type="search" name="search" class="form-control hero-search site-shadow-sm"
+                        <input type="search" name="search" autocomplete="off" class="form-control hero-search site-shadow-sm"
                             placeholder="College Name, Courses">
                         <button type="submit" class="btn btn-search top-50 position-absolute end-20 translate-middle-y">
                             <i class="fas fa-search"></i> Search</button>
@@ -264,7 +264,7 @@
                                     </div>
                                     <div class="prop-info">
                                         <p class="f-20 pcolor"><a style="color: initial;"
-                                                href="/college-in-{{ str_replace(' ', '_', str_replace('/[^A-Za-z0-9\-]/', '-', strtolower($val->location == null ? '' : $val->location->cities->name))) }}/{{ $val->seo == null ? '' : $val->seo[0]->permalink }}">{{ $val->name }}</a>
+                                                href="/college-in-{{ str_replace(' ', '_', str_replace('/[^A-Za-z0-9\-]/', '-', strtolower($val->location == null ? '' : $val->location->cities->name))) }}/{{ $val->seo == null ? '' : $val->seo[0]->permalink }}">{{ Illuminate\Support\Str::limit($val->name, 35, $end='...') }}</a>
                                         </p>
                                         <p><i class="fas fa-map-marker-alt"></i> {{ $val->location->cities->name }},
                                             {{ $val->location->states->name }}</p>
@@ -277,17 +277,17 @@
                                             <li class="me-3">NIRF Ranking - 12</li>
                                         </ul>
                                         <ul class="d-inline-block list-unstyled ver-line-menu text-secondary small">
-                                            <li class="me-2"><button class="btn site-btn-1 openApplyNow"
+                                            <li class="me-2"><button class="btn site-btn-1 f-14 openApplyNow"
                                                     data-id="{{ $val->id }}" data-name="{{ $val->name }}"
                                                     data-bs-toggle="modal" data-bs-target="#applyNow"> Apply Now </button>
                                             </li>
                                             <li class="me-2"><a data-bs-toggle="modal"
                                                     data-bs-target="#compareModal"
                                                     data-slug="{{ $val->seo[0]->permalink }}" href="#"
-                                                    class="btn hover-site-btn-1 scolor"> Compare </a></li>
+                                                    class="btn hover-site-btn-1 scolor f-14"> Compare </a></li>
                                             <li><a target="_blank"
                                                     href="/college-in-{{ str_replace(' ', '_', str_replace('/[^A-Za-z0-9\-]/', '-', strtolower($val->location == null ? '' : $val->location->cities->name))) }}/{{ $val->seo == null ? '' : $val->seo[0]->permalink }}"
-                                                    class="btn hover-site-btn-1 scolor mt-1"> Visit Details </a></li>
+                                                    class="btn hover-site-btn-1 scolor f-14"> Visit Details </a></li>
                                         </ul>
                                     </div>
                                 </div>

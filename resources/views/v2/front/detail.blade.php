@@ -141,9 +141,9 @@
 {{--                                    <i class="fas fa-star gcolor"></i> --}}
 {{--                                    <i class="fas fa-star-half-alt gcolor"></i> --}}
                                 </li>
-                                <li class="me-3">
-                                    <button class="btn site-btn-2 text-secondary py-0">Add Review</button>
-                                </li>
+                                {{-- <li class="me-3"> --}}
+                                    {{-- <button class="btn site-btn-2 text-secondary py-0">Add Review</button> --}}
+                                {{-- </li> --}}
                                 <li class="me-3">
                                     <button data-bs-toggle="modal" data-bs-target="#compareModal" data-slug="{{$val->seo[0]->permalink}}" class="btn site-btn-2 py-0">Compare</button>
                                 </li>
@@ -155,7 +155,7 @@
                         <div class="bg-white college-info px-3 pb-2">
                             <h1 class="py-2 mb-0">{{$val->name}}</h1>
                             <ul class="d-inline-block list-unstyled ver-line-menu text-secondary small">
-                                <li class="me-3">Type - Private</li>
+                                <li class="me-3">Type - {{ $val->college_type == 1 ? 'Public' : ($val->college_type == 2 ? 'Private' : ($val->college_type == 3 ? 'Govt.' : ($val->college_type == 4 ? 'Deemed' : ''))) }}</li>
                                 <li class="me-3">Apporved by: {{$val->approved_by}}</li>
                                 <li class="me-3">NIRF Ranking - 12</li>
                                 {{-- <li><a href="#">MORE</a></li> --}}
