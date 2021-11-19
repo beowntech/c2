@@ -11,7 +11,7 @@
 <div style="background-color:#fff4ee;padding: 0 20px;max-width: 800px;font-family: 'Open Sans', sans-serif; color:#151617;">
     <div style="background-color:#fff;border-right: 5px solid #023793;border-left: 5px solid #023793; text-align:center;">
         <div style="padding-top: 40px; padding-left: 10px; padding-bottom: 15px; padding-right: 10px;">
-            <img src="{{env('APP_URL')}}/assets/images/admission-jockey-logo1.png" alt="">
+            <img src="{{env('APP_URL')}}/v2/assets/images/admission-jockey-logo1-main.png" alt="">
             <p style="font-size: 14px;"><u>Indias most trusted & reliable personal admission assistance platform</u></p>
             <h2 style="font-weight: 600;font-size: 26px;">Welcome @if(isset($data)) {{$data['name']}}! @endif</h2>
             <p style="margin-top: -20px">We are delighted to have you on board with Admission Jockey and promise to assist you at each step of your career decision/journey.</p>
