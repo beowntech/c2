@@ -38,14 +38,14 @@ class MultipleFormJob implements ShouldQueue
     {
         $data = array(
             'email' => $this->email,
-            'subject' => 'Admission Jockey Form Mail',
+            'subject' => 'Welcome to Admission Jockey',
             'name' => $this->name,
             'mailbody' => $this->content
         );
 
-        Mail::send('v2.mail.multi-form', [], function ($message) use ($data) {
+        Mail::send('v2.mail.multi-form', ['data'=>$data], function ($message) use ($data) {
             $message->to(env('RECEIVE_EMAIL'));
-            $message->subject($data['subject'] . " from " . $data['name']);
+            $message->subject($data['subject']);
         });
     }
 }
