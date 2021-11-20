@@ -95,7 +95,7 @@ class HostelsController extends Controller
             $newHeight = $val * $size[1];
             $savePath = $request->savePath;
             if (!file_exists($savePath)) {
-                mkdir($savePath, 0755, true);
+                mkdir($savePath, 755, true);
             }
             if ($val == 1) {
                 Image::make($img)->save($savePath . '/' . $filename . '.' . $extension);

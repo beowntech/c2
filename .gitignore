@@ -1,5 +1,12 @@
 /node_modules
 /public/hot
+/public/hostel
+/public/ads
+/public/hostel
+/public/category
+/public/blogs
+/public/banks
+/public/property
 /public/storage
 /public/public.zip
 /storage/*.key
