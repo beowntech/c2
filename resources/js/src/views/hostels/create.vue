@@ -54,6 +54,14 @@
               placeholder="Enter Gender"
             />
           </div>
+          <div class="vx-col sm:w-1/3 w-full mt-4">
+            <label>Featured</label>
+            <vs-checkbox
+              class="w-full"
+              v-model="featured"
+              placeholder="Featured?"
+            />
+          </div>
         </div>
         <h4 class="mb-3"><strong>Facilites Near By:</strong></h4>
         <div class="vx-row" v-for="(data, i) in nearbyFacility" :key="i">
@@ -188,6 +196,7 @@ export default {
       gender: "",
       about: "",
       states: [],
+      featured: false,
       selecteTags: null,
       selectedTags: [],
       cities: [],
@@ -226,6 +235,7 @@ export default {
       fd.append("state", this.state);
       fd.append("gender", this.gender);
       fd.append("about", this.about);
+      fd.append("featured", this.featured ? 1:0);
       fd.append("nearby_properties", JSON.stringify(this.nearbyInst));
       fd.append("facilities_nearby", JSON.stringify(this.nearbyFacility));
       fd.append("amenities", JSON.stringify(this.selectedTags));

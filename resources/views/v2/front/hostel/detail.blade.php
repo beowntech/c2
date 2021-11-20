@@ -55,39 +55,35 @@
 
                         <p class="mt-5 fw-6">Institute Nearby</p>
                         <div class="row">
+                            @foreach (json_decode($hostel->nearby_properties) as $inst)
                             <div class="col-md-6">
-                                <p>Christ University Banegretta </p>
-                                <p>4 mins</p>
+                                <p>{{$inst->property}}</p>
+                                <p>{{$inst->distance}}</p>
                             </div>
-                            <div class="col-md-6">
+                            @endforeach
+                            {{-- <div class="col-md-6">
                                 <p>NIMM Banglore </p>
                                 <p>4 mins</p>
-                            </div>
+                            </div> --}}
                         </div>
                         <p class="mt-3 fw-6">Facilities Nearby</p>
                         <div class="row">
+                            @foreach (json_decode($hostel->facilities_nearby) as $inst)
                             <div class="col-md-6">
-                                <p>Hospital </p>
-                                <p>4 mins</p>
+                                <p>{{$inst->name}}</p>
+                                <p>{{$inst->distance}}</p>
                             </div>
-                            <div class="col-md-6">
-                                <p>Super market </p>
-                                <p>4 mins</p>
-                            </div>
+                            @endforeach
                         </div>
 
 
                         <p class="f-20 mt-3 fw-6">Amenities</p>
                         <div class="row">
+                            @foreach (json_decode($hostel->amenities) as $inst)
                             <div class="col-md-3">
-                                <p>CCTV Camera </p>
+                                <p>{{$inst}}</p>
                             </div>
-                            <div class="col-md-3">
-                                <p>Attached Bathroom </p>
-                            </div>
-                            <div class="col-md-3">
-                                <p>Laundry Service </p>
-                            </div>
+                            @endforeach
                         </div>
                         {{-- <div class="mt-3 bg-white px-3 py-3">
                             <p class="f-20 fw-6">Location</p>

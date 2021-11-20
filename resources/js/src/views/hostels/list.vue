@@ -36,7 +36,7 @@
                         </template>
                     </vs-td> -->
                     <vs-td class="whitespace-no-wrap">
-                        <!-- <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" v-if="$acl.check('editor')" @click.stop="editData(tr.id)" /> -->
+                        <feather-icon icon="EditIcon" svgClasses="w-5 h-5 hover:text-primary stroke-current" v-if="$acl.check('editor')" @click.stop="editData(tr.id)" />
                         <!-- <feather-  icon icon="AwardIcon" svgClasses="w-5 h-5 hover:text-warning stroke-current" class="ml-2" v-if="$acl.check('editor')" @click.stop="seoEdit(tr.id)" /> -->
                         <feather-icon icon="TrashIcon" svgClasses="w-5 h-5 hover:text-warning stroke-current" class="ml-2" @click.stop="openAlert(tr.name,tr.id)" />
                     </vs-td>
@@ -105,12 +105,12 @@
                     })
             },
             propDelete(){
-                axios.post('/api/properties/delete',{
-                    'prop': this.val[0].id
+                axios.post('/api/hostels/delete',{
+                    hostel: this.val[0].id
                 })
                     .then((res) => {
                         if(res.data == 1) {
-                            this.getProps();
+                            this.getHostel();
                             this.activePrompt = false;
                             this.alert('Deleted Successfully', '', 'green');
                         }
@@ -157,8 +157,8 @@
                 });
             },
             editData(prop){
-                this.$vs.loading();
-                this.$router.push("/property/update/"+prop).catch(() => {})
+
+                this.$router.push("/hostel/update/"+prop).catch(() => {})
             },
             seoEdit(prop){
                 this.$vs.loading();

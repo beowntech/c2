@@ -667,6 +667,15 @@ const router = new Router({
                     component: () => import('./views/hostels/list.vue')
                 },
                 {
+                    path: '/hostel/update/:hostelId',
+                    name: 'Hostels Upate',
+                    meta: {
+                        rule: 'editor',
+                        requiresAuth: true
+                    },
+                    component: () => import('./views/hostels/update.vue')
+                },
+                {
                     path: '/header/menu',
                     name: 'Header Menu',
                     meta: {

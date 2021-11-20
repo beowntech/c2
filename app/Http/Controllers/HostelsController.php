@@ -125,4 +125,32 @@ class HostelsController extends Controller
         return $data;
     }
 
+    public function getDetail(Request $request){
+        $data = Hostels::where('id',$request->hostel)->first();
+        return $data;
+    }
+
+    public function update(Request $req){
+        $data = Hostels::where('id',$req->hostel_id)
+        ->update(array(
+            'name'=> $req->name,
+            'city'=> $req->city,
+            'state'=> $req->state,
+            'gender' => $req->gender,
+            'nearby_properties'=> $req->nearby_properties,
+            'facilities_nearby'=> $req->facilities_nearby,
+            'amenities'=> $req->amenities,
+            'about'=> $req->about,
+            'featured'=> $req->featured
+        ));
+        return response()->json(['status'=>1]);
+    }
+
+    public function delete(Request $request){
+        $data = Hostels::where('id',$request->hostel)->first();
+        $data->seo()->delete();
+        $data->delete();
+        return 1;
+    }
+
 }

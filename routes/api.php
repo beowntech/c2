@@ -151,6 +151,9 @@ Route::post('policies/get','AlotFronController@getPolicy');
 Route::group(['prefix' => 'hostels'], function () {
     Route::post('create',[App\Http\Controllers\HostelsController::class,'create']);
     Route::post('list',[App\Http\Controllers\HostelsController::class,'list']);
+    Route::post('get',[App\Http\Controllers\HostelsController::class,'getDetail']);
+    Route::post('update',[App\Http\Controllers\HostelsController::class,'update']);
+    Route::post('delete',[App\Http\Controllers\HostelsController::class,'delete']);
 });
 
 Route::group(['prefix' => 'properties'], function () {

@@ -191,6 +191,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -209,6 +217,7 @@ __webpack_require__.r(__webpack_exports__);
       gender: "",
       about: "",
       states: [],
+      featured: false,
       selecteTags: null,
       selectedTags: [],
       cities: [],
@@ -255,6 +264,7 @@ __webpack_require__.r(__webpack_exports__);
       fd.append("state", this.state);
       fd.append("gender", this.gender);
       fd.append("about", this.about);
+      fd.append("featured", this.featured ? 1 : 0);
       fd.append("nearby_properties", JSON.stringify(this.nearbyInst));
       fd.append("facilities_nearby", JSON.stringify(this.nearbyFacility));
       fd.append("amenities", JSON.stringify(this.selectedTags));
@@ -518,6 +528,27 @@ var render = function() {
                         _vm.gender = $$v
                       },
                       expression: "gender"
+                    }
+                  })
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "vx-col sm:w-1/3 w-full mt-4" },
+                [
+                  _c("label", [_vm._v("Featured")]),
+                  _vm._v(" "),
+                  _c("vs-checkbox", {
+                    staticClass: "w-full",
+                    attrs: { placeholder: "Featured?" },
+                    model: {
+                      value: _vm.featured,
+                      callback: function($$v) {
+                        _vm.featured = $$v
+                      },
+                      expression: "featured"
                     }
                   })
                 ],
