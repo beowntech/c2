@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CityModel;
+use App\Hostel;
 use App\Hostels;
 use App\SEO;
 use App\StateModel;
@@ -117,6 +118,11 @@ class HostelsController extends Controller
         return view('v2.front.hostel.detail',compact('hostel'));
         }
         return abort(404);
+    }
+
+    public function list(){
+        $data = Hostels::all();
+        return $data;
     }
 
 }

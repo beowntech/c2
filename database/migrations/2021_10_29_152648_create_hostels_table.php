@@ -19,6 +19,8 @@ class CreateHostelsTable extends Migration
             $table->string('city');
             $table->string('gender');
             $table->json('nearby_properties');
+            $table->json('facilites_nearby')->nullable();
+            $table->json('amenities')->nullable();
             $table->timestamps();
         });
     }

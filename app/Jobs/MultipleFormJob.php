@@ -22,7 +22,7 @@ class MultipleFormJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($name,$email,$content)
+    public function __construct($name, $email, $content)
     {
         $this->name = $name;
         $this->email = $email;
@@ -43,9 +43,16 @@ class MultipleFormJob implements ShouldQueue
             'mailbody' => $this->content
         );
 
-        Mail::send('v2.mail.multi-form', ['data'=>$data], function ($message) use ($data) {
-            $message->to(env('RECEIVE_EMAIL'));
-            $message->subject($data['subject']);
-        });
+        if ($data['email'] != null) {
+            Mail::send('v2.mail.multi-form', ['data' => $data], function ($message) use ($data) {
+                $message->to($data['email']);
+                $message->subject($data['subject']);
+            });
+        }
+
+        // Mail::send('v2.mail.multi-form', ['data' => $data], function ($message) use ($data) {
+        //     $message->to(env('RECEIVE_EMAIL'));
+        //     $message->subject($data['subject']);
+        // });
     }
 }

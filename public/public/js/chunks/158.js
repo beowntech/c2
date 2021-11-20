@@ -76,6 +76,121 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -92,20 +207,38 @@ __webpack_require__.r(__webpack_exports__);
       state: {},
       disableC: true,
       gender: "",
+      about: "",
       states: [],
+      selecteTags: null,
+      selectedTags: [],
       cities: [],
       nearbyInst: [{
-        property: '',
-        distance: ''
+        property: "",
+        distance: ""
+      }],
+      nearbyFacility: [{
+        name: "",
+        distance: ""
       }],
       properties: []
     };
+  },
+  watch: {
+    selecteTags: function selecteTags(val) {
+      if (val != null) {
+        if (!this.selectedTags.includes(val)) {
+          this.selectedTags.push(val);
+        }
+
+        this.selecteTags = null;
+      }
+    }
   },
   methods: {
     getProp: function getProp(val) {
       var _this = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/properties/search-college').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/properties/search-college").then(function (res) {
         _this.properties = res.data;
       }).catch(function (err) {
         console.log(err);
@@ -121,30 +254,33 @@ __webpack_require__.r(__webpack_exports__);
       fd.append("city", this.city);
       fd.append("state", this.state);
       fd.append("gender", this.gender);
+      fd.append("about", this.about);
       fd.append("nearby_properties", JSON.stringify(this.nearbyInst));
+      fd.append("facilities_nearby", JSON.stringify(this.nearbyFacility));
+      fd.append("amenities", JSON.stringify(this.selectedTags));
 
       for (var i = 0; i < this.images.length; i++) {
         var file = this.images[i];
-        fd.append('images[' + i + ']', file);
+        fd.append("images[" + i + "]", file);
       }
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/hostels/create', fd).then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/hostels/create", fd).then(function (res) {
         console.log(res);
 
         _this2.$vs.loading.close();
 
-        _this2.alert('Hostels Created Successfully', '', 'green');
+        _this2.alert("Hostels Created Successfully", "", "green");
 
         _this2.name = "";
         _this2.city = "";
         _this2.gender = "";
         _this2.nearbyInst = [{
-          property: '',
-          distance: ''
+          property: "",
+          distance: ""
         }];
         _this2.images = [];
       }).catch(function (err) {
-        _this2.alert('Hostels Not Created', 'There is Some Problem Creating Hostel', 'red');
+        _this2.alert("Hostels Not Created", "There is Some Problem Creating Hostel", "red");
 
         _this2.$vs.loading.close();
 
@@ -154,7 +290,7 @@ __webpack_require__.r(__webpack_exports__);
     getState: function getState() {
       var _this3 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/state/get').then(function (res) {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/state/get").then(function (res) {
         console.log(res);
         _this3.states = res.data;
       }).catch(function (err) {
@@ -164,7 +300,7 @@ __webpack_require__.r(__webpack_exports__);
     getCity: function getCity() {
       var _this4 = this;
 
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/city/get', {
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/city/get", {
         id: this.state
       }).then(function (res) {
         _this4.cities = [];
@@ -190,11 +326,20 @@ __webpack_require__.r(__webpack_exports__);
     enableCity: function enableCity() {
       this.getCity();
     },
+    addFacility: function addFacility() {
+      if (this.nearbyFacility.length < 4) {
+        this.nearbyFacility.push({
+          name: "",
+          distance: "",
+          remove: true
+        });
+      }
+    },
     addNear: function addNear() {
       if (this.nearbyInst.length < 4) {
         this.nearbyInst.push({
-          property: '',
-          distance: '',
+          property: "",
+          distance: "",
           remove: true
         });
       }
@@ -202,18 +347,24 @@ __webpack_require__.r(__webpack_exports__);
     removeNear: function removeNear(i) {
       this.nearbyInst.splice(i, 1);
     },
+    removeFacility: function removeFacility(i) {
+      this.nearbyFacility.splice(i, 1);
+    },
+    removeSelected: function removeSelected(val) {
+      this.selectedTags.splice(this.selectedTags.indexOf(val), 1);
+    },
     alert: function alert(title, text, color) {
       this.$vs.notify({
         color: color,
         title: title,
         text: text,
-        position: 'top-right'
+        position: "top-right"
       });
     }
   },
   components: {
     quillEditor: vue_quill_editor__WEBPACK_IMPORTED_MODULE_4__["quillEditor"],
-    'v-select': vue_select__WEBPACK_IMPORTED_MODULE_5___default.a
+    "v-select": vue_select__WEBPACK_IMPORTED_MODULE_5___default.a
   },
   beforeMount: function beforeMount() {
     this.getState();
@@ -375,6 +526,86 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("h4", { staticClass: "mb-3" }, [
+              _c("strong", [_vm._v("Facilites Near By:")])
+            ]),
+            _vm._v(" "),
+            _vm._l(_vm.nearbyFacility, function(data, i) {
+              return _c("div", { key: i, staticClass: "vx-row" }, [
+                _c("div", { staticClass: "vx-col w-full mb-base" }, [
+                  _c("div", { staticClass: "vx-row mb-2" }, [
+                    _c(
+                      "div",
+                      { staticClass: "vx-col sm:w-2/5 w-full" },
+                      [
+                        _c("vs-input", {
+                          staticStyle: { width: "100%" },
+                          attrs: { placeholder: "Facilty Name" },
+                          model: {
+                            value: data.name,
+                            callback: function($$v) {
+                              _vm.$set(data, "name", $$v)
+                            },
+                            expression: "data.name"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "vx-col sm:w-1/4 w-full" },
+                      [
+                        _c("vs-input", {
+                          attrs: { placeholder: "Distance (in Minutes)" },
+                          model: {
+                            value: data.distance,
+                            callback: function($$v) {
+                              _vm.$set(data, "distance", $$v)
+                            },
+                            expression: "data.distance"
+                          }
+                        })
+                      ],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "vx-col sm:w-1/4 w-full" },
+                      [
+                        _c(
+                          "vs-button",
+                          {
+                            attrs: { color: "success" },
+                            on: { click: _vm.addFacility }
+                          },
+                          [_vm._v("+")]
+                        ),
+                        _vm._v(" "),
+                        data.remove
+                          ? _c(
+                              "vs-button",
+                              {
+                                attrs: { color: "danger" },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.removeFacility(i)
+                                  }
+                                }
+                              },
+                              [_vm._v("-")]
+                            )
+                          : _vm._e()
+                      ],
+                      1
+                    )
+                  ])
+                ])
+              ])
+            }),
+            _vm._v(" "),
+            _c("h4", { staticClass: "mb-3" }, [
               _c("strong", [_vm._v("NearBy Properties:")])
             ]),
             _vm._v(" "),
@@ -415,7 +646,7 @@ var render = function() {
                       { staticClass: "vx-col sm:w-1/4 w-full" },
                       [
                         _c("vs-input", {
-                          attrs: { placeholder: "Distance (in Meters)" },
+                          attrs: { placeholder: "Distance (in Minutes)" },
                           model: {
                             value: data.distance,
                             callback: function($$v) {
@@ -462,6 +693,82 @@ var render = function() {
                 ])
               ])
             }),
+            _vm._v(" "),
+            _c("div", { staticClass: "vx-row" }, [
+              _c(
+                "div",
+                { staticClass: "vx-col w-full mb-3" },
+                [
+                  _c("label", [_vm._v("Amenities")]),
+                  _vm._v(" "),
+                  _c(
+                    "vs-chips",
+                    {
+                      staticClass: "my-3",
+                      attrs: {
+                        color: "rgb(145, 32, 159)",
+                        placeholder: "Type Amenity and press Enter to add.",
+                        "icon-pack": "feather",
+                        "remove-icon": "icon-trash-2"
+                      },
+                      model: {
+                        value: _vm.selectedTags,
+                        callback: function($$v) {
+                          _vm.selectedTags = $$v
+                        },
+                        expression: "selectedTags"
+                      }
+                    },
+                    _vm._l(_vm.selectedTags, function(chip) {
+                      return _c(
+                        "vs-chip",
+                        {
+                          key: chip,
+                          attrs: {
+                            closable: "",
+                            "icon-pack": "feather",
+                            "close-icon": "icon-trash-2"
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.removeSelected(chip)
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n              " + _vm._s(chip) + "\n            "
+                          )
+                        ]
+                      )
+                    }),
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "vx-col w-full" },
+                [
+                  _c("h5", [_vm._v("About Hostel")]),
+                  _vm._v(" "),
+                  _c("quill-editor", {
+                    staticClass: "mt-2 mb-0",
+                    attrs: { name: "property_description" },
+                    model: {
+                      value: _vm.about,
+                      callback: function($$v) {
+                        _vm.about = $$v
+                      },
+                      expression: "about"
+                    }
+                  })
+                ],
+                1
+              )
+            ]),
             _vm._v(" "),
             _c("div", { staticClass: "vx-row mt-2" }, [
               _c(

@@ -25,7 +25,7 @@ class MultipleFormController extends Controller
         if($data){
             dispatch(new MultipleFormJob(
                 $request->name ?? 'to Admission Jockey',
-                $request->email ?? '',
+                $request->email ?? null,
                 json_encode($jsonArray),
             ));
             return response()->json(['status'=>1]);

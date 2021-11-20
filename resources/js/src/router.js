@@ -657,15 +657,15 @@ const router = new Router({
                     },
                     component: () => import('./views/hostels/create.vue')
                 },
-                // {
-                //     path: '/hostels/list',
-                //     name: 'Hostels List',
-                //     meta: {
-                //         rule: 'editor',
-                //         requiresAuth: true
-                //     },
-                //     component: () => import('./views/hostels/list.vue')
-                // },
+                {
+                    path: '/hostel/list',
+                    name: 'Hostels List',
+                    meta: {
+                        rule: 'editor',
+                        requiresAuth: true
+                    },
+                    component: () => import('./views/hostels/list.vue')
+                },
                 {
                     path: '/header/menu',
                     name: 'Header Menu',
