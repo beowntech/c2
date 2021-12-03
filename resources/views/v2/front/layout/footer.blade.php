@@ -195,7 +195,10 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
 var myModal = new bootstrap.Modal(document.getElementById('mobileNotAvailable'), {
   keyboard: false
 });
+if(localStorage.getItem('mobileOpened') == null){
 myModal.toggle();
+localStorage.setItem('mobileOpened',true);
+}
 </script>
 @endmobile
 <script>
