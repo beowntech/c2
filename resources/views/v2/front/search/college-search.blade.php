@@ -91,7 +91,7 @@
                             <p>City</p>
                         </div>
                         <div class="px-4 my-2">
-                            <input type="search" name="" class="form-control form-control-sm border-radius-md ">
+                            {{-- <input type="search" name="" class="form-control form-control-sm border-radius-md "> --}}
                             <ul class="list-unstyled filter-checkbox">
                                 @foreach ($city as $c => $ct)
                                     <li><input type="checkbox" name="city[]"
@@ -106,7 +106,7 @@
                             <p>State</p>
                         </div>
                         <div class="px-4 my-2">
-                            <input type="search" name="" class="form-control form-control-sm border-radius-md ">
+                            {{-- <input type="search" name="" class="form-control form-control-sm border-radius-md "> --}}
                             <ul class="list-unstyled filter-checkbox">
                                 @foreach ($state as $s => $st)
                                     <li> <input type="checkbox" name="state[]"
@@ -122,7 +122,7 @@
                             <p>College Type</p>
                         </div>
                         <div class="px-4 my-2">
-                            <input type="search" name="" class="form-control form-control-sm border-radius-md ">
+                            {{-- <input type="search" name="" class="form-control form-control-sm border-radius-md "> --}}
                             <ul class="list-unstyled filter-checkbox">
                                 <li> <input type="checkbox" name="type[]" id="type1"
                                         {{ in_array(1, explode(',', request()->query('type'))) ? 'checked' : '' }}

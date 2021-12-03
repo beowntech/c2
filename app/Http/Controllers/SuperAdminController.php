@@ -32,7 +32,7 @@ class SuperAdminController extends Controller
                 'email' => $request->input('email'),
                 'subject' => 'Request Approved - Admission Jockey',
                 'name' => $request->input('name'),
-                'mailbody' => 'Your Request has been Approved. Thanks for showing your interest <br> Your Login Credentials<br> Email: '.$request->input('email').' <br>  Login Password: '.implode($pass)
+                'mailbody' => 'Your Request has been Approved. Thanks for showing your interest. --> Your Login Credentials ---> Email: '.$request->input('email').' --->  Login Password: '.implode($pass)
             );
 
             Mail::send([], [], function ($message) use ($datas) {

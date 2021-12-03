@@ -152,7 +152,22 @@
             </div>
         </div>
     </div>
-
+@mobile
+<!-- Modal -->
+<div class="modal fade" id="mobileNotAvailable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content border-radius-lg">
+        <div class="modal-body text-center text-dark py-5">
+          <img src="/v2/assets/images/site/mobile-screen.png" width="400px" alt="">
+          <h1 class="f-50 fw-6 mb-4">Hi Curious</h1>
+          <p class="f-40 mb-2">Our Mobile version coming soon.</p>
+          <p class="f-40"p>Stay tuned with Us.</p>
+          <button type="button" class="btn site-btn-1 btn-lg py-2 shadow px-5 f-40" data-bs-dismiss="modal">Continue</button>
+        </div>
+      </div>
+    </div>
+  </div>
+@endmobile
 </footer>
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -175,6 +190,14 @@
 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.13.3/js/standalone/selectize.min.js"></script>
 <script src="{{ asset('/assets/js/custom.js') }}"></script>
+@mobile
+<script>
+var myModal = new bootstrap.Modal(document.getElementById('mobileNotAvailable'), {
+  keyboard: false
+});
+myModal.toggle();
+</script>
+@endmobile
 <script>
     (function() {
         $(".viewallLocation").click(function() {
