@@ -69,12 +69,12 @@
                                 @if(is_array(json_decode($val->images[0]->featured)))
                                 @foreach(json_decode($val->images[0]->featured) as $i => $img)
                                     <div class="carousel-item {{$i == 0 ? 'active':''}}"
-                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{substr_count($img, '.jpg') || substr_count($img, '.jpeg') || substr_count($img, '.png') ? $img: $img.'-lg.webp'}});min-height: 55vh;background-position: center;background-size: cover;">
+                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{substr_count($img, '.jpg') || substr_count($img, '.jpeg') || substr_count($img, '.png') || substr_count($val->logo, '.PNG') || substr_count($val->logo, '.JPG') ? $img: $img.'-lg.webp'}});min-height: 55vh;background-position: center;background-size: cover;">
                                     </div>
                                 @endforeach
                                 @else
                                     <div class="carousel-item active"
-                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{ substr_count($val->images[0]->featured, '.jpg') || substr_count($val->images[0]->featured, '.jpeg') || substr_count($val->images[0]->featured, '.png') ? $val->images[0]->featured: $val->images[0]->featured.'-lg.webp' }});min-height: 55vh;background-position: center;background-size: cover;">
+                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{ substr_count($val->images[0]->featured, '.jpg') || substr_count($val->images[0]->featured, '.jpeg') || substr_count($val->images[0]->featured, '.png') || substr_count($val->logo, '.PNG') || substr_count($val->logo, '.JPG') ? $val->images[0]->featured: $val->images[0]->featured.'-lg.webp' }});min-height: 55vh;background-position: center;background-size: cover;">
                                     </div>
                                 @endif
 {{--                                <div class="carousel-item"--}}
@@ -93,7 +93,7 @@
                         </div>
                         <div class="position-absolute bottom-0 start-50 translate-middle-x w-100 detail-bottom-desc">
                             <div class="d-inline-block prop-logo" style="background: white;bottom: 5px;position: absolute;height: 70px;z-index: 99999;">
-                               <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') ? $val->logo: $val->logo.'-lg.webp' }}"
+                               <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') || substr_count($val->logo, '.PNG') || substr_count($val->logo, '.JPG') ? $val->logo: $val->logo.'-lg.webp' }}"
                                         class="p-2" alt="">
                             </div>
                             {{-- <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ strpos($val->logo, 'png') !== false ? $val->logo: (strpos($val->logo, 'jpg') !== false ?$val->logo:$val->logo.'-lg.webp') }}" class="prop-logo p-2 " alt=""> --}}
