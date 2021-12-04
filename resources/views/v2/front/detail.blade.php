@@ -93,7 +93,7 @@
                         </div>
                         <div class="position-absolute bottom-0 start-50 translate-middle-x w-100 detail-bottom-desc">
                             <div class="d-inline-block prop-logo" style="background: white;bottom: 5px;position: absolute;height: 70px;z-index: 99999;">
-                               <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') !== false ? $val->logo: $val->logo.'-lg.webp' }}"
+                               <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') ? $val->logo: $val->logo.'-lg.webp' }}"
                                         class="p-2" alt="">
                             </div>
                             {{-- <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{ strpos($val->logo, 'png') !== false ? $val->logo: (strpos($val->logo, 'jpg') !== false ?$val->logo:$val->logo.'-lg.webp') }}" class="prop-logo p-2 " alt=""> --}}
