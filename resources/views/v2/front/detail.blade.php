@@ -147,7 +147,7 @@
                             <p class="mb-2 f-14"><i class="fas fa-map-marker-alt"></i> {{$val->location->street_name}}, {{$val->location->cities->name}}, {{$val->location->states->name}}
                                  {{$val->location->pincode}}
                             </p>
-                            <p><a href="#"><i class="fas fa-download"></i> Download College Broucher</a></p>
+                            {{-- <p><a href="#"><i class="fas fa-download"></i> Download College Broucher</a></p> --}}
                             <div class="position-absolute bottom-0 end-0 pe-4 pb-3">
                                 <a href="{{route('schedule-video-call')}}" class="btn site-btn-4">Schedule Video Call</a>
                                 {{-- <button class="btn site-btn-4">Chat with College</button> --}}
