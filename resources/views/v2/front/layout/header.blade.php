@@ -101,7 +101,7 @@
                                                     </li>
                                                 @elseif(isset($subs->category))
                                                     <li><a class="dropdown-item"
-                                                           href="/search?course={{$subs->catg}}">{{ucfirst(strtolower($subs->name))}}</a>
+                                                           href="/search/colleges?course={{$subs->catg}}">{{ucfirst(strtolower($subs->name))}}</a>
                                                     </li>
                                                 @endif
                                                 @endforeach
