@@ -74,7 +74,7 @@
                                 @endforeach
                                 @else
                                     <div class="carousel-item active"
-                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{ substr_count($val->images[0]->featured, '.jpg') || substr_count($val->images[0]->featured '.jpeg') || substr_count($val->images[0]->featured, '.png') !== false ? $val->images[0]->featured: $val->images[0]->featured.'-lg.webp' }}-xl.webp);min-height: 55vh;background-position: center;background-size: cover;">
+                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{ substr_count($val->images[0]->featured, '.jpg') || substr_count($val->images[0]->featured, '.jpeg') || substr_count($val->images[0]->featured, '.png') !== false ? $val->images[0]->featured: $val->images[0]->featured.'-lg.webp' }}-xl.webp);min-height: 55vh;background-position: center;background-size: cover;">
                                     </div>
                                 @endif
 {{--                                <div class="carousel-item"--}}
