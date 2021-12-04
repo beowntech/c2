@@ -245,7 +245,7 @@
                                                     <thead style=" background: #ffc9ab !important;">
                                                     <tr>
                                                         <td scope="col">Course</td>
-                                                        <td scope="col">Fees</td>
+                                                        <td scope="col">Fees (1st Year)</td>
                                                         <td scope="col">Eligibility</td>
                                                         <td scope="col"></td>
                                                     </tr>
