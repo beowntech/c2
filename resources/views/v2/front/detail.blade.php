@@ -69,7 +69,7 @@
                                 @if(is_array(json_decode($val->images[0]->featured)))
                                 @foreach(json_decode($val->images[0]->featured) as $i => $img)
                                     <div class="carousel-item {{$i == 0 ? 'active':''}}"
-                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{substr_count($img, '.jpg') || substr_count($img '.jpeg') || substr_count($img, '.png') !== false ? $img: $img.'-lg.webp'}});min-height: 55vh;background-position: center;background-size: cover;">
+                                         style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{substr_count($img, '.jpg') || substr_count($img, '.jpeg') || substr_count($img, '.png') !== false ? $img: $img.'-lg.webp'}});min-height: 55vh;background-position: center;background-size: cover;">
                                     </div>
                                 @endforeach
                                 @else
