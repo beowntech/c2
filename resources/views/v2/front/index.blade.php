@@ -392,7 +392,7 @@
                                 style="background:url({{ env('MEDIA_URL') }}property/{{ $val->id }}/gallery/featured/{{ $val->images[0]->featured . '-xl.webp' }});background-position:center;background-size: cover;">
                                 <div class="prop-info">
                                     <div class="d-inline-block prop-logo">
-                                        <img src="{{ env('MEDIA_URL') }}property/{{ $val->id }}/logo/{{ $val->logo . '-md.webp' }}"
+                                        <img src="{{ env('MEDIA_URL') }}property/{{ $val->id }}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') !== false ? $val->logo: $val->logo.'-md.webp' }}"
                                             class="p-2" alt="">
                                     </div>
                                     @if (count($val->review) > 0)
