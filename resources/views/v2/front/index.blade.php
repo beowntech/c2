@@ -389,7 +389,7 @@
                     <div class="col-md-4">
                         <div class="college-card-sm featured">
                             <div class="mb-2 prop-image"
-                                style="background:url({{ env('MEDIA_URL') }}property/{{ $val->id }}/gallery/featured/{{ $val->images[0]->featured . '-xl.webp' }});background-position:center;background-size: cover;">
+                                style="background:url({{ env('MEDIA_URL') }}property/{{ $val->id }}/gallery/featured/{{ substr_count($val->images[0]->featured, '.jpg') || substr_count($val->images[0]->featured '.jpeg') || substr_count($val->images[0]->featured, '.png') !== false ? $val->images[0]->featured: $val->images[0]->featured.'-lg.webp' }});background-position:center;background-size: cover;">
                                 <div class="prop-info">
                                     <div class="d-inline-block prop-logo">
                                         <img src="{{ env('MEDIA_URL') }}property/{{ $val->id }}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') !== false ? $val->logo: $val->logo.'-md.webp' }}"
