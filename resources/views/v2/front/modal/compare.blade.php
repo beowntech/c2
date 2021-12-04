@@ -67,7 +67,7 @@
                         "<div class=\"logo position-relative\">\n" +
                         "<div class=\"d-inline-block prop-logo\">\n" +
                         "<img src=\"{{ env('MEDIA_URL') }}property/" + data[i].id + "/logo/" +
-                        data[i].logo + "-md.webp\" class=\"p-2\" alt=\"\"> \n" +
+                        data[i].logo + "\" class=\"p-2\" alt=\"\"> \n" +
                         "</div></div></div><div class=\"col-7\" for=\"flexRadioDefault1\">\n" +
                         "<div class=\"prop-info\">\n" +
                         "<p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width:300px;\">" +
@@ -111,7 +111,7 @@
                         "<div class=\"logo position-relative\">\n" +
                         "<div class=\"d-inline-block prop-logo\">\n" +
                         "<img src=\"{{ env('MEDIA_URL') }}property/" + data[i].id + "/logo/" +
-                        data[i].logo + "-md.webp\" class=\"p-2\" alt=\"\"> \n" +
+                        data[i].logo + "\" class=\"p-2\" alt=\"\"> \n" +
                         "</div></div></div><div class=\"col-7\" for=\"flexRadioDefault1\">\n" +
                         "<div class=\"prop-info\">\n" +
                         "<p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width:300px;\">" +

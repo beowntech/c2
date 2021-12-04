@@ -67,11 +67,11 @@
                     <div style="float: right;cursor: pointer;" onclick="removeProp({{$p}})"><i class="far fa-times-circle"></i></div>
                     <h2 class="f-14 fw-6"><a href="{{ route('details', ['city'=>'college-in-'.strtolower($val->location->cities->name),'id'=>$val->seo[0]->permalink]) }}" class="text-decoration-none"> {{$val->name}}</a></h2>
                     <p class="f-14"><i class="fas fa-map-marker-alt"></i> {{$val->location->cities->name}}</p>
-                    <div class="mb-2 prop-image position-relative" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{$val->images[0]->featured.'-xl.webp'}});bacground-position:center; height:160px; background-size: cover;">
+                    <div class="mb-2 prop-image position-relative" style="background:url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{ substr_count($val->images[0]->featured, '.jpg') || substr_count($val->images[0]->featured, '.jpeg') || substr_count($val->images[0]->featured, '.png') || substr_count($val->images[0]->featured, '.PNG') || substr_count($val->images[0]->featured, '.JPG') ? $val->images[0]->featured: $val->images[0]->featured.'-lg.webp' }});bacground-position:center; height:160px; background-size: cover;">
                         <div class="prop-info">
                             <div class="position-absolute bottom-0 start-0">
                                 <a href="{{ route('details', ['city'=>'college-in-'.strtolower($val->location->cities->name),'id'=>$val->seo[0]->permalink]) }}">
-                                    <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo.'-md.webp'}}" class="prop-logo p-1 m-2" alt="">
+                                    <img src="{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') || substr_count($val->logo, '.PNG') || substr_count($val->logo, '.JPG') ? $val->logo: $val->logo.'-md.webp'}}" class="prop-logo p-1 m-2" alt="">
                                 </a>
                             </div>
                         </div>
@@ -259,7 +259,7 @@
                         "<div class=\"col-2 px-1\" for=\"flexRadioDefault1\">\n"+
                         "<div class=\"logo position-relative\">\n"+
                         "<div class=\"d-inline-block prop-logo\">\n"+
-                        "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"-md.webp\" class=\"p-2\" alt=\"\"> \n"+
+                        "<img src=\"{{env('MEDIA_URL')}}property/"+data[i].id+"/logo/"+data[i].logo+"\" class=\"p-2\" alt=\"\"> \n"+
                         "</div></div></div><div class=\"col-7\" for=\"flexRadioDefault1\">\n"+
                         "<div class=\"prop-info\">\n"+
                         "<p class=\"f-14 pcolor mb-1 text-truncate\" style=\"max-width:300px;\">"+data[i].name+"</p>\n"+
