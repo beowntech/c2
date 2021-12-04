@@ -270,7 +270,7 @@
                 <div class="col-md-7 text-white py-5">
                     <h1 class="mb-4"><strong> Free</strong> Guidance to <br> find your Best Fit College</h1>
                     <h4 class="mb-5">We will provide you the right guidance to find your best fit college for your
-                        future career. Our expert consoler will take care about your career path.</h4>
+                        future career. Our expert consultor will take care about your career path.</h4>
                     <p class="f-20">How we guide</p>
                     <ul class="f-18 mb-5 list-point-lg">
                         <li>Tell us your college/ Location and course preference</li>
@@ -350,7 +350,7 @@
             <div class="row mb-5 pt-5">
                 <div class="col text-center text-white">
                     <h2 class="f-42"> Accommodation facility</h2>
-                    <p class="f-18">Reserve your accommodation and focuson your study, we <br> will provide you
+                    <p class="f-18">Reserve your accommodation and focus on your study, we <br> will provide you
                         the
                         better hostel facility.</p>
                     <a href="{{ route('nearby-hostel') }}" class="f-20 text-white">explore all accommodation</a>

@@ -141,7 +141,7 @@
                             <ul class="d-inline-block list-unstyled ver-line-menu text-secondary small">
                                 <li class="me-3">Type - {{ $val->college_type == 1 ? 'Public' : ($val->college_type == 2 ? 'Private' : ($val->college_type == 3 ? 'Govt.' : ($val->college_type == 4 ? 'Deemed' : ''))) }}</li>
                                 <li class="me-3">Apporved by: {{$val->approved_by}}</li>
-                                <li class="me-3">NIRF Ranking - 12</li>
+                                {{-- <li class="me-3">NIRF Ranking - 12</li> --}}
                                 {{-- <li><a href="#">MORE</a></li> --}}
                             </ul>
                             <p class="mb-2 f-14"><i class="fas fa-map-marker-alt"></i> {{$val->location->street_name}}, {{$val->location->cities->name}}, {{$val->location->states->name}}
@@ -186,7 +186,7 @@
                                 @if(request()->more != "")
                                     <a href="/{{request()->city}}/{{request()->id}}#scholorship">Scholorship</a>
                                 @else
-                                    <a href="#scholorship">Scholorship</a>
+                                    <a href="#scholorship">Scholarship</a>
                                 @endif
                             </li>
                             @endif
@@ -265,7 +265,7 @@
                                                     @endforeach
                                                     </tbody>
                                                 </table>
-                                                <p><a href="#"><i class="fas fa-download"></i> Download College Broucher</a>
+                                                {{-- <p><a href="#"><i class="fas fa-download"></i> Download College Broucher</a> --}}
                                                 </p>
                                             </div>
                                         </div>
@@ -300,7 +300,7 @@
                                                 @endforeach
                                                 </tbody>
                                             </table>
-                                            <p><a href="#"><i class="fas fa-download"></i> Download College Broucher</a>
+                                            {{-- <p><a href="#"><i class="fas fa-download"></i> Download College Broucher</a> --}}
                                             </p>
                                             <hr>
                                             <div class="text-center">
@@ -333,7 +333,7 @@
                                 @if(request()->more != "")
                                     @if(request()->more == "scholarship")
                         <div id="scholorship" class="mb-5">
-                            <h2 class="ps-3">Scholorship</h2>
+                            <h2 class="ps-3">Scholarship</h2>
                             <div class="bg-white p-3 detail-border">
                                 <button class="btn site-btn-5 mb-4 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow">Apply for Scholorship</button>
                                 @foreach($val->scholar as $d)
@@ -345,7 +345,7 @@
                                     @endif
                                     @else
                                     <div id="scholorship" class="mb-5">
-                                        <h2 class="ps-3">Scholorship</h2>
+                                        <h2 class="ps-3">Scholarship</h2>
                                         <div class="bg-white p-3 detail-border">
                                             <button class="btn site-btn-5 mb-4 openApplyNow" data-id="{{$val->id}}" data-name="{{$val->name}}" data-bs-toggle="modal" data-bs-target="#applyNow">Apply for Scholorship</button>
                                             @foreach($val->scholar as $d)
