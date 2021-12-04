@@ -363,7 +363,7 @@
                         <div class="container px-3 my-3">
                             <div class="row">
                                 <div class="col-md-6 mb-3 position-relative">
-                                    <a href="/loan-form">
+                                    <a href="/blog/loan-form">
                                         <div class="action-bg-1"
                                              style="background:url(/v2/assets/images/site/hostel.jpg);background-size: cover;background-position: center;">
                                             <div class="position-absolute bottom-0 start-0 text-white">
@@ -376,7 +376,7 @@
                                     </a>
                                 </div>
                                 <div class="col-md-6 mb-3 position-relative">
-                                    <a href="/hostel-form">
+                                    <a href="/blog/hostel-form">
                                         <div class="action-bg-1"
                                              style="background:url(/v2/assets/images/site/hostel.jpg);background-size: cover;background-position: center;">
                                             <div class="position-absolute bottom-0 start-0 text-white">
