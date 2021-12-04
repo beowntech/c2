@@ -24,21 +24,24 @@ class HostelsController extends Controller
     }
 
     public function nearby($slug=""){
-        if(isset($slug)) {
-            $seo = SEO::where('permalink',$slug)->get();
-            if($seo->isEmpty()){
-                return abort(404);
-            }
-            if($seo[0]->property->isEmpty()){
-                return abort(404);
-            }
-            $prop = $seo[0]->property[0];
-            $data = Hostels::where('city',$seo[0]->property[0]->location->cities->id)
+        // if(isset($slug)) {
+            // $seo = SEO::where('permalink',$slug)->get();
+            // if($seo->isEmpty()){
+                // return abort(404);
+            // }
+            // if($seo[0]->property->isEmpty()){
+                // return abort(404);
+            // }
+            // $prop = $seo[0]->property[0];
+            // $data = Hostels::where('city',$seo[0]->property[0]->location->cities->id)
+            $data = Hostels::where('city',5236)
             ->with('cities')
             ->paginate(3);
-            return view('v2.front.hostel.nearby', compact('data','prop'));
-        }
-        return abort(404);
+            return view('v2.front.hostel.nearby', compact('data'
+            // ,'prop'
+        ));
+        // }
+        // return abort(404);
     }
 
     public function create(Request $request){

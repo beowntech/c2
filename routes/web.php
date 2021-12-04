@@ -49,7 +49,7 @@ Route::get('/logout', function () {
 Route::get('/', 'AlotFronController@index')->name('home');
 Route::get('/hostels', [App\Http\Controllers\HostelsController::class,'index'])->name('hostels');
 Route::get('/hostel/{city}/{slug}', [App\Http\Controllers\HostelsController::class,'detail'])->name('hostel-detail');
-Route::get('/nearby/{slug?}', [App\Http\Controllers\HostelsController::class,'nearby'])->name('nearby-hostel');
+Route::get('/hostels-nearby/{slug?}', [App\Http\Controllers\HostelsController::class,'nearby'])->name('nearby-hostel');
 Route::get('/course', function(){
     return view('v2.front.course.index');
 });
@@ -92,7 +92,7 @@ Route::post('comment', 'CommentController@store');
 
 Route::get('/blog/loan-form', function () {
     return view('front.blog.forms.loanform');
-});
+})->name('loan-form');
 //Route::get('/login', function (){
 //    return view('alotfront.auth.login');
 //});

@@ -27,18 +27,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9 border-end border-secondary py-4">
-                    <h2>Hostel Near By {{$prop->name}}</h2>
+                    <h2>Hostel Near By Dehradun</h2>
                     <p class="small text-muted">{{$data->total()}} Hostel</p>
                     @foreach($data as $d => $val)
                     <div class="row pe-3  mb-5">
                         <div class="col-7">
                             <div id="carouselExampleControls" class="carousel slide hostel-carousel" data-bs-ride="carousel">
                                 <div class="carousel-inner">
+                                    @if($val->images != null)
                                     @foreach(json_decode($val->images) as $i => $im)
                                     <div class="carousel-item {{$i == 0 ? 'active':''}}">
                                         <img style="object-fit: cover;height: 330px!important;" src="{{asset('hostel/'.$val->id.'/images/'.$im.'-xl.webp')}}" class="d-block w-100" alt="...">
                                     </div>
                                     @endforeach
+                                    @endif
                                 </div>
                                 <div class="mt-3">
                                     <button class="carousel-control-prev-1" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
