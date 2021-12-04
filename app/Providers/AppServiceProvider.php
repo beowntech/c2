@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\DB;
 use App\Banks;
+use Illuminate\Support\Facades\URL;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -36,6 +37,10 @@ class AppServiceProvider extends ServiceProvider
        $this->app->bind('path.public', function() {
         return getcwd();
        });*/
+
+       if(env('FORCE_HTTPS',false)) { // Default value should be false for local server
+        URL::forceScheme('https');
+       }
 
         view()->composer('front.layout.header2', function($view) {
           $prp = DB::table('properties')
