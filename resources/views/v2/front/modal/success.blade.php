@@ -8,7 +8,7 @@
                 <img src="{{asset('v2/assets/images/icon/expert-guidance.png')}}" width="100px" alt="">
                 <h2 class="f-22 mb-4">Successfully Applied!</h2>
                 <p class="mb-4 px-4">our expert will be in touch in coming days to help make sure to answer your all questions/queries.</p>
-                <a href="#" >Go to home</a>
+                <a href="/" >Go to home</a>
             </div>
 
         </div>
