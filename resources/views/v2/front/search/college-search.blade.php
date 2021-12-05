@@ -196,7 +196,7 @@
                                 </div>
                             @endif
                             <div class="col-md-6">
-                                @if($val->seo->isEmpty())
+                                @if($val->seo->isNotEmpty())
                                 @if ($val->featured == 1)
                                     <div class='theribbon'>FEARTURED COLLEGE </div>
                                 @endif
