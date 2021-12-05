@@ -48,6 +48,7 @@
                     <div class="col-md-12 position-relative px-0">
                         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
+                                @if($val->images->isNotEmpty())
                                 @if(is_array(json_decode($val->images[0]->featured)))
                                 @foreach(json_decode($val->images[0]->featured) as $i => $img)
                                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{$i}}"
@@ -57,6 +58,7 @@
                                     <button type="button" data-bs-target="#carouselExampleIndicators"
                                             data-bs-slide-to="0"
                                             aria-label="Slide 1"></button>
+                                @endif
                                 @endif
 {{--                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"--}}
 {{--                                        aria-label="Slide 2"></button>--}}
