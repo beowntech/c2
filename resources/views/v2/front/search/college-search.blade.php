@@ -196,6 +196,7 @@
                                 </div>
                             @endif
                             <div class="col-md-6">
+                                @if($val->seo->isEmpty())
                                 @if ($val->featured == 1)
                                     <div class='theribbon'>FEARTURED COLLEGE </div>
                                 @endif
@@ -271,6 +272,7 @@
                                         </ul>
                                     </div>
                                 </div>
+                                @endif
                             </div>
                         @endforeach
                     </div>
