@@ -68,6 +68,7 @@
 {{--                                        aria-label="Slide 4"></button>--}}
                             </div>
                             <div class="carousel-inner">
+                                @if($val->images->isNotEmpty())
                                 @if(is_array(json_decode($val->images[0]->featured)))
                                 @foreach(json_decode($val->images[0]->featured) as $i => $img)
                                     <div class="carousel-item {{$i == 0 ? 'active':''}}"
@@ -78,6 +79,7 @@
                                     <div class="carousel-item active"
                                          style="background: url({{env('MEDIA_URL')}}property/{{$val->id}}/gallery/featured/{{ substr_count($val->images[0]->featured, '.jpg') || substr_count($val->images[0]->featured, '.jpeg') || substr_count($val->images[0]->featured, '.png') || substr_count($val->logo, '.PNG') || substr_count($val->logo, '.JPG') ? $val->images[0]->featured: $val->images[0]->featured.'-lg.webp' }});min-height: 55vh;background-position: center;background-size: cover;">
                                     </div>
+                                @endif
                                 @endif
 {{--                                <div class="carousel-item"--}}
 {{--                                     style="background: url('/v2/assets/images/site/banner1.jpg');min-height: 55vh;background-position: center;background-size: cover;">--}}
