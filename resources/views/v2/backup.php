@@ -146,3 +146,70 @@
             </div>
         </div>
     </section>
+
+
+    <section id="testimonial">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col text-center">
+                <p class="mb-2 pcolor">People Saying about us</p>
+                <h2 class="pcolor">Testimonial</h2>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        @foreach ($testimonial as $t => $test)
+                            <button type="button" data-bs-target="#carouselExampleIndicators"
+                                data-bs-slide-to="{{ $t }}" class="{{ $t == 0 ? 'active' : '' }}"
+                                aria-current="true" aria-label="Slide {{ $t }}"></button>
+                        @endforeach
+                    </div>
+                    <div class="carousel-inner">
+                        @foreach ($testimonial as $t => $test)
+                            <div class="carousel-item {{ $t == 0 ? 'active' : '' }}">
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2 p-2">
+                                        <div class="testimonial-data text-center">
+                                            <div class="testimonial-info mb-4">
+                                                <i class="fas fa-quote-left "></i>
+                                                <img src="{{ env('MEDIA_URL') }}testimonials/{{ $test->image }}"
+                                                    width="150px" height="150px" class="user-avatar" alt="">
+                                                <div class="d-inline-block ms-4 text-start pcolor" style="position: absolute;top: 100px;">
+                                                    <h3 class="f-24">{{ $test->user_name }}</h3>
+                                                    <p>{{ $test->property_name }}</p>
+                                                </div>
+                                            </div>
+                                            <p>
+                                                {{ $test->content}}
+                                                {{-- <a href="#!">Read More</a> --}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        @endforeach
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="control">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </span>
+
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="control">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
