@@ -205,7 +205,7 @@
                                         <div class="d-inline-block prop-logo">
                                             <a
                                                 href="/college-in-{{ str_replace(' ', '_', str_replace('/[^A-Za-z0-9\-]/', '-', strtolower($val->location == null ? '' : $val->location->cities->name))) }}/{{ $val->seo == null ? '' : $val->seo[0]->permalink }}">
-                                                <img src="{{ env('MEDIA_URL') }}property/{{ $val->id }}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') || substr_count($val->logo, '.PNG') || substr_count($val->logo, '.JPG') ? $val->logo: ($val->logo.'-md.webp') }}"
+                                                <img src="{{ env('MEDIA_URL') }}property/{{ $val->id }}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') || substr_count($val->logo, '.PNG') || substr_count($val->logo, '.JPG') || substr_count($val->logo, '.JPEG') ? $val->logo: ($val->logo.'-md.webp') }}"
                                                     class="p-2" alt="">
                                             </a>
                                         </div>
@@ -334,6 +334,8 @@
                         }else if(logo.includes('.JPG')){
                             displayLogo = logo;
                         }else if(logo.includes('.PNG')){
+                            displayLogo = logo;
+                        }else if(logo.includes('.JPEG')){
                             displayLogo = logo;
                         }else{
                             displayLogo = logo + '-lg.webp';

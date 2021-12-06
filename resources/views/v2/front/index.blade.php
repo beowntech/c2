@@ -389,10 +389,10 @@
                     <div class="col-md-4">
                         <div class="college-card-sm featured">
                             <div class="mb-2 prop-image"
-                                style="background:url({{ env('MEDIA_URL') }}property/{{ $val->id }}/gallery/featured/{{ substr_count($val->images[0]->featured, '.jpg') || substr_count($val->images[0]->featured, '.jpeg') || substr_count($val->images[0]->featured, '.png') || substr_count($val->images[0]->featured, '.PNG') || substr_count($val->images[0]->featured, '.JPG') ? $val->images[0]->featured: $val->images[0]->featured.'-lg.webp' }});background-position:center;background-size: cover;">
+                                style="background:url({{ env('MEDIA_URL') }}property/{{ $val->id }}/gallery/featured/{{ substr_count($val->images[0]->featured, '.jpg') || substr_count($val->images[0]->featured, '.jpeg') || substr_count($val->images[0]->featured, '.png') || substr_count($val->images[0]->featured, '.PNG') || substr_count($val->images[0]->featured, '.JPEG') || substr_count($val->images[0]->featured, '.JPG') ? $val->images[0]->featured: $val->images[0]->featured.'-lg.webp' }});background-position:center;background-size: cover;">
                                 <div class="prop-info">
                                     <div class="d-inline-block prop-logo">
-                                        <img src="{{ env('MEDIA_URL') }}property/{{ $val->id }}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') || substr_count($val->logo, '.PNG') || substr_count($val->logo, '.JPG') ? $val->logo: $val->logo.'-md.webp' }}"
+                                        <img src="{{ env('MEDIA_URL') }}property/{{ $val->id }}/logo/{{ substr_count($val->logo, '.jpg') || substr_count($val->logo, '.jpeg') || substr_count($val->logo, '.png') || substr_count($val->logo, '.PNG') || substr_count($val->logo, '.JPG') || substr_count($val->logo, '.JPEG') ? $val->logo: $val->logo.'-md.webp' }}"
                                             class="p-2" alt="">
                                     </div>
                                     @if (count($val->review) > 0)
