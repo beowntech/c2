@@ -39,8 +39,8 @@ return [
                 'cluster' => env('PUSHER_APP_CLUSTER'),
                 'useTLS' => false,
                 'host' => '127.0.0.1',
-                'port' => 8443,
-                'scheme' => 'http',
+                'port' => 9443,
+                'scheme' => 'https',
                 'encrypted' => false,
                 'curl_options' => [
                     CURLOPT_SSL_VERIFYHOST => 0,
