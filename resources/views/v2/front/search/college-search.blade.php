@@ -255,7 +255,7 @@
                                                 {{ $val->college_type == 1 ? 'Public' : ($val->college_type == 2 ? 'Private' : ($val->college_type == 3 ? 'Govt.' : ($val->college_type == 4 ? 'Deemed' : ''))) }}
                                             </li>
                                             <li class="me-3">Apporved by: {{ $val->approved_by }}</li>
-                                            <li class="me-3">NIRF Ranking - 12</li>
+                                            {{-- <li class="me-3">NIRF Ranking - 12</li> --}}
                                         </ul>
                                         <ul class="d-inline-block list-unstyled ver-line-menu text-secondary small">
                                             <li class="me-2"><button class="btn site-btn-1 f-14 openApplyNow"
