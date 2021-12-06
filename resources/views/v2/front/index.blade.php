@@ -402,7 +402,7 @@
                                 </div>
                             </div>
                             <div class="px-4 prop-iden">
-                                <h2 class="f-14 mb-2 text-truncate">{{ $val->name }} {{ $val->featured }}</h2>
+                                <h2 class="f-14 mb-2 text-truncate">{{ $val->name }}</h2>
                                 <p class="mb-3 f-12">
                                     {{ $val->location == null ? '' : $val->location->cities->name }}
                                     , {{ $val->location == null ? '' : $val->location->states->name }}</p>
