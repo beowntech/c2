@@ -313,7 +313,7 @@
     <script type="text/javascript">
         let page = 2;
         let url =
-            "{{ request()->query() != null ? htmlspecialchars_decode(str_replace('http', 'https', request()->fullUrl()) . '&page=') : str_replace('http', 'https', request()->fullUrl()) . '?page=' }}"
+            "{{ request()->query() != null ? htmlspecialchars_decode(request()->fullUrl() . '&page=') : request()->fullUrl(). '?page=' }}"
         $("#viewMore").click(function() {
             $.ajax({
                 url: url.replace('&amp;', '&') + page,
@@ -325,15 +325,28 @@
                     }
                     var data = result.data;
                     for (var i = 0; i < data.length; i++) {
+                        var logo = data[i].logo;
+                        displayLogo = ""
+                        if(logo.includes('.png')){
+                            displayLogo = logo;
+                        }else if(logo.includes('.jpg')){
+                            displayLogo = logo;
+                        }else if(logo.includes('.JPG')){
+                            displayLogo = logo;
+                        }else if(logo.includes('.PNG')){
+                            displayLogo = logo;
+                        }else{
+                            displayLogo = logo + '-lg.webp';
+                        }
+                        console.log(displayLogo);
                         $("#propertyData").append("<div class=\"col-md-6 col-xxl-4\">\n" +
                             "        <div class=\"prop-card-1\">\n" +
                             "            <div class=\"logo position-relative mb-1\">\n" +
                             "                <div class=\"d-inline-block prop-logo\">\n" +
                             "                    <img src=\"{{ env('MEDIA_URL') }}property/" +
-                            data[i].id + "/logo/" + data[i].logo +
-                            "-md.webp\" class=\"p-2\" alt=\"\">\n" +
+                            data[i].id + "/logo/" + displayLogo +
+                            "\" class=\"p-2\" alt=\"\">\n" +
                             "                </div>\n" +
-                            "                {{-- <img src=\"{{env('MEDIA_URL')}}property/{{$val->id}}/logo/{{$val->logo}}-md.webp\" class=\"prop-logo\" alt=\"\"> --}}\n" +
                             "                <p class=\"d-inline-block position-absolute top-0 end-0 small\">\n" +
                             "                    <a href=\"\">\n" +
                             "                    </a>\n" +
@@ -347,12 +360,11 @@
                             "                    <li class=\"me-3\">Type - Private</li>\n" +
                             "                    <li class=\"me-3\">Apporved by: " + data[i]
                             .approved_by + "</li>\n" +
-                            "                    <li class=\"me-3\">NIRF Ranking - 12</li>\n" +
                             "                </ul>\n" +
                             "                <ul class=\"d-inline-block list-unstyled ver-line-menu text-secondary small\">\n" +
                             "                    <li class=\"me-3\"><button class=\"btn site-btn-1\" data-bs-toggle=\"modal\" data-bs-target=\"#applyNow\"> Apply Now </button></li>\n" +
-                            "                    <li class=\"me-3\"><button class=\"btn hover-site-btn-1 scolor\"> Compare </button></li>\n" +
-                            "                    <li class=\"me-3\"><a href=\"/college-in-\" class=\"btn hover-site-btn-1 scolor mt-1\"> Visit Details </a></li>\n" +
+                            "                    <li class=\"me-3\"><button class=\"btn hover-site-btn-1 scolor\" data-bs-toggle=\"modal\" data-bs-target=\"#compareModal\" data-slug=\""+ data[i].seo[0].permalink +"\"> Compare </button></li>\n" +
+                            "                    <li class=\"me-3\"><a href=\"/college-in-"+data[i].location.cities.name.toLowerCase()+"/"+data[i].seo[0].permalink+"\" class=\"btn hover-site-btn-1 scolor mt-1\"> Visit Details </a></li>\n" +
                             "                </ul>\n" +
                             "            </div>\n" +
                             "        </div>\n" +
