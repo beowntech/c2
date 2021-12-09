@@ -29,13 +29,13 @@ if (env('APP_ENV') === 'production') {
     \Illuminate\Support\Facades\URL::forceScheme('https');
 }
 
-Route::middleware('doNotCacheResponse')->group(function (){
+// Route::middleware('doNotCacheResponse')->group(function (){
 Route::get('/admin/{any}', 'ApplicationController')->where('any', '.*');
 Route::get('/admin', function () {
     return redirect('/admin/login');
 });
 Route::get('/login', function () {
-    return view('front.auth.login');
+    return view('v2.front.cyber.login');
 })->name('login');
 
 Route::get('/thank-you', function () {
@@ -63,7 +63,7 @@ Route::get('/exam/{catg?}', 'ExamController@index');
 Route::get('/search2/{name?}', 'CategoriesController@search');
 Route::post('/send/email', 'MailController@mail');
 Route::post('/send/mailpop', 'MailController@mailPop');
-Route::post('/user/login', 'UserController@frontLogin');
+Route::post('/user/login', 'UserController@frontLogin')->name('cyber-login-request');
 Route::post('logout', 'UserController@frontLogout');
 Route::get('dashboard', 'AlotFronController@dashboard');
 Route::get('profile', 'AlotFronController@profile');
@@ -161,7 +161,10 @@ Route::get('checkN', function () {
     }
 });
 Route::get('currency/change', 'AlotFronController@changeCurr');
-Route::get('education-loan', 'AlotFronController@educationLoan');
+// Route::get('education-loan', 'AlotFronController@educationLoan');
+Route::get('education-loan',function(){
+    return view('v2.front.education-loan.index');
+});
 
 Route::get('privacy-policy', 'AlotFronController@privacy')->name('privacy');
 Route::get('terms', 'AlotFronController@terms')->name('terms');
@@ -194,14 +197,14 @@ Route::post('gakey', function (Request $request) {
 
 Route::group(['middleware' => ['auth']], function () {
 
-    Route::get('cyber-leads', 'CyberController@getLeads');
+    Route::get('cyber-leads', 'CyberController@getLeads')->name('cyber-leads');
     Route::post('cyber-leads/add', 'CyberController@addLead');
-    Route::get('cyber-dashboard', function () {
-        return view('front.cyber.cyber-dashboard');
-    });
+    Route::get('cyber-dashboard/add-leads', function () {
+        return view('v2.front.cyber.add-lead');
+    })->name('cyber-add-lead');
 });
 Route::get('cyber-partner', function () {
-    return view('front.cyber.cyber-partner');
+    return view('v2.front.cyber.join');
 })->name('cyber-partner');
 
 
@@ -277,4 +280,4 @@ Route::get('checkc', function () {
 
 //Route::post('/send-notification', [App\Http\Controllers\HomeController::class, 'sendNotification'])->name('send.notification');
 Route::get('{city?}/{id?}/{more?}', ['uses' => 'CategoriesController@single'])->name('details');
-});
+// });
