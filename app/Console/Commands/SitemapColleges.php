@@ -51,8 +51,8 @@ class SitemapColleges extends Command
         foreach ($data as $s => $val) {
             if ($val->seo->isNotEmpty()) {
                 $city = Properties::where('id', $val->id)->with('location')->get();
-                if($city[0]->location->isNotEmpty()) {
-                    $sitemap->add(Url::create(env('APP_URL')."/college-in-".strtolower(str_replace(' ','_',$city[0]->location[0]->cities[0]->name))."/".$val->seo[0]->permalink."")
+                if($city[0]->location != null) {
+                    $sitemap->add(Url::create(env('APP_URL')."/college-in-".strtolower(str_replace(' ','_',$city[0]->location->cities->name))."/".$val->seo[0]->permalink."")
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                         ->setLastModificationDate($val->updated_at)
                         ->setPriority(1.0));
