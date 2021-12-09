@@ -12,6 +12,6 @@ class Cyber extends Model
 
     public function college()
     {
-        return $this->hasMany('App\Properties','id','interested_college');
+        return $this->hasOne('App\Properties','id','interested_college');
     }
 }

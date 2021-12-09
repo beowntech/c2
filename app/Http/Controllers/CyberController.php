@@ -82,7 +82,7 @@ class CyberController extends Controller
 
     public function getLeads(){
         $data = Cyber::where('user_id',Auth::user()->id)->with('college')->get();
-        return view('front.cyber.cyber-leads',compact('data'));
+        return view('v2.front.cyber.leads',compact('data'));
     }
 
     public function joinCyber(Request $request){

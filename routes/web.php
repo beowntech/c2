@@ -91,7 +91,7 @@ Route::post('edu-loan/submit', 'EducationLoanFormController@store');
 Route::post('comment', 'CommentController@store');
 
 Route::get('/blog/loan-form', function () {
-    return view('front.blog.forms.loanform');
+    return view('v2.front.education-loan.index');
 })->name('loan-form');
 //Route::get('/login', function (){
 //    return view('alotfront.auth.login');
@@ -162,9 +162,9 @@ Route::get('checkN', function () {
 });
 Route::get('currency/change', 'AlotFronController@changeCurr');
 // Route::get('education-loan', 'AlotFronController@educationLoan');
-Route::get('education-loan',function(){
-    return view('v2.front.education-loan.index');
-});
+// Route::get('education-loan',function(){
+//     return view('v2.front.education-loan.index');
+// });
 
 Route::get('privacy-policy', 'AlotFronController@privacy')->name('privacy');
 Route::get('terms', 'AlotFronController@terms')->name('terms');

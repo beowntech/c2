@@ -473,4 +473,12 @@ class CategoriesController extends Controller
         return 1;
     }
 
+    public function getCourses(){
+        $course = DB::table('front_categories')
+                ->select('name', DB::raw('count(*) as total'))
+                ->groupBy('name')
+                ->get();
+        return array_slice(json_decode($course),4);
+    }
+
 }

@@ -2062,8 +2062,9 @@
 
     });
 
-    $("#joinCyber").one('click',function () {
+    $("#joinCyber").on('click',function () {
         $("#joinCyber #joinCLoader").removeClass('d-none');
+        $("#joinCyber #joinCLoader").attr('disabled',true);
         var name = $('.joinCyberName').val();
         var contact = $('.joinCyberContact').val();
         var email = $('.joinCyberMail').val();
@@ -2071,14 +2072,24 @@
         var city = $('.joinCyberCity').val();
         if(name == null || name == ""){
             alert('Enter Name');
+            $("#joinCyber #joinCLoader").addClass('d-none');
+        $("#joinCyber #joinCLoader").attr('disabled',false);
         }else if(email == null || email == ""){
             alert('Enter Email');
+            $("#joinCyber #joinCLoader").addClass('d-none');
+            $("#joinCyber #joinCLoader").attr('disabled',false);
         }else if(contact == null || contact == ""){
             alert('Enter Contact Number');
+            $("#joinCyber #joinCLoader").addClass('d-none');
+            $("#joinCyber #joinCLoader").attr('disabled',false);
         }else if(cafe == null || cafe == ""){
             alert('Enter Your Cafe Name');
+            $("#joinCyber #joinCLoader").addClass('d-none');
+            $("#joinCyber #joinCLoader").attr('disabled',false);
         }else if(city == null || city == ""){
             alert('Enter Your City');
+            $("#joinCyber #joinCLoader").addClass('d-none');
+            $("#joinCyber #joinCLoader").attr('disabled',false);
         }else{
             $.ajax({
                 type: "GET",
@@ -2100,7 +2111,10 @@
                         $('.joinCyberCafe').val('');
                         $('.joinCyberCity').val('');
                         $("#joinCyber").addClass('d-none');
-                        $("#successJoinCyber").removeClass('d-none');
+                        $("#form-div").addClass('d-none');
+                        $("#join-successfull").removeClass('d-none');
+                        $("#join-successfull-name").html('Hi '+name);
+                        // $("#successJoinCyber").removeClass('d-none');
                     // }else{
                     //     $("#joinCyber #joinCLoader").addClass('d-none');
                     //     alert('Email Already Exist');

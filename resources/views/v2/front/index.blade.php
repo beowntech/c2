@@ -1,7 +1,7 @@
 @extends('v2.front.layout.header')
 @section('content')
     <section id="heroimage"
-        style="background:url('/v2/assets/images/site/heroimage.jpg');background-repeat:no-repeat;background-size: cover;background-position: left;">
+        style="background:url('/v2/assets/images/site/background.webp');background-repeat:no-repeat;background-size: cover;background-position: left;">
         <div class="container">
             <div class="row">
                 <div class="col-md-5">

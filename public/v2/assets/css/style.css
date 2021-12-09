@@ -58,6 +58,9 @@
 .end-10 {
   right: 10px !important; }
 
+.select-bgclr {
+  background: #eef1f8 !important; }
+
 .social-links li a {
   color: #fff;
   background: #ff5b00;
@@ -374,9 +377,20 @@
   .list-point-lg li:marker {
     margin-right: 15px; }
 
+.bold-bullet-list li {
+  margin-bottom: 28px;
+  list-style-type: none; }
+  .bold-bullet-list li img {
+    margin-left: -28px; }
+
 .badge-pos {
   top: 35px;
   left: 6%; }
+
+.form-control {
+  -webkit-appearance: auto;
+  -moz-appearance: auto;
+  appearance: auto; }
 
 .form-1 {
   /* Hide arrow icon in IE browsers */
@@ -559,6 +573,10 @@
 
 .featured {
   background: #ffd8ba !important; }
+
+.link-a {
+  font-weight: 600;
+  color: gray; }
 
 .theribbon {
   position: relative;

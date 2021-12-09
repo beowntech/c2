@@ -91,6 +91,7 @@ Route::prefix('blog')->group(function () {
     Route::post('updateSEO', 'AlotFronController@updateSEO');
 });
 Route::post('course/add','PropertiesController@addCourse');
+Route::get('course/search',[App\Http\Controllers\CategoriesController::class,'getCourses']);
 Route::get('click-enquiry/all','EnquiryController@listClicks');
 Route::post('course/data','PropertiesController@getCourse');
 Route::post('course/update','PropertiesController@updateCourse');
