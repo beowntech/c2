@@ -45,7 +45,11 @@
                         </div>
                     </div>
                     <button type="button" class="btn site-btn-1" id="joinCyber"><span id="joinCLoader" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span> Submit</button>
-                    </form>
+                    <div class="mt-3">
+                        Already Registered? Login Now:
+                    </div>
+                    <a href="/login" class="btn site-btn-2" >Login Now</a>
+                </form>
             </div>
         </div>
     </div>

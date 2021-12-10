@@ -21,7 +21,8 @@
                                 <input type="password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                             </div>
                             <div class="d-grid">
-                                <button type="submit" class="btn site-btn-1 ">Login</button>
+                                <button type="submit" class="btn site-btn-1 ">Login</button><br>
+                                <a href="/cyber-partner" class="btn site-btn-2" >Register</a>
                             </div>
                         </form>
                         @if ($errors->any())
