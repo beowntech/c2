@@ -52,7 +52,7 @@
                 </ul>
             </div>
             <div class="col-md-4">
-                <a href="{{route('cyber-partner')}}" class="float-end text-white fw-bold py-1"> Cyber Partner Login</a>
+                <a href="{{route('cyber-partner')}}" class="float-end text-white fw-bold py-1"> Admission Partner Login</a>
             </div>
         </div>
     </div>
