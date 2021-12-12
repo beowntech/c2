@@ -29,7 +29,7 @@ if (env('APP_ENV') === 'production') {
     \Illuminate\Support\Facades\URL::forceScheme('https');
 }
 
-// Route::middleware('doNotCacheResponse')->group(function (){
+Route::middleware('doNotCacheResponse')->group(function (){
 Route::get('/admin/{any}', 'ApplicationController')->where('any', '.*');
 Route::get('/admin', function () {
     return redirect('/admin/login');
@@ -280,4 +280,4 @@ Route::get('checkc', function () {
 
 //Route::post('/send-notification', [App\Http\Controllers\HomeController::class, 'sendNotification'])->name('send.notification');
 Route::get('{city?}/{id?}/{more?}', ['uses' => 'CategoriesController@single'])->name('details');
-// });
+});
