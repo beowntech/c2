@@ -19,9 +19,6 @@
         <div class="container">
             <div class="row ">
                 <div class="col-3 mt-2"><h4><strong>Hello {{explode(' ',Auth::user()->name)[0]}}</strong></h4></div>
-                <div class="col-md-auto mt-2">
-                    <a href="" class="btn btn-primary" style="background: #033794;border-radius:20px;">Logout</a>
-                </div>
             </div>
             <div style="text-align-last: right;">
                 <a href="{{route('cyber-add-lead')}}" class="btn btn-primary" style="background: #033794;border-radius:20px;">Add Lead</a>
