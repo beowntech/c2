@@ -3,7 +3,13 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
+    @desktop
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    @elsedesktop
+     <!-- for forcefully desktop version in mobile  -->
+     <meta name="viewport" content="width=1200">
+     <!-- end for forcefully desktop version in mobile  -->
+    @enddesktop
     <script src="https://kit.fontawesome.com/0bee4dcff2.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="/v2/assets/css/style.css">
