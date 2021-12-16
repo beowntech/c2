@@ -862,8 +862,8 @@ class PropertiesController extends Controller
         $data = Locations::where('prop_id', $request->prop_id)->with('states')->with('cities')->get();
         if (!$data->isEmpty()) {
 //        return $data;
-            $data[0]['stat'] = array('label' => $data[0]->states[0]->name, 'id' => $data[0]->states[0]->id);
-            $data[0]['cit'] = array('label' => $data[0]->cities[0]->name, 'id' => $data[0]->cities[0]->id);
+            $data[0]['stat'] = array('label' => $data[0]->states->name, 'id' => $data[0]->states->id);
+            $data[0]['cit'] = array('label' => $data[0]->cities->name, 'id' => $data[0]->cities->id);
             return $data;
         }
         return 0;
